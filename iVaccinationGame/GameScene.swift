@@ -13,11 +13,6 @@ import AVFoundation
 extension SKView {
     
     open override func mouseDown(with event: NSEvent) {
-//        self.scene?.mouseDown(with: event)
-//        let url = Bundle.main.url(forResource: "Media.scnassets/sniperFireReload", withExtension: "wav")!
-//        do{
-//            var audioNode:SKAudioNode = SKAudioNode(fileNamed: "Media.scnassets/sniperFireReload.mp3")
-//            self.scene?.addChild(audioNode)
         var pointIn = event.location(in: (self.scene as! GameScene).bg!)
         pointIn.x += ((self.scene as! GameScene).imgCH?.size.width)! / 2
         pointIn.y -= ((self.scene as! GameScene).imgCH?.size.height)! / 2
@@ -28,23 +23,7 @@ extension SKView {
         (self.scene as! GameScene).syringe?.run(SKAction.group([SKAction.move(to: pointIn, duration: 0.5), SKAction.scale(to: 0.5, duration: 0.5)]))
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             (self.scene as! GameScene).syringe?.isHidden = true
-//            self.scene?.run(SKAction.playSoundFileNamed("Media.scnassets/bulletImpact.mp3", waitForCompletion: true))
-//            (self.scene as! GameScene).score += 100
-//            (self.scene as! GameScene).lblScore?.text = (self.scene as! GameScene).score.description + " Points"
-            
-        }/*{
-            self.scene?.run(SKAction.playSoundFileNamed("Media.scnassets/sniperFireReload.mp3", waitForCompletion: true))
-        }*/
-        
-//            let player = try AVAudioPlayer(contentsOf: url)
-////            self.scene?.addChild(player)
-//            player.volume = 1.0
-//            player.numberOfLoops = 0
-//            player.prepareToPlay()
-//            player.play()
-//        }catch {
-//            print("Unexpected error: \(error).")
-//        }
+        }
     }
 }
 
@@ -85,6 +64,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var zombieStartPos:CGPoint?
     var score:Int = 0
     var lblScore:SKLabelNode?
+    var lblVacc:SKLabelNode?
     
     override func sceneDidLoad() {
         
@@ -93,7 +73,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.bg = self.childNode(withName: "BG") as? SKSpriteNode
         
         self.lblScore = self.childNode(withName: "lblScore") as? SKLabelNode
-        
+        self.lblVacc = self.childNode(withName: "lblVacc") as? SKLabelNode
         
         self.syringe = self.childNode(withName: "Syringe") as? SKSpriteNode
         self.syringe?.isHidden = true
@@ -112,11 +92,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.restartZombieAction()
     }
     
+    func addScore(score:Int){
+        self.score += score
+        self.lblScore?.text = self.score.description + " Points"
+        self.lblScore?.run(SKAction.scale(by: 1.5, duration: 0.35),completion: {
+            self.lblScore?.xScale = 1.0
+            self.lblScore?.yScale = 1.0
+        })
+    }
+    
     func didBegin(_ contact: SKPhysicsContact) {
+        if(self.syringe?.isHidden == true){
+            return
+        }
         self.syringe?.isHidden = true
         self.run(SKAction.playSoundFileNamed("Media.scnassets/bulletImpact.mp3", waitForCompletion: true))
-        self.score += 100
-        self.lblScore?.text = self.score.description + " Points"
+        self.addScore(score: 100)
     }
     
     func restartZombieAction(){
@@ -168,6 +159,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func keyDown(with event: NSEvent) {
         switch event.keyCode {
+        case 18:
+            self.lblVacc?.text = "Vaccine: Moderna"
+            break
+        case 19:
+            self.lblVacc?.text = "Vaccine: Pfizer"
+            break
+        case 20:
+            self.lblVacc?.text = "Vaccine: Johnson & Johnson"
+            break
+        case 21:
+            self.lblVacc?.text = "Vaccine: Sputnik4"
+            break
         case 0x31:
             if let label = self.label {
                 label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
