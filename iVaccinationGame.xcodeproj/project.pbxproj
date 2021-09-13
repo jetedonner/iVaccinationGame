@@ -1,0 +1,642 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E531A26EFAD4300371E58 /* AppDelegate.swift */; };
+		554E531D26EFAD4300371E58 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531C26EFAD4300371E58 /* GameScene.sks */; };
+		554E531F26EFAD4300371E58 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531E26EFAD4300371E58 /* Actions.sks */; };
+		554E532126EFAD4300371E58 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E532026EFAD4300371E58 /* GameScene.swift */; };
+		554E532326EFAD4300371E58 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E532226EFAD4300371E58 /* ViewController.swift */; };
+		554E532526EFAD4400371E58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554E532426EFAD4400371E58 /* Assets.xcassets */; };
+		554E532826EFAD4400371E58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554E532626EFAD4400371E58 /* Main.storyboard */; };
+		554E533226EFAD4400371E58 /* iVaccinationGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E533126EFAD4400371E58 /* iVaccinationGameTests.swift */; };
+		554E533C26EFAD4400371E58 /* iVaccinationGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E533B26EFAD4400371E58 /* iVaccinationGameUITests.swift */; };
+		554E533E26EFAD4400371E58 /* iVaccinationGameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E533D26EFAD4400371E58 /* iVaccinationGameUITestsLaunchTests.swift */; };
+		554E534B26EFB34E00371E58 /* CH_first.png in Resources */ = {isa = PBXBuildFile; fileRef = 554E534A26EFB34E00371E58 /* CH_first.png */; };
+		554E535226EFB60600371E58 /* Media.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 554E535126EFB60600371E58 /* Media.scnassets */; };
+		554E535526EFBA5400371E58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554E535426EFBA5400371E58 /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		554E532E26EFAD4400371E58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 554E530F26EFAD4300371E58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 554E531626EFAD4300371E58;
+			remoteInfo = iVaccinationGame;
+		};
+		554E533826EFAD4400371E58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 554E530F26EFAD4300371E58 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 554E531626EFAD4300371E58;
+			remoteInfo = iVaccinationGame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		554E531726EFAD4300371E58 /* iVaccinationGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccinationGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		554E531A26EFAD4300371E58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		554E531C26EFAD4300371E58 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		554E531E26EFAD4300371E58 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		554E532026EFAD4300371E58 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		554E532226EFAD4300371E58 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		554E532426EFAD4400371E58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		554E532726EFAD4400371E58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		554E532D26EFAD4400371E58 /* iVaccinationGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iVaccinationGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		554E533126EFAD4400371E58 /* iVaccinationGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iVaccinationGameTests.swift; sourceTree = "<group>"; };
+		554E533726EFAD4400371E58 /* iVaccinationGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iVaccinationGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		554E533B26EFAD4400371E58 /* iVaccinationGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iVaccinationGameUITests.swift; sourceTree = "<group>"; };
+		554E533D26EFAD4400371E58 /* iVaccinationGameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iVaccinationGameUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		554E534A26EFB34E00371E58 /* CH_first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CH_first.png; sourceTree = "<group>"; };
+		554E535126EFB60600371E58 /* Media.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Media.scnassets; sourceTree = "<group>"; };
+		554E535426EFBA5400371E58 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		554E531426EFAD4300371E58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554E535526EFBA5400371E58 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		554E532A26EFAD4400371E58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		554E533426EFAD4400371E58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		554E530E26EFAD4300371E58 = {
+			isa = PBXGroup;
+			children = (
+				554E531926EFAD4300371E58 /* iVaccinationGame */,
+				554E533026EFAD4400371E58 /* iVaccinationGameTests */,
+				554E533A26EFAD4400371E58 /* iVaccinationGameUITests */,
+				554E531826EFAD4300371E58 /* Products */,
+				554E535326EFBA5400371E58 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		554E531826EFAD4300371E58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				554E531726EFAD4300371E58 /* iVaccinationGame.app */,
+				554E532D26EFAD4400371E58 /* iVaccinationGameTests.xctest */,
+				554E533726EFAD4400371E58 /* iVaccinationGameUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		554E531926EFAD4300371E58 /* iVaccinationGame */ = {
+			isa = PBXGroup;
+			children = (
+				554E534A26EFB34E00371E58 /* CH_first.png */,
+				554E531A26EFAD4300371E58 /* AppDelegate.swift */,
+				554E531C26EFAD4300371E58 /* GameScene.sks */,
+				554E531E26EFAD4300371E58 /* Actions.sks */,
+				554E532026EFAD4300371E58 /* GameScene.swift */,
+				554E532226EFAD4300371E58 /* ViewController.swift */,
+				554E532426EFAD4400371E58 /* Assets.xcassets */,
+				554E532626EFAD4400371E58 /* Main.storyboard */,
+				554E535126EFB60600371E58 /* Media.scnassets */,
+			);
+			path = iVaccinationGame;
+			sourceTree = "<group>";
+		};
+		554E533026EFAD4400371E58 /* iVaccinationGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				554E533126EFAD4400371E58 /* iVaccinationGameTests.swift */,
+			);
+			path = iVaccinationGameTests;
+			sourceTree = "<group>";
+		};
+		554E533A26EFAD4400371E58 /* iVaccinationGameUITests */ = {
+			isa = PBXGroup;
+			children = (
+				554E533B26EFAD4400371E58 /* iVaccinationGameUITests.swift */,
+				554E533D26EFAD4400371E58 /* iVaccinationGameUITestsLaunchTests.swift */,
+			);
+			path = iVaccinationGameUITests;
+			sourceTree = "<group>";
+		};
+		554E535326EFBA5400371E58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				554E535426EFBA5400371E58 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		554E531626EFAD4300371E58 /* iVaccinationGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 554E534126EFAD4400371E58 /* Build configuration list for PBXNativeTarget "iVaccinationGame" */;
+			buildPhases = (
+				554E531326EFAD4300371E58 /* Sources */,
+				554E531426EFAD4300371E58 /* Frameworks */,
+				554E531526EFAD4300371E58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iVaccinationGame;
+			productName = iVaccinationGame;
+			productReference = 554E531726EFAD4300371E58 /* iVaccinationGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		554E532C26EFAD4400371E58 /* iVaccinationGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 554E534426EFAD4400371E58 /* Build configuration list for PBXNativeTarget "iVaccinationGameTests" */;
+			buildPhases = (
+				554E532926EFAD4400371E58 /* Sources */,
+				554E532A26EFAD4400371E58 /* Frameworks */,
+				554E532B26EFAD4400371E58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				554E532F26EFAD4400371E58 /* PBXTargetDependency */,
+			);
+			name = iVaccinationGameTests;
+			productName = iVaccinationGameTests;
+			productReference = 554E532D26EFAD4400371E58 /* iVaccinationGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		554E533626EFAD4400371E58 /* iVaccinationGameUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 554E534726EFAD4400371E58 /* Build configuration list for PBXNativeTarget "iVaccinationGameUITests" */;
+			buildPhases = (
+				554E533326EFAD4400371E58 /* Sources */,
+				554E533426EFAD4400371E58 /* Frameworks */,
+				554E533526EFAD4400371E58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				554E533926EFAD4400371E58 /* PBXTargetDependency */,
+			);
+			name = iVaccinationGameUITests;
+			productName = iVaccinationGameUITests;
+			productReference = 554E533726EFAD4400371E58 /* iVaccinationGameUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		554E530F26EFAD4300371E58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					554E531626EFAD4300371E58 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					554E532C26EFAD4400371E58 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 554E531626EFAD4300371E58;
+					};
+					554E533626EFAD4400371E58 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 554E531626EFAD4300371E58;
+					};
+				};
+			};
+			buildConfigurationList = 554E531226EFAD4300371E58 /* Build configuration list for PBXProject "iVaccinationGame" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 554E530E26EFAD4300371E58;
+			productRefGroup = 554E531826EFAD4300371E58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				554E531626EFAD4300371E58 /* iVaccinationGame */,
+				554E532C26EFAD4400371E58 /* iVaccinationGameTests */,
+				554E533626EFAD4400371E58 /* iVaccinationGameUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		554E531526EFAD4300371E58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
+				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
+				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
+				554E535226EFB60600371E58 /* Media.scnassets in Resources */,
+				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
+				554E534B26EFB34E00371E58 /* CH_first.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		554E532B26EFAD4400371E58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		554E533526EFAD4400371E58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		554E531326EFAD4300371E58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554E532326EFAD4300371E58 /* ViewController.swift in Sources */,
+				554E532126EFAD4300371E58 /* GameScene.swift in Sources */,
+				554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		554E532926EFAD4400371E58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554E533226EFAD4400371E58 /* iVaccinationGameTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		554E533326EFAD4400371E58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				554E533E26EFAD4400371E58 /* iVaccinationGameUITestsLaunchTests.swift in Sources */,
+				554E533C26EFAD4400371E58 /* iVaccinationGameUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		554E532F26EFAD4400371E58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 554E531626EFAD4300371E58 /* iVaccinationGame */;
+			targetProxy = 554E532E26EFAD4400371E58 /* PBXContainerItemProxy */;
+		};
+		554E533926EFAD4400371E58 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 554E531626EFAD4300371E58 /* iVaccinationGame */;
+			targetProxy = 554E533826EFAD4400371E58 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		554E532626EFAD4400371E58 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				554E532726EFAD4400371E58 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		554E533F26EFAD4400371E58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		554E534026EFAD4400371E58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		554E534226EFAD4400371E58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PB7SHXTJHG;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.iVaccinationGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		554E534326EFAD4400371E58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PB7SHXTJHG;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.iVaccinationGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		554E534526EFAD4400371E58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PB7SHXTJHG;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.iVaccinationGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iVaccinationGame.app/Contents/MacOS/iVaccinationGame";
+			};
+			name = Debug;
+		};
+		554E534626EFAD4400371E58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PB7SHXTJHG;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.iVaccinationGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iVaccinationGame.app/Contents/MacOS/iVaccinationGame";
+			};
+			name = Release;
+		};
+		554E534826EFAD4400371E58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PB7SHXTJHG;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.iVaccinationGameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = iVaccinationGame;
+			};
+			name = Debug;
+		};
+		554E534926EFAD4400371E58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PB7SHXTJHG;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.iVaccinationGameUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = iVaccinationGame;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		554E531226EFAD4300371E58 /* Build configuration list for PBXProject "iVaccinationGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				554E533F26EFAD4400371E58 /* Debug */,
+				554E534026EFAD4400371E58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		554E534126EFAD4400371E58 /* Build configuration list for PBXNativeTarget "iVaccinationGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				554E534226EFAD4400371E58 /* Debug */,
+				554E534326EFAD4400371E58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		554E534426EFAD4400371E58 /* Build configuration list for PBXNativeTarget "iVaccinationGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				554E534526EFAD4400371E58 /* Debug */,
+				554E534626EFAD4400371E58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		554E534726EFAD4400371E58 /* Build configuration list for PBXNativeTarget "iVaccinationGameUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				554E534826EFAD4400371E58 /* Debug */,
+				554E534926EFAD4400371E58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 554E530F26EFAD4300371E58 /* Project object */;
+}
