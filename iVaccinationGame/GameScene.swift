@@ -13,16 +13,41 @@ import AVFoundation
 extension SKView {
     
     open override func mouseDown(with event: NSEvent) {
-        var pointIn = event.location(in: (self.scene as! GameScene).bg!)
-        pointIn.x += ((self.scene as! GameScene).imgCH?.size.width)! / 2
-        pointIn.y -= ((self.scene as! GameScene).imgCH?.size.height)! / 2
-        (self.scene as! GameScene).syringe?.isHidden = false
-        (self.scene as! GameScene).syringe?.position = CGPoint(x: 0, y: -300)
-        (self.scene as! GameScene).syringe?.scale(to: CGSize(width: 64, height: 64))
-        self.scene?.run(SKAction.playSoundFileNamed("Media.scnassets/sniperFireReload.mp3", waitForCompletion: true))
-        (self.scene as! GameScene).syringe?.run(SKAction.group([SKAction.move(to: pointIn, duration: 0.5), SKAction.scale(to: 0.5, duration: 0.5)]))
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            (self.scene as! GameScene).syringe?.isHidden = true
+        if let gameScene = (self.scene as? GameScene){
+            if(gameScene.syringesLeft <= 0){
+                return
+            }
+            var pointIn = event.location(in: gameScene.bg!)
+            pointIn.x += (gameScene.imgCH?.size.width)! / 2
+            pointIn.y -= (gameScene.imgCH?.size.height)! / 2
+            gameScene.syringe?.isHidden = false
+            gameScene.syringesLeft -= 1
+            gameScene.lblSyringesLeft?.text = gameScene.syringesLeft.description + " / 2"
+            if(gameScene.syringesLeft == 1){
+                gameScene.syringe2?.isHidden = true
+            }else if(gameScene.syringesLeft == 0){
+                gameScene.syringe1?.isHidden = true
+            }
+            gameScene.syringe?.position = CGPoint(x: 0, y: -300)
+            gameScene.syringe?.scale(to: CGSize(width: 64, height: 64))
+            self.scene?.run(SKAction.playSoundFileNamed("Media.scnassets/sniperFireReload.mp3", waitForCompletion: true))
+            gameScene.syringe?.run(
+                SKAction.group([
+                    SKAction.move(to: pointIn, duration: 0.5),
+                    SKAction.scale(to: 0.5, duration: 0.5)
+                ])
+            )
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                gameScene.syringe?.isHidden = true
+            }
+            if(gameScene.syringesLeft <= 0){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    gameScene.syringesLeft = 2
+                    gameScene.lblSyringesLeft?.text = gameScene.syringesLeft.description + " / 2"
+                    gameScene.syringe2?.isHidden = false
+                    gameScene.syringe1?.isHidden = false
+                }
+            }
         }
     }
 }
@@ -60,36 +85,63 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var zombieGirl:SKSpriteNode?
     var syringe:SKSpriteNode?
+    
+    var syringe1:SKSpriteNode?
+    var syringe2:SKSpriteNode?
+    
+    var contentNode:SKNode?
     var bg:SKSpriteNode?
     var zombieStartPos:CGPoint?
+    
     var score:Int = 0
+    var syringesLeft:Int = 2
+    
+    var effectNode:SKEffectNode = SKEffectNode()
+    var lblGameOver:SKLabelNode?
     var lblScore:SKLabelNode?
+    var lblTime:SKLabelNode?
     var lblVacc:SKLabelNode?
+    var lblSyringesLeft:SKLabelNode?
+    var startTime:TimeInterval?
     
     override func sceneDidLoad() {
         
         self.physicsWorld.contactDelegate = self
         
-        self.bg = self.childNode(withName: "BG") as? SKSpriteNode
+        self.contentNode = self.childNode(withName: "contentNode")! as SKNode
+        self.bg = self.contentNode!.childNode(withName: "BG") as? SKSpriteNode
         
-        self.lblScore = self.childNode(withName: "lblScore") as? SKLabelNode
-        self.lblVacc = self.childNode(withName: "lblVacc") as? SKLabelNode
+        self.lblGameOver = self.contentNode!.childNode(withName: "lblGameOver") as? SKLabelNode
+        self.lblGameOver?.isHidden = true
         
-        self.syringe = self.childNode(withName: "Syringe") as? SKSpriteNode
+        self.lblScore = self.contentNode!.childNode(withName: "lblScore") as? SKLabelNode
+        self.lblTime = self.contentNode!.childNode(withName: "lblTime") as? SKLabelNode
+        self.lblVacc = self.contentNode!.childNode(withName: "lblVacc") as? SKLabelNode
+        self.lblSyringesLeft = self.contentNode!.childNode(withName: "lblSyringesLeft") as? SKLabelNode
+        
+        
+        self.syringe1 = self.contentNode!.childNode(withName: "Syringe_1") as? SKSpriteNode
+        self.syringe2 = self.contentNode!.childNode(withName: "Syringe_2") as? SKSpriteNode
+        
+        self.syringe = self.contentNode!.childNode(withName: "Syringe") as? SKSpriteNode
         self.syringe?.isHidden = true
         self.syringe?.physicsBody = SKPhysicsBody(circleOfRadius: 15.0)
         self.syringe?.physicsBody?.affectedByGravity = false
         
-        self.zombieGirl = self.childNode(withName: "ZombieGirl") as? SKSpriteNode
+        self.zombieGirl = self.contentNode!.childNode(withName: "ZombieGirl") as? SKSpriteNode
         self.zombieGirl?.physicsBody = SKPhysicsBody(circleOfRadius: 35.0)
         self.zombieGirl?.physicsBody?.affectedByGravity = false
+        
+        
         
         self.syringe?.physicsBody?.contactTestBitMask = 0b0001
         self.zombieGirl?.physicsBody?.contactTestBitMask = 0b0010
         
+        self.startTime = 0
         
         self.zombieStartPos = self.zombieGirl?.position
         self.restartZombieAction()
+        
     }
     
     func addScore(score:Int){
@@ -108,13 +160,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.syringe?.isHidden = true
         self.run(SKAction.playSoundFileNamed("Media.scnassets/bulletImpact.mp3", waitForCompletion: true))
         self.addScore(score: 100)
+        if(self.score % 200 == 0){
+            
+            let explosionEmitterNode = SKEmitterNode(fileNamed:"MagicParticle.sks")
+            explosionEmitterNode?.setScale(0.35)
+            self.zombieGirl!.addChild(explosionEmitterNode!)
+            self.zombieGirl?.run(SKAction.playSoundFileNamed("Media.scnassets/pickupHealth.mp3", waitForCompletion: false)) // telein
+            self.zombieGirl?.run(SKAction.wait(forDuration: 0.45), completion: {
+                self.zombieGirl?.texture =  SKTexture(imageNamed: "ZombieGirl2Un")
+                explosionEmitterNode?.removeFromParent()
+            })
+        }
     }
     
     func restartZombieAction(){
+//        self.startTime = 0
         self.zombieGirl?.xScale = 0.5
         self.zombieGirl?.yScale = 0.5
         self.zombieGirl?.position = self.zombieStartPos!
-        self.zombieGirl?.run(SKAction.sequence([SKAction.group([SKAction.moveBy(x: 90, y: -50, duration: 2.0), SKAction.scale(to: 0.65, duration: 2.0)]), SKAction.group([SKAction.moveBy(x: -225, y: -100, duration: 3.2), SKAction.scale(to: 0.8, duration: 3.2)]), SKAction.group([SKAction.moveBy(x: 380, y: -210, duration: 3.0), SKAction.scale(to: 1.0, duration: 3.0)])]), completion: {
+        self.zombieGirl?.texture =  SKTexture(imageNamed: "ZombieGirl2")
+        self.zombieGirl?.run(SKAction.sequence([SKAction.group([SKAction.moveBy(x: 90, y: -50, duration: 2.0), SKAction.scale(to: 0.65, duration: 2.0)]), SKAction.group([SKAction.moveBy(x: -225, y: -100, duration: 3.2), SKAction.scale(to: 0.8, duration: 3.2)]), SKAction.group([SKAction.moveBy(x: 490, y: -210, duration: 3.0), SKAction.scale(to: 1.0, duration: 3.0)])]), completion: {
             self.restartZombieAction()
         })
         self.zombieGirl?.zPosition = 1000
@@ -158,18 +223,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func keyDown(with event: NSEvent) {
+        print("KeyPressed: %d", event.keyCode)
         switch event.keyCode {
+        case 5:
+            self.showGameOver()
+            break
+        case 15:
+            self.zombieGirl?.texture =  SKTexture(imageNamed: "ZombieGirl2")
+            break
         case 18:
             self.lblVacc?.text = "Vaccine: Moderna"
+            self.lblVacc?.fontColor = self.lblTime?.fontColor
+//            D91679
+//            D91679
             break
         case 19:
             self.lblVacc?.text = "Vaccine: Pfizer"
+            self.lblVacc?.fontColor = .orange
             break
         case 20:
             self.lblVacc?.text = "Vaccine: Johnson & Johnson"
+            self.lblVacc?.fontColor = .green
             break
         case 21:
-            self.lblVacc?.text = "Vaccine: Sputnik4"
+            self.lblVacc?.text = "Vaccine: Sputnik"
+            self.lblVacc?.fontColor = .yellow
             break
         case 0x31:
             if let label = self.label {
@@ -182,6 +260,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func update(_ currentTime: TimeInterval) {
+        
+        if(self.startTime == 0){
+            self.startTime = currentTime
+            
+            let blurFilter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius": 15])
+            effectNode.filter = blurFilter
+            var blurNode:SKShapeNode = SKShapeNode(rect: self.frame)// CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+            blurNode.fillColor = .white
+            blurNode.zPosition = 10001
+            let fillTexture = self.view?.texture(from: contentNode!, crop: blurNode.frame)
+            blurNode.fillTexture = fillTexture
+            effectNode.addChild(blurNode)
+            effectNode.zPosition = 10000
+            self.addChild(effectNode)
+            effectNode.isHidden = true
+        }
+        let timeDelta:TimeInterval = currentTime - self.startTime!
+        self.lblTime?.text = "\(timeDelta.format(using: [.minute, .second])!)"
         // Called before each frame is rendered
         
         // Initialize _lastUpdateTime if it has not already been
@@ -198,5 +294,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         self.lastUpdateTime = currentTime
+    }
+    
+    var gameOverFlashTimeStep:TimeInterval = 0.35
+    var gameOverFlashScaleTo:TimeInterval = 1.35
+    
+    func showGameOver(){
+        self.lblGameOver?.alpha = 1.0
+        self.lblGameOver?.isHidden = false
+        self.effectNode.isHidden = false
+        self.lblGameOver?.run(SKAction.sequence([SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.group([SKAction.scale(to: 0.5, duration: self.gameOverFlashTimeStep), SKAction.fadeOut(withDuration: self.gameOverFlashTimeStep)])]), completion: {
+            self.lblGameOver?.isHidden = true
+            self.effectNode.isHidden = true
+        })
     }
 }
