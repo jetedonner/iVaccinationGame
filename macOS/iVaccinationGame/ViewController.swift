@@ -11,6 +11,8 @@ import GameplayKit
 import AVKit
 
 class ViewController: NSViewController {
+    
+    var gameCenterHelper:GameCenterHelper!
 
     @IBOutlet var skView: SKView!
     
@@ -27,6 +29,9 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.gameCenterHelper = GameCenterHelper(vc: self)
+        self.gameCenterHelper.loadGameCenter()
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.

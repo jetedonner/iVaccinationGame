@@ -19,11 +19,32 @@ extension SKView {
         }
         if let gameScene = (self.scene as? GameScene){
             if(gameScene.syringesLeft <= 0){
+                super.mouseMoved(with: event)
+                var location = event.location(in: gameScene.bg!)
+                location.y -= 30.0
+                if let imgCH = gameScene.imgCH{
+                    location.x += imgCH.size.width / 2
+                    location.y -= imgCH.size.height / 2
+                }
+                let node = gameScene.atPoint(location)
+                if(node == gameScene.syringe_pickup){
+                    gameScene.syringe_pickup?.alpha = 0.0
+                    gameScene.contentNode?.run(SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "w_pkup.mp3", waitForCompletion: false))
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        gameScene.syringesLeft = 2
+                        gameScene.lblSyringesLeft?.text = gameScene.syringesLeft.description + " / 2"
+                        gameScene.syringe2?.isHidden = false
+                        gameScene.syringe1?.isHidden = false
+                    }
+                }
+//                gameScene.syringe_pickup?.position
                 return
             }
             var pointIn = event.location(in: gameScene.bg!)
-            pointIn.x += (gameScene.imgCH?.size.width)! / 2
-            pointIn.y -= (gameScene.imgCH?.size.height)! / 2
+            if let imgCH = gameScene.imgCH{
+                pointIn.x += imgCH.size.width / 2
+                pointIn.y -= imgCH.size.height / 2
+            }
             gameScene.syringe?.isHidden = false
             gameScene.syringesLeft -= 1
             gameScene.lblSyringesLeft?.text = gameScene.syringesLeft.description + " / 2"
@@ -32,10 +53,23 @@ extension SKView {
             }else if(gameScene.syringesLeft == 0){
                 gameScene.syringe1?.isHidden = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
+                    
+                    let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
+                    let newY:CGFloat = (gameScene.syringe_pickup?.position.y)!
+                    
+                    gameScene.syringe_pickup?.position = CGPoint(x: newX, y: newY)
                     gameScene.syringe_pickup?.alpha = 1.0
-                    gameScene.upwardEmitterNode?.setScale(0.15)
-                    gameScene.upwardEmitterNode?.position.y += 30.0
-                    gameScene.syringe_pickup?.addChild(gameScene.upwardEmitterNode!)
+                    if(gameScene.upwardEmitterNode?.parent == nil){
+                        gameScene.upwardEmitterNode?.setScale(0.15)
+                        gameScene.upwardEmitterNode?.position.y += 30.0
+                        gameScene.syringe_pickup?.addChild(gameScene.upwardEmitterNode!)
+                    }
+//                    let boundingBoxNode = SKShapeNode(rectOf: gameScene.syringe_pickup!.calculateAccumulatedFrame().size)
+//                    boundingBoxNode.lineWidth = 3.0
+//                    boundingBoxNode.strokeColor = .red
+//                    boundingBoxNode.fillColor = .clear
+//                    boundingBoxNode.path = boundingBoxNode.path?.copy(dashingWithPhase: 0, lengths: [10,10])
+//                    gameScene.syringe_pickup!.addChild(boundingBoxNode)
                 }
             }
             gameScene.syringe?.position = CGPoint(x: 0, y: -300)
@@ -61,6 +95,13 @@ extension SKView {
 //            }
         }
     }
+    
+//    func randomPickupPos()->CGPoint{
+//
+//
+////        let newX = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
+////        let newY =
+//    }
 }
 
 extension SKView {
@@ -83,6 +124,16 @@ extension SKView {
         newImage.unlockFocus()
         newImage.size = destSize
         return NSImage(data: newImage.tiffRepresentation!)!
+    }
+}
+
+extension SKSpriteNode {
+    func drawBorder(color: NSColor, width: CGFloat) {
+        let shapeNode = SKShapeNode(rect: frame)
+        shapeNode.fillColor = .clear
+        shapeNode.strokeColor = color
+        shapeNode.lineWidth = width
+        addChild(shapeNode)
     }
 }
 
@@ -132,6 +183,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.contactDelegate = self
         
+        self.gameDuration = UserDefaultsHelper.roundTime
         self.contentNode = self.childNode(withName: "contentNode")! as SKNode
         self.bg = self.contentNode!.childNode(withName: "BG") as? SKSpriteNode
         self.bg?.texture = SKTexture(imageNamed: "LandscapeNight")
@@ -151,6 +203,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.syringe2 = self.contentNode!.childNode(withName: "Syringe_2") as? SKSpriteNode
         self.syringe_pickup = self.contentNode!.childNode(withName: "Syringe_pickup") as? SKSpriteNode
         self.syringe_pickup?.alpha = 0.0
+        self.syringe_pickup?.zPosition = 10000001
+//        self.syringe_pickup?.drawBorder(color: .red, width: 3.0)
         
         self.imgBlood = self.contentNode!.childNode(withName: "imgBlood") as? SKSpriteNode
         self.imgBlood?.isHidden = true
@@ -272,43 +326,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         })
         self.zombieGirl?.zPosition = 1000
     }
-    
-    
-//    func touchDown(atPoint pos : CGPoint) {
-//        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-//            n.position = pos
-//            n.strokeColor = SKColor.green
-//            self.addChild(n)
-//        }
-//    }
-//
-//    func touchMoved(toPoint pos : CGPoint) {
-//        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-//            n.position = pos
-//            n.strokeColor = SKColor.blue
-//            self.addChild(n)
-//        }
-//    }
-//
-//    func touchUp(atPoint pos : CGPoint) {
-//        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-//            n.position = pos
-//            n.strokeColor = SKColor.red
-//            self.addChild(n)
-//        }
-//    }
-    
-//    override func mouseDown(with event: NSEvent) {
-//        self.touchDown(atPoint: event.location(in: self))
-//    }
-//    
-//    override func mouseDragged(with event: NSEvent) {
-//        self.touchMoved(toPoint: event.location(in: self))
-//    }
-//    
-//    override func mouseUp(with event: NSEvent) {
-//        self.touchUp(atPoint: event.location(in: self))
-//    }
     
     override func keyDown(with event: NSEvent) {
         print("KeyPressed: %d", event.keyCode)
@@ -454,6 +471,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.lblPressAnyKey?.isHidden = false
             self.lblPressAnyKey?.run(SKAction.fadeIn(withDuration: 0.45))
             self.waitForAnyKey = true
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
+            }
 //            self.lblGameOver?.isHidden = true
 //            self.effectNode.isHidden = true
 //            self.restartAfterGameOver()

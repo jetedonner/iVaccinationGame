@@ -83,6 +83,9 @@ class MenuScene: SKScene {
             }
         }else if(self.selNode == lblSettings){
 //            NSApp.terminate(nil)
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).gameCenterHelper.showDashboard()
+            }
         }
     }
 }

@@ -20,13 +20,14 @@
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1va-cG-UqW">
                     <rect key="frame" x="111" y="263" width="120" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="push" title="1 Minute" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="eWp-2u-zzq" id="QfA-al-Dtf">
+                    <popUpButtonCell key="cell" type="push" title="30 Seconds" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="eWp-2u-zzq" id="QfA-al-Dtf">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" id="13o-5x-iKK">
                             <items>
-                                <menuItem title="1 Minute" state="on" id="eWp-2u-zzq"/>
-                                <menuItem title="2 Minutes" id="ftQ-zz-5lg"/>
+                                <menuItem title="30 Seconds" state="on" id="eWp-2u-zzq"/>
+                                <menuItem title="1 Minute" id="ftQ-zz-5lg" userLabel="1 Minute"/>
+                                <menuItem title="2 Minutes" id="wSs-8f-eDN"/>
                                 <menuItem title="3 Minutes" id="O5h-7M-5Pb"/>
                             </items>
                         </menu>
@@ -149,7 +150,7 @@
                     <rect key="frame" x="112" y="169" width="42" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <connections>
-                        <binding destination="l72-UK-3kJ" name="value" keyPath="values.playBG Music" id="0ac-6a-LsE">
+                        <binding destination="l72-UK-3kJ" name="value" keyPath="values.playBGMusic" id="cEc-fn-OKB">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                             </dictionary>
