@@ -47,6 +47,7 @@
 		55B64A7F26F3A43E00944766 /* GameCenterHelperExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */; };
 		55B64A8126F3A4AC00944766 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B64A8026F3A4AC00944766 /* GameKit.framework */; };
 		55B64A8326F3AB8700944766 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A8226F3AB8700944766 /* UserDefaultsHelper.swift */; };
+		55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A8426F3CEAE00944766 /* CH_first_red.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelperExt.swift; sourceTree = "<group>"; };
 		55B64A8026F3A4AC00944766 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		55B64A8226F3AB8700944766 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		55B64A8426F3CEAE00944766 /* CH_first_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CH_first_red.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +182,8 @@
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
-				55B64A7626F3804400944766 /* iOS */,
 				55B64A7526F3802F00944766 /* macOS */,
+				55B64A7626F3804400944766 /* iOS */,
 				554E531826EFAD4300371E58 /* Products */,
 				554E535326EFBA5400371E58 /* Frameworks */,
 			);
@@ -208,6 +210,7 @@
 				55B64A2E26F3462E00944766 /* Scenes */,
 				55B64A2D26F3461200944766 /* Libs */,
 				554E534A26EFB34E00371E58 /* CH_first.png */,
+				55B64A8426F3CEAE00944766 /* CH_first_red.png */,
 				554E531A26EFAD4300371E58 /* AppDelegate.swift */,
 				554E532026EFAD4300371E58 /* GameScene.swift */,
 				55B64A3226F3474900944766 /* MenuScene.swift */,
@@ -516,6 +519,7 @@
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
 				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
+				55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */,
 				55B64A7926F3831D00944766 /* UpwardParticles.sks in Resources */,
 				55B64A3526F3577D00944766 /* SettingsViewController.xib in Resources */,
 				554E535226EFB60600371E58 /* Media.scnassets in Resources */,

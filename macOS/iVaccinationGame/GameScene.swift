@@ -85,14 +85,6 @@ extension SKView {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 gameScene.syringe?.isHidden = true
             }
-//            if(gameScene.syringesLeft <= 0){
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-//                    gameScene.syringesLeft = 2
-//                    gameScene.lblSyringesLeft?.text = gameScene.syringesLeft.description + " / 2"
-//                    gameScene.syringe2?.isHidden = false
-//                    gameScene.syringe1?.isHidden = false
-//                }
-//            }
         }
     }
     
@@ -107,7 +99,7 @@ extension SKView {
 extension SKView {
     override open func resetCursorRects() {
         if let gameScene = (self.scene as? GameScene){
-            gameScene.imgCH = self.resize(image: NSImage(named:NSImage.Name("CH_first.png"))!, w: 64, h: 64)
+            gameScene.imgCH = self.resize(image: NSImage(named:NSImage.Name("CH_first_red.png"))!, w: 64, h: 64)
             let image = gameScene.imgCH
             let spot = NSPoint(x: 0, y: 0)
             let customCursor = NSCursor(image: image!, hotSpot: spot)
@@ -318,7 +310,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.prgBar.setProgress(self.health / 100.0)
             
             self.zombieGirl?.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)]), SKAction.playSoundFileNamed(SoundManager.getRandomEatSound(), waitForCompletion: false)]), completion: {
-                self.zombieGirl?.run(SKAction.playSoundFileNamed("Media.scnassets/pain25_1.mp3", waitForCompletion: false))
+                var painSnd = GameVars.BASE_MEDIA_DIR + "pain25_1.mp3"
+                if(self.health >= 75.0){
+                    painSnd = GameVars.BASE_MEDIA_DIR + "pain100_1.mp3"
+                }else if(self.health >= 50.0){
+                    painSnd = GameVars.BASE_MEDIA_DIR + "pain75_1.mp3"
+                }else if(self.health >= 25.0){
+                    painSnd = GameVars.BASE_MEDIA_DIR + "pain50_1.mp3"
+                }else if(self.health >= 0.0){
+                    painSnd = GameVars.BASE_MEDIA_DIR + "pain25_1.mp3"
+                }
+                self.zombieGirl?.run(SKAction.playSoundFileNamed(painSnd, waitForCompletion: false))
                 self.zombieGirl?.run(SKAction.wait(forDuration: 0.75), completion: {
                     self.restartZombieAction()
                 })
