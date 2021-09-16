@@ -7,6 +7,7 @@
 
 import Foundation
 import SpriteKit
+import GameKit
 
 class MenuScene: SKScene {
     
@@ -82,10 +83,13 @@ class MenuScene: SKScene {
                 (viewCtrl as! ViewController).loadGameScene()
             }
         }else if(self.selNode == lblSettings){
+            GKAccessPoint.shared.trigger(handler: {
+            
+            })
 //            NSApp.terminate(nil)
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).gameCenterHelper.showDashboard()
-            }
+//            if let viewCtrl = self.view?.window?.contentViewController{
+//                (viewCtrl as! ViewController).gameCenterHelper.showDashboard()
+//            }
         }
     }
 }

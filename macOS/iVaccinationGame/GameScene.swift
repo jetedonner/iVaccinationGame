@@ -168,8 +168,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var startTime:TimeInterval = 0
     var pauseStartTime:TimeInterval = 0
     var gameDuration:TimeInterval = GameVars.DEV_ROUND_TIME
+    
     var health:CGFloat = 100.0
-    var damage:CGFloat = 25.0
+    var damage:CGFloat = GameVars.DEV_ZOMBIE_DAMAGE
+    
+    let explosionEmitterNode = SKEmitterNode(fileNamed:"MagicParticle.sks")
+    let upwardEmitterNode = SKEmitterNode(fileNamed:"UpwardParticles.sks")
     
     override func sceneDidLoad() {
         
@@ -233,7 +237,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let path = Bundle.main.path(forResource: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin", ofType: "mp3") {
             let filePath = NSURL(fileURLWithPath:path)
             songPlayer = try! AVAudioPlayer.init(contentsOf: filePath as URL)
-            songPlayer?.numberOfLoops = 0 //This line is not required if you want continuous looping music
+//            songPlayer?.numberOfLoops = 0 //This line is not required if you want continuous looping music
             songPlayer?.prepareToPlay()
             songPlayer?.volume = 0.15
             songPlayer?.play()
@@ -248,9 +252,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.lblScore?.yScale = 1.0
         })
     }
-    
-    let explosionEmitterNode = SKEmitterNode(fileNamed:"MagicParticle.sks")
-    let upwardEmitterNode = SKEmitterNode(fileNamed:"UpwardParticles.sks")
     
     func didBegin(_ contact: SKPhysicsContact) {
         if(self.syringe?.isHidden == true){
@@ -278,12 +279,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func restartZombieAction(){
-//        self.startTime = 0
-//        self.startTime = 0
-//        self.gameRunning = true
-//        self.zombieGirl?.isPaused = false
-//        self.bg!.run(SoundManager.playSound())
-//        self.prgBar.setProgress(1.0)
         self.imgBlood?.isHidden = true
         self.zombieGirl?.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
@@ -364,17 +359,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.lblVacc?.fontColor = .yellow
             break
         case 53: // ESC => Pause and Show menu
-//            self.lblVacc?.text = "Vaccine: Sputnik"
-//            self.lblVacc?.fontColor = .yellow
             self.pauseStartTime = self.curTime
             self.view?.isPaused = true
             let vcSettings:SettingsViewController = SettingsViewController()
             vcSettings.gameScene = self
-//            vc2.game = self.game
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).presentAsSheet(vcSettings)
             }
-//            (self.game.scnView as! GameViewMacOS).viewController!.presentAsSheet(vc2)
             break
         case 0x31:
             if let label = self.label {
@@ -476,9 +467,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
             }
-//            self.lblGameOver?.isHidden = true
-//            self.effectNode.isHidden = true
-//            self.restartAfterGameOver()
         })
     }
 }
