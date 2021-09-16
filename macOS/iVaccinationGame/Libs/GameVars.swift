@@ -10,6 +10,6 @@ import Foundation
 class GameVars{
     
     static let BASE_MEDIA_DIR:String = "Media.scnassets/"
-    static let DEV_ROUND_TIME:TimeInterval = 20.0
+    static let DEV_ROUND_TIME:TimeInterval = 40.0
     
 }

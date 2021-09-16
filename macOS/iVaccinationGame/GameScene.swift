@@ -31,10 +31,17 @@ extension SKView {
                 gameScene.syringe2?.isHidden = true
             }else if(gameScene.syringesLeft == 0){
                 gameScene.syringe1?.isHidden = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
+                    gameScene.syringe_pickup?.alpha = 1.0
+                    gameScene.upwardEmitterNode?.setScale(0.15)
+                    gameScene.upwardEmitterNode?.position.y += 30.0
+                    gameScene.syringe_pickup?.addChild(gameScene.upwardEmitterNode!)
+                }
             }
             gameScene.syringe?.position = CGPoint(x: 0, y: -300)
             gameScene.syringe?.scale(to: CGSize(width: 64, height: 64))
             self.scene?.run(SKAction.playSoundFileNamed("Media.scnassets/sniperFireReload.mp3", waitForCompletion: true))
+            gameScene.syringe?.speed = 1.75
             gameScene.syringe?.run(
                 SKAction.group([
                     SKAction.move(to: pointIn, duration: 0.5),
@@ -44,14 +51,14 @@ extension SKView {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 gameScene.syringe?.isHidden = true
             }
-            if(gameScene.syringesLeft <= 0){
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    gameScene.syringesLeft = 2
-                    gameScene.lblSyringesLeft?.text = gameScene.syringesLeft.description + " / 2"
-                    gameScene.syringe2?.isHidden = false
-                    gameScene.syringe1?.isHidden = false
-                }
-            }
+//            if(gameScene.syringesLeft <= 0){
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+//                    gameScene.syringesLeft = 2
+//                    gameScene.lblSyringesLeft?.text = gameScene.syringesLeft.description + " / 2"
+//                    gameScene.syringe2?.isHidden = false
+//                    gameScene.syringe1?.isHidden = false
+//                }
+//            }
         }
     }
 }
@@ -91,10 +98,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var zombieGirl:SKSpriteNode?
     var syringe:SKSpriteNode?
-    
     var syringe1:SKSpriteNode?
     var syringe2:SKSpriteNode?
+    var syringe_pickup:SKSpriteNode?
+    
     var imgBlood:SKSpriteNode?
+    var imgRedOut:SKSpriteNode?
     
     var contentNode:SKNode?
     var bg:SKSpriteNode?
@@ -110,10 +119,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lblTime:SKLabelNode?
     var lblVacc:SKLabelNode?
     var lblSyringesLeft:SKLabelNode?
+    var prgBar:CustomProgressBar = CustomProgressBar()
     
     
-    var startTime:TimeInterval?
+    var startTime:TimeInterval = 0
+    var pauseStartTime:TimeInterval = 0
     var gameDuration:TimeInterval = GameVars.DEV_ROUND_TIME
+    var health:CGFloat = 100.0
+    var damage:CGFloat = 25.0
     
     override func sceneDidLoad() {
         
@@ -121,7 +134,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.contentNode = self.childNode(withName: "contentNode")! as SKNode
         self.bg = self.contentNode!.childNode(withName: "BG") as? SKSpriteNode
-        
+        self.bg?.texture = SKTexture(imageNamed: "LandscapeNight")
         self.lblGameOver = self.contentNode!.childNode(withName: "lblGameOver") as? SKLabelNode
         self.lblGameOver?.isHidden = true
         
@@ -136,9 +149,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.syringe1 = self.contentNode!.childNode(withName: "Syringe_1") as? SKSpriteNode
         self.syringe2 = self.contentNode!.childNode(withName: "Syringe_2") as? SKSpriteNode
+        self.syringe_pickup = self.contentNode!.childNode(withName: "Syringe_pickup") as? SKSpriteNode
+        self.syringe_pickup?.alpha = 0.0
         
         self.imgBlood = self.contentNode!.childNode(withName: "imgBlood") as? SKSpriteNode
         self.imgBlood?.isHidden = true
+        self.imgRedOut = self.contentNode!.childNode(withName: "redOut") as? SKSpriteNode
+        self.imgRedOut?.alpha = 0.0
         
         self.syringe = self.contentNode!.childNode(withName: "Syringe") as? SKSpriteNode
         self.syringe?.isHidden = true
@@ -148,8 +165,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.zombieGirl = self.contentNode!.childNode(withName: "ZombieGirl") as? SKSpriteNode
         self.zombieGirl?.physicsBody = SKPhysicsBody(circleOfRadius: 35.0)
         self.zombieGirl?.physicsBody?.affectedByGravity = false
-        
-        
+        self.prgBar.setProgress(1.0)
+        self.prgBar.position = CGPoint(x: (self.frame.width / 2) - 20 , y: (self.frame.height / 2) - 12 - 70)
+        self.prgBar.zPosition = 10000
+        self.addChild(self.prgBar)
         
         self.syringe?.physicsBody?.contactTestBitMask = 0b0001
         self.zombieGirl?.physicsBody?.contactTestBitMask = 0b0010
@@ -185,6 +204,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     let explosionEmitterNode = SKEmitterNode(fileNamed:"MagicParticle.sks")
+    let upwardEmitterNode = SKEmitterNode(fileNamed:"UpwardParticles.sks")
+    
     func didBegin(_ contact: SKPhysicsContact) {
         if(self.syringe?.isHidden == true){
             return
@@ -216,6 +237,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        self.gameRunning = true
 //        self.zombieGirl?.isPaused = false
 //        self.bg!.run(SoundManager.playSound())
+//        self.prgBar.setProgress(1.0)
         self.imgBlood?.isHidden = true
         self.zombieGirl?.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
@@ -223,10 +245,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.zombieGirl?.yScale = 0.5
         self.zombieGirl?.position = self.zombieStartPos!
         self.zombieGirl?.texture =  SKTexture(imageNamed: "ZombieGirl2")
+        self.zombieGirl?.speed = 1.5
         self.zombieGirl?.run(SKAction.sequence([SKAction.group([SKAction.moveBy(x: 100, y: -40, duration: 2.0), SKAction.scale(to: 0.65, duration: 2.0)]), SKAction.group([SKAction.moveBy(x: -205, y: -80, duration: 2.5), SKAction.scale(to: 1.0, duration: 2.5)]), SKAction.group([SKAction.moveBy(x: 560, y: -170, duration: 2.9), SKAction.scale(to: 3.0, duration: 2.9)])]), completion: {
-            
+            self.health -= self.damage
             self.imgBlood?.isHidden = false
-            self.zombieGirl?.run(SKAction.playSoundFileNamed(SoundManager.getRandomEatSound(), waitForCompletion: true), completion: {
+            self.imgBlood?.alpha = 1.0
+            if(self.health <= 0.0){
+                self.imgRedOut?.run(SKAction.fadeIn(withDuration: 1.0), completion: {
+                    self.imgRedOut?.alpha = 0.0
+                    self.imgBlood?.isHidden = true
+                    self.health = 100.0
+                    self.prgBar.setProgress(1.0)
+                    self.showGameOver()
+                })
+            }else{
+                
+            }
+            self.prgBar.setProgress(self.health / 100.0)
+            
+            self.zombieGirl?.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)]), SKAction.playSoundFileNamed(SoundManager.getRandomEatSound(), waitForCompletion: false)]), completion: {
                 self.zombieGirl?.run(SKAction.playSoundFileNamed("Media.scnassets/pain25_1.mp3", waitForCompletion: false))
                 self.zombieGirl?.run(SKAction.wait(forDuration: 0.75), completion: {
                     self.restartZombieAction()
@@ -237,41 +274,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
+//    func touchDown(atPoint pos : CGPoint) {
+//        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
+//            n.position = pos
+//            n.strokeColor = SKColor.green
+//            self.addChild(n)
+//        }
+//    }
+//
+//    func touchMoved(toPoint pos : CGPoint) {
+//        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
+//            n.position = pos
+//            n.strokeColor = SKColor.blue
+//            self.addChild(n)
+//        }
+//    }
+//
+//    func touchUp(atPoint pos : CGPoint) {
+//        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
+//            n.position = pos
+//            n.strokeColor = SKColor.red
+//            self.addChild(n)
+//        }
+//    }
     
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-    override func mouseDown(with event: NSEvent) {
-        self.touchDown(atPoint: event.location(in: self))
-    }
-    
-    override func mouseDragged(with event: NSEvent) {
-        self.touchMoved(toPoint: event.location(in: self))
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-        self.touchUp(atPoint: event.location(in: self))
-    }
+//    override func mouseDown(with event: NSEvent) {
+//        self.touchDown(atPoint: event.location(in: self))
+//    }
+//    
+//    override func mouseDragged(with event: NSEvent) {
+//        self.touchMoved(toPoint: event.location(in: self))
+//    }
+//    
+//    override func mouseUp(with event: NSEvent) {
+//        self.touchUp(atPoint: event.location(in: self))
+//    }
     
     override func keyDown(with event: NSEvent) {
         print("KeyPressed: %d", event.keyCode)
@@ -310,6 +347,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case 53: // ESC => Pause and Show menu
 //            self.lblVacc?.text = "Vaccine: Sputnik"
 //            self.lblVacc?.fontColor = .yellow
+            self.pauseStartTime = self.curTime
             self.view?.isPaused = true
             let vcSettings:SettingsViewController = SettingsViewController()
             vcSettings.gameScene = self
@@ -328,7 +366,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    var curTime:TimeInterval = 0
     override func update(_ currentTime: TimeInterval) {
+        self.curTime = currentTime
+        if(self.view!.isPaused){
+            if(self.pauseStartTime == 0){
+                self.pauseStartTime = currentTime
+            }
+        }else if(!self.view!.isPaused && self.pauseStartTime != 0){
+            self.startTime += (currentTime - self.pauseStartTime)
+            self.pauseStartTime = 0
+        }
         
         if(!self.gameRunning){
             return
@@ -352,7 +400,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-        let timeDelta:TimeInterval = currentTime - self.startTime!
+        let timeDelta:TimeInterval = currentTime - self.startTime
         if(timeDelta >= self.gameDuration){
             self.showGameOver()
         }
@@ -400,6 +448,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.zombieGirl?.isPaused = true
         self.zombieGirl?.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
+        self.lblGameOver?.run(SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "gameOver_voice_v1.mp3", waitForCompletion: true))
         self.lblGameOver?.run(SKAction.sequence([SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.group([SKAction.scale(to: 0.85, duration: self.gameOverFlashTimeStep)/*, SKAction.fadeOut(withDuration: self.gameOverFlashTimeStep)*/])]), completion: {
             self.lblPressAnyKey?.alpha = 0.0
             self.lblPressAnyKey?.isHidden = false
