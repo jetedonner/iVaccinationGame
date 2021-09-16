@@ -30,9 +30,10 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.gameCenterHelper = GameCenterHelper(vc: self)
-        self.gameCenterHelper.loadGameCenter()
-        
+        if(UserDefaultsHelper.useGameCenter){
+            self.gameCenterHelper = GameCenterHelper(vc: self)
+            self.gameCenterHelper.loadGameCenter()
+        }
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
         if let scene = GKScene(fileNamed: "MenuScene") {

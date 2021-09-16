@@ -71,7 +71,9 @@ class MenuScene: SKScene {
                 self.lblStartGame?.fontColor = self.lblColor
                 self.lblExit?.fontColor = .white
             }
-            self.selNode?.run(SKAction.playSoundFileNamed("Media.scnassets/Menu1.mp3", waitForCompletion: false))
+            if(UserDefaultsHelper.playSounds){
+                self.selNode?.run(SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "Menu1.mp3", waitForCompletion: false))
+            }
         }
     }
     
