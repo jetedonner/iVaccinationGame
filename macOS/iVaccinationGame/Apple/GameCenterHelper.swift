@@ -9,20 +9,7 @@ import Foundation
 import GameKit
 
 protocol GameCenterHelperDelegate: AnyObject {
-    
-//    func didChangeAuthStatus(isAuthenticated: Bool)
     func startMatch(match: GKMatch)
-//    func presentGameCenterAuth(viewController: NSViewController?)
-//    func presentMatchmaking(viewController: NSViewController?)
-//    func presentGame(match: GKMatch)
-    
-    // func startGame
-    // - func initLevel
-    // - func initMatch
-    
-    // func turnDirChanged
-    
-    // func endGame
 }
 
 class GameCenterHelper: NSObject {
@@ -35,26 +22,12 @@ class GameCenterHelper: NSObject {
     var viewController: NSViewController?
     var delegate:GameCenterHelperDelegate?
     
-//    let matchMakerHelper:MatchMakerHelper
-    
-//    var isMultiplayerGameRunning:Bool{
-//        get{ return self.matchMakerHelper.isMultiplayerGameRunning }
-//        set{ self.matchMakerHelper.isMultiplayerGameRunning = newValue }
-//    }
-    
-    init(vc:ViewController/*game:GameController*/) {
+    init(vc:ViewController) {
         super.init()
         self.viewController = vc
-//        self.matchMakerHelper = MatchMakerHelper(game: game)
-        
-//        super.init(game: game)
     }
     
     func loadGameCenter(){
-//        self.viewController = (self.game.scnView as! GameViewMacOS).viewController
-//        self.delegate = game
-//
-//
 //        if(SuakeVars.useGameCenter){
             self.authenticate()
 //        }
@@ -88,44 +61,22 @@ class GameCenterHelper: NSObject {
     }
     
     func updateScore(with value: Int) {
-//        let board = GKLeaderboard()
-//        board.baseLeaderboardID = leaderboardID
-        GKLeaderboard.submitScore(value, context: 0, player: GKLocalPlayer.local, leaderboardIDs: [leaderboardID] , completionHandler: { result in
-            var res = result
-            var res2 = result
-        })
-//        let lb:GKLeaderboard = GKLeaderboard(players: [GKLocalPlayer.local])
-////        lb.baseLeaderboardID = self.leaderboardID
-//        lb.submitScore(value, context: 1586145789, player: GKLocalPlayer.local, completionHandler: {
-//            error in
-//            var res = error
-//            var res2 = error
-//        })
-//        GKLeaderboard.submitScore(lb)
-//        let lbEntry:GKLeaderboardEntry = GKLeaderboardEntry(
         let score = GKScore(leaderboardIdentifier: leaderboardID)
+//        GKScore
         // set value for score
         score.value = Int64(value)
-        // push score to Game Center
-        GKScore.report([score]) { (error) in
-            // check for errors
-            if error != nil {
-                print("Score updating -- \(error!)")
-            }
-        }
+        let scr = GKLeaderboardScore()
+        scr.leaderboardID = self.leaderboardID
+        scr.player = GKLocalPlayer.local
+        scr.value = value
+        scr.context = 1586145789
+        GKScore.report([scr], withEligibleChallenges: [], withCompletionHandler: { error in
+            let res = error
+            _ = res
+        })
     }
-    
-//    func showLeaderboard() {
-//        let leaderBoard
-//        let gcViewController = GKGameCenterViewController(leaderboardID: self.leaderboardID, playerScope: <#T##GKLeaderboard.PlayerScope#>, timeScope: <#T##GKLeaderboard.TimeScope#>: , playerScope: GKLocalPlayer.local)
-//        gcViewController.gameCenterDelegate = self
-//        gcViewController.viewState = .leaderboards
-//        gcViewController.leaderboardIdentifier = self.leaderboardID
-//        gcViewController.title = "Suake3D - Game Center"
-//
-//        self.viewController?.presentAsModalWindow(gcViewController)
-//    }
 }
+
 extension GameCenterHelper: GKGameCenterControllerDelegate {
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         gameCenterViewController.dismiss(true)
