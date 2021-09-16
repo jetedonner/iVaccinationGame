@@ -13,6 +13,10 @@ import AVFoundation
 extension SKView {
     
     open override func mouseDown(with event: NSEvent) {
+        if let menuScene = (self.scene as? MenuScene){
+            menuScene.mouseDown(with: event)
+            return
+        }
         if let gameScene = (self.scene as? GameScene){
             if(gameScene.syringesLeft <= 0){
                 return
@@ -54,14 +58,16 @@ extension SKView {
 
 extension SKView {
     override open func resetCursorRects() {
-        (self.scene as! GameScene).imgCH = self.resize(image: NSImage(named:NSImage.Name("CH_first.png"))!, w: 64, h: 64)
-        let image = (self.scene as! GameScene).imgCH
-        let spot = NSPoint(x: 0, y: 0)
-        let customCursor = NSCursor(image: image!, hotSpot: spot)
-        addCursorRect(visibleRect, cursor:customCursor)
+        if let gameScene = (self.scene as? GameScene){
+            gameScene.imgCH = self.resize(image: NSImage(named:NSImage.Name("CH_first.png"))!, w: 64, h: 64)
+            let image = gameScene.imgCH
+            let spot = NSPoint(x: 0, y: 0)
+            let customCursor = NSCursor(image: image!, hotSpot: spot)
+            addCursorRect(visibleRect, cursor:customCursor)
+        }
 //        }
     }
-    
+
     func resize(image: NSImage, w: Int, h: Int) -> NSImage {
         let destSize = NSMakeSize(CGFloat(w), CGFloat(h))
         let newImage = NSImage(size: destSize)
@@ -107,7 +113,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     var startTime:TimeInterval?
-    var gameDuration:TimeInterval = 10.0
+    var gameDuration:TimeInterval = GameVars.DEV_ROUND_TIME
     
     override func sceneDidLoad() {
         
@@ -156,6 +162,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    var songPlayer:AVAudioPlayer?
+    
+    override func didMove(to view: SKView) {
+        if let path = Bundle.main.path(forResource: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin", ofType: "mp3") {
+            let filePath = NSURL(fileURLWithPath:path)
+            songPlayer = try! AVAudioPlayer.init(contentsOf: filePath as URL)
+            songPlayer?.numberOfLoops = 0 //This line is not required if you want continuous looping music
+            songPlayer?.prepareToPlay()
+            songPlayer?.volume = 0.15
+            songPlayer?.play()
+        }
+    }
+    
     func addScore(score:Int){
         self.score += score
         self.lblScore?.text = self.score.description + " Points"
@@ -196,6 +215,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        self.startTime = 0
 //        self.gameRunning = true
 //        self.zombieGirl?.isPaused = false
+//        self.bg!.run(SoundManager.playSound())
         self.imgBlood?.isHidden = true
         self.zombieGirl?.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
@@ -204,10 +224,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.zombieGirl?.position = self.zombieStartPos!
         self.zombieGirl?.texture =  SKTexture(imageNamed: "ZombieGirl2")
         self.zombieGirl?.run(SKAction.sequence([SKAction.group([SKAction.moveBy(x: 100, y: -40, duration: 2.0), SKAction.scale(to: 0.65, duration: 2.0)]), SKAction.group([SKAction.moveBy(x: -205, y: -80, duration: 2.5), SKAction.scale(to: 1.0, duration: 2.5)]), SKAction.group([SKAction.moveBy(x: 560, y: -170, duration: 2.9), SKAction.scale(to: 3.0, duration: 2.9)])]), completion: {
+            
             self.imgBlood?.isHidden = false
-            self.zombieGirl?.run(SKAction.playSoundFileNamed("Media.scnassets/pain25_1.mp3", waitForCompletion: false))
-            self.zombieGirl?.run(SKAction.wait(forDuration: 0.75), completion: {
-                self.restartZombieAction()
+            self.zombieGirl?.run(SKAction.playSoundFileNamed(SoundManager.getRandomEatSound(), waitForCompletion: true), completion: {
+                self.zombieGirl?.run(SKAction.playSoundFileNamed("Media.scnassets/pain25_1.mp3", waitForCompletion: false))
+                self.zombieGirl?.run(SKAction.wait(forDuration: 0.75), completion: {
+                    self.restartZombieAction()
+                })
             })
         })
         self.zombieGirl?.zPosition = 1000
@@ -262,30 +285,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         switch event.keyCode {
-        case 5:
+        case 5: // G
             self.showGameOver()
             break
-        case 15:
-//            self.zombieGirl?.texture =  SKTexture(imageNamed: "ZombieGirl2")
+        case 15: // R
             self.restartAfterGameOver()
             break
-        case 18:
+        case 18: // 1
             self.lblVacc?.text = "Vaccine: Moderna"
             self.lblVacc?.fontColor = self.lblTime?.fontColor
-//            D91679
-//            D91679
             break
-        case 19:
+        case 19: // 2
             self.lblVacc?.text = "Vaccine: Pfizer"
             self.lblVacc?.fontColor = .orange
             break
-        case 20:
+        case 20: // 3
             self.lblVacc?.text = "Vaccine: Johnson & Johnson"
             self.lblVacc?.fontColor = .green
             break
-        case 21:
+        case 21: // 4
             self.lblVacc?.text = "Vaccine: Sputnik"
             self.lblVacc?.fontColor = .yellow
+            break
+        case 53: // ESC => Pause and Show menu
+//            self.lblVacc?.text = "Vaccine: Sputnik"
+//            self.lblVacc?.fontColor = .yellow
+            self.view?.isPaused = true
+            let vcSettings:SettingsViewController = SettingsViewController()
+            vcSettings.gameScene = self
+//            vc2.game = self.game
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).presentAsSheet(vcSettings)
+            }
+//            (self.game.scnView as! GameViewMacOS).viewController!.presentAsSheet(vc2)
             break
         case 0x31:
             if let label = self.label {
@@ -307,7 +339,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if(effectNode.parent == nil){
                 let blurFilter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius": 15])
                 effectNode.filter = blurFilter
-                var blurNode:SKShapeNode = SKShapeNode(rect: self.frame)// CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+                let blurNode:SKShapeNode = SKShapeNode(rect: self.frame)// CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
                 blurNode.fillColor = .white
                 blurNode.zPosition = 10001
                 let fillTexture = self.view?.texture(from: contentNode!, crop: blurNode.frame)
