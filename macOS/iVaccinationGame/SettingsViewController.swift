@@ -14,7 +14,9 @@ class SettingsViewController: NSViewController {
     
     @IBAction func closeAndResume(_ sender:Any){
         self.dismiss(sender)
-        gameScene?.view?.isPaused = false
+        if(gameScene != nil){
+            gameScene?.view?.isPaused = false
+        }
     }
 }
 

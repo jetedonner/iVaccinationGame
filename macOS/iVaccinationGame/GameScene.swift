@@ -383,10 +383,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 (viewCtrl as! ViewController).presentAsSheet(vcSettings)
             }
             break
-        case 0x31:
-            if let label = self.label {
-                label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-            }
+//        case 0x31:
+//            if let label = self.label {
+//                label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+//            }
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
