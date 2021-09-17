@@ -100,6 +100,10 @@ class UserDefaultsHelper{
                 return "Landscape"
             case "Standard (Night)":
                 return "LandscapeNight"
+            case "Straight":
+                return "Landscape2"
+            case "Straight II":
+                return "Landscape3"
             default:
                 return "Landscape"
             }

@@ -23,6 +23,12 @@
 		5552BFA726F264130034C812 /* MagicParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5552BFA626F264130034C812 /* MagicParticle.sks */; };
 		5552BFA926F26ABE0034C812 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552BFA826F26ABE0034C812 /* TimeInterval.swift */; };
 		5552BFAB26F298F70034C812 /* Credits in Resources */ = {isa = PBXBuildFile; fileRef = 5552BFAA26F298F70034C812 /* Credits */; };
+		55A579B826F4D1800084239D /* Upward2Particles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55A579B726F4D1800084239D /* Upward2Particles.sks */; };
+		55A579BB26F4F89D0084239D /* MedKitPickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579BA26F4F89D0084239D /* MedKitPickup.swift */; };
+		55A579BD26F4FD950084239D /* BasePickupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579BC26F4FD950084239D /* BasePickupNode.swift */; };
+		55A579BF26F4FEFF0084239D /* SyringePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579BE26F4FEFF0084239D /* SyringePickup.swift */; };
+		55A579C126F507A10084239D /* SKViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579C026F507A10084239D /* SKViewExt.swift */; };
+		55A579C326F507DF0084239D /* SKSpriteNodeExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579C226F507DF0084239D /* SKSpriteNodeExt.swift */; };
 		55B64A3126F3467200944766 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A3026F3467200944766 /* MenuScene.sks */; };
 		55B64A3326F3474900944766 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3226F3474900944766 /* MenuScene.swift */; };
 		55B64A3526F3577D00944766 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A3426F3577D00944766 /* SettingsViewController.xib */; };
@@ -36,18 +42,17 @@
 		55B64A4B26F37FD400944766 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A4A26F37FD400944766 /* GameScene.swift */; };
 		55B64A4D26F37FD400944766 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A4C26F37FD400944766 /* GameViewController.swift */; };
 		55B64A5026F37FD400944766 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A4E26F37FD400944766 /* Main.storyboard */; };
-		55B64A5226F37FD500944766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A5126F37FD500944766 /* Assets.xcassets */; };
 		55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A5326F37FD500944766 /* LaunchScreen.storyboard */; };
 		55B64A5F26F37FD500944766 /* iVaccinationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A5E26F37FD500944766 /* iVaccinationTests.swift */; };
 		55B64A6926F37FD500944766 /* iVaccinationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A6826F37FD500944766 /* iVaccinationUITests.swift */; };
 		55B64A6B26F37FD500944766 /* iVaccinationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A6A26F37FD500944766 /* iVaccinationUITestsLaunchTests.swift */; };
 		55B64A7926F3831D00944766 /* UpwardParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A7726F3831D00944766 /* UpwardParticles.sks */; };
-		55B64A7A26F3831D00944766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A7826F3831D00944766 /* Assets.xcassets */; };
 		55B64A7D26F3A3A300944766 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7C26F3A3A300944766 /* GameCenterHelper.swift */; };
 		55B64A7F26F3A43E00944766 /* GameCenterHelperExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */; };
 		55B64A8126F3A4AC00944766 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B64A8026F3A4AC00944766 /* GameKit.framework */; };
 		55B64A8326F3AB8700944766 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A8226F3AB8700944766 /* UserDefaultsHelper.swift */; };
 		55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A8426F3CEAE00944766 /* CH_first_red.png */; };
+		55B64A8726F4C34000944766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554E532426EFAD4400371E58 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +106,12 @@
 		5552BFA626F264130034C812 /* MagicParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicParticle.sks; sourceTree = "<group>"; };
 		5552BFA826F26ABE0034C812 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		5552BFAA26F298F70034C812 /* Credits */ = {isa = PBXFileReference; lastKnownFileType = text; path = Credits; sourceTree = "<group>"; };
+		55A579B726F4D1800084239D /* Upward2Particles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Upward2Particles.sks; sourceTree = "<group>"; };
+		55A579BA26F4F89D0084239D /* MedKitPickup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedKitPickup.swift; sourceTree = "<group>"; };
+		55A579BC26F4FD950084239D /* BasePickupNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePickupNode.swift; sourceTree = "<group>"; };
+		55A579BE26F4FEFF0084239D /* SyringePickup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringePickup.swift; sourceTree = "<group>"; };
+		55A579C026F507A10084239D /* SKViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKViewExt.swift; sourceTree = "<group>"; };
+		55A579C226F507DF0084239D /* SKSpriteNodeExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeExt.swift; sourceTree = "<group>"; };
 		55B64A3026F3467200944766 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		55B64A3226F3474900944766 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		55B64A3426F3577D00944766 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -108,7 +119,7 @@
 		55B64A3826F35E7600944766 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		55B64A3A26F3602C00944766 /* GameVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVars.swift; sourceTree = "<group>"; };
 		55B64A3C26F3716000944766 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
-		55B64A4226F37FD300944766 /* iVaccination.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccination.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55B64A4226F37FD300944766 /* iVaccinationGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccinationGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B64A4426F37FD400944766 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55B64A4626F37FD400944766 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		55B64A4826F37FD400944766 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -123,7 +134,6 @@
 		55B64A6826F37FD500944766 /* iVaccinationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iVaccinationUITests.swift; sourceTree = "<group>"; };
 		55B64A6A26F37FD500944766 /* iVaccinationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iVaccinationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		55B64A7726F3831D00944766 /* UpwardParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = UpwardParticles.sks; sourceTree = "<group>"; };
-		55B64A7826F3831D00944766 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55B64A7C26F3A3A300944766 /* GameCenterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
 		55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelperExt.swift; sourceTree = "<group>"; };
 		55B64A8026F3A4AC00944766 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -182,6 +192,7 @@
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
+				55B64A8626F4C32B00944766 /* Shared */,
 				55B64A7526F3802F00944766 /* macOS */,
 				55B64A7626F3804400944766 /* iOS */,
 				554E531826EFAD4300371E58 /* Products */,
@@ -195,7 +206,7 @@
 				554E531726EFAD4300371E58 /* iVaccinationGame.app */,
 				554E532D26EFAD4400371E58 /* iVaccinationGameTests.xctest */,
 				554E533726EFAD4400371E58 /* iVaccinationGameUITests.xctest */,
-				55B64A4226F37FD300944766 /* iVaccination.app */,
+				55B64A4226F37FD300944766 /* iVaccinationGame.app */,
 				55B64A5A26F37FD500944766 /* iVaccinationTests.xctest */,
 				55B64A6426F37FD500944766 /* iVaccinationUITests.xctest */,
 			);
@@ -205,9 +216,8 @@
 		554E531926EFAD4300371E58 /* iVaccinationGame */ = {
 			isa = PBXGroup;
 			children = (
+				55A579C526F50F110084239D /* SpriteKit */,
 				55B64A7B26F3A37F00944766 /* Apple */,
-				55B64A2F26F3463F00944766 /* Particles */,
-				55B64A2E26F3462E00944766 /* Scenes */,
 				55B64A2D26F3461200944766 /* Libs */,
 				554E534A26EFB34E00371E58 /* CH_first.png */,
 				55B64A8426F3CEAE00944766 /* CH_first_red.png */,
@@ -251,10 +261,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		55B64A2D26F3461200944766 /* Libs */ = {
+		55A579B926F4F8810084239D /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				55A579BC26F4FD950084239D /* BasePickupNode.swift */,
+				55A579BA26F4F89D0084239D /* MedKitPickup.swift */,
+				55A579BE26F4FEFF0084239D /* SyringePickup.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		55A579C426F50A590084239D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				5552BFA826F26ABE0034C812 /* TimeInterval.swift */,
+				55A579C026F507A10084239D /* SKViewExt.swift */,
+				55A579C226F507DF0084239D /* SKSpriteNodeExt.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		55A579C526F50F110084239D /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				55A579C626F50F200084239D /* Levels */,
+				55A579B926F4F8810084239D /* Nodes */,
+				55B64A2F26F3463F00944766 /* Particles */,
+				55B64A2E26F3462E00944766 /* Scenes */,
+			);
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+		55A579C626F50F200084239D /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
+		55B64A2D26F3461200944766 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				55A579C426F50A590084239D /* Extensions */,
 				55B64A3826F35E7600944766 /* SoundManager.swift */,
 				55B64A3A26F3602C00944766 /* GameVars.swift */,
 				55B64A3C26F3716000944766 /* CustomProgressBar.swift */,
@@ -276,9 +324,9 @@
 		55B64A2F26F3463F00944766 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				55A579B726F4D1800084239D /* Upward2Particles.sks */,
 				5552BFA626F264130034C812 /* MagicParticle.sks */,
 				55B64A7726F3831D00944766 /* UpwardParticles.sks */,
-				55B64A7826F3831D00944766 /* Assets.xcassets */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -342,6 +390,13 @@
 				55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */,
 			);
 			path = Apple;
+			sourceTree = "<group>";
+		};
+		55B64A8626F4C32B00944766 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,7 +469,7 @@
 			);
 			name = iVaccination;
 			productName = iVaccination;
-			productReference = 55B64A4226F37FD300944766 /* iVaccination.app */;
+			productReference = 55B64A4226F37FD300944766 /* iVaccinationGame.app */;
 			productType = "com.apple.product-type.application";
 		};
 		55B64A5926F37FD500944766 /* iVaccinationTests */ = {
@@ -515,6 +570,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A579B826F4D1800084239D /* Upward2Particles.sks in Resources */,
 				5552BFA726F264130034C812 /* MagicParticle.sks in Resources */,
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
@@ -526,7 +582,6 @@
 				5552BFAB26F298F70034C812 /* Credits in Resources */,
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
 				55B64A3126F3467200944766 /* MenuScene.sks in Resources */,
-				55B64A7A26F3831D00944766 /* Assets.xcassets in Resources */,
 				554E534B26EFB34E00371E58 /* CH_first.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,8 +606,8 @@
 			files = (
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				55B64A4726F37FD400944766 /* GameScene.sks in Resources */,
-				55B64A5226F37FD500944766 /* Assets.xcassets in Resources */,
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,
+				55B64A8726F4C34000944766 /* Assets.xcassets in Resources */,
 				55B64A4926F37FD400944766 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,7 +635,9 @@
 			files = (
 				554E532326EFAD4300371E58 /* ViewController.swift in Sources */,
 				55B64A3D26F3716000944766 /* CustomProgressBar.swift in Sources */,
+				55A579BD26F4FD950084239D /* BasePickupNode.swift in Sources */,
 				55B64A7F26F3A43E00944766 /* GameCenterHelperExt.swift in Sources */,
+				55A579C126F507A10084239D /* SKViewExt.swift in Sources */,
 				5552BFA926F26ABE0034C812 /* TimeInterval.swift in Sources */,
 				55B64A3326F3474900944766 /* MenuScene.swift in Sources */,
 				55B64A7D26F3A3A300944766 /* GameCenterHelper.swift in Sources */,
@@ -589,7 +646,10 @@
 				554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */,
 				55B64A3926F35E7600944766 /* SoundManager.swift in Sources */,
 				55B64A3726F3579600944766 /* SettingsViewController.swift in Sources */,
+				55A579BF26F4FEFF0084239D /* SyringePickup.swift in Sources */,
+				55A579C326F507DF0084239D /* SKSpriteNodeExt.swift in Sources */,
 				55B64A3B26F3602C00944766 /* GameVars.swift in Sources */,
+				55A579BB26F4F89D0084239D /* MedKitPickup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -970,6 +1030,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
@@ -977,17 +1038,19 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.ios.iVaccination;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iVaccinationGame;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1000,6 +1063,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
@@ -1007,17 +1071,19 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.ios.iVaccination;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = iVaccinationGame;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

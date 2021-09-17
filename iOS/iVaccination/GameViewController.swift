@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.supportedInterfaceOrientations = .landscapeRight
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
         if let scene = GKScene(fileNamed: "GameScene") {
@@ -40,6 +41,10 @@ class GameViewController: UIViewController {
             }
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
 
     override var shouldAutorotate: Bool {
         return true
@@ -47,9 +52,9 @@ class GameViewController: UIViewController {
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
+            return .portrait
         } else {
-            return .all
+            return .portrait
         }
     }
 

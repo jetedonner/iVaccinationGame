@@ -10,129 +10,6 @@ import GameplayKit
 import AVKit
 import AVFoundation
 
-extension SKView {
-    
-    open override func mouseDown(with event: NSEvent) {
-        if let menuScene = (self.scene as? MenuScene){
-            menuScene.mouseDown(with: event)
-            return
-        }
-        if let gameScene = (self.scene as? GameScene){
-            if(gameScene.syringesLeft <= 0){
-                super.mouseMoved(with: event)
-                var location = event.location(in: gameScene.bg!)
-                location.y -= 30.0
-                if let imgCH = gameScene.imgCH{
-                    location.x += imgCH.size.width / 2
-                    location.y -= imgCH.size.height / 2
-                }
-                let node = gameScene.atPoint(location)
-                if(node == gameScene.syringe_pickup){
-                    gameScene.syringe_pickup?.alpha = 0.0
-                    if(UserDefaultsHelper.playSounds){
-                        gameScene.contentNode?.run(SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "w_pkup.mp3", waitForCompletion: false))
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        gameScene.syringesLeft = 2
-                        gameScene.lblSyringesLeft?.text = gameScene.syringesLeft.description + " / 2"
-                        gameScene.syringe2?.isHidden = false
-                        gameScene.syringe1?.isHidden = false
-                    }
-                }
-//                gameScene.syringe_pickup?.position
-                return
-            }
-            var pointIn = event.location(in: gameScene.bg!)
-            if let imgCH = gameScene.imgCH{
-                pointIn.x += imgCH.size.width / 2
-                pointIn.y -= imgCH.size.height / 2
-            }
-            gameScene.syringe?.isHidden = false
-            gameScene.syringesLeft -= 1
-            gameScene.lblSyringesLeft?.text = gameScene.syringesLeft.description + " / 2"
-            if(gameScene.syringesLeft == 1){
-                gameScene.syringe2?.isHidden = true
-            }else if(gameScene.syringesLeft == 0){
-                gameScene.syringe1?.isHidden = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
-                    
-                    let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
-                    let newY:CGFloat = (gameScene.syringe_pickup?.position.y)!
-                    
-                    gameScene.syringe_pickup?.position = CGPoint(x: newX, y: newY)
-                    gameScene.syringe_pickup?.alpha = 1.0
-                    if(gameScene.upwardEmitterNode?.parent == nil){
-                        gameScene.upwardEmitterNode?.setScale(0.15)
-                        gameScene.upwardEmitterNode?.position.y += 30.0
-                        gameScene.syringe_pickup?.addChild(gameScene.upwardEmitterNode!)
-                    }
-//                    let boundingBoxNode = SKShapeNode(rectOf: gameScene.syringe_pickup!.calculateAccumulatedFrame().size)
-//                    boundingBoxNode.lineWidth = 3.0
-//                    boundingBoxNode.strokeColor = .red
-//                    boundingBoxNode.fillColor = .clear
-//                    boundingBoxNode.path = boundingBoxNode.path?.copy(dashingWithPhase: 0, lengths: [10,10])
-//                    gameScene.syringe_pickup!.addChild(boundingBoxNode)
-                }
-            }
-            gameScene.syringe?.position = CGPoint(x: 0, y: -300)
-            gameScene.syringe?.scale(to: CGSize(width: 64, height: 64))
-            if(UserDefaultsHelper.playSounds){
-                self.scene?.run(SKAction.playSoundFileNamed("Media.scnassets/sniperFireReload.mp3", waitForCompletion: true))
-            }
-            gameScene.syringe?.speed = UserDefaultsHelper.speedMultiplierForDifficulty
-            gameScene.syringe?.run(
-                SKAction.group([
-                    SKAction.move(to: pointIn, duration: 0.5),
-                    SKAction.scale(to: 0.5, duration: 0.5)
-                ])
-            )
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                gameScene.syringe?.isHidden = true
-            }
-        }
-    }
-    
-//    func randomPickupPos()->CGPoint{
-//
-//
-////        let newX = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
-////        let newY =
-//    }
-}
-
-extension SKView {
-    override open func resetCursorRects() {
-        if let gameScene = (self.scene as? GameScene){
-            gameScene.imgCH = self.resize(image: NSImage(named:NSImage.Name("CH_first_red.png"))!, w: 64, h: 64)
-            let image = gameScene.imgCH
-            let spot = NSPoint(x: 0, y: 0)
-            let customCursor = NSCursor(image: image!, hotSpot: spot)
-            addCursorRect(visibleRect, cursor:customCursor)
-        }
-//        }
-    }
-
-    func resize(image: NSImage, w: Int, h: Int) -> NSImage {
-        let destSize = NSMakeSize(CGFloat(w), CGFloat(h))
-        let newImage = NSImage(size: destSize)
-        newImage.lockFocus()
-        image.draw(in: NSMakeRect(0, 0, destSize.width, destSize.height), from: NSMakeRect(0, 0, image.size.width, image.size.height), operation: NSCompositingOperation.sourceOver, fraction: CGFloat(1))
-        newImage.unlockFocus()
-        newImage.size = destSize
-        return NSImage(data: newImage.tiffRepresentation!)!
-    }
-}
-
-extension SKSpriteNode {
-    func drawBorder(color: NSColor, width: CGFloat) {
-        let shapeNode = SKShapeNode(rect: frame)
-        shapeNode.fillColor = .clear
-        shapeNode.strokeColor = color
-        shapeNode.lineWidth = width
-        addChild(shapeNode)
-    }
-}
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var imgCH:NSImage?
@@ -147,7 +24,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var syringe:SKSpriteNode?
     var syringe1:SKSpriteNode?
     var syringe2:SKSpriteNode?
-    var syringe_pickup:SKSpriteNode?
+    
+    var medkitPickup:MedKitPickup?
+    var syringePickup:SyringePickup?
     
     var imgBlood:SKSpriteNode?
     var imgRedOut:SKSpriteNode?
@@ -177,7 +56,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var damage:CGFloat = GameVars.DEV_ZOMBIE_DAMAGE
     
     let explosionEmitterNode = SKEmitterNode(fileNamed:"MagicParticle.sks")
-    let upwardEmitterNode = SKEmitterNode(fileNamed:"UpwardParticles.sks")
+    
+    var gameOverFlashTimeStep:TimeInterval = 0.35
+    var gameOverFlashScaleTo:TimeInterval = 1.35
+    var gameRunning:Bool = false
+    var waitForAnyKey:Bool = false
+    var curTime:TimeInterval = 0
+    var songPlayer:AVAudioPlayer?
     
     override func sceneDidLoad() {
         
@@ -201,10 +86,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.syringe1 = self.contentNode!.childNode(withName: "Syringe_1") as? SKSpriteNode
         self.syringe2 = self.contentNode!.childNode(withName: "Syringe_2") as? SKSpriteNode
-        self.syringe_pickup = self.contentNode!.childNode(withName: "Syringe_pickup") as? SKSpriteNode
-        self.syringe_pickup?.alpha = 0.0
-        self.syringe_pickup?.zPosition = 10000001
-//        self.syringe_pickup?.drawBorder(color: .red, width: 3.0)
+
+        self.medkitPickup = MedKitPickup(imageNamed: "MedicinePickup", emitterFileNamed: "Upward2Particles.sks")
+        self.medkitPickup?.position = CGPoint(x: 200, y: 200)
+        self.medkitPickup?.zPosition = 10000000
+        self.medkitPickup?.alpha = 0.0
+        if(GameVars.DEV_MODE){
+            self.medkitPickup?.addDbgBorder()
+        }
+        self.scene?.addChild(self.medkitPickup!)
+        
+        self.syringePickup = SyringePickup(imageNamed: "Syringe", emitterFileNamed: "UpwardParticles.sks")
+        self.syringePickup?.size = CGSize(width: 64, height: 64)
+        self.syringePickup?.position = CGPoint(x: 300, y: -100)
+        self.syringePickup?.zPosition = 10000000
+        self.syringePickup?.alpha = 0.0
+        if(GameVars.DEV_MODE){
+            self.syringePickup?.addDbgBorder()
+        }
+        self.scene?.addChild(self.syringePickup!)
+        
         
         self.imgBlood = self.contentNode!.childNode(withName: "imgBlood") as? SKSpriteNode
         self.imgBlood?.isHidden = true
@@ -234,8 +135,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.restartZombieAction()
         
     }
-    
-    var songPlayer:AVAudioPlayer?
     
     override func didMove(to view: SKView) {
         if(UserDefaultsHelper.playSounds && UserDefaultsHelper.playBGMusic){
@@ -275,7 +174,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             explosionEmitterNode?.isHidden = false
             self.zombieGirl!.addChild(explosionEmitterNode!)
             if(UserDefaultsHelper.playSounds){
-                self.zombieGirl?.run(SKAction.playSoundFileNamed("Media.scnassets/pickupHealth.mp3", waitForCompletion: false)) // telein
+                self.zombieGirl?.run(SKAction.playSoundFileNamed("Media.scnassets/telein.mp3", waitForCompletion: false)) // telein
             }
             self.zombieGirl?.run(SKAction.wait(forDuration: 0.45), completion: {
                 self.zombieGirl?.texture =  SKTexture(imageNamed: "ZombieGirl2Un")
@@ -313,6 +212,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             }
             self.prgBar.setProgress(self.health / 100.0)
+            
+            if(self.health <= 75.0){
+                self.medkitPickup?.alpha = 1.0
+            }
             
             self.zombieGirl?.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)]), (UserDefaultsHelper.playSounds ? SKAction.playSoundFileNamed(SoundManager.getRandomEatSound(), waitForCompletion: false) : SKAction.wait(forDuration: 0.0))]), completion: {
                 var painSnd = GameVars.BASE_MEDIA_DIR + "pain25_1.mp3"
@@ -370,7 +273,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.lblVacc?.text = "Vaccine: Sputnik"
             self.lblVacc?.fontColor = .yellow
             break
-        case 49: // 4
+        case 49: // ??
 //            self.lblVacc?.text = "Vaccine: Sputnik"
 //            self.lblVacc?.fontColor = .yellow
             break
@@ -392,7 +295,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    var curTime:TimeInterval = 0
     override func update(_ currentTime: TimeInterval) {
         self.curTime = currentTime
         if(self.view!.isPaused){
@@ -450,10 +352,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.lastUpdateTime = currentTime
     }
     
-    var gameOverFlashTimeStep:TimeInterval = 0.35
-    var gameOverFlashScaleTo:TimeInterval = 1.35
-    var gameRunning:Bool = false
-    
     func restartAfterGameOver(resetTime:Bool = true){
         if(resetTime){
             self.startTime = 0
@@ -463,8 +361,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.zombieGirl?.isPaused = false
         self.restartZombieAction()
     }
-    
-    var waitForAnyKey:Bool = false
     
     func showGameOver(){
         gameRunning = false

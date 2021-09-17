@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1va-cG-UqW">
-                    <rect key="frame" x="111" y="289" width="120" height="25"/>
+                    <rect key="frame" x="111" y="289" width="191" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="30 Seconds" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="eWp-2u-zzq" id="QfA-al-Dtf">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -41,7 +41,7 @@
                     </connections>
                 </popUpButton>
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ScB-9t-DNP">
-                    <rect key="frame" x="111" y="259" width="120" height="25"/>
+                    <rect key="frame" x="111" y="259" width="191" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="Easy" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="SsU-49-8P3" id="fx3-6O-nku">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -64,7 +64,7 @@
                     </connections>
                 </popUpButton>
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgf-WO-KhH">
-                    <rect key="frame" x="111" y="229" width="120" height="25"/>
+                    <rect key="frame" x="111" y="229" width="191" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <popUpButtonCell key="cell" type="push" title="Random" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="I1m-eq-2qw" id="X0F-WA-4lL">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -74,6 +74,8 @@
                                 <menuItem title="Random" state="on" id="I1m-eq-2qw"/>
                                 <menuItem title="Standard" id="JY0-ic-4cZ"/>
                                 <menuItem title="Standard (Night)" id="oyz-jf-fp4"/>
+                                <menuItem title="Straight" id="qYm-ex-vec" userLabel="Straight"/>
+                                <menuItem title="Straight II" id="Lqt-PN-8za" userLabel="Straight"/>
                             </items>
                         </menu>
                     </popUpButtonCell>
@@ -172,12 +174,12 @@
                     <rect key="frame" x="151" y="168" width="42" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <connections>
-                        <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.playSounds" id="J9a-e6-r0f">
+                        <binding destination="l72-UK-3kJ" name="value" keyPath="values.playBGMusic" id="cEc-fn-OKB">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                             </dictionary>
                         </binding>
-                        <binding destination="l72-UK-3kJ" name="value" keyPath="values.playBGMusic" id="cEc-fn-OKB">
+                        <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.playSounds" id="J9a-e6-r0f">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                             </dictionary>
@@ -199,12 +201,12 @@
                     <rect key="frame" x="151" y="56" width="42" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <connections>
-                        <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useGameCenter" id="7UB-5K-Ufw">
+                        <binding destination="l72-UK-3kJ" name="value" keyPath="values.uploadHighscore" id="GCI-C2-Lb7">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                             </dictionary>
                         </binding>
-                        <binding destination="l72-UK-3kJ" name="value" keyPath="values.uploadHighscore" id="GCI-C2-Lb7">
+                        <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useGameCenter" id="7UB-5K-Ufw">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                             </dictionary>
