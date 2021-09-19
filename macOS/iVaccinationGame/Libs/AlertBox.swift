@@ -9,6 +9,7 @@ import Foundation
 import Cocoa
 
 class AlertBox{
+    
     static func dialogOKCancel(question: String, text: String) -> Bool {
         let alert = NSAlert()
         alert.messageText = question

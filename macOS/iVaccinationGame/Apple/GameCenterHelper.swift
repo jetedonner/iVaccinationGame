@@ -37,8 +37,7 @@ class GameCenterHelper: NSObject {
         GKLocalPlayer.local.authenticateHandler = { gcAuthVC, error in
           NotificationCenter.default.post(name: Notification.Name.authenticationChanged, object: GKLocalPlayer.local.isAuthenticated)
 
-          if GKLocalPlayer.local.isAuthenticated {
-            
+          if GKLocalPlayer.local.isAuthenticated {            
 //            print("Authenticated to Game Center!")
             GKLocalPlayer.local.register(self)
             GKAccessPoint.shared.parentWindow = self.viewController?.view.window
@@ -62,8 +61,6 @@ class GameCenterHelper: NSObject {
     
     func updateScore(with value: Int) {
         let score = GKScore(leaderboardIdentifier: leaderboardID)
-//        GKScore
-        // set value for score
         score.value = Int64(value)
         let scr = GKLeaderboardScore()
         scr.leaderboardID = self.leaderboardID

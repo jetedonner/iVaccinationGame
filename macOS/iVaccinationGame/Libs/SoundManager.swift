@@ -11,10 +11,16 @@ import AVFoundation
 
 //AVAudioPlayer
 
+enum PainSoundLevel:Int{
+    case PAIN_100 = 3
+    case PAIN_75 = 2
+    case PAIN_50 = 1
+    case PAIN_25 = 0
+}
+
 class SoundManager{
     
-    static let BASE_MEDIA_DIR:String = "Media.scnassets/"
-        
+//    static let BASE_MEDIA_DIR:String = "Media.scnassets/"
     
     static let gameoverSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "gameOver_voice_v1.mp3", waitForCompletion: true)
     static let bulletImpactSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "bulletImpact.mp3", waitForCompletion: true)
@@ -24,8 +30,6 @@ class SoundManager{
     static let shotSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "sniperFireReload.mp3", waitForCompletion: true)
     
     static let menuHighliteSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "Menu1.mp3", waitForCompletion: false)
-    
-    
     
     static var eatSound:SKAction{
         get{ SKAction.playSoundFileNamed(self.getRandomEatSound(), waitForCompletion: false) }
@@ -37,27 +41,19 @@ class SoundManager{
         SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain75_1.mp3", waitForCompletion: false),
         SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain100_1.mp3", waitForCompletion: false)
     ]
-    
-//    if(UserDefaultsHelper.playSounds){
-//        self.zombieGirl.run(SKAction.playSoundFileNamed(painSnd, waitForCompletion: false))
-    
-    
+
     static func getRandomEatSound()->String{
-        let eatSounds:[String] = [BASE_MEDIA_DIR + "eat_crunch_1.mp3", BASE_MEDIA_DIR + "eat_crunch_2.mp3"]
+        let eatSounds:[String] = [GameVars.BASE_MEDIA_DIR + "eat_crunch_1.mp3", GameVars.BASE_MEDIA_DIR + "eat_crunch_2.mp3"]
         return eatSounds.randomElement()!
     }
     
     static func getBackgroundAudioNode()->SKAudioNode{
-        let backgroundSound:SKAudioNode = SKAudioNode(fileNamed: BASE_MEDIA_DIR + "Possession-HumansWin.mp3")
-//        backgroundSound.avAudioNode.vol
+        let backgroundSound:SKAudioNode = SKAudioNode(fileNamed: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin.mp3")
         return backgroundSound
-//        self.addChild(backgroundSound)
     }
     
     static func playSound()->SKAction{
-        //  Converted to Swift 5.5 by Swiftify v5.5.22923 - https://swiftify.com/
-//        var error: Error?
-        let soundURL = Bundle.main.url(forResource: BASE_MEDIA_DIR + "Possession-HumansWin", withExtension: "mp3")
+        let soundURL = Bundle.main.url(forResource: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin", withExtension: "mp3")
         var player: AVAudioPlayer? = nil
         do {
             if let soundURL = soundURL {
@@ -71,8 +67,6 @@ class SoundManager{
         let playAction = SKAction.run({
             player?.play()
         })
-//        let waitAction = SKAction.wait(forDuration: TimeInterval(player?.duration + 1))
-//        let sequence = SKAction.sequence([playAction, waitAction])
         return playAction
     }
 }

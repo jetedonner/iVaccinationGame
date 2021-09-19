@@ -9,6 +9,7 @@ import Foundation
 import SpriteKit
 
 class CustomProgressBar: SKCropNode {
+    
     override init() {
         super.init()
         self.maskNode = SKSpriteNode(color: SKColor.white, size: CGSize(width: 300, height: 20))

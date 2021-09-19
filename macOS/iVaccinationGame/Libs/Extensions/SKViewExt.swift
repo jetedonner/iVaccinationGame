@@ -85,11 +85,6 @@ extension SKView {
                     
                     gameScene.syringePickup?.position = CGPoint(x: newX, y: newY)
                     gameScene.syringePickup?.alpha = 1.0
-//                    if(gameScene.upwardEmitterNode?.parent == nil){
-//                        gameScene.upwardEmitterNode?.setScale(0.15)
-//                        gameScene.upwardEmitterNode?.position.y += 30.0
-//                        gameScene.syringePickup?.addChild(gameScene.upwardEmitterNode!)
-//                    }
                 }
             }
             gameScene.syringe?.position = CGPoint(x: 0, y: -300)
