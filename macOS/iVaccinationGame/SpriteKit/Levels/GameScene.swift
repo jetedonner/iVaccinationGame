@@ -13,14 +13,14 @@ import AVFoundation
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var imgCH:NSImage?
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
+//    var entities = [GKEntity]()
+//    var graphs = [String : GKGraph]()
     
     private var lastUpdateTime : TimeInterval = 0
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
-    var zombieGirl:SKSpriteNode?
+    var zombieGirl:SKSpriteNode = SKSpriteNode()
     var syringe:SKSpriteNode?
     var syringe1:SKSpriteNode?
     var syringe2:SKSpriteNode?
@@ -33,7 +33,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var contentNode:SKNode?
     var bg:SKSpriteNode?
-    var zombieStartPos:CGPoint?
     
     var score:Int = 0
     var syringesLeft:Int = 2
@@ -64,14 +63,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var curTime:TimeInterval = 0
     var songPlayer:AVAudioPlayer?
     
+    var levels:[BaseLevel] = []
+    var currentLevel:BaseLevel = FirstLevel()
+    
+    
     override func sceneDidLoad() {
         
         self.physicsWorld.contactDelegate = self
         
+        self.levels = [FirstLevel(), SecondLevel()]
+        self.currentLevel = self.levels[0   ]
+        
         self.gameDuration = UserDefaultsHelper.roundTime
         self.contentNode = self.childNode(withName: "contentNode")! as SKNode
         self.bg = self.contentNode!.childNode(withName: "BG") as? SKSpriteNode
-        self.bg?.texture = SKTexture(imageNamed: UserDefaultsHelper.level)
+        
+//        self.bg?.texture = SKTexture(imageNamed: UserDefaultsHelper.level)
+//        self.bg?.texture = SKTexture(imageNamed: self.currentLevel!.backgroundImageName)
+        
         self.lblGameOver = self.contentNode!.childNode(withName: "lblGameOver") as? SKLabelNode
         self.lblGameOver?.isHidden = true
         
@@ -117,20 +126,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.syringe?.physicsBody = SKPhysicsBody(circleOfRadius: 15.0)
         self.syringe?.physicsBody?.affectedByGravity = false
         
-        self.zombieGirl = self.contentNode!.childNode(withName: "ZombieGirl") as? SKSpriteNode
-        self.zombieGirl?.physicsBody = SKPhysicsBody(circleOfRadius: 35.0)
-        self.zombieGirl?.physicsBody?.affectedByGravity = false
+        self.zombieGirl = self.contentNode!.childNode(withName: "ZombieGirl") as! SKSpriteNode
+        self.zombieGirl.physicsBody = SKPhysicsBody(circleOfRadius: 25.0)
+        self.zombieGirl.physicsBody?.affectedByGravity = false
+        self.zombieGirl.physicsBody?.isDynamic = false
         self.prgBar.setProgress(1.0)
         self.prgBar.position = CGPoint(x: (self.frame.width / 2) - 20 , y: (self.frame.height / 2) - 12 - 70)
         self.prgBar.zPosition = 10000
         self.addChild(self.prgBar)
         
         self.syringe?.physicsBody?.contactTestBitMask = 0b0001
-        self.zombieGirl?.physicsBody?.contactTestBitMask = 0b0010
+        self.zombieGirl.physicsBody?.contactTestBitMask = 0b0010
         
         self.startTime = 0
         
-        self.zombieStartPos = self.zombieGirl?.position
+//        self.zombieStartPos = self.zombieGirl.position
+        
+        self.currentLevel.setupLevel(gameScene: self)
         gameRunning = true
         self.restartZombieAction()
         
@@ -141,7 +153,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if let path = Bundle.main.path(forResource: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin", ofType: "mp3") {
                 let filePath = NSURL(fileURLWithPath:path)
                 songPlayer = try! AVAudioPlayer.init(contentsOf: filePath as URL)
-    //            songPlayer?.numberOfLoops = 0 //This line is not required if you want continuous looping music
+                songPlayer?.numberOfLoops = -1 //This line is not required if you want continuous looping music
                 songPlayer?.prepareToPlay()
                 songPlayer?.volume = 0.15
                 songPlayer?.play()
@@ -164,7 +176,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         self.syringe?.isHidden = true
         if(UserDefaultsHelper.playSounds){
-            self.run(SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "bulletImpact.mp3", waitForCompletion: true))
+            self.run(SoundManager.bulletImpactSound)
         }
         self.addScore(score: 100)
         if(self.score % 200 == 0){
@@ -172,32 +184,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             explosionEmitterNode?.setScale(0.35)
             explosionEmitterNode?.isHidden = false
-            self.zombieGirl!.addChild(explosionEmitterNode!)
-            if(UserDefaultsHelper.playSounds){
-                self.zombieGirl?.run(SKAction.playSoundFileNamed("Media.scnassets/telein.mp3", waitForCompletion: false)) // telein
+            if(explosionEmitterNode?.parent == nil){
+                self.zombieGirl.addChild(explosionEmitterNode!)
             }
-            self.zombieGirl?.run(SKAction.wait(forDuration: 0.45), completion: {
-                self.zombieGirl?.texture =  SKTexture(imageNamed: "ZombieGirl2Un")
+            if(UserDefaultsHelper.playSounds){
+                self.zombieGirl.run(SoundManager.unzombiefiedSound) // telein
+            }
+            self.zombieGirl.run(SKAction.wait(forDuration: 0.45), completion: {
+                self.zombieGirl.texture = SKTexture(imageNamed: self.currentLevel.zombieCuredImageName) // "ZombieGirl2Un")
                 self.explosionEmitterNode?.removeFromParent()
-                self.zombieGirl?.removeAllActions()
-                self.zombieGirl?.run(SKAction.sequence([SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2)]), completion: {
-                    self.restartAfterGameOver(resetTime: false)
+                self.zombieGirl.removeAllActions()
+                
+                self.zombieGirl.run(self.currentLevel.zombieExitPaths.randomElement()!, completion: {
+                    self.restartAfterHit(resetTime: false)
                 })
+//                self.zombieGirl?.run(SKAction.sequence([SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2), SKAction.moveBy(x: 60, y: 10, duration: 0.2), SKAction.moveBy(x: 60, y: -10, duration: 0.2)]), completion: {
+//                    self.restartAfterGameOver(resetTime: false)
+//                })
             })
         }
     }
     
     func restartZombieAction(){
         self.imgBlood?.isHidden = true
-        self.zombieGirl?.removeAllActions()
+        self.zombieGirl.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
-        self.zombieGirl?.xScale = 0.5
-        self.zombieGirl?.yScale = 0.5
-        self.zombieGirl?.position = self.zombieStartPos!
-        self.zombieGirl?.texture =  SKTexture(imageNamed: "ZombieGirl2")
-        self.zombieGirl?.speed = UserDefaultsHelper.speedMultiplierForDifficulty
-        self.zombieGirl?.run(SKAction.sequence([SKAction.group([SKAction.moveBy(x: 100, y: -40, duration: 2.0), SKAction.scale(to: 0.65, duration: 2.0)]), SKAction.group([SKAction.moveBy(x: -205, y: -80, duration: 2.5), SKAction.scale(to: 1.0, duration: 2.5)]), SKAction.group([SKAction.moveBy(x: 560, y: -170, duration: 2.9), SKAction.scale(to: 3.0, duration: 2.9)])]), completion: {
-            self.health -= self.damage
+        self.zombieGirl.xScale = self.currentLevel.zombieInitScale.randomElement()! // 0.5
+        self.zombieGirl.yScale = self.currentLevel.zombieInitScale.randomElement()! //0.5
+        self.zombieGirl.position = self.currentLevel.zombieInitPos.randomElement()!// self.zombieStartPos!
+        self.zombieGirl.texture =  SKTexture(imageNamed: "ZombieGirl2")
+        self.zombieGirl.speed = UserDefaultsHelper.speedMultiplierForDifficulty
+        self.zombieGirl.run(self.currentLevel.zombiePaths.randomElement()! /*SKAction.sequence([SKAction.group([SKAction.moveBy(x: 100, y: -40, duration: 2.0), SKAction.scale(to: 0.65, duration: 2.0)]), SKAction.group([SKAction.moveBy(x: -205, y: -80, duration: 2.5), SKAction.scale(to: 1.0, duration: 2.5)]), SKAction.group([SKAction.moveBy(x: 560, y: -170, duration: 2.9), SKAction.scale(to: 3.0, duration: 2.9)])])*/, completion: {
+            self.health -= self.currentLevel.zombieDamage
             self.imgBlood?.isHidden = false
             self.imgBlood?.alpha = 1.0
             if(self.health <= 0.0){
@@ -217,36 +235,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.medkitPickup?.alpha = 1.0
             }
             
-            self.zombieGirl?.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)]), (UserDefaultsHelper.playSounds ? SKAction.playSoundFileNamed(SoundManager.getRandomEatSound(), waitForCompletion: false) : SKAction.wait(forDuration: 0.0))]), completion: {
-                var painSnd = GameVars.BASE_MEDIA_DIR + "pain25_1.mp3"
+            self.zombieGirl.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)]), (UserDefaultsHelper.playSounds ? SoundManager.eatSound : SKAction.wait(forDuration: 0.0))]), completion: {
+                var painSnd:SKAction = SoundManager.painSounds[3] // GameVars.BASE_MEDIA_DIR + "pain25_1.mp3"
                 if(self.health >= 75.0){
-                    painSnd = GameVars.BASE_MEDIA_DIR + "pain100_1.mp3"
+                    painSnd = SoundManager.painSounds[3] // GameVars.BASE_MEDIA_DIR + "pain100_1.mp3"
                 }else if(self.health >= 50.0){
-                    painSnd = GameVars.BASE_MEDIA_DIR + "pain75_1.mp3"
+                    painSnd = SoundManager.painSounds[2] // GameVars.BASE_MEDIA_DIR + "pain75_1.mp3"
                 }else if(self.health >= 25.0){
-                    painSnd = GameVars.BASE_MEDIA_DIR + "pain50_1.mp3"
+                    painSnd = SoundManager.painSounds[1] // GameVars.BASE_MEDIA_DIR + "pain50_1.mp3"
                 }else if(self.health >= 0.0){
-                    painSnd = GameVars.BASE_MEDIA_DIR + "pain25_1.mp3"
+                    painSnd = SoundManager.painSounds[0] // GameVars.BASE_MEDIA_DIR + "pain25_1.mp3"
                 }
                 if(UserDefaultsHelper.playSounds){
-                    self.zombieGirl?.run(SKAction.playSoundFileNamed(painSnd, waitForCompletion: false))
+                    self.zombieGirl.run(painSnd)
                 }
-                self.zombieGirl?.run(SKAction.wait(forDuration: 0.75), completion: {
+                self.zombieGirl.run(SKAction.wait(forDuration: 0.75), completion: {
                     self.restartZombieAction()
                 })
             })
         })
-        self.zombieGirl?.zPosition = 1000
+        self.zombieGirl.zPosition = 1000
     }
     
     override func keyDown(with event: NSEvent) {
         print("KeyPressed: %d", event.keyCode)
         if(self.waitForAnyKey){
-            self.waitForAnyKey = false
-            self.lblGameOver?.isHidden = true
-            self.lblPressAnyKey?.isHidden = true
-            self.effectNode.isHidden = true
-            self.restartAfterGameOver()
+//            self.waitForAnyKey = false
+//            self.lblGameOver?.isHidden = true
+//            self.lblPressAnyKey?.isHidden = true
+//            self.effectNode.isHidden = true
+            self.restartAfterGameOverNG()
             return
         }
         
@@ -255,7 +273,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.showGameOver()
             break
         case 15: // R
-            self.restartAfterGameOver()
+            self.restartAfterHit()
             break
         case 18: // 1
             self.lblVacc?.text = "Vaccine: Moderna"
@@ -337,41 +355,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
         
         // Initialize _lastUpdateTime if it has not already been
-        if (self.lastUpdateTime == 0) {
-            self.lastUpdateTime = currentTime
-        }
+//        if (self.lastUpdateTime == 0) {
+//            self.lastUpdateTime = currentTime
+//        }
         
-        // Calculate time since last update
-        let dt = currentTime - self.lastUpdateTime
-        
-        // Update entities
-        for entity in self.entities {
-            entity.update(deltaTime: dt)
-        }
+//        // Calculate time since last update
+//        let dt = currentTime - self.lastUpdateTime
+//
+//        // Update entities
+//        for entity in self.entities {
+//            entity.update(deltaTime: dt)
+//        }
         
         self.lastUpdateTime = currentTime
     }
     
-    func restartAfterGameOver(resetTime:Bool = true){
+    func restartAfterGameOverNG(resetTime:Bool = true){
+        self.waitForAnyKey = false
+        self.lblGameOver?.isHidden = true
+        self.lblPressAnyKey?.isHidden = true
+        self.effectNode.isHidden = true
+        self.lblScore?.position = self.scoreLblOrigPos
+        self.lblScore?.setScale(1.0)
+        self.gameRunning = true
+        self.restartAfterHit(resetTime: resetTime)
+    }
+    
+    func restartAfterHit(resetTime:Bool = true){
         if(resetTime){
             self.startTime = 0
         }
-        self.gameRunning = true
-        self.zombieGirl?.removeAllActions()
-        self.zombieGirl?.isPaused = false
+        
+        self.zombieGirl.removeAllActions()
+        self.zombieGirl.isPaused = false
+//        self.lblScore?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 80), duration: 1.0), SKAction.scale(to: 2.5, duration: 1.0)]))
         self.restartZombieAction()
     }
     
+    var scoreLblOrigPos:CGPoint = CGPoint()
+    
     func showGameOver(){
         gameRunning = false
+        self.scoreLblOrigPos = self.lblScore!.position
+        self.lblScore?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 180), duration: 0.45), SKAction.scale(to: 2.5, duration: 0.45)]))
         self.lblGameOver?.alpha = 1.0
         self.lblGameOver?.isHidden = false
         self.effectNode.isHidden = false
-        self.zombieGirl?.isPaused = true
-        self.zombieGirl?.removeAllActions()
+        self.zombieGirl.isPaused = true
+        self.zombieGirl.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
         if(UserDefaultsHelper.playSounds){
-            self.lblGameOver?.run(SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "gameOver_voice_v1.mp3", waitForCompletion: true))
+            self.lblGameOver?.run(SoundManager.gameoverSound)
         }
         self.lblGameOver?.run(SKAction.sequence([SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.group([SKAction.scale(to: 0.85, duration: self.gameOverFlashTimeStep)/*, SKAction.fadeOut(withDuration: self.gameOverFlashTimeStep)*/])]), completion: {
             self.lblPressAnyKey?.alpha = 0.0

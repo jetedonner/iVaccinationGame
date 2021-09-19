@@ -14,6 +14,33 @@ import AVFoundation
 class SoundManager{
     
     static let BASE_MEDIA_DIR:String = "Media.scnassets/"
+        
+    
+    static let gameoverSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "gameOver_voice_v1.mp3", waitForCompletion: true)
+    static let bulletImpactSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "bulletImpact.mp3", waitForCompletion: true)
+    static let unzombiefiedSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "telein.mp3", waitForCompletion: false)
+    static let syringePickupSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "w_pkup.mp3", waitForCompletion: false)
+    static let healthPickupSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pickupHealth.mp3", waitForCompletion: true)
+    static let shotSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "sniperFireReload.mp3", waitForCompletion: true)
+    
+    static let menuHighliteSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "Menu1.mp3", waitForCompletion: false)
+    
+    
+    
+    static var eatSound:SKAction{
+        get{ SKAction.playSoundFileNamed(self.getRandomEatSound(), waitForCompletion: false) }
+    }
+    
+    static let painSounds:[SKAction] = [
+        SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain25_1.mp3", waitForCompletion: false),
+        SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain50_1.mp3", waitForCompletion: false),
+        SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain75_1.mp3", waitForCompletion: false),
+        SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain100_1.mp3", waitForCompletion: false)
+    ]
+    
+//    if(UserDefaultsHelper.playSounds){
+//        self.zombieGirl.run(SKAction.playSoundFileNamed(painSnd, waitForCompletion: false))
+    
     
     static func getRandomEatSound()->String{
         let eatSounds:[String] = [BASE_MEDIA_DIR + "eat_crunch_1.mp3", BASE_MEDIA_DIR + "eat_crunch_2.mp3"]

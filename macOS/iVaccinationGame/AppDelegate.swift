@@ -12,6 +12,11 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     
+    override init() {
+        super.init()
+        ValueTransformer.setValueTransformer( CGFloatValueTransformer(), forName: .myCGFloatValueTransformer)
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }

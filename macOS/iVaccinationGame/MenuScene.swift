@@ -87,7 +87,7 @@ class MenuScene: SKScene {
             }
             
             if(UserDefaultsHelper.playSounds){
-                self.selNode?.run(SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "Menu1.mp3", waitForCompletion: false))
+                self.selNode?.run(SoundManager.menuHighliteSound)
             }
         }
     }

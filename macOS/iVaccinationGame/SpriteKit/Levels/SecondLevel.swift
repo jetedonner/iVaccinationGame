@@ -1,0 +1,76 @@
+//
+//  FirstLevel.swift
+//  FirstLevel
+//
+//  Created by Kim David Hauser on 18.09.21.
+//
+
+import Foundation
+import SpriteKit
+
+class SecondLevel: BaseLevel {
+    
+    override init() {
+        super.init()
+    }
+    
+    override func initLevel() {
+        self.levelName = "Wallway"
+        
+        self.backgroundImageName = "Landscape2"
+        
+        self.zombieInitPos.append(CGPoint(x: -566.0, y: -218.678))
+//        self.zombieInitPos.append(CGPoint(x: 566.0, y: -218.678))
+        
+        self.zombieInitScale.append(1.0)
+        
+        self.zombieImageName = "ZombieGirl2"
+        self.zombieCuredImageName = "ZombieGirl2Un"
+        self.zombieCount = 1
+        
+        for _ in 0..<4{
+            let way2Go:CGFloat = CGFloat.random(in: 350 ... 900)
+            self.zombiePaths.append(
+                SKAction.sequence([
+                    SKAction.moveBy(x: way2Go, y: 0, duration: 6.5),
+                    SKAction.group([
+                        SKAction.moveBy(x: -100, y: -210, duration: 1.0),
+                        SKAction.scale(to: 3.65, duration: 1.0)
+                    ])
+                ])
+            )
+        }
+        
+//        for _ in 0..<4{
+//            let way2Go:CGFloat = CGFloat.random(in: 350 ... 900)
+//            self.zombiePaths.append(
+//                SKAction.sequence([
+//                    SKAction.moveBy(x: -way2Go, y: 0, duration: 6.5),
+//                    SKAction.group([
+//                        SKAction.moveBy(x: 100, y: -210, duration: 1.0),
+//                        SKAction.scale(to: 3.65, duration: 1.0)
+//                    ])
+//                ])
+//            )
+//        }
+        
+        self.zombieExitPaths.append(
+            SKAction.sequence([
+                SKAction.moveBy(x: 60, y: 10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: -10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: 10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: -10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: 10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: -10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: 10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: -10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: 10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: -10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: 10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: -10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: 10, duration: 0.2),
+                SKAction.moveBy(x: 60, y: -10, duration: 0.2)
+            ])
+        )
+    }
+}

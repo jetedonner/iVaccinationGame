@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsViewController" customModule="iVaccinationGame" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="c22-O7-iKe" id="Gdp-jN-azl"/>
+                <outlet property="volume" destination="55r-j8-dSk" id="ivn-fz-wrz"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -72,10 +73,10 @@
                         <menu key="menu" id="x86-iW-fgH">
                             <items>
                                 <menuItem title="Random" state="on" id="I1m-eq-2qw"/>
-                                <menuItem title="Standard" id="JY0-ic-4cZ"/>
-                                <menuItem title="Standard (Night)" id="oyz-jf-fp4"/>
-                                <menuItem title="Straight" id="qYm-ex-vec" userLabel="Straight"/>
-                                <menuItem title="Straight II" id="Lqt-PN-8za" userLabel="Straight"/>
+                                <menuItem title="City Skyline" id="JY0-ic-4cZ" userLabel="City Skyline"/>
+                                <menuItem title="City Skyline (Night)" id="oyz-jf-fp4" userLabel="City Skyline (Night)"/>
+                                <menuItem title="Wallway" id="qYm-ex-vec" userLabel="Straight"/>
+                                <menuItem title="Wallway (Night)" id="Lqt-PN-8za" userLabel="Straight"/>
                             </items>
                         </menu>
                     </popUpButtonCell>
@@ -233,10 +234,10 @@
                         <string key="keyEquivalent" base64-UTF8="YES">
 Gw
 </string>
-                        <connections>
-                            <action selector="closeAndResume:" target="-2" id="JJc-dj-Hvp"/>
-                        </connections>
                     </buttonCell>
+                    <connections>
+                        <action selector="closeAndDiscardChanges:" target="-2" id="cLQ-gJ-zpy"/>
+                    </connections>
                 </button>
                 <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="55r-j8-dSk">
                     <rect key="frame" x="112" y="133" width="307" height="28"/>
@@ -267,9 +268,10 @@ Gw
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
-                        <binding destination="l72-UK-3kJ" name="value" keyPath="values.volume" id="ueo-iA-xqa">
+                        <binding destination="l72-UK-3kJ" name="value" keyPath="values.volume" id="z9Q-5K-TQA">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                <string key="NSValueTransformerName">CGFloatValueTransformer</string>
                             </dictionary>
                         </binding>
                     </connections>

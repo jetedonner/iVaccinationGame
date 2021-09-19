@@ -17,6 +17,11 @@ extension SKView {
         }
         if let gameScene = (self.scene as? GameScene){
             super.mouseDown(with: event)
+            
+            if(!gameScene.gameRunning){
+                gameScene.restartAfterGameOverNG()
+                return
+            }
             var location = event.location(in: gameScene.bg!)
             
             if(gameScene.syringesLeft <= 0){
@@ -29,7 +34,7 @@ extension SKView {
                 if(node == gameScene.syringePickup || node.parent == gameScene.syringePickup){
                     gameScene.syringePickup?.alpha = 0.0
                     if(UserDefaultsHelper.playSounds){
-                        gameScene.contentNode?.run(SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "w_pkup.mp3", waitForCompletion: false))
+                        gameScene.contentNode?.run(SoundManager.syringePickupSound)
                     }
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         gameScene.syringesLeft = 2
@@ -38,7 +43,9 @@ extension SKView {
                         gameScene.syringe1?.isHidden = false
                     }
                 }
-                return
+                if(gameScene.health >= 100.0){
+                    return
+                }
             }
             if let imgCH = gameScene.imgCH{
                 location.x += imgCH.size.width / 2
@@ -46,11 +53,17 @@ extension SKView {
             }
             let node = gameScene.atPoint(location)
             if(node == gameScene.medkitPickup || node.parent == gameScene.medkitPickup){
-                gameScene.medkitPickup?.alpha = 0.0
-                gameScene.medkitPickup?.run(SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pickupHealth.mp3", waitForCompletion: true), completion: {
-                    gameScene.health += 25.0
-                    gameScene.prgBar.setProgress(gameScene.health / 100.0)
+                gameScene.health += 25.0
+                gameScene.prgBar.setProgress(gameScene.health / 100.0)
+                gameScene.medkitPickup?.run(SKAction.group([SKAction.fadeAlpha(to: (gameScene.health >= 100.0 ? 0.0 : 1.0), duration: 2.0), SoundManager.healthPickupSound]), completion: {
+                    if(gameScene.health >= 100.0){
+                        gameScene.medkitPickup?.alpha = 0.0
+                    }
                 })
+                return
+            }
+            
+            if(gameScene.syringesLeft <= 0){
                 return
             }
             var pointIn = event.location(in: gameScene.bg!)
@@ -82,7 +95,7 @@ extension SKView {
             gameScene.syringe?.position = CGPoint(x: 0, y: -300)
             gameScene.syringe?.scale(to: CGSize(width: 64, height: 64))
             if(UserDefaultsHelper.playSounds){
-                self.scene?.run(SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "sniperFireReload.mp3", waitForCompletion: true))
+                self.scene?.run(SoundManager.shotSound)
             }
             gameScene.syringe?.speed = UserDefaultsHelper.speedMultiplierForDifficulty
             gameScene.syringe?.run(
