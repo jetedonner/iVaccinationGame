@@ -30,6 +30,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var imgBlood:SKSpriteNode?
     var imgRedOut:SKSpriteNode?
+    var imgThrowingHand:SKSpriteNode?
     
     var contentNode:SKNode?
     var bg:SKSpriteNode?
@@ -89,6 +90,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.gameDuration = UserDefaultsHelper.roundTime
         self.contentNode = self.childNode(withName: "contentNode")! as SKNode
         self.bg = self.contentNode!.childNode(withName: "BG") as? SKSpriteNode
+        
+        self.imgThrowingHand = self.contentNode!.childNode(withName: "ThrowingHand") as? SKSpriteNode
+        
         
         self.lblGameOver = self.contentNode!.childNode(withName: "lblGameOver") as? SKLabelNode
         self.lblGameOver?.isHidden = true
@@ -150,10 +154,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.startTime = 0
         
         self.currentLevel.setupLevel(gameScene: self)
+        self.handInitRot = self.imgThrowingHand?.zRotation
+        self.handInitPos = self.imgThrowingHand?.position
+        self.setupHandAnimation()
         gameRunning = true
         self.restartZombieAction()
         
     }
+    
+    var handInitRot:CGFloat?
+    var handInitPos:CGPoint?
     
     override func didMove(to view: SKView) {
         if(UserDefaultsHelper.playSounds && UserDefaultsHelper.playBGMusic){
@@ -166,6 +176,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 songPlayer?.play()
             }
         }
+    }
+    
+    func runHandThrowingAnimation(){
+        self.imgThrowingHand?.removeAllActions()
+        let throwAct:SKAction = SKAction.group([SKAction.rotate(byAngle: 1.6, duration: 0.25), SKAction.moveBy(x: -20, y: -200, duration: 0.25)])
+        self.imgThrowingHand?.run(throwAct, completion: {
+//            let resetThrowAct:SKAction = SKAction.group([SKAction.rotate(byAngle: -1.6, duration: 0.0), SKAction.moveBy(x: 20, y: 200, duration: 0.0)])
+//            self.imgThrowingHand?.run(resetThrowAct)
+            self.imgThrowingHand?.zRotation = self.handInitRot!
+            self.imgThrowingHand?.position = self.handInitPos!
+            self.setupHandAnimation()
+        })
+    }
+    
+    func setupHandAnimation(){
+        let oneLoop:SKAction = SKAction.sequence([SKAction.rotate(byAngle: -0.1, duration: 0.5), SKAction.rotate(byAngle: 0.1, duration: 0.5)])
+        self.imgThrowingHand?.run(SKAction.repeatForever(SKAction.sequence([SKAction.repeat(oneLoop, count: 2), SKAction.wait(forDuration: 0.35), SKAction.repeat(oneLoop, count: 2), SKAction.wait(forDuration: 0.15)])))
     }
     
     func addScore(score:Int){

@@ -71,6 +71,7 @@ extension SKView {
                 pointIn.x += imgCH.size.width / 2
                 pointIn.y -= imgCH.size.height / 2
             }
+            gameScene.runHandThrowingAnimation()
             gameScene.syringe?.isHidden = false
             gameScene.syringesLeft -= 1
             gameScene.lblSyringesLeft?.text = gameScene.syringesLeft.description + " / 2"
