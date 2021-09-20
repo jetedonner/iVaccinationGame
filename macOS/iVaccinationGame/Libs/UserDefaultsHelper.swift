@@ -93,20 +93,21 @@ class UserDefaultsHelper{
     
     static var level:String{
         get{
-            switch defaults.string(forKey: UserDefaultsName.level.rawValue){
-            case "Random":
-                return "LandscapeNight"
-            case "Standard":
-                return "Landscape"
-            case "Standard (Night)":
-                return "LandscapeNight"
-            case "Straight":
-                return "Landscape2"
-            case "Straight II":
-                return "Landscape3"
-            default:
-                return "Landscape"
-            }
+            return defaults.string(forKey: UserDefaultsName.level.rawValue)!
+//            switch defaults.string(forKey: UserDefaultsName.level.rawValue){
+//            case "Random":
+//                return "LandscapeNight"
+//            case "Standard":
+//                return "Landscape"
+//            case "Standard (Night)":
+//                return "LandscapeNight"
+//            case "Straight":
+//                return "Landscape2"
+//            case "Straight II":
+//                return "Landscape3"
+//            default:
+//                return "Landscape"
+//            }
         }
     }
     

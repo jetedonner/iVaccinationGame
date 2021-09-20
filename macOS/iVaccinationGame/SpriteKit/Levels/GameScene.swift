@@ -80,6 +80,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.currentLevel = self.levels[0]
         
+        if(UserDefaultsHelper.level == "City Skyline" || UserDefaultsHelper.level == "City Skyline (Night)"){
+            self.currentLevel = self.levels[0]
+        }else{
+            self.currentLevel = self.levels[1]
+        }
+        
         self.gameDuration = UserDefaultsHelper.roundTime
         self.contentNode = self.childNode(withName: "contentNode")! as SKNode
         self.bg = self.contentNode!.childNode(withName: "BG") as? SKSpriteNode

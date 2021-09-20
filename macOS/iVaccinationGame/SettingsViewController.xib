@@ -76,8 +76,8 @@
                                 <menuItem title="Random" state="on" id="I1m-eq-2qw"/>
                                 <menuItem title="City Skyline" id="JY0-ic-4cZ" userLabel="City Skyline"/>
                                 <menuItem title="City Skyline (Night)" id="oyz-jf-fp4" userLabel="City Skyline (Night)"/>
-                                <menuItem title="Wallway" id="qYm-ex-vec" userLabel="Straight"/>
-                                <menuItem title="Wallway (Night)" id="Lqt-PN-8za" userLabel="Straight"/>
+                                <menuItem title="Wallway" id="qYm-ex-vec"/>
+                                <menuItem title="Wallway (Night)" id="Lqt-PN-8za" userLabel="Wayllway (Night)"/>
                             </items>
                         </menu>
                     </popUpButtonCell>
