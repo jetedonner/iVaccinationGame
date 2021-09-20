@@ -113,7 +113,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.medkitPickup?.position = CGPoint(x: 200, y: 200)
         self.medkitPickup?.zPosition = 10000000
         self.medkitPickup?.alpha = 0.0
-        if(GameVars.DEV_MODE){
+//        if(GameVars.DEV_MODE){
+        if(UserDefaultsHelper.devMode){
             self.medkitPickup?.addDbgBorder()
         }
         self.scene?.addChild(self.medkitPickup!)
@@ -123,7 +124,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.syringePickup?.position = CGPoint(x: 300, y: -100)
         self.syringePickup?.zPosition = 10000000
         self.syringePickup?.alpha = 0.0
-        if(GameVars.DEV_MODE){
+//        if(GameVars.DEV_MODE){
+        if(UserDefaultsHelper.devMode){
             self.syringePickup?.addDbgBorder()
         }
         self.scene?.addChild(self.syringePickup!)

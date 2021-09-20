@@ -16,6 +16,7 @@ enum UserDefaultsName:String{
     case volume = "volume"
     case useGameCenter = "useGameCenter"
     case uploadHighscore = "uploadHighscore"
+    case devMode = "devMode"
 }
 
 
@@ -70,6 +71,7 @@ class UserDefaultsHelper{
                 retDiff = .nightmare
                 break
             default:
+                retDiff = .easy
                 break
             }
             return retDiff
@@ -93,45 +95,55 @@ class UserDefaultsHelper{
     
     static var level:String{
         get{
+            if(self.defaults.value(forKey: UserDefaultsName.level.rawValue) == nil){
+                self.defaults.set("City Skyline", forKey: UserDefaultsName.level.rawValue)
+            }
             return defaults.string(forKey: UserDefaultsName.level.rawValue)!
-//            switch defaults.string(forKey: UserDefaultsName.level.rawValue){
-//            case "Random":
-//                return "LandscapeNight"
-//            case "Standard":
-//                return "Landscape"
-//            case "Standard (Night)":
-//                return "LandscapeNight"
-//            case "Straight":
-//                return "Landscape2"
-//            case "Straight II":
-//                return "Landscape3"
-//            default:
-//                return "Landscape"
-//            }
         }
     }
     
     static var useGameCenter:Bool{
         get{
+            if(self.defaults.value(forKey: UserDefaultsName.useGameCenter.rawValue) == nil){
+                self.defaults.set(true, forKey: UserDefaultsName.useGameCenter.rawValue)
+            }
             return self.defaults.bool(forKey: UserDefaultsName.useGameCenter.rawValue)
         }
     }
     
     static var uploadHighscore:Bool{
         get{
+            if(self.defaults.value(forKey: UserDefaultsName.uploadHighscore.rawValue) == nil){
+                self.defaults.set(true, forKey: UserDefaultsName.uploadHighscore.rawValue)
+            }
             return self.defaults.bool(forKey: UserDefaultsName.uploadHighscore.rawValue)
         }
     }
     
     static var playSounds:Bool{
         get{
+            if(self.defaults.value(forKey: UserDefaultsName.playSounds.rawValue) == nil){
+                self.defaults.set(true, forKey: UserDefaultsName.playSounds.rawValue)
+            }
             return self.defaults.bool(forKey: UserDefaultsName.playSounds.rawValue)
         }
     }
     
     static var playBGMusic:Bool{
-        get{ 
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.playBGMusic.rawValue) == nil){
+                self.defaults.set(true, forKey: UserDefaultsName.playBGMusic.rawValue)
+            }
             return self.defaults.bool(forKey: UserDefaultsName.playBGMusic.rawValue)
+        }
+    }
+    
+    static var devMode:Bool{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.devMode.rawValue) == nil){
+                self.defaults.set(false, forKey: UserDefaultsName.devMode.rawValue)
+            }
+            return self.defaults.bool(forKey: UserDefaultsName.devMode.rawValue)
         }
     }
 }
