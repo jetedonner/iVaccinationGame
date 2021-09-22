@@ -76,16 +76,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.keyboardHandler = KeyboardHandler(gameScene: self)
         self.levels = [
             FirstLevel(),
-            SecondLevel()
+            SecondLevel(),
+            ThirdLevel()
         ]
         
         self.currentLevel = self.levels[0]
         
-        if(UserDefaultsHelper.level == "City Skyline" || UserDefaultsHelper.level == "City Skyline (Night)"){
-            self.currentLevel = self.levels[0]
-        }else{
-            self.currentLevel = self.levels[1]
-        }
+        
         
         self.gameDuration = UserDefaultsHelper.roundTime
         self.contentNode = self.childNode(withName: "contentNode")! as SKNode
@@ -142,9 +139,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.syringe?.physicsBody?.affectedByGravity = false
         
         self.zombieGirl = self.contentNode!.childNode(withName: "ZombieGirl") as! SKSpriteNode
-        self.zombieGirl.physicsBody = SKPhysicsBody(circleOfRadius: 25.0)
+        self.zombieGirl.physicsBody = SKPhysicsBody(rectangleOf: self.zombieGirl.size)
         self.zombieGirl.physicsBody?.affectedByGravity = false
         self.zombieGirl.physicsBody?.isDynamic = false
+        if(UserDefaultsHelper.devMode){
+            self.zombieGirl.addDbgBorder()
+        }
+        
         self.prgBar.setProgress(1.0)
         self.prgBar.position = CGPoint(x: (self.frame.width / 2) - 20 , y: (self.frame.height / 2) - 12 - 70)
         self.prgBar.zPosition = 10000
@@ -153,15 +154,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.syringe?.physicsBody?.contactTestBitMask = 0b0001
         self.zombieGirl.physicsBody?.contactTestBitMask = 0b0010
         
-        self.startTime = 0
+        self.scoreLblOrigPos = self.lblScore!.position
         
-        self.currentLevel.setupLevel(gameScene: self)
+        self.restartLevel()
+        
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
         self.setupHandAnimation()
         gameRunning = true
         self.restartZombieAction()
         
+    }
+    
+    
+    func restartLevel(){
+        
+        if(UserDefaultsHelper.level == "City Skyline" || UserDefaultsHelper.level == "City Skyline (Night)"){
+            self.currentLevel = self.levels[0]
+        }else if(UserDefaultsHelper.level == "Wallway" || UserDefaultsHelper.level == "Wallway (Night)"){
+            self.currentLevel = self.levels[1]
+        }else{
+            self.currentLevel = self.levels[2]
+        }
+        self.currentLevel.setupLevel(gameScene: self)
+        self.restartAfterGameOverNG(resetTime: true)
     }
     
     var handInitRot:CGFloat?
@@ -194,6 +210,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupHandAnimation(){
         let oneLoop:SKAction = SKAction.sequence([SKAction.rotate(byAngle: -0.1, duration: 0.5), SKAction.rotate(byAngle: 0.1, duration: 0.5)])
+        oneLoop.timingMode = .easeInEaseOut
         self.imgThrowingHand?.run(SKAction.repeatForever(SKAction.sequence([SKAction.repeat(oneLoop, count: 2), SKAction.wait(forDuration: 0.35), SKAction.repeat(oneLoop, count: 2), SKAction.wait(forDuration: 0.15)])))
     }
     
@@ -353,6 +370,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func restartAfterHit(resetTime:Bool = true){
         if(resetTime){
             self.startTime = 0
+//            self.lastUpdateTime = 0
+//            self.gameDuration = 0
         }
         
         self.zombieGirl.removeAllActions()
@@ -361,7 +380,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func showGameOver(){
-        gameRunning = false
+        self.gameRunning = false
         self.scoreLblOrigPos = self.lblScore!.position
         self.lblScore?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 180), duration: 0.45), SKAction.scale(to: 2.5, duration: 0.45)]))
         self.lblGameOver?.alpha = 1.0
@@ -376,8 +395,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.lblGameOver?.run(SKAction.sequence([SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.group([SKAction.scale(to: 0.85, duration: self.gameOverFlashTimeStep)/*, SKAction.fadeOut(withDuration: self.gameOverFlashTimeStep)*/])]), completion: {
             self.lblPressAnyKey?.alpha = 0.0
             self.lblPressAnyKey?.isHidden = false
-            self.lblPressAnyKey?.run(SKAction.fadeIn(withDuration: 0.45))
-            self.waitForAnyKey = true
+            self.lblPressAnyKey?.run(SKAction.fadeIn(withDuration: 0.45), completion: {
+                self.waitForAnyKey = true
+            })
             if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
                 if let viewCtrl = self.view?.window?.contentViewController{
                     (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)

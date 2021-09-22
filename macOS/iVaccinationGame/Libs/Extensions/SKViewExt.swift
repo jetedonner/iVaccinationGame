@@ -18,7 +18,7 @@ extension SKView {
         if let gameScene = (self.scene as? GameScene){
             super.mouseDown(with: event)
             
-            if(!gameScene.gameRunning){
+            if(!gameScene.gameRunning && gameScene.waitForAnyKey){
                 gameScene.restartAfterGameOverNG()
                 return
             }
@@ -50,6 +50,7 @@ extension SKView {
             if let imgCH = gameScene.imgCH{
                 location.x += imgCH.size.width / 2
                 location.y -= imgCH.size.height / 2
+                location.y += 30.0
             }
             let node = gameScene.atPoint(location)
             if(node == gameScene.medkitPickup || node.parent == gameScene.medkitPickup){
@@ -92,6 +93,7 @@ extension SKView {
             gameScene.syringe?.scale(to: CGSize(width: 64, height: 64))
             if(UserDefaultsHelper.playSounds){
                 self.scene?.run(SoundManager.shotSound)
+//                SoundManager.playAudio(audioName: "throwing-whip")
             }
             gameScene.syringe?.speed = UserDefaultsHelper.speedMultiplierForDifficulty
             gameScene.syringe?.run(

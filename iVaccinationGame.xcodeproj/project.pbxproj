@@ -62,6 +62,11 @@
 		55B64A8326F3AB8700944766 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A8226F3AB8700944766 /* UserDefaultsHelper.swift */; };
 		55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A8426F3CEAE00944766 /* CH_first_red.png */; };
 		55B64A8726F4C34000944766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554E532426EFAD4400371E58 /* Assets.xcassets */; };
+		55C83EF226FB250E00F42F53 /* ThirdLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83EF126FB250E00F42F53 /* ThirdLevel.swift */; };
+		55C83EF426FB91A900F42F53 /* GameScene_THIRD.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF326FB91A900F42F53 /* GameScene_THIRD.sks */; };
+		55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF526FB942200F42F53 /* MeadowLeftActions.sks */; };
+		55C83EF826FB9B4600F42F53 /* GameScene_THIRD_alz.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF726FB9B4600F42F53 /* GameScene_THIRD_alz.sks */; };
+		55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF926FB9CF600F42F53 /* MeadowRightActions.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +162,11 @@
 		55B64A8026F3A4AC00944766 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		55B64A8226F3AB8700944766 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		55B64A8426F3CEAE00944766 /* CH_first_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CH_first_red.png; sourceTree = "<group>"; };
+		55C83EF126FB250E00F42F53 /* ThirdLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdLevel.swift; sourceTree = "<group>"; };
+		55C83EF326FB91A900F42F53 /* GameScene_THIRD.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_THIRD.sks; sourceTree = "<group>"; };
+		55C83EF526FB942200F42F53 /* MeadowLeftActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MeadowLeftActions.sks; sourceTree = "<group>"; };
+		55C83EF726FB9B4600F42F53 /* GameScene_THIRD_alz.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_THIRD_alz.sks; sourceTree = "<group>"; };
+		55C83EF926FB9CF600F42F53 /* MeadowRightActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MeadowRightActions.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +324,7 @@
 			children = (
 				554E532026EFAD4300371E58 /* GameScene.swift */,
 				55A579C726F5C5EC0084239D /* FirstLevel.swift */,
+				55C83EF126FB250E00F42F53 /* ThirdLevel.swift */,
 				55A579CB26F644080084239D /* SecondLevel.swift */,
 				55A579C926F638610084239D /* BaseLevel.swift */,
 				556FBE8026F77A6C00F8081C /* BasePath.swift */,
@@ -347,7 +358,11 @@
 		55B64A2E26F3462E00944766 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				55C83EF926FB9CF600F42F53 /* MeadowRightActions.sks */,
+				55C83EF526FB942200F42F53 /* MeadowLeftActions.sks */,
 				554E531C26EFAD4300371E58 /* GameScene.sks */,
+				55C83EF326FB91A900F42F53 /* GameScene_THIRD.sks */,
+				55C83EF726FB9B4600F42F53 /* GameScene_THIRD_alz.sks */,
 				55A579CD26F646480084239D /* GameScene_ORIG.sks */,
 				55A579CF26F6464F0084239D /* GameScene_TEST.sks */,
 				554E531E26EFAD4300371E58 /* Actions.sks */,
@@ -609,12 +624,16 @@
 				5552BFA726F264130034C812 /* MagicParticle.sks in Resources */,
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
 				55A579D026F6464F0084239D /* GameScene_TEST.sks in Resources */,
+				55C83EF426FB91A900F42F53 /* GameScene_THIRD.sks in Resources */,
+				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
+				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
 				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
 				55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */,
 				55B64A7926F3831D00944766 /* UpwardParticles.sks in Resources */,
 				55B64A3526F3577D00944766 /* SettingsViewController.xib in Resources */,
 				554E535226EFB60600371E58 /* Media.scnassets in Resources */,
+				55C83EF826FB9B4600F42F53 /* GameScene_THIRD_alz.sks in Resources */,
 				5552BFAB26F298F70034C812 /* Credits in Resources */,
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
 				55B64A3126F3467200944766 /* MenuScene.sks in Resources */,
@@ -678,6 +697,7 @@
 				55A579C126F507A10084239D /* SKViewExt.swift in Sources */,
 				5552BFA926F26ABE0034C812 /* TimeInterval.swift in Sources */,
 				55B64A3326F3474900944766 /* MenuScene.swift in Sources */,
+				55C83EF226FB250E00F42F53 /* ThirdLevel.swift in Sources */,
 				55B64A7D26F3A3A300944766 /* GameCenterHelper.swift in Sources */,
 				55A579CC26F644080084239D /* SecondLevel.swift in Sources */,
 				556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */,

@@ -16,10 +16,13 @@ class FirstLevel: BaseLevel {
     
     override func initLevel() {
         self.levelName = "City skyline"
-        self.backgroundImageName = "Landscape"
+        self.backgroundImageName = "CitySkyline"
         self.zombieImageName = "ZombieGirl2"
         self.zombieCuredImageName = "ZombieGirl2Un"
         self.zombieCount = 1
+        
+        let exitMove1:SKAction = SKAction.moveBy(x: 60, y: 10, duration: 0.2)
+        let exitMove2:SKAction = SKAction.moveBy(x: 60, y: -10, duration: 0.2)
         
         self.zombiePaths.append(
             BasePath(
@@ -40,20 +43,13 @@ class FirstLevel: BaseLevel {
                     ])
                 ]),
                 exitPath: SKAction.sequence([
-                    SKAction.moveBy(x: 60, y: 10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: -10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: 10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: -10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: 10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: -10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: 10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: -10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: 10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: -10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: 10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: -10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: 10, duration: 0.2),
-                    SKAction.moveBy(x: 60, y: -10, duration: 0.2)
+                    exitMove1, exitMove2,
+                    exitMove1, exitMove2,
+                    exitMove1, exitMove2,
+                    exitMove1, exitMove2,
+                    exitMove1, exitMove2,
+                    exitMove1, exitMove2,
+                    exitMove1, exitMove2
                 ])
             )
         )

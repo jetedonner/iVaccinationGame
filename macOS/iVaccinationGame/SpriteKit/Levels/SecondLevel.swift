@@ -17,7 +17,7 @@ class SecondLevel: BaseLevel {
     override func initLevel() {
         self.levelName = "Wallway"
         
-        self.backgroundImageName = "Landscape2"
+        self.backgroundImageName = "Wallway"
         
         self.zombieImageName = "ZombieGirl2"
         self.zombieCuredImageName = "ZombieGirl2Un"

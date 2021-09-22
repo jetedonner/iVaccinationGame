@@ -20,14 +20,14 @@ enum PainSoundLevel:Int{
 
 class SoundManager{
     
-//    static let BASE_MEDIA_DIR:String = "Media.scnassets/"
+    static var masterVolume:CGFloat = 0.75
     
     static let gameoverSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "gameOver_voice_v1.mp3", waitForCompletion: true)
     static let bulletImpactSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "bulletImpact.mp3", waitForCompletion: true)
     static let unzombiefiedSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "telein.mp3", waitForCompletion: false)
     static let syringePickupSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "w_pkup.mp3", waitForCompletion: false)
     static let healthPickupSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pickupHealth.mp3", waitForCompletion: true)
-    static let shotSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "sniperFireReload.mp3", waitForCompletion: true)
+    static let shotSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "throwing-whip.mp3", waitForCompletion: true)
     
     static let menuHighliteSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "Menu1.mp3", waitForCompletion: false)
     
@@ -50,6 +50,20 @@ class SoundManager{
     static func getBackgroundAudioNode()->SKAudioNode{
         let backgroundSound:SKAudioNode = SKAudioNode(fileNamed: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin.mp3")
         return backgroundSound
+    }
+    
+    static func playAudio(audioName:String){
+        let path = Bundle.main.path(forResource: GameVars.BASE_MEDIA_DIR + audioName + ".mp3", ofType:nil)!
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            let bombSoundEffect:AVAudioPlayer = try AVAudioPlayer(contentsOf: url)
+            bombSoundEffect.volume = 1.0
+            bombSoundEffect.prepareToPlay()
+            bombSoundEffect.play()
+        } catch {
+            // couldn't load file :(
+        }
     }
     
     static func playSound()->SKAction{

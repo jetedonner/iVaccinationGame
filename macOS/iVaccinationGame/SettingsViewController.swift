@@ -33,6 +33,7 @@ class SettingsViewController: NSViewController {
         let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to restart the game?")
         if(answer){
             print("RELOADING GAME")
+            gameScene!.restartLevel()
         }
         if(gameScene != nil){
             gameScene?.view?.isPaused = false

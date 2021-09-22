@@ -32,7 +32,18 @@ class BaseLevel {
     }
     
     func setupLevel(gameScene:GameScene){
-        gameScene.bg?.texture = SKTexture(imageNamed: self.backgroundImageName)
+        
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+//        let minutes = calendar.component(.minute, from: date)
+        
+        var nightMode:Bool = false
+        if(hour >= 18 || hour <= 6){
+            nightMode = true
+        }
+        
+        gameScene.bg?.texture = SKTexture(imageNamed: self.backgroundImageName + (nightMode ? "Night" : ""))
         gameScene.zombieGirl.texture = SKTexture(imageNamed: self.zombieImageName)
         if let path = self.zombiePaths.randomElement(){
             gameScene.zombieGirl.position = path.initPos

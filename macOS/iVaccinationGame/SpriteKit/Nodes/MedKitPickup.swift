@@ -10,9 +10,9 @@ import SpriteKit
 
 class MedKitPickup: BasePickupNode {
     
-    override var accumulatedFrameFactor:CGFloat{
-        get { return 1.9 }
-    }
+//    override var accumulatedFrameFactor:CGFloat{
+//        get { return 0.9 }
+//    }
     
     override init(imageNamed name: String, emitterFileNamed: String){
         super.init(imageNamed: name, emitterFileNamed: emitterFileNamed)
