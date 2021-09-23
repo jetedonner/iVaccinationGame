@@ -104,6 +104,7 @@
 		55C83F3526FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */; };
 		55C83F3626FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */; };
 		55C83F3826FCE5BC00F42F53 /* MenuDifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3726FCE5BC00F42F53 /* MenuDifficultyScene.swift */; };
+		55C83F3A26FCF34A00F42F53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A5126F37FD500944766 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -755,6 +756,7 @@
 				55C83F0726FC666500F42F53 /* GameScene.sks in Resources */,
 				55C83F0D26FC673000F42F53 /* UpwardParticles.sks in Resources */,
 				55C83F0B26FC673000F42F53 /* MagicParticle.sks in Resources */,
+				55C83F3A26FCF34A00F42F53 /* Assets.xcassets in Resources */,
 				55C83F0226FC666500F42F53 /* MenuScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
