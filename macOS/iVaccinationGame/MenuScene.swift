@@ -100,9 +100,9 @@ class MenuScene: SKScene {
                 (viewCtrl as! ViewController).loadGameScene()
             }
         }else if(self.selNode == lblGameCenter){
-            GKAccessPoint.shared.trigger(handler: {
-            
-            })
+//            GKAccessPoint.shared.trigger(handler: {
+//            
+//            })
         }else if(self.selNode == lblSettings){
             let vcSettings:SettingsViewController = SettingsViewController()
             vcSettings.gameScene = nil

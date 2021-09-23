@@ -29,6 +29,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        (NSApplication.shared.delegate as! AppDelegate).vc = self
         
         if(UserDefaultsHelper.useGameCenter){
             self.gameCenterHelper = GameCenterHelper(vc: self)
@@ -66,12 +67,14 @@ class ViewController: NSViewController {
         }
     }
     
+    var gameSceneObj:GameScene!
+    
     func loadGameScene(){
         if let scene = GKScene(fileNamed: "GameScene") {
 
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
-
+                self.gameSceneObj = sceneNode
                 // Copy gameplay related content over to the scene
 //                sceneNode.entities = scene.entities
 //                sceneNode.graphs = scene.graphs

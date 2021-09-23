@@ -52,6 +52,18 @@ class GameCenterHelper: NSObject {
             GKAccessPoint.shared.location = .bottomLeading
             GKAccessPoint.shared.showHighlights = true
             GKAccessPoint.shared.isActive = GKLocalPlayer.local.isAuthenticated
+              
+//              GKAccessPoint.shared.observe(<#T##keyPath: KeyPath<GKAccessPoint, Value>##KeyPath<GKAccessPoint, Value>#>, changeHandler: <#T##(GKAccessPoint, NSKeyValueObservedChange<Value>) -> Void#>)
+              // Observe when the access point displays the dashboard
+              
+              
+              let observation = GKAccessPoint.shared.observe(
+                         \.isPresentingGameCenter
+                  ) { [weak self] _,_ in
+                      print("INHEEEEEEEEEAAAA")
+//                  self.paused = GKAccessPoint.shared.isPresentingGameCenter
+                      (self?.viewController as! ViewController).gameSceneObj.isPaused = GKAccessPoint.shared.isPresentingGameCenter
+              }
           } else if let vc = gcAuthVC {
               #if os(macOS)
               self.viewController?.presentAsModalWindow(vc)//(vc, animator: NSViewControllerPresentationAnimator).present(vc, animated: true)
@@ -96,7 +108,11 @@ class GameCenterHelper: NSObject {
     }
 }
 
+
+
 extension GameCenterHelper: GKGameCenterControllerDelegate {
+    
+    
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         #if os(macOS)
         gameCenterViewController.dismiss(true)

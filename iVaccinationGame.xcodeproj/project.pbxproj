@@ -99,6 +99,8 @@
 		55C83F2D26FC819E00F42F53 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7C26F3A3A300944766 /* GameCenterHelper.swift */; };
 		55C83F2E26FC819E00F42F53 /* GameCenterHelperExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */; };
 		55C83F3026FC984E00F42F53 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C83F2F26FC984E00F42F53 /* GameKit.framework */; };
+		55C83F3226FCA9A200F42F53 /* GCAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3126FCA9A200F42F53 /* GCAchievements.swift */; };
+		55C83F3326FCA9A200F42F53 /* GCAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3126FCA9A200F42F53 /* GCAchievements.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +202,7 @@
 		55C83F1F26FC680C00F42F53 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		55C83F2A26FC75E600F42F53 /* GameSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameSceneBase.swift; path = Shared/iVaccinationGame/SpriteKit/Base/GameSceneBase.swift; sourceTree = SOURCE_ROOT; };
 		55C83F2F26FC984E00F42F53 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		55C83F3126FCA9A200F42F53 /* GCAchievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCAchievements.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +467,7 @@
 		55B64A7B26F3A37F00944766 /* Apple */ = {
 			isa = PBXGroup;
 			children = (
+				55C83F3126FCA9A200F42F53 /* GCAchievements.swift */,
 				55B64A7C26F3A3A300944766 /* GameCenterHelper.swift */,
 				55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */,
 			);
@@ -787,6 +791,7 @@
 				554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */,
 				556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */,
 				55B64A3926F35E7600944766 /* SoundManager.swift in Sources */,
+				55C83F3226FCA9A200F42F53 /* GCAchievements.swift in Sources */,
 				55B64A3726F3579600944766 /* SettingsViewController.swift in Sources */,
 				55A579C826F5C5EC0084239D /* FirstLevel.swift in Sources */,
 				55A579CA26F638610084239D /* BaseLevel.swift in Sources */,
@@ -818,6 +823,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55C83F3326FCA9A200F42F53 /* GCAchievements.swift in Sources */,
 				55C83F1E26FC675500F42F53 /* TimeInterval.swift in Sources */,
 				55C83F2C26FC75E600F42F53 /* GameSceneBase.swift in Sources */,
 				55C83F1226FC673D00F42F53 /* BaseLevel.swift in Sources */,

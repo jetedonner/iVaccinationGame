@@ -11,10 +11,31 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+//    @IBOutlet var window:NSWindow!
+    
+    var vc:ViewController!
     
     override init() {
         super.init()
         ValueTransformer.setValueTransformer( CGFloatValueTransformer(), forName: .myCGFloatValueTransformer)
+    }
+    
+    func applicationDidResignActive(_ notification: Notification) {
+        if(self.vc != nil && self.vc.gameSceneObj != nil){
+//            self.vc.gameSceneObj.isPaused = true
+            if(self.vc.gameSceneObj.gameRunning){
+                self.vc.gameSceneObj.setGameState(isPaused: true)
+            }
+        }
+    }
+    
+    func applicationDidBecomeActive(_ notification: Notification) {
+        if(self.vc != nil && self.vc.gameSceneObj != nil){
+            if(self.vc.gameSceneObj.gamePaused){
+//                self.vc.gameSceneObj.isPaused = false
+                self.vc.gameSceneObj.setGameState(isPaused: false)
+            }
+        }
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {

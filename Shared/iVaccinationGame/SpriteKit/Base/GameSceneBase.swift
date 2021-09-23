@@ -11,11 +11,33 @@ import GameplayKit
 import AVKit
 import AVFoundation
 
+enum GameState:Int{
+    case gameLoading
+    case gameRunning
+    case paused
+    case menuShowing
+    case gameOver
+    case gameCenterShowing
+    case highscoreShowing
+}
+
 class GameSceneBase: SKScene, SKPhysicsContactDelegate {
     
 //    var imgCH:NSImage?
 //    var entities = [GKEntity]()
 //    var graphs = [String : GKGraph]()
+    
+    var gameState:GameState = .gameLoading
+    var gamePaused:Bool = false
+    func setGameState(isPaused:Bool = true){
+        self.gamePaused = isPaused
+        if(self.gamePaused){
+            self.view?.isPaused = true
+            self.pauseStartTime = self.curTime
+        }else{
+            self.view?.isPaused = false
+        }
+    }
     
     var lastUpdateTime : TimeInterval = 0
     var label : SKLabelNode?
@@ -184,11 +206,14 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
     }
     
     
+    let earnedPointLblTime:TimeInterval = 1.5
     func showEarnedPoints(){
         self.lblEarnedPoints.removeAllActions()
+        self.lblEarnedPoints.zPosition = 10000000000
+        self.lblEarnedPoints.setScale(1.0)
         self.lblEarnedPoints.position = CGPoint(x: self.zmbGrl.position.x, y: self.zmbGrl.position.y + (self.zmbGrl.frame.height / 2) + 20)
         self.lblEarnedPoints.alpha = 1.0
-        self.lblEarnedPoints.run(SKAction.group([SKAction.move(by: CGVector(dx: 0, dy: 150), duration: 1.5), SKAction.fadeOut(withDuration: 1.5)]))
+        self.lblEarnedPoints.run(SKAction.group([SKAction.move(by: CGVector(dx: 0, dy: 150), duration: self.earnedPointLblTime), SKAction.fadeOut(withDuration: self.earnedPointLblTime), SKAction.scale(to: 0.25, duration: self.earnedPointLblTime)]))
     }
     
     func restartLevel(){
@@ -233,7 +258,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
     }
     
     func setupHandAnimation(){
-        let oneLoop:SKAction = SKAction.sequence([SKAction.rotate(byAngle: -0.1, duration: 0.5), SKAction.rotate(byAngle: 0.1, duration: 0.5)])
+        let oneLoop:SKAction = SKAction.sequence([SKAction.group([SKAction.rotate(byAngle: -0.1, duration: 0.5), SKAction.move(by: CGVector(dx: 0, dy: -10), duration: 0.5)]), SKAction.group([SKAction.rotate(byAngle: 0.1, duration: 0.5), SKAction.move(by: CGVector(dx: 0, dy: 10), duration: 0.5)])])
         oneLoop.timingMode = .easeInEaseOut
         self.imgThrowingHand?.run(SKAction.repeatForever(SKAction.sequence([SKAction.repeat(oneLoop, count: 2), SKAction.wait(forDuration: 0.35), SKAction.repeat(oneLoop, count: 2), SKAction.wait(forDuration: 0.15)])))
     }
@@ -255,6 +280,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         if(UserDefaultsHelper.playSounds){
             self.run(SoundManager.bulletImpactSound)
         }
+        self.currentLevel.hits += 1
         self.addScore(score: 100)
         self.showEarnedPoints()
         if(self.score % 200 == 0){
@@ -442,9 +468,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.lblGameOver?.alpha = 1.0
         self.lblGameOver?.isHidden = false
         self.effectNode.isHidden = false
-        
-//        self.zombieGirl.isPaused = true
-//        self.zombieGirl.removeAllActions()
+
         self.zmbGrl.isPaused = true
         self.zmbGrl.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
@@ -457,11 +481,109 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
             self.lblPressAnyKey?.run(SKAction.fadeIn(withDuration: 0.45), completion: {
                 self.waitForAnyKey = true
             })
-//            if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
-//                if let viewCtrl = self.view?.window?.contentViewController{
-//                    (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
-//                }
-//            }
+            if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
+                if let viewCtrl = self.view?.window?.contentViewController{
+                    (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
+                    
+                    if(self.currentLevel.shots == self.currentLevel.hits){
+//                        (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
+                        GCAchievements.shared.add2perfectThrows()
+                    }
+                }
+            }
         })
+    }
+    
+//    func clickedAtPoint(point:CGPoint, margin:CGSize = CGSize(width: 32, height: 32), marginY:CGFloat = ){
+    func clickedAtPoint(point:CGPoint){
+        if(!self.gameRunning && self.waitForAnyKey){
+            self.restartAfterGameOverNG()
+            return
+        }
+        var location = point //event.location(in: gameScene.bg!)
+        
+        if(self.syringesLeft <= 0){
+//            location.y -= 30.0
+//            if let imgCH = self.imgCH{
+//                location.x += imgCH.size.width / 2
+//                location.y -= imgCH.size.height / 2
+//            }
+            let node = self.atPoint(location)
+            if(node == self.syringePickup || node.parent == self.syringePickup){
+                self.syringePickup?.alpha = 0.0
+                if(UserDefaultsHelper.playSounds){
+                    self.contentNode?.run(SoundManager.syringePickupSound)
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.syringesLeft = 2
+                    self.lblSyringesLeft?.text = self.syringesLeft.description + " / 2"
+                    self.syringe2?.isHidden = false
+                    self.syringe1?.isHidden = false
+                }
+            }
+            if(self.health >= 100.0){
+                return
+            }
+        }
+//        if let imgCH = self.imgCH{
+//            location.x += imgCH.size.width / 2
+//            location.y -= imgCH.size.height / 2
+//            location.y += 30.0
+//        }
+        let node = self.atPoint(location)
+        if(node == self.medkitPickup || node.parent == self.medkitPickup){
+            self.health += 25.0
+            self.prgBar.setProgress(self.health / 100.0)
+            self.medkitPickup?.run(SKAction.group([SKAction.fadeAlpha(to: (self.health >= 100.0 ? 0.0 : 1.0), duration: 2.0), SoundManager.healthPickupSound]), completion: {
+                if(self.health >= 100.0){
+                    self.medkitPickup?.alpha = 0.0
+                }
+            })
+            return
+        }
+        
+        if(self.syringesLeft <= 0){
+            return
+        }
+        var pointIn = location// event.location(in: self.bg!)
+//        if let imgCH = self.imgCH{
+//            pointIn.x += imgCH.size.width / 2
+//            pointIn.y -= imgCH.size.height / 2
+//        }
+        self.currentLevel.shots += 1
+        self.runHandThrowingAnimation()
+        self.syringe?.isHidden = false
+        self.syringesLeft -= 1
+        self.lblSyringesLeft?.text = self.syringesLeft.description + " / 2"
+        if(self.syringesLeft == 1){
+            self.syringe2?.isHidden = true
+        }else if(self.syringesLeft == 0){
+            self.syringe1?.isHidden = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
+                
+                let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
+//                let newY:CGFloat = (self.syringePickup?.position.y)!
+                let newY:CGFloat = CGFloat(Double.random(in: self.currentLevel.syringeRespawnYRange))
+                
+                self.syringePickup?.position = CGPoint(x: newX, y: newY)
+                self.syringePickup?.alpha = 1.0
+            }
+        }
+        self.syringe?.position = CGPoint(x: 0, y: -300)
+        self.syringe?.scale(to: CGSize(width: 64, height: 64))
+        if(UserDefaultsHelper.playSounds){
+            self.scene?.run(SoundManager.shotSound)
+//                SoundManager.playAudio(audioName: "throwing-whip")
+        }
+        self.syringe?.speed = UserDefaultsHelper.speedMultiplierForDifficulty
+        self.syringe?.run(
+            SKAction.group([
+                SKAction.move(to: pointIn, duration: 0.5),
+                SKAction.scale(to: 0.5, duration: 0.5)
+            ])
+        )
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.syringe?.isHidden = true
+        }
     }
 }

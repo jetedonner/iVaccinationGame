@@ -22,6 +22,9 @@ class BaseLevel {
     var zombieCount:Int = 1
     var zombieDamage:CGFloat = 25.0
     
+    var shots:Int = 0
+    var hits:Int = 0
+    
     #if os(macOS)
     var syringeRespawnYRange = -350.0..<(-100.0)
     #endif

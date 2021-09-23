@@ -48,7 +48,8 @@ class KeyboardHandler{
             self.gameScene.lblVacc?.fontColor = .yellow
             break
         case 35: // P
-            self.gameScene.isPaused = !self.gameScene.isPaused
+//            self.gameScene.isPaused = !self.gameScene.isPaused
+            self.gameScene.setGameState(isPaused: !self.gameScene.gamePaused)
             self.gameScene.lblGameOver?.text = (self.gameScene.isPaused ? "Pause" : "Game Over")
             self.gameScene.lblGameOver?.alpha = (self.gameScene.isPaused ? 1.0 : 0.0)
             self.gameScene.lblGameOver?.isHidden = !self.gameScene.isPaused
@@ -58,8 +59,9 @@ class KeyboardHandler{
 //            self.lblVacc?.fontColor = .yellow
             break
         case 53: // ESC => Pause and Show menu
-            self.gameScene.pauseStartTime = self.gameScene.curTime
-            self.gameScene.view?.isPaused = true
+//            self.gameScene.pauseStartTime = self.gameScene.curTime
+//            self.gameScene.view?.isPaused = true
+            self.gameScene.setGameState(isPaused: true)
             let vcSettings:SettingsViewController = SettingsViewController()
             vcSettings.gameScene = self.gameScene
             if let viewCtrl = self.gameScene.view?.window?.contentViewController{
