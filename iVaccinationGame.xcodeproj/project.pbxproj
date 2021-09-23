@@ -22,7 +22,6 @@
 		554E535526EFBA5400371E58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554E535426EFBA5400371E58 /* AVFoundation.framework */; };
 		5552BFA726F264130034C812 /* MagicParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5552BFA626F264130034C812 /* MagicParticle.sks */; };
 		5552BFA926F26ABE0034C812 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552BFA826F26ABE0034C812 /* TimeInterval.swift */; };
-		5552BFAB26F298F70034C812 /* Credits in Resources */ = {isa = PBXBuildFile; fileRef = 5552BFAA26F298F70034C812 /* Credits */; };
 		556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
@@ -105,6 +104,10 @@
 		55C83F3626FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */; };
 		55C83F3826FCE5BC00F42F53 /* MenuDifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3726FCE5BC00F42F53 /* MenuDifficultyScene.swift */; };
 		55C83F3A26FCF34A00F42F53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A5126F37FD500944766 /* Assets.xcassets */; };
+		55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3C26FCFC0300F42F53 /* LICENSE */; };
+		55C83F3E26FCFC0400F42F53 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3C26FCFC0300F42F53 /* LICENSE */; };
+		55C83F4326FCFC3400F42F53 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F4226FCFC3400F42F53 /* README.md */; };
+		55C83F4426FCFC3400F42F53 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F4226FCFC3400F42F53 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,7 +160,6 @@
 		554E535426EFBA5400371E58 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5552BFA626F264130034C812 /* MagicParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicParticle.sks; sourceTree = "<group>"; };
 		5552BFA826F26ABE0034C812 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
-		5552BFAA26F298F70034C812 /* Credits */ = {isa = PBXFileReference; lastKnownFileType = text; path = Credits; sourceTree = "<group>"; };
 		556FBE7E26F7032B00F8081C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		556FBE8026F77A6C00F8081C /* BasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePath.swift; sourceTree = "<group>"; };
 		556FBE8226F7858D00F8081C /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -209,6 +211,8 @@
 		55C83F3126FCA9A200F42F53 /* GCAchievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCAchievements.swift; sourceTree = "<group>"; };
 		55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuSelectDifficulty.sks; sourceTree = "<group>"; };
 		55C83F3726FCE5BC00F42F53 /* MenuDifficultyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDifficultyScene.swift; sourceTree = "<group>"; };
+		55C83F3C26FCFC0300F42F53 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		55C83F4226FCFC3400F42F53 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +267,8 @@
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
+				55C83F3C26FCFC0300F42F53 /* LICENSE */,
+				55C83F4226FCFC3400F42F53 /* README.md */,
 				55B64A8626F4C32B00944766 /* Shared */,
 				55B64A7526F3802F00944766 /* macOS */,
 				55B64A7626F3804400944766 /* iOS */,
@@ -298,7 +304,6 @@
 				554E532426EFAD4400371E58 /* Assets.xcassets */,
 				554E532626EFAD4400371E58 /* Main.storyboard */,
 				554E535126EFB60600371E58 /* Media.scnassets */,
-				5552BFAA26F298F70034C812 /* Credits */,
 				55B64A3426F3577D00944766 /* SettingsViewController.xib */,
 				55B64A3626F3579600944766 /* SettingsViewController.swift */,
 			);
@@ -706,6 +711,8 @@
 				55C83EF426FB91A900F42F53 /* GameScene_THIRD.sks in Resources */,
 				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
+				55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */,
+				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
 				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
 				55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */,
@@ -713,7 +720,6 @@
 				55B64A3526F3577D00944766 /* SettingsViewController.xib in Resources */,
 				554E535226EFB60600371E58 /* Media.scnassets in Resources */,
 				55C83EF826FB9B4600F42F53 /* GameScene_THIRD_alz.sks in Resources */,
-				5552BFAB26F298F70034C812 /* Credits in Resources */,
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
 				55B64A3126F3467200944766 /* MenuScene.sks in Resources */,
 				554E534B26EFB34E00371E58 /* CH_first.png in Resources */,
@@ -743,6 +749,7 @@
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */,
 				55C83F0426FC666500F42F53 /* GameScene_ORIG.sks in Resources */,
+				55C83F4426FCFC3400F42F53 /* README.md in Resources */,
 				55C83F0526FC666500F42F53 /* Actions.sks in Resources */,
 				55C83F2926FC719300F42F53 /* Media.scnassets in Resources */,
 				55C83F0626FC666500F42F53 /* MeadowLeftActions.sks in Resources */,
@@ -753,6 +760,7 @@
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,
 				55C83F0126FC666500F42F53 /* GameScene_TEST.sks in Resources */,
 				55B64A8726F4C34000944766 /* Assets.xcassets in Resources */,
+				55C83F3E26FCFC0400F42F53 /* LICENSE in Resources */,
 				55C83F0726FC666500F42F53 /* GameScene.sks in Resources */,
 				55C83F0D26FC673000F42F53 /* UpwardParticles.sks in Resources */,
 				55C83F0B26FC673000F42F53 /* MagicParticle.sks in Resources */,
