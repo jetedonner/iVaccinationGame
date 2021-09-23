@@ -11,9 +11,15 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    var gameCenterHelper:GameCenterHelper!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if(UserDefaultsHelper.useGameCenter){
+            self.gameCenterHelper = GameCenterHelper(vc: self)
+            self.gameCenterHelper.loadGameCenter()
+        }
 //        self.supportedInterfaceOrientations = .landscapeRight
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
@@ -23,8 +29,8 @@ class GameViewController: UIViewController {
             if let sceneNode = scene.rootNode as! GameScene? {
                 
                 // Copy gameplay related content over to the scene
-                sceneNode.entities = scene.entities
-                sceneNode.graphs = scene.graphs
+//                sceneNode.entities = scene.entities
+//                sceneNode.graphs = scene.graphs
                 
                 // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
@@ -35,8 +41,11 @@ class GameViewController: UIViewController {
                     
                     view.ignoresSiblingOrder = true
                     
-                    view.showsFPS = true
-                    view.showsNodeCount = true
+                    if(UserDefaultsHelper.devMode){
+                        view.showsFPS = true
+                        view.showsNodeCount = true
+                        view.showsPhysics = true
+                    }
                 }
             }
         }

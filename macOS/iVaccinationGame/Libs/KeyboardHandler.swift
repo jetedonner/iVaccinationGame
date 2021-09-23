@@ -20,7 +20,7 @@ class KeyboardHandler{
     func keyDown(with event: NSEvent) {
         print("KeyPressed: %d", event.keyCode)
         if(self.gameScene.waitForAnyKey){
-            self.gameScene.restartAfterGameOverNG()
+            self.gameScene.restartAfterGameOverNG(resetTime: true, loadNewLevel: true)
             return
         }
         

@@ -19,13 +19,21 @@ class GameCenterHelper: NSObject {
     let inviteMessage:String = "Hey there join me for a iVaccination fight!"
     var currentVC: GKMatchmakerViewController?
     
-    var viewController: NSViewController?
     var delegate:GameCenterHelperDelegate?
     
+    #if os(macOS)
+    var viewController: NSViewController?
     init(vc:ViewController) {
         super.init()
         self.viewController = vc
     }
+    #else
+    var viewController: UIViewController?
+    init(vc:GameViewController) {
+        super.init()
+        self.viewController = vc
+    }
+    #endif
     
     func loadGameCenter(){
 //        if(SuakeVars.useGameCenter){
@@ -45,7 +53,13 @@ class GameCenterHelper: NSObject {
             GKAccessPoint.shared.showHighlights = true
             GKAccessPoint.shared.isActive = GKLocalPlayer.local.isAuthenticated
           } else if let vc = gcAuthVC {
-            self.viewController?.presentAsModalWindow(vc)//(vc, animator: NSViewControllerPresentationAnimator).present(vc, animated: true)
+              #if os(macOS)
+              self.viewController?.presentAsModalWindow(vc)//(vc, animator: NSViewControllerPresentationAnimator).present(vc, animated: true)
+              #else
+              self.viewController?.present(vc, animated: true, completion: {
+                  
+              })
+              #endif
           }
           else {
 //            print("Error authentication to GameCenter: \(error?.localizedDescription ?? "none")")
@@ -56,7 +70,15 @@ class GameCenterHelper: NSObject {
     func showDashboard(){
         let viewController = GKGameCenterViewController(state: .dashboard)
         viewController.gameCenterDelegate = self
-        self.viewController?.presentAsModalWindow(viewController)
+//        self.viewController?.presentAsModalWindow(viewController)
+        #if os(macOS)
+        self.viewController?.presentAsModalWindow(viewController)//(vc, animator: NSViewControllerPresentationAnimator).present(vc, animated: true)
+        #else
+        self.viewController?.present(viewController, animated: true, completion: {
+            
+        })
+        #endif
+
     }
     
     func updateScore(with value: Int) {
@@ -76,7 +98,11 @@ class GameCenterHelper: NSObject {
 
 extension GameCenterHelper: GKGameCenterControllerDelegate {
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        #if os(macOS)
         gameCenterViewController.dismiss(true)
+        #else
+        gameCenterViewController.dismiss(animated: true)
+        #endif
     }
 }
 

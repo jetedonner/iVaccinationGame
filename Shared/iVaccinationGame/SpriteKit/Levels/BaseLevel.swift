@@ -22,6 +22,15 @@ class BaseLevel {
     var zombieCount:Int = 1
     var zombieDamage:CGFloat = 25.0
     
+    #if os(macOS)
+    var syringeRespawnYRange = -350.0..<(-100.0)
+    #endif
+    
+    #if os(iOS)
+    var syringeRespawnYRange = -350.0..<(-100.0) //UIFloatRange = UIFloatRange(minimum: -200.0, maximum: 0.0)
+//    let underFive = 0.0..<5.0
+    #endif
+    
     init(){
         self.initLevel()
         self.zombieCurrentPath = self.zombiePaths.randomElement()!
@@ -31,7 +40,7 @@ class BaseLevel {
         
     }
     
-    func setupLevel(gameScene:GameScene){
+    func setupLevel(gameScene:GameSceneBase){
         
         let date = Date()
         let calendar = Calendar.current
@@ -44,10 +53,14 @@ class BaseLevel {
         }
         
         gameScene.bg?.texture = SKTexture(imageNamed: self.backgroundImageName + (nightMode ? "Night" : ""))
-        gameScene.zombieGirl.texture = SKTexture(imageNamed: self.zombieImageName)
+//        gameScene.zombieGirl.texture = SKTexture(imageNamed: self.zombieImageName)
+//        if let path = self.zombiePaths.randomElement(){
+//            gameScene.zombieGirl.position = path.initPos
+//            gameScene.zombieGirl.setScale(path.initScale)
+        gameScene.zmbGrl.texture = SKTexture(imageNamed: self.zombieImageName)
         if let path = self.zombiePaths.randomElement(){
-            gameScene.zombieGirl.position = path.initPos
-            gameScene.zombieGirl.setScale(path.initScale)
+            gameScene.zmbGrl.position = path.initPos
+            gameScene.zmbGrl.setScale(path.initScale)
         }
     }
 }

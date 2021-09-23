@@ -6,7 +6,9 @@
 //
 
 import Foundation
-import Cocoa
+//import Cocoa
+//import UIKit
+import SpriteKit
 
 extension NSValueTransformerName {
     static let myCGFloatValueTransformer = NSValueTransformerName( rawValue: "CGFloatValueTransformer")

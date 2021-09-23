@@ -18,9 +18,16 @@ class SyringePickup: BasePickupNode {
         super.init(imageNamed: name, emitterFileNamed: emitterFileNamed)
     }
     
-    override init(texture: SKTexture?, color: NSColor, size: CGSize) {
-        super.init(texture: texture, color: color, size: size)
-    }
+    
+//    #if os(iOS)
+//    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+//        super.init(texture: texture, color: color, size: size)
+//    }
+//    #else
+//    override init(texture: SKTexture?, color: NSColor, size: CGSize) {
+//        super.init(texture: texture, color: color, size: size)
+//    }
+//    #endif
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

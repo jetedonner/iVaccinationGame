@@ -56,8 +56,11 @@ class ViewController: NSViewController {
                     
                     view.ignoresSiblingOrder = true
                     
-                    view.showsFPS = true
-                    view.showsNodeCount = true
+                    if(UserDefaultsHelper.devMode){
+                        view.showsFPS = true
+                        view.showsNodeCount = true
+                        view.showsPhysics = true
+                    }
                 }
             }
         }
@@ -82,9 +85,12 @@ class ViewController: NSViewController {
                     view.resetCursorRects()
 
                     view.ignoresSiblingOrder = true
-
-                    view.showsFPS = true
-                    view.showsNodeCount = true
+                    
+                    if(UserDefaultsHelper.devMode){
+                        view.showsFPS = true
+                        view.showsNodeCount = true
+                        view.showsPhysics = true
+                    }
                 }
             }
         }
