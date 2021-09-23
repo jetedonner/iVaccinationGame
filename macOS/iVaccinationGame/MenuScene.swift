@@ -96,12 +96,15 @@ class MenuScene: SKScene {
         if(self.selNode == lblExit){
             NSApp.terminate(nil)
         }else if(self.selNode == lblStartGame){
+//            if let viewCtrl = self.view?.window?.contentViewController{
+//                (viewCtrl as! ViewController).loadGameScene()
+//            }
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadGameScene()
+                (viewCtrl as! ViewController).loadDifficultyMenu()
             }
         }else if(self.selNode == lblGameCenter){
 //            GKAccessPoint.shared.trigger(handler: {
-//            
+//
 //            })
         }else if(self.selNode == lblSettings){
             let vcSettings:SettingsViewController = SettingsViewController()

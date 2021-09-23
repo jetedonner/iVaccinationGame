@@ -79,6 +79,7 @@ class UserDefaultsHelper{
             }
             return retDiff
         }
+        set{ defaults.set(newValue.rawValue, forKey: UserDefaultsName.difficulty.rawValue) }
     }
     
     static var speedMultiplierForDifficulty:CGFloat{

@@ -167,22 +167,13 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.syringe?.physicsBody?.affectedByGravity = false
         
         self.scene?.addChild(self.zmbGrl)
-//        self.zmbGrl.position = self.currentLevel.
-//        self.zmbGrl = self.contentNode!.childNode(withName: "ZombieGirl") as! SKSpriteNode
         self.zmbGrl.physicsBody = SKPhysicsBody(rectangleOf: self.zmbGrl.size)
         self.zmbGrl.physicsBody?.affectedByGravity = false
         self.zmbGrl.physicsBody?.isDynamic = false
+        
         if(UserDefaultsHelper.devMode){
             self.zmbGrl.addDbgBorder()
         }
-        
-//        self.zombieGirl = self.contentNode!.childNode(withName: "ZombieGirl") as! SKSpriteNode
-//        self.zombieGirl.physicsBody = SKPhysicsBody(rectangleOf: self.zombieGirl.size)
-//        self.zombieGirl.physicsBody?.affectedByGravity = false
-//        self.zombieGirl.physicsBody?.isDynamic = false
-//        if(UserDefaultsHelper.devMode){
-//            self.zombieGirl.addDbgBorder()
-//        }
         
         self.prgBar.setProgress(1.0)
         self.prgBar.position = CGPoint(x: (self.frame.width / 2) - 20 , y: (self.frame.height / 2) - 12 - 70)
@@ -191,7 +182,6 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         
         self.syringe?.physicsBody?.contactTestBitMask = 0b0001
         self.zmbGrl.physicsBody?.contactTestBitMask = 0b0010
-//        self.zombieGirl.physicsBody?.contactTestBitMask = 0b0010
         
         self.scoreLblOrigPos = self.lblScore!.position
         
@@ -249,8 +239,6 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.imgThrowingHand?.removeAllActions()
         let throwAct:SKAction = SKAction.group([SKAction.rotate(byAngle: 1.6, duration: 0.25), SKAction.moveBy(x: -20, y: -200, duration: 0.25)])
         self.imgThrowingHand?.run(throwAct, completion: {
-//            let resetThrowAct:SKAction = SKAction.group([SKAction.rotate(byAngle: -1.6, duration: 0.0), SKAction.moveBy(x: 20, y: 200, duration: 0.0)])
-//            self.imgThrowingHand?.run(resetThrowAct)
             self.imgThrowingHand?.zRotation = self.handInitRot!
             self.imgThrowingHand?.position = self.handInitPos!
             self.setupHandAnimation()
@@ -285,17 +273,9 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.showEarnedPoints()
         if(self.score % 200 == 0){
             
-            
             explosionEmitterNode?.setScale(0.35)
             explosionEmitterNode?.isHidden = false
             
-//            if(explosionEmitterNode?.parent == nil){
-//                self.zombieGirl.addChild(explosionEmitterNode!)
-//            }
-//            if(UserDefaultsHelper.playSounds){
-//                self.zombieGirl.run(SoundManager.unzombiefiedSound) // telein
-//            }
-//            self.zombieGirl.run(SKAction.wait(forDuration: 0.45), completion: {
             if(explosionEmitterNode?.parent == nil){
                 self.zmbGrl.addChild(explosionEmitterNode!)
             }
@@ -316,15 +296,6 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
     
     func restartZombieAction(){
         self.imgBlood?.isHidden = true
-//        self.zombieGirl.removeAllActions()
-//        self.explosionEmitterNode?.removeFromParent()
-//        self.currentLevel.zombieCurrentPath = self.currentLevel.zombiePaths.randomElement()!
-//        self.zombieGirl.xScale = self.currentLevel.zombieCurrentPath.initScale // 0.5
-//        self.zombieGirl.yScale = self.currentLevel.zombieCurrentPath.initScale //0.5
-//        self.zombieGirl.position = self.currentLevel.zombieCurrentPath.initPos// self.zombieStartPos!
-//        self.zombieGirl.texture =  SKTexture(imageNamed: "ZombieGirl2")
-//        self.zombieGirl.speed = UserDefaultsHelper.speedMultiplierForDifficulty
-//        self.zombieGirl.run(self.currentLevel.zombieCurrentPath.path, completion: {
         self.zmbGrl.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
         self.currentLevel.zombieCurrentPath = self.currentLevel.zombiePaths.randomElement()!
@@ -352,11 +323,13 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
             
             if(self.health <= 75.0){
                 self.medkitPickup?.alpha = 1.0
+                let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
+                let newY:CGFloat = CGFloat(Double.random(in: self.currentLevel.medkitRespawnYRange))
+                self.medkitPickup?.position = CGPoint(x: newX, y: newY)
             }
             
-//            self.zombieGirl.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)]), (UserDefaultsHelper.playSounds ? SoundManager.eatSound : SKAction.wait(forDuration: 0.0))]), completion: {
             self.zmbGrl.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)]), (UserDefaultsHelper.playSounds ? SoundManager.eatSound : SKAction.wait(forDuration: 0.0))]), completion: {
-                var painSnd:SKAction = SoundManager.painSounds[3] // GameVars.BASE_MEDIA_DIR + "pain25_1.mp3"
+                var painSnd:SKAction = SoundManager.painSounds[3]
                 if(self.health >= 75.0){
                     painSnd = SoundManager.painSounds[PainSoundLevel.PAIN_100.rawValue]
                 }else if(self.health >= 50.0){
@@ -366,12 +339,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
                 }else if(self.health < 25.0){
                     painSnd = SoundManager.painSounds[PainSoundLevel.PAIN_25.rawValue]
                 }
-//                if(UserDefaultsHelper.playSounds){
-//                    self.zombieGirl.run(painSnd)
-//                }
-//                self.zombieGirl.run(SKAction.wait(forDuration: 0.75), completion: {
-//                    self.restartZombieAction()
-//                })
+                
                 if(UserDefaultsHelper.playSounds){
                     self.zmbGrl.run(painSnd)
                 }
@@ -380,14 +348,8 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
                 })
             })
         })
-//        self.zombieGirl.zPosition = 1000
         self.zmbGrl.zPosition = 1000
     }
-    
-    
-//    override func keyDown(with event: NSEvent) {
-//        self.keyboardHandler.keyDown(with: event)
-//    }
     
     override func update(_ currentTime: TimeInterval) {
         self.curTime = currentTime
@@ -454,8 +416,6 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
 //            self.gameDuration = 0
         }
         
-//        self.zombieGirl.removeAllActions()
-//        self.zombieGirl.isPaused = false
         self.zmbGrl.removeAllActions()
         self.zmbGrl.isPaused = false
         self.restartZombieAction()
@@ -482,32 +442,47 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
                 self.waitForAnyKey = true
             })
             if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
-                if let viewCtrl = self.view?.window?.contentViewController{
-                    (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
-                    
-                    if(self.currentLevel.shots == self.currentLevel.hits){
-//                        (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
+#if os(iOS)
+                if let viewCtrl = self.view?.window?.rootViewController{
+                    (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.score)
+                    if(self.currentLevel.shots > 0 && self.currentLevel.shots == self.currentLevel.hits){
                         GCAchievements.shared.add2perfectThrows()
                     }
                 }
+#else
+                if let viewCtrl = self.view?.window?.contentViewController{
+                    (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
+                    if(self.currentLevel.shots > 0 && self.currentLevel.shots == self.currentLevel.hits){
+                        GCAchievements.shared.add2perfectThrows()
+                    }
+                }
+#endif
+//                if let viewCtrl = self.view?.window?.contentViewController{
+//                    (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
+//
+//                    if(self.currentLevel.shots == self.currentLevel.hits){
+//                        #if os(macOS)
+//                        (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
+//                        #else
+//                        (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
+//                        #endif
+//                        GCAchievements.shared.add2perfectThrows()
+//                    }
+//                }
             }
         })
     }
     
-//    func clickedAtPoint(point:CGPoint, margin:CGSize = CGSize(width: 32, height: 32), marginY:CGFloat = ){
     func clickedAtPoint(point:CGPoint){
         if(!self.gameRunning && self.waitForAnyKey){
             self.restartAfterGameOverNG()
             return
         }
-        var location = point //event.location(in: gameScene.bg!)
+        
+        let location = point
         
         if(self.syringesLeft <= 0){
-//            location.y -= 30.0
-//            if let imgCH = self.imgCH{
-//                location.x += imgCH.size.width / 2
-//                location.y -= imgCH.size.height / 2
-//            }
+            
             let node = self.atPoint(location)
             if(node == self.syringePickup || node.parent == self.syringePickup){
                 self.syringePickup?.alpha = 0.0
@@ -525,11 +500,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
                 return
             }
         }
-//        if let imgCH = self.imgCH{
-//            location.x += imgCH.size.width / 2
-//            location.y -= imgCH.size.height / 2
-//            location.y += 30.0
-//        }
+        
         let node = self.atPoint(location)
         if(node == self.medkitPickup || node.parent == self.medkitPickup){
             self.health += 25.0
@@ -545,11 +516,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         if(self.syringesLeft <= 0){
             return
         }
-        var pointIn = location// event.location(in: self.bg!)
-//        if let imgCH = self.imgCH{
-//            pointIn.x += imgCH.size.width / 2
-//            pointIn.y -= imgCH.size.height / 2
-//        }
+//        var pointIn = location
         self.currentLevel.shots += 1
         self.runHandThrowingAnimation()
         self.syringe?.isHidden = false
@@ -562,7 +529,6 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
                 
                 let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
-//                let newY:CGFloat = (self.syringePickup?.position.y)!
                 let newY:CGFloat = CGFloat(Double.random(in: self.currentLevel.syringeRespawnYRange))
                 
                 self.syringePickup?.position = CGPoint(x: newX, y: newY)
@@ -578,7 +544,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.syringe?.speed = UserDefaultsHelper.speedMultiplierForDifficulty
         self.syringe?.run(
             SKAction.group([
-                SKAction.move(to: pointIn, duration: 0.5),
+                SKAction.move(to: location, duration: 0.5),
                 SKAction.scale(to: 0.5, duration: 0.5)
             ])
         )

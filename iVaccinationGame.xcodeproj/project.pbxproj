@@ -101,6 +101,9 @@
 		55C83F3026FC984E00F42F53 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C83F2F26FC984E00F42F53 /* GameKit.framework */; };
 		55C83F3226FCA9A200F42F53 /* GCAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3126FCA9A200F42F53 /* GCAchievements.swift */; };
 		55C83F3326FCA9A200F42F53 /* GCAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3126FCA9A200F42F53 /* GCAchievements.swift */; };
+		55C83F3526FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */; };
+		55C83F3626FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */; };
+		55C83F3826FCE5BC00F42F53 /* MenuDifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3726FCE5BC00F42F53 /* MenuDifficultyScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +206,8 @@
 		55C83F2A26FC75E600F42F53 /* GameSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameSceneBase.swift; path = Shared/iVaccinationGame/SpriteKit/Base/GameSceneBase.swift; sourceTree = SOURCE_ROOT; };
 		55C83F2F26FC984E00F42F53 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		55C83F3126FCA9A200F42F53 /* GCAchievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCAchievements.swift; sourceTree = "<group>"; };
+		55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuSelectDifficulty.sks; sourceTree = "<group>"; };
+		55C83F3726FCE5BC00F42F53 /* MenuDifficultyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDifficultyScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +292,7 @@
 				55B64A8426F3CEAE00944766 /* CH_first_red.png */,
 				554E531A26EFAD4300371E58 /* AppDelegate.swift */,
 				55B64A3226F3474900944766 /* MenuScene.swift */,
+				55C83F3726FCE5BC00F42F53 /* MenuDifficultyScene.swift */,
 				554E532226EFAD4300371E58 /* ViewController.swift */,
 				554E532426EFAD4400371E58 /* Assets.xcassets */,
 				554E532626EFAD4400371E58 /* Main.storyboard */,
@@ -400,6 +406,7 @@
 				55A579CF26F6464F0084239D /* GameScene_TEST.sks */,
 				554E531E26EFAD4300371E58 /* Actions.sks */,
 				55B64A3026F3467200944766 /* MenuScene.sks */,
+				55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -710,6 +717,7 @@
 				55B64A3126F3467200944766 /* MenuScene.sks in Resources */,
 				554E534B26EFB34E00371E58 /* CH_first.png in Resources */,
 				55A579CE26F646480084239D /* GameScene_ORIG.sks in Resources */,
+				55C83F3526FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +748,7 @@
 				55C83F0826FC666500F42F53 /* GameScene_THIRD.sks in Resources */,
 				55C83F0326FC666500F42F53 /* GameScene_THIRD_alz.sks in Resources */,
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
+				55C83F3626FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */,
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,
 				55C83F0126FC666500F42F53 /* GameScene_TEST.sks in Resources */,
 				55B64A8726F4C34000944766 /* Assets.xcassets in Resources */,
@@ -787,6 +796,7 @@
 				556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */,
 				55B64A8326F3AB8700944766 /* UserDefaultsHelper.swift in Sources */,
 				554E532126EFAD4300371E58 /* GameScene.swift in Sources */,
+				55C83F3826FCE5BC00F42F53 /* MenuDifficultyScene.swift in Sources */,
 				55A579D326F64D1B0084239D /* CGFloatValueTransformer.swift in Sources */,
 				554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */,
 				556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */,

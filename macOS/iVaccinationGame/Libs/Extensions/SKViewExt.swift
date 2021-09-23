@@ -15,6 +15,12 @@ extension SKView {
             menuScene.mouseDown(with: event)
             return
         }
+        
+        if let menuDifScene = (self.scene as? MenuDifficultyScene){
+            menuDifScene.mouseDown(with: event)
+            return
+        }
+        
         if let gameScene = (self.scene as? GameScene){
             super.mouseDown(with: event)
             
