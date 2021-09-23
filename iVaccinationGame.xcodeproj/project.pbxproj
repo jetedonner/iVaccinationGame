@@ -301,9 +301,7 @@
 				55B64A3226F3474900944766 /* MenuScene.swift */,
 				55C83F3726FCE5BC00F42F53 /* MenuDifficultyScene.swift */,
 				554E532226EFAD4300371E58 /* ViewController.swift */,
-				554E532426EFAD4400371E58 /* Assets.xcassets */,
 				554E532626EFAD4400371E58 /* Main.storyboard */,
-				554E535126EFB60600371E58 /* Media.scnassets */,
 				55B64A3426F3577D00944766 /* SettingsViewController.xib */,
 				55B64A3626F3579600944766 /* SettingsViewController.swift */,
 			);
@@ -351,9 +349,7 @@
 		55A579C426F50A590084239D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				5552BFA826F26ABE0034C812 /* TimeInterval.swift */,
 				55A579C026F507A10084239D /* SKViewExt.swift */,
-				55A579C226F507DF0084239D /* SKSpriteNodeExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,7 +377,6 @@
 		55A579D126F64CFA0084239D /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				55B64A8226F3AB8700944766 /* UserDefaultsHelper.swift */,
 				55A579D226F64D1B0084239D /* CGFloatValueTransformer.swift */,
 			);
 			path = UserDefaults;
@@ -392,8 +387,6 @@
 			children = (
 				55A579D126F64CFA0084239D /* UserDefaults */,
 				55A579C426F50A590084239D /* Extensions */,
-				55B64A3826F35E7600944766 /* SoundManager.swift */,
-				55B64A3C26F3716000944766 /* CustomProgressBar.swift */,
 				556FBE7E26F7032B00F8081C /* AlertBox.swift */,
 				556FBE8226F7858D00F8081C /* KeyboardHandler.swift */,
 			);
@@ -498,6 +491,9 @@
 		55C83EFE26FC664400F42F53 /* iVaccinationGame */ = {
 			isa = PBXGroup;
 			children = (
+				554E535126EFB60600371E58 /* Media.scnassets */,
+				554E532426EFAD4400371E58 /* Assets.xcassets */,
+				55C83F4526FD05CF00F42F53 /* Extensions */,
 				55C83F2326FC6A0F00F42F53 /* Libs */,
 				55B64A7B26F3A37F00944766 /* Apple */,
 				55C83EFF26FC664C00F42F53 /* SpriteKit */,
@@ -528,9 +524,21 @@
 		55C83F2326FC6A0F00F42F53 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				55B64A3C26F3716000944766 /* CustomProgressBar.swift */,
+				55B64A3826F35E7600944766 /* SoundManager.swift */,
+				55B64A8226F3AB8700944766 /* UserDefaultsHelper.swift */,
 				55B64A3A26F3602C00944766 /* GameVars.swift */,
 			);
 			path = Libs;
+			sourceTree = "<group>";
+		};
+		55C83F4526FD05CF00F42F53 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5552BFA826F26ABE0034C812 /* TimeInterval.swift */,
+				55A579C226F507DF0084239D /* SKSpriteNodeExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

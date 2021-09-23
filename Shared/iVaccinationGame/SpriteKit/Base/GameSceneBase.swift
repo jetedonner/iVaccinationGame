@@ -93,7 +93,8 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
     var lblEarnedPoints:SKLabelNode!
     
     var chIOS:SKSpriteNode!
-    
+    var emptyHands:SKTexture = SKTexture(imageNamed: "ThrowingFingersEmpty")
+    var fullHands:SKTexture = SKTexture(imageNamed: "ThrowingFingers")
 //    var keyboardHandler:KeyboardHandler!
     
     var zmbGrl:ZombieGirl!
@@ -478,9 +479,16 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
                     self.lblSyringesLeft?.text = self.syringesLeft.description + " / 2"
                     self.syringe2?.isHidden = false
                     self.syringe1?.isHidden = false
+                    if(self.syringesLeft <= 0){
+                        self.imgThrowingHand?.texture = self.emptyHands
+                    }else{
+                        self.imgThrowingHand?.texture = self.fullHands
+                    }
                 }
             }
+            
             if(self.health >= 100.0){
+                
                 return
             }
         }
@@ -511,12 +519,13 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         }else if(self.syringesLeft == 0){
             self.syringe1?.isHidden = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
-                
-                let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
-                let newY:CGFloat = CGFloat(Double.random(in: self.currentLevel.syringeRespawnYRange))
-                
-                self.syringePickup?.position = CGPoint(x: newX, y: newY)
-                self.syringePickup?.alpha = 1.0
+                repeat{
+                    let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
+                    let newY:CGFloat = CGFloat(Double.random(in: self.currentLevel.syringeRespawnYRange))
+                    
+                    self.syringePickup?.position = CGPoint(x: newX, y: newY)
+                    self.syringePickup?.alpha = 1.0
+                }while(self.syringePickup!.intersects(self.imgThrowingHand!))
             }
         }
         self.syringe?.position = CGPoint(x: 0, y: -300)
@@ -531,6 +540,11 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
                 SKAction.scale(to: 0.5, duration: 0.5)
             ])
         )
+        if(self.syringesLeft <= 0){
+            self.imgThrowingHand?.texture = self.emptyHands
+        }else{
+            self.imgThrowingHand?.texture = self.fullHands
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.syringe?.isHidden = true
         }
