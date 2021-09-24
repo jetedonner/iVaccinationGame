@@ -21,6 +21,7 @@ class SettingsViewController: NSViewController {
     
     @IBAction func testGCAchivements(_ sender:Any){
         GCAchievements.shared.add2perfectThrows()
+        GCAchievements.shared.add2stayHealthy()
     }
     
     @IBAction func closeAndDiscardChanges(_ sender:Any){

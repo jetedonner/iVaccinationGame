@@ -43,6 +43,9 @@ class BaseLevel {
         if let path = self.zombiePaths.randomElement(){
             gameScene.zombieGirl.position = path.initPos
             gameScene.zombieGirl.setScale(path.initScale)
+            if(path.hideOnStart){
+                gameScene.zombieGirl.xScale = 0.0
+            }
         }
     }
     

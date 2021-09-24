@@ -31,21 +31,45 @@ class SoundManager{
     
     static let menuHighliteSound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "Menu1.mp3", waitForCompletion: false)
     
+    static let impact1Sound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "bulletimpact-metal1.mp3", waitForCompletion: true)
+    static let impact2Sound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "bulletimpact-metal2.mp3", waitForCompletion: true)
+    static let impact3Sound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "bulletimpact-metal3.mp3", waitForCompletion: true)
+    static let pain25Sound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain25_1.mp3", waitForCompletion: false)
+    static let pain50Sound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain50_1.mp3", waitForCompletion: false)
+    static let pain75Sound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain75_1.mp3", waitForCompletion: false)
+    static let pain100Sound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain100_1.mp3", waitForCompletion: false)
+    
+    static let eat1Sound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "eat_crunch_1.mp3", waitForCompletion: false)
+    static let eat2Sound:SKAction = SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "eat_crunch_2.mp3", waitForCompletion: false)
+    
     static var eatSound:SKAction{
-        get{ SKAction.playSoundFileNamed(self.getRandomEatSound(), waitForCompletion: false) }
+        get{
+            return [
+                eat1Sound,
+                eat2Sound
+            ].randomElement()!
+        }
+    }
+    
+    static var impactSound:SKAction{
+        return [
+            impact1Sound,
+            impact2Sound,
+            impact3Sound
+        ].randomElement()!
     }
     
     static let painSounds:[SKAction] = [
-        SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain25_1.mp3", waitForCompletion: false),
-        SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain50_1.mp3", waitForCompletion: false),
-        SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain75_1.mp3", waitForCompletion: false),
-        SKAction.playSoundFileNamed(GameVars.BASE_MEDIA_DIR + "pain100_1.mp3", waitForCompletion: false)
+        pain25Sound,
+        pain50Sound,
+        pain75Sound,
+        pain100Sound
     ]
 
-    static func getRandomEatSound()->String{
-        let eatSounds:[String] = [GameVars.BASE_MEDIA_DIR + "eat_crunch_1.mp3", GameVars.BASE_MEDIA_DIR + "eat_crunch_2.mp3"]
-        return eatSounds.randomElement()!
-    }
+//    static func getRandomEatSound()->String{
+//        let eatSounds:[String] = [GameVars.BASE_MEDIA_DIR + "eat_crunch_1.mp3", GameVars.BASE_MEDIA_DIR + "eat_crunch_2.mp3"]
+//        return eatSounds.randomElement()!
+//    }
     
     static func getBackgroundAudioNode()->SKAudioNode{
         let backgroundSound:SKAudioNode = SKAudioNode(fileNamed: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin.mp3")

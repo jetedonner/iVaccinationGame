@@ -48,6 +48,8 @@ class GameScene: GameSceneBase {
             self.chIOS.setScale(0.75)
             self.chIOS.alpha = 1.0
             self.chIOS.run(SKAction.group([SKAction.scale(to: 1.45, duration: self.chTimeout), SKAction.fadeAlpha(to: 0.0, duration: self.chTimeout)]))
+            
+            
             gameScene.clickedAtPoint(point: pos)
         }
     }

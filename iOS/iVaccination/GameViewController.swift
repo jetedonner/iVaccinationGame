@@ -12,6 +12,7 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     var gameCenterHelper:GameCenterHelper!
+    var gameSceneObj:GameScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class GameViewController: UIViewController {
             
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
-                
+                self.gameSceneObj = sceneNode
                 // Copy gameplay related content over to the scene
 //                sceneNode.entities = scene.entities
 //                sceneNode.graphs = scene.graphs
@@ -49,7 +50,13 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        self.registerSettingsBundle()
     }
+    
+    func registerSettingsBundle(){
+            let appDefaults = [String:AnyObject]()
+            UserDefaults.standard.register(defaults: appDefaults)
+        }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

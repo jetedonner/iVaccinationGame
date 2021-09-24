@@ -17,6 +17,10 @@ class GCAchievements:NSObject{
     public var achivementPerfectThrowsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows"
     public var achivementPerfectThrows:GKAchievement?
     
+    public var achivementStayHealthyID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.stayhealthy"
+    public var achivementStayHealthy:GKAchievement?
+    
+    
 //    public var achivements10HeadshotsID = "grp.ch.kimhauser.swift.suake3d.achievements.10headshots"
 //    public var achivements10Headshots:GKAchievement?
 //
@@ -37,6 +41,12 @@ class GCAchievements:NSObject{
     public var PerfectThrows:Int{
         get{ return self._perfectThrows }
         set{ self._perfectThrows = newValue }
+    }
+    
+    private var _stayHealthy:Int = 0
+    public var StayHealthy:Int{
+        get{ return self._stayHealthy }
+        set{ self._stayHealthy = newValue }
     }
 //
 //    private let headShots10AchievementCount:Int = 10
@@ -114,6 +124,10 @@ class GCAchievements:NSObject{
 //
     func add2perfectThrows(times2Add:Int = 1){
         self.add2Achivement(identifier: achivementPerfectThrowsID, obj2Add2: &PerfectThrows, max2Add2: PerfectThrows, point2Add: 25)
+    }
+    
+    func add2stayHealthy(times2Add:Int = 1){
+        self.add2Achivement(identifier: achivementStayHealthyID, obj2Add2: &StayHealthy, max2Add2: StayHealthy, point2Add: 15)
     }
 //
 //    func add2RedeemerAchivement(point2Add:Int = 1){

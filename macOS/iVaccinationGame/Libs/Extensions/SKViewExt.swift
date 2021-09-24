@@ -14,14 +14,13 @@ extension SKView {
         if let menuScene = (self.scene as? MenuScene){
             menuScene.mouseDown(with: event)
             return
-        }
-        
-        if let menuDifScene = (self.scene as? MenuDifficultyScene){
+        }else if let menuDifScene = (self.scene as? MenuDifficultyScene){
             menuDifScene.mouseDown(with: event)
             return
-        }
-        
-        if let gameScene = (self.scene as? GameScene){
+        }else if let descScene = (self.scene as? DescriptionScene){
+            descScene.mouseDown(with: event)
+            return
+        }else if let gameScene = (self.scene as? GameScene){
             super.mouseDown(with: event)
             
             let location = event.location(in: gameScene.bg!)
