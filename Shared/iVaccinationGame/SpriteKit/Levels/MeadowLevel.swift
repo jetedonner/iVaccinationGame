@@ -8,15 +8,15 @@
 import Foundation
 import SpriteKit
 
-class ThirdLevel: BaseLevel {
+class MeadowLevel: BaseLevel {
     
     override init() {
         super.init()
     }
     
     override func initLevel() {
-        self.levelName = "Flushing meadow"
-        self.backgroundImageName = "Meadows"
+        self.levelName = "Meadow"
+        self.backgroundImageName = "Meadow"
         self.zombieImageName = "ZombieGirl2"
         self.zombieCuredImageName = "ZombieGirl2Un"
         self.zombieCount = 1

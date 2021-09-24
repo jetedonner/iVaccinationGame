@@ -59,19 +59,19 @@
 			<string>City Japan</string>
 			<key>Titles</key>
 			<array>
-				<string>CitySkyline</string>
+				<string>City Skyline</string>
 				<string>Wallway</string>
-				<string>Meadows</string>
-				<string>City Streets</string>
+				<string>Meadow</string>
+				<string>City Street</string>
 				<string>City Japan</string>
 				<string>City Night</string>
 			</array>
 			<key>Values</key>
 			<array>
-				<string>CitySkyline</string>
+				<string>City Skyline</string>
 				<string>Wallway</string>
-				<string>Meadows</string>
-				<string>City Streets</string>
+				<string>Meadow</string>
+				<string>City Street</string>
 				<string>City Japan</string>
 				<string>City Night</string>
 			</array>

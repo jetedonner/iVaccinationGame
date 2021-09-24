@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class FirstLevel: BaseLevel {
+class CitySkylineLevel: BaseLevel {
     
     override init() {
         super.init()

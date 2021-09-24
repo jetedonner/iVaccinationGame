@@ -1,6 +1,6 @@
 //
-//  SyringePickup.swift
-//  SyringePickup
+//  MedKitPickup.swift
+//  MedKitPickup
 //
 //  Created by Kim David Hauser on 17.09.21.
 //
@@ -8,10 +8,10 @@
 import Foundation
 import SpriteKit
 
-class SyringePickup: BasePickupNode {
+class CertificatePickup: BasePickupNode {
     
     init(imageNamed name: String, emitterFileNamed: String){
-        super.init(imageNamed: name, emitterFileNamed: emitterFileNamed, size: CGSize(width: 76.8, height: 76.8))
+        super.init(imageNamed: name, emitterFileNamed: emitterFileNamed)
     }
     
     required init?(coder aDecoder: NSCoder) {

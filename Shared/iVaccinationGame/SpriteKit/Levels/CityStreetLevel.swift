@@ -8,17 +8,15 @@
 import Foundation
 import SpriteKit
 
-class SecondLevel: BaseLevel {
+class CityStreetLevel: BaseLevel {
     
     override init() {
         super.init()
     }
     
     override func initLevel() {
-        self.levelName = "Wallway"
-        
-        self.backgroundImageName = "Wallway"
-        
+        self.levelName = "City street"
+        self.backgroundImageName = "CityStreet"
         self.zombieImageName = "ZombieGirl2"
         self.zombieCuredImageName = "ZombieGirl2Un"
         self.zombieCount = 1
@@ -30,7 +28,7 @@ class SecondLevel: BaseLevel {
             
             self.zombiePaths.append(
                 BasePath(
-                    initPos: CGPoint(x: -566.0, y: -218.678),
+                    initPos: CGPoint(x: -566.0, y: -174.75),
                     initScale: 1.0,
                     path: SKAction.sequence([
                             SKAction.moveBy(x: way2Go, y: 0, duration: 6.5),
@@ -59,7 +57,7 @@ class SecondLevel: BaseLevel {
             
             self.zombiePaths.append(
                 BasePath(
-                    initPos: CGPoint(x: 566.0, y: -218.678),
+                    initPos: CGPoint(x: 566.0, y: -174.75),
                     initScale: 1.0,
                     path: SKAction.sequence([
                             SKAction.moveBy(x: -way2Go, y: 0, duration: 6.5),

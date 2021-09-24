@@ -47,6 +47,9 @@ class KeyboardHandler{
             self.gameScene.lblVacc?.text = "Vaccine: Sputnik"
             self.gameScene.lblVacc?.fontColor = .yellow
             break
+        case KeyCode.KEY_S.rawValue: // S
+            self.gameScene.setGamePaused(isPaused: true)
+            break
         case KeyCode.KEY_P.rawValue: // P
 //            self.gameScene.setGamePaused(isPaused: !self.gameScene.gamePaused)
 //            self.gameScene.lblGameOver?.text = (self.gameScene.isPaused ? "Pause" : "Game Over")

@@ -16,7 +16,6 @@ class PauseState: BaseState {
     
     override func didEnter(from previousState: GKState?) {
         self.gameScene.setGamePaused(isPaused: true)
-//        self.gameScene.setGamePaused(isPaused: !self.gameScene.gamePaused)
         self.gameScene.lblGameOver?.text = (self.gameScene.isPaused ? "Pause" : "Game Over")
         self.gameScene.lblGameOver?.alpha = (self.gameScene.isPaused ? 1.0 : 0.0)
         self.gameScene.lblGameOver?.isHidden = !self.gameScene.isPaused
