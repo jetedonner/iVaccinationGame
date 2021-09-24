@@ -100,22 +100,19 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
     
     var zombieGirl:ZombieGirl!
     
-    override init() {
-        super.init()
-        self.gameStateMachine = GameStateMachine(gameScene: self)
-    }
-    
     override func sceneDidLoad() {
-        
         self.physicsWorld.contactDelegate = self
         
         self.levels = [
             FirstLevel(),
             SecondLevel(),
-            ThirdLevel()
+            ThirdLevel(),
+            FourthLevel()
         ]
         
         self.currentLevel = self.levels[0]
+        
+        self.gameStateMachine = GameStateMachine(gameScene: self)
         
         self.zombieGirl = ZombieGirl(zombieImageName: self.currentLevel.zombieImageName)
         self.gameDuration = UserDefaultsHelper.roundTime
@@ -229,6 +226,8 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
             self.currentLevel = self.levels[0]
         }else if(UserDefaultsHelper.level == "Wallway" || UserDefaultsHelper.level == "Wallway (Night)"){
             self.currentLevel = self.levels[1]
+        }else if(UserDefaultsHelper.level == "City Streets" || UserDefaultsHelper.level == "City Streets (Night)"){
+            self.currentLevel = self.levels[3]
         }else{
             self.currentLevel = self.levels[2]
         }

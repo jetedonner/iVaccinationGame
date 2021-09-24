@@ -74,7 +74,8 @@
                         <menu key="menu" id="x86-iW-fgH">
                             <items>
                                 <menuItem title="Random" state="on" id="I1m-eq-2qw"/>
-                                <menuItem title="City Skyline" id="JY0-ic-4cZ" userLabel="City Skyline"/>
+                                <menuItem title="City Streets" id="JY0-ic-4cZ"/>
+                                <menuItem title="City Skyline" id="e3w-A1-7ST" userLabel="City Skyline"/>
                                 <menuItem title="City Skyline (Night)" id="oyz-jf-fp4" userLabel="City Skyline (Night)"/>
                                 <menuItem title="Wallway" id="qYm-ex-vec"/>
                                 <menuItem title="Wallway (Night)" id="Lqt-PN-8za" userLabel="Wayllway (Night)"/>
