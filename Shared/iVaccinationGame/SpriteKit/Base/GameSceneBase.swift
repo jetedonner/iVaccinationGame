@@ -32,7 +32,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
     var label : SKLabelNode?
     var spinnyNode : SKShapeNode?
     
-    var syringe:SKSpriteNode?
+//    var syringe:SKSpriteNode?
     var syringe1:SKSpriteNode?
     var syringe2:SKSpriteNode?
     
@@ -115,7 +115,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.gameStateMachine = GameStateMachine(gameScene: self)
         
         self.zombieGirl = ZombieGirl(zombieImageName: self.currentLevel.zombieImageName)
-        self.gameDuration = UserDefaultsHelper.roundTime
+        self.gameDuration = UserDefaultsHelper.roundTime // (UserDefaultsHelper.roundTime == nil ? 30.0 : UserDefaultsHelper.roundTime)
         self.contentNode = self.childNode(withName: "contentNode")! as SKNode
         self.bg = self.contentNode!.childNode(withName: "BG") as? SKSpriteNode
         
@@ -168,10 +168,10 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.imgRedOut = self.contentNode!.childNode(withName: "redOut") as? SKSpriteNode
         self.imgRedOut?.alpha = 0.0
         
-        self.syringe = self.contentNode!.childNode(withName: "Syringe") as? SKSpriteNode
-        self.syringe?.isHidden = true
-        self.syringe?.physicsBody = SKPhysicsBody(circleOfRadius: 15.0)
-        self.syringe?.physicsBody?.affectedByGravity = false
+//        self.syringe = self.contentNode!.childNode(withName: "Syringe") as? SKSpriteNode
+//        self.syringe?.isHidden = true
+//        self.syringe?.physicsBody = SKPhysicsBody(circleOfRadius: 15.0)
+//        self.syringe?.physicsBody?.affectedByGravity = false
         
         self.scene?.addChild(self.zombieGirl)
         self.zombieGirl.physicsBody = SKPhysicsBody(rectangleOf: self.zombieGirl.size)
@@ -187,7 +187,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.prgBar.zPosition = 1000
         self.addChild(self.prgBar)
         
-        self.syringe?.physicsBody?.contactTestBitMask = 0b0001
+//        self.syringe?.physicsBody?.contactTestBitMask = 0b0001
         self.zombieGirl.physicsBody?.contactTestBitMask = 0b0010
         
         self.scoreLblOrigPos = self.lblScore!.position
@@ -243,37 +243,73 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        if(self.syringe?.isHidden == true){
+        
+        if let syringeDart = contact.bodyB.node as? SyringeDart{
+            syringeDart.removeFromGameScene()
+            if(UserDefaultsHelper.playSounds){
+                self.run(SoundManager.bulletImpactSound)
+            }
+            self.currentLevel.hits += 1
+            self.addScore(score: self.currentLevel.scoreBase)
+            self.showEarnedPoints()
+            if(self.currentLevel.hits % 2 == 0){
+                
+                explosionEmitterNode?.setScale(0.35)
+                explosionEmitterNode?.isHidden = false
+                
+                if(explosionEmitterNode?.parent == nil){
+                    self.zombieGirl.addChild(explosionEmitterNode!)
+                }
+                if(UserDefaultsHelper.playSounds){
+                    self.zombieGirl.run(SoundManager.unzombiefiedSound) // telein
+                }
+                self.zombieGirl.run(SKAction.wait(forDuration: 0.45), completion: {
+                    self.zombieGirl.texture = SKTexture(imageNamed: self.currentLevel.zombieCuredImageName)
+                    self.explosionEmitterNode?.removeFromParent()
+                    self.zombieGirl.removeAllActions()
+                    self.zombieGirl.run(self.currentLevel.zombieCurrentPath.exitPath, completion: {
+                        self.restartAfterHit(resetTime: false)
+                    })
+                })
+            }
             return
         }
-        self.syringe?.isHidden = true
-        self.syringe?.removeAllActions()
-        if(UserDefaultsHelper.playSounds){
-            self.run(SoundManager.bulletImpactSound)
-        }
-        self.currentLevel.hits += 1
-        self.addScore(score: 100)
-        self.showEarnedPoints()
-        if(self.score % 200 == 0){
-            
-            explosionEmitterNode?.setScale(0.35)
-            explosionEmitterNode?.isHidden = false
-            
-            if(explosionEmitterNode?.parent == nil){
-                self.zombieGirl.addChild(explosionEmitterNode!)
-            }
-            if(UserDefaultsHelper.playSounds){
-                self.zombieGirl.run(SoundManager.unzombiefiedSound) // telein
-            }
-            self.zombieGirl.run(SKAction.wait(forDuration: 0.45), completion: {
-                self.zombieGirl.texture = SKTexture(imageNamed: self.currentLevel.zombieCuredImageName)
-                self.explosionEmitterNode?.removeFromParent()
-                self.zombieGirl.removeAllActions()
-                self.zombieGirl.run(self.currentLevel.zombieCurrentPath.exitPath, completion: {
-                    self.restartAfterHit(resetTime: false)
-                })
-            })
-        }
+        
+        
+//        if(tmp!.isKind(of: SyringeDart.self)){
+//
+//        }
+//        if(self.syringe?.isHidden == true){
+//            return
+//        }
+//        self.syringe?.isHidden = true
+//        self.syringe?.removeAllActions()
+//        if(UserDefaultsHelper.playSounds){
+//            self.run(SoundManager.bulletImpactSound)
+//        }
+//        self.currentLevel.hits += 1
+//        self.addScore(score: 100)
+//        self.showEarnedPoints()
+//        if(self.score % 200 == 0){
+//
+//            explosionEmitterNode?.setScale(0.35)
+//            explosionEmitterNode?.isHidden = false
+//
+//            if(explosionEmitterNode?.parent == nil){
+//                self.zombieGirl.addChild(explosionEmitterNode!)
+//            }
+//            if(UserDefaultsHelper.playSounds){
+//                self.zombieGirl.run(SoundManager.unzombiefiedSound) // telein
+//            }
+//            self.zombieGirl.run(SKAction.wait(forDuration: 0.45), completion: {
+//                self.zombieGirl.texture = SKTexture(imageNamed: self.currentLevel.zombieCuredImageName)
+//                self.explosionEmitterNode?.removeFromParent()
+//                self.zombieGirl.removeAllActions()
+//                self.zombieGirl.run(self.currentLevel.zombieCurrentPath.exitPath, completion: {
+//                    self.restartAfterHit(resetTime: false)
+//                })
+//            })
+//        }
     }
     
     func restartZombieAction(){
@@ -505,54 +541,57 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
             return
         }
         
-        self.currentLevel.shots += 1
-        self.runHandThrowingAnimation()
-        self.syringe?.isHidden = false
-        self.syringesLeft -= 1
-        self.lblSyringesLeft?.text = self.syringesLeft.description + " / 2"
-        if(self.syringesLeft == 1){
-            self.syringe2?.isHidden = true
-        }else if(self.syringesLeft == 0){
-            self.syringe1?.isHidden = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                var isBehindGKAccessPoint:Bool = true
-                var isBehindHand:Bool = true
-                var newPoint:CGPoint = CGPoint(x: 0, y: 0)
-                repeat{
-                    let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
-                    let newY:CGFloat = CGFloat(Double.random(in: self.currentLevel.syringeRespawnYRange))
-                    newPoint = CGPoint(x: newX, y: newY)
-                    
-                    let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
-                    print("GKAccessPointCoord: \(accsPntCoord)")
-                    isBehindGKAccessPoint = accsPntCoord.contains(newPoint)
-                    isBehindHand = self.imgThrowingHand!.frame.contains(newPoint)
-                }while(isBehindHand || isBehindGKAccessPoint)
-                self.syringePickup?.position = newPoint
-                self.syringePickup?.alpha = 1.0
-            }
-        }
-        self.syringe?.position = CGPoint(x: 0, y: -300)
-        self.syringe?.scale(to: CGSize(width: 64, height: 64))
-        if(UserDefaultsHelper.playSounds){
-            self.scene?.run(SoundManager.shotSound)
-        }
-        self.syringe?.speed = UserDefaultsHelper.speedMultiplierForDifficulty
-        self.syringe?.run(
-            SKAction.group([
-                SKAction.move(to: point, duration: 0.5),
-                SKAction.scale(to: 0.5, duration: 0.5)
-            ]),
-            completion: {
-                if(!self.syringe!.isHidden){
-                    self.syringe?.run(SoundManager.impactSound)
-                }
-            }
-        )
-        self.updateThrowingHandTexture()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.syringe?.isHidden = true
-        }
+        let newDart:SyringeDart = SyringeDart(gameScene: self)
+        self.thrownSyringeDarts.append(newDart)
+        newDart.shootSyringe(point: point)
+//        self.currentLevel.shots += 1
+//        self.runHandThrowingAnimation()
+//        self.syringe?.isHidden = false
+//        self.syringesLeft -= 1
+//        self.lblSyringesLeft?.text = self.syringesLeft.description + " / 2"
+//        if(self.syringesLeft == 1){
+//            self.syringe2?.isHidden = true
+//        }else if(self.syringesLeft == 0){
+//            self.syringe1?.isHidden = true
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//                var isBehindGKAccessPoint:Bool = true
+//                var isBehindHand:Bool = true
+//                var newPoint:CGPoint = CGPoint(x: 0, y: 0)
+//                repeat{
+//                    let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
+//                    let newY:CGFloat = CGFloat(Double.random(in: self.currentLevel.syringeRespawnYRange))
+//                    newPoint = CGPoint(x: newX, y: newY)
+//                    
+//                    let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
+//                    print("GKAccessPointCoord: \(accsPntCoord)")
+//                    isBehindGKAccessPoint = accsPntCoord.contains(newPoint)
+//                    isBehindHand = self.imgThrowingHand!.frame.contains(newPoint)
+//                }while(isBehindHand || isBehindGKAccessPoint)
+//                self.syringePickup?.position = newPoint
+//                self.syringePickup?.alpha = 1.0
+//            }
+//        }
+//        self.syringe?.position = CGPoint(x: 0, y: -300)
+//        self.syringe?.scale(to: CGSize(width: 64, height: 64))
+//        if(UserDefaultsHelper.playSounds){
+//            self.scene?.run(SoundManager.shotSound)
+//        }
+//        self.syringe?.speed = UserDefaultsHelper.speedMultiplierForDifficulty
+//        self.syringe?.run(
+//            SKAction.group([
+//                SKAction.move(to: point, duration: 0.5),
+//                SKAction.scale(to: 0.5, duration: 0.5)
+//            ]),
+//            completion: {
+//                if(!self.syringe!.isHidden){
+//                    self.syringe?.run(SoundManager.impactSound)
+//                }
+//            }
+//        )
+//        self.updateThrowingHandTexture()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            self.syringe?.isHidden = true
+//        }
     }
     
     func checkIsNode(node2Check:SKNode, isNode:SKNode)->Bool{

@@ -37,6 +37,9 @@ class UserDefaultsHelper{
     static var roundTime:TimeInterval{
         get{
             var retTime:TimeInterval = 60
+            
+//            UserDefaults.standard.bool(forKey: SettingsBundleKeys.Reset)
+            
             switch defaults.string(forKey: UserDefaultsName.roundTime.rawValue){
             case "30 Seconds":
                 retTime = 30
@@ -51,6 +54,7 @@ class UserDefaultsHelper{
                 retTime = 180
                 break
             default:
+                retTime = 30
                 break
             }
             return retTime
@@ -93,6 +97,8 @@ class UserDefaultsHelper{
                 return 2.75
             case .nightmare:
                 return 3.75
+            default:
+                return 1.5
             }
         }
     }

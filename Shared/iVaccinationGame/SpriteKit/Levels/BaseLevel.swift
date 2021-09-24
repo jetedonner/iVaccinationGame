@@ -25,6 +25,8 @@ class BaseLevel {
     var shots:Int = 0
     var hits:Int = 0
     
+    var scoreBase:Int = 100
+    
     var syringeRespawnYRange = -350.0..<(-100.0)
     var medkitRespawnYRange = -350.0..<(200.0)
     

@@ -20,7 +20,7 @@
 			<key>Title</key>
 			<string>DevMode</string>
 			<key>Key</key>
-			<string>pref_devMode</string>
+			<string>devMode</string>
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
@@ -30,7 +30,7 @@
 			<key>Title</key>
 			<string>Duration</string>
 			<key>Key</key>
-			<string>pref_duration</string>
+			<string>roundTime</string>
 			<key>DefaultValue</key>
 			<string>30 Seconds</string>
 			<key>Titles</key>
@@ -54,7 +54,7 @@
 			<key>Title</key>
 			<string>Level</string>
 			<key>Key</key>
-			<string>pref_level</string>
+			<string>level</string>
 			<key>DefaultValue</key>
 			<string>City Japan</string>
 			<key>Titles</key>
@@ -82,7 +82,7 @@
 			<key>Title</key>
 			<string>Difficulty</string>
 			<key>Key</key>
-			<string>pref_difficulty</string>
+			<string>difficulty</string>
 			<key>DefaultValue</key>
 			<string>Easy</string>
 			<key>Titles</key>
@@ -112,7 +112,7 @@
 			<key>Title</key>
 			<string>Sound enabled</string>
 			<key>Key</key>
-			<string>sound_enabled</string>
+			<string>playSounds</string>
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
@@ -122,7 +122,7 @@
 			<key>Title</key>
 			<string>Background music</string>
 			<key>Key</key>
-			<string>bg_music</string>
+			<string>playBGMusic</string>
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
@@ -130,7 +130,7 @@
 			<key>Type</key>
 			<string>PSSliderSpecifier</string>
 			<key>Key</key>
-			<string>slider_preference</string>
+			<string>volume</string>
 			<key>DefaultValue</key>
 			<real>0.5</real>
 			<key>MinimumValue</key>
@@ -154,7 +154,7 @@
 			<key>Title</key>
 			<string>Use Game Center</string>
 			<key>Key</key>
-			<string>per_useGameCenter</string>
+			<string>useGameCenter</string>
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
@@ -164,7 +164,7 @@
 			<key>Title</key>
 			<string>Upload Highscore</string>
 			<key>Key</key>
-			<string>pref_uploadHighscore</string>
+			<string>uploadHighscore</string>
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
