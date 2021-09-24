@@ -68,10 +68,10 @@ class GameCenterHelper: NSObject {
                       }else{
                           if((self!.viewController as! ViewController).gameSceneObj.gamePaused){
                               (self!.viewController as! ViewController).gameSceneObj.setGamePaused(isPaused: false)
-                              DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25, execute: {
-                                  (self!.viewController as! ViewController).gameSceneObj.view?.resetCursorRects()
-                              })
                           }
+                          DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25, execute: {
+                              (self!.viewController as! ViewController).gameSceneObj.view?.resetCursorRects()
+                          })
                       }
                       #else
                       if(GKAccessPoint.shared.isPresentingGameCenter){

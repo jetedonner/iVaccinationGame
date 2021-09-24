@@ -107,7 +107,8 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
             ThirdLevel(),
             FourthLevel(),
             CityJapanLevel(),
-            CityNightLevel()
+            CityNightLevel(),
+            ScarryStreetLevel()
         ]
         
         self.currentLevel = self.levels[4]
@@ -122,6 +123,7 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.imgArrowDown = self.contentNode!.childNode(withName: "imgArrowDown") as? SKSpriteNode
         self.imgArrowDown?.zPosition = 100100
         self.imgArrowDown?.addDbgBorder()
+        
         #if os(macOS)
         self.imgArrowDown?.isHidden = true
         #endif
@@ -193,9 +195,12 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.scoreLblOrigPos = self.lblScore!.position
         
         #if os(macOS)
-        self.restartLevel()
+        self.currentLevel = self.levels[6]
+        self.currentLevel.setupLevel(gameScene: self)
+        self.restartAfterGameOverNG(resetTime: true)
+        self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
         #else
-        self.currentLevel = self.levels[4]
+        self.currentLevel = self.levels[6]
         self.currentLevel.setupLevel(gameScene: self)
         self.restartAfterGameOverNG(resetTime: true)
         self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
@@ -221,6 +226,8 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
             self.currentLevel = self.levels[4]
         }else if(UserDefaultsHelper.level == "City Night" || UserDefaultsHelper.level == "City Night (Night)"){
             self.currentLevel = self.levels[5]
+        }else if(UserDefaultsHelper.level == "Scarry Street" || UserDefaultsHelper.level == "Scarry Street (Night)"){
+            self.currentLevel = self.levels[6]
         }else{
             self.currentLevel = self.levels[2]
         }

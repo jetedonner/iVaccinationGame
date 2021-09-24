@@ -33,6 +33,8 @@
 		559442A426FE50800082DA72 /* GameSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A226FE50800082DA72 /* GameSceneBaseExt.swift */; };
 		559442A626FE51350082DA72 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A526FE51350082DA72 /* GameState.swift */; };
 		559442A726FE51350082DA72 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A526FE51350082DA72 /* GameState.swift */; };
+		559442A926FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A826FE83C20082DA72 /* ScarryStreetLevel.swift */; };
+		559442AA26FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A826FE83C20082DA72 /* ScarryStreetLevel.swift */; };
 		55A579B826F4D1800084239D /* Upward2Particles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55A579B726F4D1800084239D /* Upward2Particles.sks */; };
 		55A579BB26F4F89D0084239D /* MedKitPickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579BA26F4F89D0084239D /* MedKitPickup.swift */; };
 		55A579BD26F4FD950084239D /* BasePickupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579BC26F4FD950084239D /* BasePickupNode.swift */; };
@@ -205,6 +207,7 @@
 		5594429F26FE4F710082DA72 /* SyringeDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringeDart.swift; sourceTree = "<group>"; };
 		559442A226FE50800082DA72 /* GameSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt.swift; sourceTree = "<group>"; };
 		559442A526FE51350082DA72 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		559442A826FE83C20082DA72 /* ScarryStreetLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScarryStreetLevel.swift; sourceTree = "<group>"; };
 		55A579B726F4D1800084239D /* Upward2Particles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Upward2Particles.sks; sourceTree = "<group>"; };
 		55A579BA26F4F89D0084239D /* MedKitPickup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedKitPickup.swift; sourceTree = "<group>"; };
 		55A579BC26F4FD950084239D /* BasePickupNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePickupNode.swift; sourceTree = "<group>"; };
@@ -431,6 +434,7 @@
 				55A579C726F5C5EC0084239D /* FirstLevel.swift */,
 				55C83F6C26FDFADE00F42F53 /* FourthLevel.swift */,
 				55C83F7F26FE31EB00F42F53 /* CityJapanLevel.swift */,
+				559442A826FE83C20082DA72 /* ScarryStreetLevel.swift */,
 				55C83F8226FE326500F42F53 /* CityNightLevel.swift */,
 				55A579CB26F644080084239D /* SecondLevel.swift */,
 				55A579C926F638610084239D /* BaseLevel.swift */,
@@ -937,6 +941,7 @@
 				55A579D326F64D1B0084239D /* CGFloatValueTransformer.swift in Sources */,
 				554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */,
 				55C83F6526FDDC6000F42F53 /* MenuState.swift in Sources */,
+				559442A926FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,
 				55C83F6726FDDC7000F42F53 /* GameOverState.swift in Sources */,
 				556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */,
 				55B64A3926F35E7600944766 /* SoundManager.swift in Sources */,
@@ -1015,6 +1020,7 @@
 				55C83F1126FC673D00F42F53 /* SecondLevel.swift in Sources */,
 				55C83F1326FC673D00F42F53 /* FirstLevel.swift in Sources */,
 				55C83F2826FC712000F42F53 /* SoundManager.swift in Sources */,
+				559442AA26FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
