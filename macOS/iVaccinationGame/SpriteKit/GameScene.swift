@@ -26,4 +26,8 @@ class GameScene: GameSceneBase {
         self.keyboardHandler.keyDown(with: event)
     }
     
+    override func mouseMoved(with event: NSEvent) {
+        super.mouseMoved(with: event)
+        self.mousePos = event.location(in: self.bg!)
+    }
 }

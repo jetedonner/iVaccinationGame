@@ -10,7 +10,7 @@ import Cocoa
 
 class SettingsViewController: NSViewController {
     
-    var gameScene:GameScene?
+    var gameScene:GameSceneBase?
     
     @IBOutlet var volume:NSSlider?
     @IBOutlet var sharedUserDefaultsController:NSUserDefaultsController?
@@ -27,7 +27,7 @@ class SettingsViewController: NSViewController {
         self.sharedUserDefaultsController?.revert(nil)
         if(gameScene != nil){
             self.dismiss(sender)
-            self.gameScene?.setGameState(isPaused: false)
+            self.gameScene?.setGamePaused(isPaused: false)
         }
     }
     
@@ -42,7 +42,7 @@ class SettingsViewController: NSViewController {
             self.gameScene!.restartLevel()
         }
         if(self.gameScene != nil){
-            self.gameScene?.setGameState(isPaused: false)
+            self.gameScene?.setGamePaused(isPaused: false)
         }
     }
 }

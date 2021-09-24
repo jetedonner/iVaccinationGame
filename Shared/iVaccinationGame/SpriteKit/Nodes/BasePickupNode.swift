@@ -22,7 +22,6 @@ class BasePickupNode: SKSpriteNode {
             case .nightmare:
                 return 0.5
             }
-//            return 1.0
         }
     }
     
@@ -31,47 +30,24 @@ class BasePickupNode: SKSpriteNode {
         get { return self._upwardEmitterNode! }
     }
     
-//    #if os(iOS)
     init(imageNamed name: String, emitterFileNamed: String) {
         let texture = SKTexture(imageNamed: name)
         super.init(texture: texture, color: SKColor.clear, size: texture.size())
         self._upwardEmitterNode = SKEmitterNode(fileNamed: emitterFileNamed)
         self.upwardEmitterNode.setScale(0.15)
         self.upwardEmitterNode.position.y += 30.0
+        if(UserDefaultsHelper.devMode){
+            self.addDbgBorder()
+        }
         self.addChild(self.upwardEmitterNode)
     }
-//    #else
-//
-//    #endif
-    
-//    public convenience init(imageNamed name: String, emitterFileNamed: String){
-//        self.init(imageNamed: name)
-////        self.init(imageNamed: name)
-//        self._upwardEmitterNode = SKEmitterNode(fileNamed: emitterFileNamed)
-//        self.upwardEmitterNode.setScale(0.15)
-//        self.upwardEmitterNode.position.y += 30.0
-//        self.addChild(self.upwardEmitterNode)
-//    }
-    
-//    override init(texture: SKTexture?, color: NSColor, size: CGSize) {
-//        super.init(texture: texture, color: color, size: size)
-//    }
     
     override func calculateAccumulatedFrame() -> CGRect {
         let frm = self.frame
         let newSize:CGSize = CGSize(width: frm.size.width * self.accumulatedFrameFactor, height: frm.size.height * self.accumulatedFrameFactor)
         return CGRect(x: frm.origin.x , y: frm.origin.y, width: newSize.width, height: newSize.height)
     }
-    
-//    func addDbgBorder(){
-//        let boundingBoxNode = SKShapeNode(rectOf: self.calculateAccumulatedFrame().size)
-//        boundingBoxNode.lineWidth = 3
-//        boundingBoxNode.strokeColor = .red
-//        boundingBoxNode.fillColor = .clear
-//        boundingBoxNode.path = boundingBoxNode.path?.copy(dashingWithPhase: 0, lengths: [10,10])
-//        self.addChild(boundingBoxNode)
-//    }
-    
+        
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

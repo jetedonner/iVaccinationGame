@@ -54,6 +54,27 @@ class GameCenterHelper: NSObject {
             GKAccessPoint.shared.showHighlights = true
             GKAccessPoint.shared.isActive = GKLocalPlayer.local.isAuthenticated
               
+              // Observe when the access point changes its size
+              let observation = GKAccessPoint.shared.observe(
+                         \.frameInScreenCoordinates
+                  ) { [weak self] _,_ in
+                      
+                      var tmp = -1
+                      tmp /= -1
+//                  let screenFrame = GKAccessPoint.shared.frameInScreenCoordinates
+//                  let accessPointFrame = myView.convert(screenFrame, from: nil)
+                  // adjust your layout
+              }
+              
+              // Observe when the access point displays the dashboard
+              let observation2 = GKAccessPoint.shared.observe(
+                         \.isPresentingGameCenter
+                  ) { [weak self] _,_ in
+                      var tmp = -1
+                      tmp /= -1
+//                  self.paused = GKAccessPoint.shared.isPresentingGameCenter
+              }
+              
 //              GKAccessPoint.shared.observe(<#T##keyPath: KeyPath<GKAccessPoint, Value>##KeyPath<GKAccessPoint, Value>#>, changeHandler: <#T##(GKAccessPoint, NSKeyValueObservedChange<Value>) -> Void#>)
               // Observe when the access point displays the dashboard
               

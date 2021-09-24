@@ -24,16 +24,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if(self.vc != nil && self.vc.gameSceneObj != nil){
 //            self.vc.gameSceneObj.isPaused = true
             if(self.vc.gameSceneObj.gameRunning){
-                self.vc.gameSceneObj.setGameState(isPaused: true)
+                self.vc.gameSceneObj.setGamePaused(isPaused: true)
             }
         }
     }
     
     func applicationDidBecomeActive(_ notification: Notification) {
         if(self.vc != nil && self.vc.gameSceneObj != nil){
-            if(self.vc.gameSceneObj.gamePaused){
+            if(self.vc.gameSceneObj.gamePaused && self.vc.gameSceneObj.gameRunning){
 //                self.vc.gameSceneObj.isPaused = false
-                self.vc.gameSceneObj.setGameState(isPaused: false)
+                self.vc.gameSceneObj.setGamePaused(isPaused: false)
             }
         }
     }

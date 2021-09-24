@@ -25,7 +25,6 @@ extension SKView {
             super.mouseDown(with: event)
             
             let location = event.location(in: gameScene.bg!)
-            
             gameScene.clickedAtPoint(point: location)
             
 //            if(!gameScene.gameRunning && gameScene.waitForAnyKey){
