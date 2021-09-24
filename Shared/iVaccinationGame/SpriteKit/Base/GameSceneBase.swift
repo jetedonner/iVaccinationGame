@@ -207,8 +207,9 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
         self.setupHandAnimation()
-        gameRunning = true
-        self.restartZombieAction()
+//        gameRunning = true
+//        self.restartZombieAction()
+//        self.restartAfterGameOverNG(resetTime: true, loadNewLevel: true)
         
     }
     
@@ -507,7 +508,6 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         if(node == self.imgArrowDown || node.parent == self.imgArrowDown){
             #if os(macOS)// || os(iOS)
             self.gameStateMachine.enter(SettingsState.self)
-            
             #endif
             return
         }

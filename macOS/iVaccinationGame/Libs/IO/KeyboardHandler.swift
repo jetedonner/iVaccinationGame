@@ -48,21 +48,29 @@ class KeyboardHandler{
             self.gameScene.lblVacc?.fontColor = .yellow
             break
         case KeyCode.KEY_P.rawValue: // P
-            self.gameScene.setGamePaused(isPaused: !self.gameScene.gamePaused)
-            self.gameScene.lblGameOver?.text = (self.gameScene.isPaused ? "Pause" : "Game Over")
-            self.gameScene.lblGameOver?.alpha = (self.gameScene.isPaused ? 1.0 : 0.0)
-            self.gameScene.lblGameOver?.isHidden = !self.gameScene.isPaused
+//            self.gameScene.setGamePaused(isPaused: !self.gameScene.gamePaused)
+//            self.gameScene.lblGameOver?.text = (self.gameScene.isPaused ? "Pause" : "Game Over")
+//            self.gameScene.lblGameOver?.alpha = (self.gameScene.isPaused ? 1.0 : 0.0)
+//            self.gameScene.lblGameOver?.isHidden = !self.gameScene.isPaused
+            if(self.gameScene.gameStateMachine.currentState is PlayingState){
+                self.gameScene.gameStateMachine.enter(PauseState.self)
+            }else if(self.gameScene.gameStateMachine.currentState is PauseState){
+                self.gameScene.gameStateMachine.enter(PlayingState.self)
+            }
             break
         case KeyCode.KEY_SPACE.rawValue: // SPACE
             self.gameScene.clickedAtPoint(point: self.gameScene.mousePos)
             break
         case KeyCode.KEY_ESC.rawValue: // ESC => Pause and Show menu
-            self.gameScene.setGamePaused(isPaused: true)
-            let vcSettings:SettingsViewController = SettingsViewController()
-            vcSettings.gameScene = self.gameScene
-            if let viewCtrl = self.gameScene.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).presentAsSheet(vcSettings)
-            }
+            #if os(macOS)// || os(iOS)
+            self.gameScene.gameStateMachine.enter(SettingsState.self)
+            #endif
+//            self.gameScene.setGamePaused(isPaused: true)
+//            let vcSettings:SettingsViewController = SettingsViewController()
+//            vcSettings.gameScene = self.gameScene
+//            if let viewCtrl = self.gameScene.view?.window?.contentViewController{
+//                (viewCtrl as! ViewController).presentAsSheet(vcSettings)
+//            }
             break
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")

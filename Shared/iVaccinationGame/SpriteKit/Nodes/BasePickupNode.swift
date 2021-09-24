@@ -30,12 +30,13 @@ class BasePickupNode: SKSpriteNode {
         get { return self._upwardEmitterNode! }
     }
     
-    init(imageNamed name: String, emitterFileNamed: String) {
+    init(imageNamed name: String, emitterFileNamed: String, size:CGSize? = nil) {
         let texture = SKTexture(imageNamed: name)
-        super.init(texture: texture, color: SKColor.clear, size: texture.size())
+        super.init(texture: texture, color: SKColor.clear, size: (size ?? texture.size()))
         self._upwardEmitterNode = SKEmitterNode(fileNamed: emitterFileNamed)
         self.upwardEmitterNode.setScale(0.15)
         self.upwardEmitterNode.position.y += 30.0
+        
         if(UserDefaultsHelper.devMode){
             self.addDbgBorder()
         }

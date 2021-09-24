@@ -14,8 +14,8 @@ class SyringePickup: BasePickupNode {
 //        get { return 0.8 }
 //    }
     
-    override init(imageNamed name: String, emitterFileNamed: String){
-        super.init(imageNamed: name, emitterFileNamed: emitterFileNamed)
+    init(imageNamed name: String, emitterFileNamed: String){
+        super.init(imageNamed: name, emitterFileNamed: emitterFileNamed, size: CGSize(width: 76.8, height: 76.8))
     }
     
     

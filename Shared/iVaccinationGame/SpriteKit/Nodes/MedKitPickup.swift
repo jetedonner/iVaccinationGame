@@ -10,7 +10,7 @@ import SpriteKit
 
 class MedKitPickup: BasePickupNode {
     
-    override init(imageNamed name: String, emitterFileNamed: String){
+    init(imageNamed name: String, emitterFileNamed: String){
         super.init(imageNamed: name, emitterFileNamed: emitterFileNamed)
     }
     
