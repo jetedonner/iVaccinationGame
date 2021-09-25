@@ -306,6 +306,7 @@
 		55E59BCF26FF873000B75322 /* DifficultyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultyScene.swift; sourceTree = "<group>"; };
 		55E59BD226FF89C800B75322 /* iVaccinationGame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iVaccinationGame.entitlements; sourceTree = "<group>"; };
 		55E59BD526FF8C9D00B75322 /* ICloudStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudStorageHelper.swift; sourceTree = "<group>"; };
+		55E59BD826FF9A9400B75322 /* iVaccination.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iVaccination.entitlements; sourceTree = "<group>"; };
 		55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Upward3Particles.sks; sourceTree = "<group>"; };
 		55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificatePickup.swift; sourceTree = "<group>"; };
 		55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSceneBase.swift; sourceTree = "<group>"; };
@@ -371,6 +372,7 @@
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
+				55E59BD826FF9A9400B75322 /* iVaccination.entitlements */,
 				55E59BD226FF89C800B75322 /* iVaccinationGame.entitlements */,
 				55C83F4626FD1A1B00F42F53 /* iVaccinationGame-Info.plist */,
 				55C83F3C26FCFC0300F42F53 /* LICENSE */,
@@ -1342,6 +1344,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.swift.ivaccinationgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1376,6 +1379,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.swift.ivaccinationgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1487,6 +1491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = iVaccination.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
@@ -1521,6 +1526,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = iVaccination.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;

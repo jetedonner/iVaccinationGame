@@ -10,8 +10,8 @@ import SpriteKit
 
 class MedKitPickup: BasePickupNode {
     
-    init(imageNamed name: String, emitterFileNamed: String){
-        super.init(imageNamed: name, emitterFileNamed: emitterFileNamed)
+    init(){
+        super.init(imageNamed: "MedicinePickup", emitterFileNamed: "Upward2Particles.sks")
     }
     
     required init?(coder aDecoder: NSCoder) {

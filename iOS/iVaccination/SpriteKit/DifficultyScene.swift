@@ -16,21 +16,33 @@ class DifficultyScene: DifficultySceneBase {
             let node = self.atPoint(pos)
             
             if(node == lblEasy){
-                if let viewCtrl = self.view?.window?.contentViewController{
-                    (viewCtrl as! ViewController).loadGameScene(difficulty: .easy, level: self.selLevel)
+                if let viewCtrl = self.view?.window?.rootViewController{
+                    (viewCtrl as! GameViewController).loadGameScene(difficulty: .easy, level: self.selLevel)
                 }
+//                if let viewCtrl = self.view?.window?.contentViewController{
+//                    (viewCtrl as! ViewController).loadGameScene(difficulty: .easy, level: self.selLevel)
+//                }
             }else if(node == lblMedium){
-                if let viewCtrl = self.view?.window?.contentViewController{
-                    (viewCtrl as! ViewController).loadGameScene(difficulty: .medium, level: self.selLevel)
+                if let viewCtrl = self.view?.window?.rootViewController{
+                    (viewCtrl as! GameViewController).loadGameScene(difficulty: .medium, level: self.selLevel)
                 }
+//                if let viewCtrl = self.view?.window?.contentViewController{
+//                    (viewCtrl as! ViewController).loadGameScene(difficulty: .medium, level: self.selLevel)
+//                }
             }else if(node == lblHard){
-                if let viewCtrl = self.view?.window?.contentViewController{
-                    (viewCtrl as! ViewController).loadGameScene(difficulty: .hard, level: self.selLevel)
+                if let viewCtrl = self.view?.window?.rootViewController{
+                    (viewCtrl as! GameViewController).loadGameScene(difficulty: .hard, level: self.selLevel)
                 }
+//                if let viewCtrl = self.view?.window?.contentViewController{
+//                    (viewCtrl as! ViewController).loadGameScene(difficulty: .hard, level: self.selLevel)
+//                }
             }else if(node == lblNightmare){
-                if let viewCtrl = self.view?.window?.contentViewController{
-                    (viewCtrl as! ViewController).loadGameScene(difficulty: .nightmare, level: self.selLevel)
+                if let viewCtrl = self.view?.window?.rootViewController{
+                    (viewCtrl as! GameViewController).loadGameScene(difficulty: .nightmare, level: self.selLevel)
                 }
+//                if let viewCtrl = self.view?.window?.contentViewController{
+//                    (viewCtrl as! ViewController).loadGameScene(difficulty: .nightmare, level: self.selLevel)
+//                }
             }
         }
     }

@@ -94,7 +94,9 @@ class GameViewController: UIViewController {
 //        }
     }
     
-    func loadGameScene(){
+    func loadGameScene(difficulty:UserDefaultsDifficulty = .easy, level:Level = .Meadow){
+        UserDefaultsHelper.difficulty = difficulty
+        UserDefaultsHelper.levelID = level
         //        self.supportedInterfaceOrientations = .landscapeRight
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.

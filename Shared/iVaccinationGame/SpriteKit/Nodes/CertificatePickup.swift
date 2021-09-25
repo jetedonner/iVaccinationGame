@@ -10,8 +10,8 @@ import SpriteKit
 
 class CertificatePickup: BasePickupNode {
     
-    init(imageNamed name: String, emitterFileNamed: String){
-        super.init(imageNamed: name, emitterFileNamed: emitterFileNamed)
+    init(){
+        super.init(imageNamed: "CertificatePickup", emitterFileNamed: "Upward3Particles.sks")
     }
     
     required init?(coder aDecoder: NSCoder) {

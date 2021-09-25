@@ -74,8 +74,8 @@ class MenuScene: MenuSceneBase {
     
     override func touchOrClick(pos: CGPoint) {
         super.touchOrClick(pos: pos)
-        let node = self.scene!.atPoint(pos)
-        var newSelNode:SKLabelNode?
+//        let node = self.scene!.atPoint(pos)
+//        var newSelNode:SKLabelNode?
         
         if(self.selNode == lblExit){
             NSApp.terminate(nil)

@@ -21,7 +21,8 @@ class BaseSKScene: SKScene {
     }
     
     func touchOrClick(pos:CGPoint){
-        
+        var tmp = -1
+        tmp /= -1
     }
     
     required init?(coder aDecoder: NSCoder) {

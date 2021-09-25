@@ -10,8 +10,8 @@ import SpriteKit
 
 class SyringePickup: BasePickupNode {
     
-    init(imageNamed name: String, emitterFileNamed: String){
-        super.init(imageNamed: name, emitterFileNamed: emitterFileNamed, size: CGSize(width: 76.8, height: 76.8))
+    init(){
+        super.init(imageNamed: "Syringe", emitterFileNamed: "UpwardParticles.sks", size: CGSize(width: 76.8, height: 76.8))
     }
     
     required init?(coder aDecoder: NSCoder) {

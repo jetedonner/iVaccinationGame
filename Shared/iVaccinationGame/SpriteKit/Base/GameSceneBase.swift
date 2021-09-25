@@ -158,20 +158,20 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.syringe1 = self.contentNode!.childNode(withName: "Syringe_1") as? SKSpriteNode
         self.syringe2 = self.contentNode!.childNode(withName: "Syringe_2") as? SKSpriteNode
 
-        self.medkitPickup = MedKitPickup(imageNamed: "MedicinePickup", emitterFileNamed: "Upward2Particles.sks")
+        self.medkitPickup = MedKitPickup()
         self.medkitPickup?.position = CGPoint(x: 200, y: 200)
         self.medkitPickup?.zPosition = 1000
         self.medkitPickup?.alpha = 0.0
         self.scene?.addChild(self.medkitPickup!)
         
-        self.syringePickup = SyringePickup(imageNamed: "Syringe", emitterFileNamed: "UpwardParticles.sks")
+        self.syringePickup = SyringePickup()
         self.syringePickup?.size = CGSize(width: 64, height: 64)
         self.syringePickup?.position = CGPoint(x: 300, y: -100)
         self.syringePickup?.zPosition = 1000
         self.syringePickup?.alpha = 0.0
         self.scene?.addChild(self.syringePickup!)
         
-        self.certificatePickup = CertificatePickup(imageNamed: "CertificatePickup", emitterFileNamed: "Upward3Particles.sks")
+        self.certificatePickup = CertificatePickup()
         self.certificatePickup?.size = CGSize(width: 64, height: 64)
         self.certificatePickup?.position = CGPoint(x: 300, y: 300)
         self.certificatePickup?.zPosition = 1000
@@ -331,10 +331,11 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             self.prgBar.setProgress(self.health / 100.0)
             
             if(self.health <= 75.0){
-                self.medkitPickup?.alpha = 1.0
-                let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
-                let newY:CGFloat = CGFloat(Double.random(in: self.currentLevel.medkitRespawnYRange))
-                self.medkitPickup?.position = CGPoint(x: newX, y: newY)
+//                self.medkitPickup?.alpha = 1.0
+//                let newX:CGFloat = CGFloat.random(in: ((self.frame.width / -2) + 20) ... ((self.frame.width / 2) - 20))
+//                let newY:CGFloat = CGFloat(Double.random(in: self.currentLevel.medkitRespawnYRange))
+//                self.medkitPickup?.position = CGPoint(x: newX, y: newY)
+                self.medkitPickup?.genNewPos()
             }
             
             self.zombieGirl.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)]), (UserDefaultsHelper.playSounds ? SoundManager.eatSound : SKAction.wait(forDuration: 0.0))]), completion: {

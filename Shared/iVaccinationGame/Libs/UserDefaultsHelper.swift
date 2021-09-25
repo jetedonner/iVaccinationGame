@@ -95,8 +95,8 @@ class UserDefaultsHelper{
                 return 2.75
             case .nightmare:
                 return 3.75
-            default:
-                return 1.5
+//            default:
+//                return 1.5
             }
         }
     }

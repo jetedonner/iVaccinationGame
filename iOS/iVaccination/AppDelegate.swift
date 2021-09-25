@@ -24,7 +24,7 @@ class AppDelegate:  UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough /Volumes/Data/dev/XCode/_games/iVaccinationGame/iVaccinationGame.xcodeprojapplication state information to restore your application to its current state in case it is terminated later.
         var tmp = -1
         tmp /= -1
     }

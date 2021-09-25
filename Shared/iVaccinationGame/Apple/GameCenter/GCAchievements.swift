@@ -64,14 +64,6 @@ class GCAchievements:NSObject{
         }
         return false
     }
-//
-//    func showBanner(title:String, message:String, completionHandler: (() -> Void)? = nil) {
-//        if GKLocalPlayer.local.isAuthenticated {
-//            DispatchQueue.main.async {
-//                GKNotificationBanner.show(withTitle: title, message: message, duration: 3.0, completionHandler: completionHandler)
-//            }
-//        }
-//    }
 
     func completeAchivement(identifier:String, percent:Double = 100.0, message:String? = nil){
         if GKLocalPlayer.local.isAuthenticated {
@@ -81,9 +73,6 @@ class GCAchievements:NSObject{
             GKAchievement.report([achivement], withCompletionHandler: { error in
 
             })
-//            if(message != nil){
-//                self.showBanner(title: "Achivement completed", message: message!)
-//            }
         }
     }
 
