@@ -18,6 +18,8 @@ class MenuDifficultyScene: SKScene {
     var sceneNode:SKScene!
     var lblColor:NSColor?
     var selNode:SKLabelNode?
+    
+    var selLevel:Level = .Meadow
 //    var viewCtrl:ViewController?
     
     override var isUserInteractionEnabled: Bool {
@@ -95,36 +97,20 @@ class MenuDifficultyScene: SKScene {
     override func mouseDown(with event: NSEvent) {
         if(self.selNode == lblEasy){
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadGameScene(difficulty: .easy)
+                (viewCtrl as! ViewController).loadGameScene(difficulty: .easy, level: self.selLevel)
             }
         }else if(self.selNode == lblMedium){
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadGameScene(difficulty: .medium)
+                (viewCtrl as! ViewController).loadGameScene(difficulty: .medium, level: self.selLevel)
             }
         }else if(self.selNode == lblHard){
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadGameScene(difficulty: .hard)
+                (viewCtrl as! ViewController).loadGameScene(difficulty: .hard, level: self.selLevel)
             }
         }else if(self.selNode == lblNightmare){
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadGameScene(difficulty: .nightmare)
+                (viewCtrl as! ViewController).loadGameScene(difficulty: .nightmare, level: self.selLevel)
             }
         }
-//            NSApp.terminate(nil)
-//        }else if(self.selNode == lblStartGame){
-//            if let viewCtrl = self.view?.window?.contentViewController{
-//                (viewCtrl as! ViewController).loadGameScene()
-//            }
-//        }else if(self.selNode == lblGameCenter){
-////            GKAccessPoint.shared.trigger(handler: {
-////
-////            })
-//        }else if(self.selNode == lblSettings){
-//            let vcSettings:SettingsViewController = SettingsViewController()
-//            vcSettings.gameScene = nil
-//            if let viewCtrl = self.view?.window?.contentViewController{
-//                (viewCtrl as! ViewController).presentAsSheet(vcSettings)
-//            }
-//        }
     }
 }

@@ -10,8 +10,8 @@ import SpriteKit
 
 class MeadowLevel: BaseLevel {
     
-    override init() {
-        super.init()
+    init() {
+        super.init(level: .Meadow)
     }
     
     override func initLevel() {

@@ -103,6 +103,12 @@ class UserDefaultsHelper{
         }
     }
     
+    static var _levelID:Level = .Meadow
+    static var levelID:Level{
+        get{ self._levelID }
+        set{ self._levelID = newValue }
+    }
+    
     static var level:String{
         get{
             if(self.defaults.value(forKey: UserDefaultsName.level.rawValue) == nil){

@@ -1,52 +1,14 @@
 //
-//  MenuScene.swift
-//  MenuScene
+//  MapSceneMacOS.swift
+//  iVaccination
 //
-//  Created by Kim David Hauser on 16.09.21.
+//  Created by Kim David Hauser on 25.09.21.
 //
 
 import Foundation
 import SpriteKit
-import GameKit
 
-class MapScene: SKScene {
-    
-//    var lblContinue:SKLabelNode?
-//    var lblMedium:SKLabelNode?
-//    var lblHard:SKLabelNode?
-//    var lblNightmare:SKLabelNode?
-    var sceneNode:SKScene!
-    var imgBack:SKSpriteNode!
-    
-//    var lblColor:NSColor?
-    var selNode:SKNode?
-    
-    var textBackArrowSel:SKTexture = SKTexture(imageNamed: "BackArrowSel")
-    var textBackArrow:SKTexture = SKTexture(imageNamed: "BackArrow")
-//    var viewCtrl:ViewController?
-    
-    override var isUserInteractionEnabled: Bool {
-        get {
-            return true
-        }
-        set {
-//            super.isUserInteractionEnabled = newValue
-        }
-    }
-    
-    override func sceneDidLoad() {
-        
-//        self.view?.allowedTouchTypes = .indirect
-        self.sceneNode = self.scene
-        self.imgBack = self.childNode(withName: "imgBack") as? SKSpriteNode
-//        self.lblContinue = self.childNode(withName: "lblContinue") as? SKLabelNode
-//        self.lblMedium = self.childNode(withName: "lblMedium") as? SKLabelNode
-//        self.lblHard = self.childNode(withName: "lblHard") as? SKLabelNode
-//        self.lblNightmare = self.childNode(withName: "lblNightmare") as? SKLabelNode
-//        self.lblColor = self.lblEasy?.fontColor
-//        self.selNode = self.lblEasy
-        self.isUserInteractionEnabled = true
-    }
+extension MapScene{
     
     override func mouseMoved(with event: NSEvent) {
         super.mouseMoved(with: event)
@@ -58,10 +20,18 @@ class MapScene: SKScene {
 //            newSelNode = self.imgBack
             self.selNode = node
             self.imgBack.texture = self.textBackArrowSel
+        }else if(node == self.posMeadow){
+            self.selNode = node
+            self.imgBack.texture = self.textBackArrow
+        }else if(node == self.posCitySkyline){
+            self.selNode = node
+            self.imgBack.texture = self.textBackArrow
         }else{
             self.selNode = node
             self.imgBack.texture = self.textBackArrow
         }
+        
+        
         ///*else if(node == self.lblMedium){
 //            newSelNode = self.lblMedium
 //        }else if(node == self.lblHard){
@@ -109,10 +79,19 @@ class MapScene: SKScene {
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadMenu()
             }
-        }///*else if(self.selNode == lblMedium){
-//            if let viewCtrl = self.view?.window?.contentViewController{
-//                (viewCtrl as! ViewController).loadGameScene(difficulty: .medium)
-//            }
+        }else if(self.selNode == self.posMeadow){
+            print("Meadow SELECTED")
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadDifficultyMenu(level: .Meadow)
+            }
+        }else if(self.selNode == self.posCitySkyline){
+            print("CitySkyline SELECTED")
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadDifficultyMenu(level: .CitySkyline)
+            }
+        }
+        
+        
 //        }else if(self.selNode == lblHard){
 //            if let viewCtrl = self.view?.window?.contentViewController{
 //                (viewCtrl as! ViewController).loadGameScene(difficulty: .hard)
@@ -139,4 +118,5 @@ class MapScene: SKScene {
 ////            }
 ////        }
     }
+    
 }

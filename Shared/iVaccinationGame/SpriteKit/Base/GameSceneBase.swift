@@ -12,7 +12,7 @@ import AVKit
 import AVFoundation
 import GameKit
 
-class GameSceneBase: SKScene, SKPhysicsContactDelegate {
+class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     
     var gameStateMachine:GameStateMachine!
     
@@ -27,6 +27,8 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
             self.view?.isPaused = false
         }
     }
+    
+    var selLevel:Level = .Meadow
     
     var lastUpdateTime:TimeInterval = 0.0
     var label : SKLabelNode?
@@ -101,6 +103,8 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
     
     override func sceneDidLoad() {
         self.physicsWorld.contactDelegate = self
+        
+        self.selLevel = UserDefaultsHelper.levelID
         
         self.levels = [
             CitySkylineLevel(),
@@ -203,13 +207,15 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
         self.scoreLblOrigPos = self.lblScore!.position
         
         #if os(macOS)
-        self.currentLevel = self.levels[6]
-        self.currentLevel.setupLevel(gameScene: self)
+//        self.currentLevel = self.levels[6]
+//        self.currentLevel.setupLevel(gameScene: self)
+        self.loadLevel(levelID: self.selLevel)
         self.restartAfterGameOverNG(resetTime: true)
         self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
         #else
-        self.currentLevel = self.levels[6]
-        self.currentLevel.setupLevel(gameScene: self)
+//        self.currentLevel = self.levels[6]
+//        self.currentLevel.setupLevel(gameScene: self)
+        self.loadLevel(levelID: self.selLevel)
         self.restartAfterGameOverNG(resetTime: true)
         self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
         #endif
@@ -220,6 +226,20 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
 //        self.restartZombieAction()
 //        self.restartAfterGameOverNG(resetTime: true, loadNewLevel: true)
         
+    }
+    
+    func loadLevel(levelID:Level){
+        for level in self.levels{
+            if(level.level == levelID){
+                self.currentLevel = level
+                self.currentLevel.setupLevel(gameScene: self)
+//                self.restartLevel()
+                return
+            }
+        }
+        self.currentLevel = self.levels[0]
+        self.currentLevel.setupLevel(gameScene: self)
+//        self.restartLevel()
     }
     
     func restartLevel(){
@@ -467,7 +487,19 @@ class GameSceneBase: SKScene, SKPhysicsContactDelegate {
     
     func clickedAtPoint(point:CGPoint){
         if(!self.gameRunning && self.waitForAnyKey){
-            self.restartAfterGameOverNG()
+//            self.restartAfterGameOverNG()
+            #if os(iOS)
+                if let viewCtrl = self.view?.window?.rootViewController{
+//                    (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.score)
+                }
+            #else
+                if let viewCtrl = self.view?.window?.contentViewController{
+                    if(UserDefaultsHelper.levelID == .Meadow){
+                        UserDefaultsHelper.levelID = .CitySkyline
+                    }
+                    (viewCtrl as! ViewController).loadMap()
+                }
+            #endif
             return
         }
         if(self.syringesLeft <= 0){

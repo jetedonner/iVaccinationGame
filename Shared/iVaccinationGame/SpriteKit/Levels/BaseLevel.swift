@@ -11,6 +11,7 @@ import SpriteKit
 class BaseLevel {
     
     var levelName:String = "Name not implemented"
+    var level:Level = .Meadow
     
     var backgroundImageName:String = ""
     
@@ -30,7 +31,8 @@ class BaseLevel {
     var syringeRespawnYRange = -350.0..<(-100.0)
     var medkitRespawnYRange = -350.0..<(200.0)
     
-    init(){
+    init(level:Level){
+        self.level = level
         self.initLevel()
         self.zombieCurrentPath = self.zombiePaths.randomElement()!
     }

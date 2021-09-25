@@ -10,8 +10,8 @@ import SpriteKit
 
 class WallwayLevel: BaseLevel {
     
-    override init() {
-        super.init()
+    init() {
+        super.init(level: .Wallway)
     }
     
     override func initLevel() {

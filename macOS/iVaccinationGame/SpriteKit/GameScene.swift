@@ -17,6 +17,10 @@ class GameScene: GameSceneBase {
     
     var keyboardHandler:KeyboardHandler!
     
+//    init(level:Level){
+//        self.selLevel = level
+//    }
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         self.keyboardHandler = KeyboardHandler(gameScene: self)

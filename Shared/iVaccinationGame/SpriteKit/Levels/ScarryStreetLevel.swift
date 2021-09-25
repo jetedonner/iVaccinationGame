@@ -10,8 +10,8 @@ import SpriteKit
 
 class ScarryStreetLevel: BaseLevel {
     
-    override init() {
-        super.init()
+    init() {
+        super.init(level: .ScarryStreet)
     }
     
     override func initLevel() {

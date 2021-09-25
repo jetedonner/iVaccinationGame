@@ -10,8 +10,8 @@ import SpriteKit
 
 class CityNightLevel: BaseLevel {
     
-    override init() {
-        super.init()
+    init() {
+        super.init(level: .CityNight)
     }
     
     override func initLevel() {
