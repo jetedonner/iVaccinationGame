@@ -28,7 +28,7 @@ enum UserDefaultsDifficulty:String{
     case nightmare = "Nightmare"
 }
 
-class UserDefaultsHelper {
+class UserDefaultsHelper{
     
     static let defaults = UserDefaults.standard
     
@@ -95,6 +95,9 @@ class UserDefaultsHelper {
                 return 2.75
             case .nightmare:
                 return 3.75
+            default:
+                return 1.5
+            }
         }
     }
     
