@@ -153,6 +153,8 @@
 		55E59BCC26FF83CD00B75322 /* DifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BCB26FF83CD00B75322 /* DifficultyScene.swift */; };
 		55E59BCE26FF867100B75322 /* DescriptionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BCD26FF867100B75322 /* DescriptionScene.swift */; };
 		55E59BD026FF873000B75322 /* DifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BCF26FF873000B75322 /* DifficultyScene.swift */; };
+		55E59BD626FF8C9D00B75322 /* ICloudStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BD526FF8C9D00B75322 /* ICloudStorageHelper.swift */; };
+		55E59BD726FF8C9D00B75322 /* ICloudStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BD526FF8C9D00B75322 /* ICloudStorageHelper.swift */; };
 		55EAD44A26FE98C700BB8D06 /* Upward3Particles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */; };
 		55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */; };
 		55EAD44D26FE990200BB8D06 /* CertificatePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */; };
@@ -302,6 +304,8 @@
 		55E59BCB26FF83CD00B75322 /* DifficultyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyScene.swift; sourceTree = "<group>"; };
 		55E59BCD26FF867100B75322 /* DescriptionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionScene.swift; sourceTree = "<group>"; };
 		55E59BCF26FF873000B75322 /* DifficultyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultyScene.swift; sourceTree = "<group>"; };
+		55E59BD226FF89C800B75322 /* iVaccinationGame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iVaccinationGame.entitlements; sourceTree = "<group>"; };
+		55E59BD526FF8C9D00B75322 /* ICloudStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudStorageHelper.swift; sourceTree = "<group>"; };
 		55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Upward3Particles.sks; sourceTree = "<group>"; };
 		55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificatePickup.swift; sourceTree = "<group>"; };
 		55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSceneBase.swift; sourceTree = "<group>"; };
@@ -367,6 +371,7 @@
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
+				55E59BD226FF89C800B75322 /* iVaccinationGame.entitlements */,
 				55C83F4626FD1A1B00F42F53 /* iVaccinationGame-Info.plist */,
 				55C83F3C26FCFC0300F42F53 /* LICENSE */,
 				55C83F4226FCFC3400F42F53 /* README.md */,
@@ -590,10 +595,9 @@
 		55B64A7B26F3A37F00944766 /* Apple */ = {
 			isa = PBXGroup;
 			children = (
+				55E59BD426FF8C7C00B75322 /* GameCenter */,
+				55E59BD326FF8C7300B75322 /* iCloud */,
 				55C83F5226FDDADD00F42F53 /* GameStates */,
-				55C83F3126FCA9A200F42F53 /* GCAchievements.swift */,
-				55B64A7C26F3A3A300944766 /* GameCenterHelper.swift */,
-				55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */,
 			);
 			path = Apple;
 			sourceTree = "<group>";
@@ -708,6 +712,24 @@
 				55E59BCF26FF873000B75322 /* DifficultyScene.swift */,
 			);
 			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+		55E59BD326FF8C7300B75322 /* iCloud */ = {
+			isa = PBXGroup;
+			children = (
+				55E59BD526FF8C9D00B75322 /* ICloudStorageHelper.swift */,
+			);
+			path = iCloud;
+			sourceTree = "<group>";
+		};
+		55E59BD426FF8C7C00B75322 /* GameCenter */ = {
+			isa = PBXGroup;
+			children = (
+				55C83F3126FCA9A200F42F53 /* GCAchievements.swift */,
+				55B64A7C26F3A3A300944766 /* GameCenterHelper.swift */,
+				55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */,
+			);
+			path = GameCenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -978,6 +1000,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				554E532326EFAD4300371E58 /* ViewController.swift in Sources */,
+				55E59BD626FF8C9D00B75322 /* ICloudStorageHelper.swift in Sources */,
 				55B64A3D26F3716000944766 /* CustomProgressBar.swift in Sources */,
 				55C83F5B26FDDB8B00F42F53 /* PlayingState.swift in Sources */,
 				55EAD46B26FF7A7D00BB8D06 /* MapScene.swift in Sources */,
@@ -1077,6 +1100,7 @@
 				55EAD45E26FF72AD00BB8D06 /* MapSceneBase.swift in Sources */,
 				55EAD44E26FE990200BB8D06 /* CertificatePickup.swift in Sources */,
 				55C83F6126FDDC4100F42F53 /* MenuState.swift in Sources */,
+				55E59BD726FF8C9D00B75322 /* ICloudStorageHelper.swift in Sources */,
 				55C83F8426FE326500F42F53 /* CityNightLevel.swift in Sources */,
 				55EAD46D26FF7A9200BB8D06 /* MapScene.swift in Sources */,
 				55C83F2526FC6B2800F42F53 /* BasePickupNode.swift in Sources */,
@@ -1299,6 +1323,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = iVaccinationGame.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1332,6 +1357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = iVaccinationGame.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

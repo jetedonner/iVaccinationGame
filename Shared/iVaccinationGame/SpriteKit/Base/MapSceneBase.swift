@@ -18,6 +18,8 @@ class MapSceneBase: BaseSKScene {
 //    var sceneNode:SKScene!
     var imgBG:SKSpriteNode!
     var imgBack:SKSpriteNode!
+    var lblScore:SKLabelNode!
+    var lblLevel:SKLabelNode!
     
 //    var lblColor:NSColor?
     var posMeadow:SKShapeNode?
@@ -45,6 +47,8 @@ class MapSceneBase: BaseSKScene {
         super.sceneDidLoad()
         self.imgBG = self.childNode(withName: "BG") as? SKSpriteNode
         self.imgBack = self.childNode(withName: "imgBack") as? SKSpriteNode
+        self.lblScore = self.childNode(withName: "lblScore") as? SKLabelNode
+        self.lblLevel = self.childNode(withName: "lblLevel") as? SKLabelNode
         
         self.posMeadow = self.childNode(withName: "posMeadow") as? SKShapeNode
         self.posCitySkyline = self.childNode(withName: "posCitySkyline") as? SKShapeNode
@@ -55,12 +59,12 @@ class MapSceneBase: BaseSKScene {
         }else{
             self.imgBG.texture = self.textCitySkyline
         }
-//        self.lblContinue = self.childNode(withName: "lblContinue") as? SKLabelNode
-//        self.lblMedium = self.childNode(withName: "lblMedium") as? SKLabelNode
-//        self.lblHard = self.childNode(withName: "lblHard") as? SKLabelNode
-//        self.lblNightmare = self.childNode(withName: "lblNightmare") as? SKLabelNode
-//        self.lblColor = self.lblEasy?.fontColor
-//        self.selNode = self.lblEasy
         self.isUserInteractionEnabled = true
+        self.updateScoreFromICloud()
+    }
+    
+    func updateScoreFromICloud(){
+        self.lblScore.text = "Score: \(ICloudStorageHelper.highscore)"
+        self.lblLevel.text = "Level: \(ICloudStorageHelper.level)"
     }
 }

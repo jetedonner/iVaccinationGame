@@ -459,6 +459,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             #else
                 if let viewCtrl = self.view?.window?.contentViewController{
                     (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
+                    print("OLD HIGHSCORE IS: \(ICloudStorageHelper.highscore), LEVEL: \(ICloudStorageHelper.level)")
+                    ICloudStorageHelper.highscore = self.score
+                    ICloudStorageHelper.level = Level.CitySkyline.rawValue
                 }
             #endif
                 if(self.currentLevel.shots > 0 && self.currentLevel.shots == self.currentLevel.hits){
