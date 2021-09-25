@@ -14,12 +14,7 @@ import AVFoundation
 class GameScene: GameSceneBase {
     
     var imgCH:NSImage?
-    
     var keyboardHandler:KeyboardHandler!
-    
-//    init(level:Level){
-//        self.selLevel = level
-//    }
     
     override func sceneDidLoad() {
         super.sceneDidLoad()

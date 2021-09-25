@@ -17,7 +17,7 @@ class MenuSceneBase: BaseSKScene {
     var lblExit:SKLabelNode?
     var lblMap:SKLabelNode?
     
-    var sceneNode:SKScene!
+//    var sceneNode:SKScene!
     var lblColor:SKColor?
     var selNode:SKLabelNode?
 //    var viewCtrl:ViewController?
@@ -32,9 +32,7 @@ class MenuSceneBase: BaseSKScene {
     }
     
     override func sceneDidLoad() {
-        
-//        self.view?.allowedTouchTypes = .indirect
-        self.sceneNode = self.scene
+        super.sceneDidLoad()
         self.lblStartGame = self.childNode(withName: "lblStartGame") as? SKLabelNode
         self.lblSettings = self.childNode(withName: "lblSettings") as? SKLabelNode
         self.lblGameCenter = self.childNode(withName: "lblGameCenter") as? SKLabelNode

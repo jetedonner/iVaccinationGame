@@ -108,9 +108,9 @@
 		55C83F3026FC984E00F42F53 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C83F2F26FC984E00F42F53 /* GameKit.framework */; };
 		55C83F3226FCA9A200F42F53 /* GCAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3126FCA9A200F42F53 /* GCAchievements.swift */; };
 		55C83F3326FCA9A200F42F53 /* GCAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3126FCA9A200F42F53 /* GCAchievements.swift */; };
-		55C83F3526FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */; };
-		55C83F3626FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */; };
-		55C83F3826FCE5BC00F42F53 /* MenuDifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3726FCE5BC00F42F53 /* MenuDifficultyScene.swift */; };
+		55C83F3526FCDEF500F42F53 /* DifficultyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */; };
+		55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */; };
+		55C83F3826FCE5BC00F42F53 /* DifficultySceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3726FCE5BC00F42F53 /* DifficultySceneBase.swift */; };
 		55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3C26FCFC0300F42F53 /* LICENSE */; };
 		55C83F3E26FCFC0400F42F53 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3C26FCFC0300F42F53 /* LICENSE */; };
 		55C83F4326FCFC3400F42F53 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F4226FCFC3400F42F53 /* README.md */; };
@@ -146,8 +146,11 @@
 		55C83F8126FE323800F42F53 /* CityJapanLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F7F26FE31EB00F42F53 /* CityJapanLevel.swift */; };
 		55C83F8326FE326500F42F53 /* CityNightLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F8226FE326500F42F53 /* CityNightLevel.swift */; };
 		55C83F8426FE326500F42F53 /* CityNightLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F8226FE326500F42F53 /* CityNightLevel.swift */; };
-		55E59BC626FF7FA400B75322 /* TEST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BC526FF7FA400B75322 /* TEST.swift */; };
-		55E59BC726FF7FA500B75322 /* TEST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BC526FF7FA400B75322 /* TEST.swift */; };
+		55E59BC626FF7FA400B75322 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */; };
+		55E59BC726FF7FA500B75322 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */; };
+		55E59BC926FF80B600B75322 /* BaseSKSceneMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BC826FF80B600B75322 /* BaseSKSceneMacOS.swift */; };
+		55E59BCA26FF837700B75322 /* DifficultySceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3726FCE5BC00F42F53 /* DifficultySceneBase.swift */; };
+		55E59BCC26FF83CD00B75322 /* DifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BCB26FF83CD00B75322 /* DifficultyScene.swift */; };
 		55EAD44A26FE98C700BB8D06 /* Upward3Particles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */; };
 		55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */; };
 		55EAD44D26FE990200BB8D06 /* CertificatePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */; };
@@ -160,7 +163,6 @@
 		55EAD45926FF6F2700BB8D06 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3226F3474900944766 /* MenuSceneBase.swift */; };
 		55EAD45B26FF6FA500BB8D06 /* MenuSceneMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45A26FF6FA500BB8D06 /* MenuSceneMacOS.swift */; };
 		55EAD45E26FF72AD00BB8D06 /* MapSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */; };
-		55EAD46126FF72EA00BB8D06 /* MapSceneMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45F26FF72CF00BB8D06 /* MapSceneMacOS.swift */; };
 		55EAD46526FF757500BB8D06 /* BaseSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD46426FF757500BB8D06 /* BaseSKScene.swift */; };
 		55EAD46626FF757500BB8D06 /* BaseSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD46426FF757500BB8D06 /* BaseSKScene.swift */; };
 		55EAD46826FF773A00BB8D06 /* BaseSKSceneIOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD46726FF773A00BB8D06 /* BaseSKSceneIOS.swift */; };
@@ -272,8 +274,8 @@
 		55C83F2A26FC75E600F42F53 /* GameSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameSceneBase.swift; path = Shared/iVaccinationGame/SpriteKit/Base/GameSceneBase.swift; sourceTree = SOURCE_ROOT; };
 		55C83F2F26FC984E00F42F53 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		55C83F3126FCA9A200F42F53 /* GCAchievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCAchievements.swift; sourceTree = "<group>"; };
-		55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuSelectDifficulty.sks; sourceTree = "<group>"; };
-		55C83F3726FCE5BC00F42F53 /* MenuDifficultyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDifficultyScene.swift; sourceTree = "<group>"; };
+		55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DifficultyScene.sks; sourceTree = "<group>"; };
+		55C83F3726FCE5BC00F42F53 /* DifficultySceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultySceneBase.swift; sourceTree = "<group>"; };
 		55C83F3C26FCFC0300F42F53 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		55C83F4226FCFC3400F42F53 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		55C83F4626FD1A1B00F42F53 /* iVaccinationGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "iVaccinationGame-Info.plist"; sourceTree = "<group>"; };
@@ -294,14 +296,15 @@
 		55C83F7D26FE119700F42F53 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		55C83F7F26FE31EB00F42F53 /* CityJapanLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityJapanLevel.swift; sourceTree = "<group>"; };
 		55C83F8226FE326500F42F53 /* CityNightLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNightLevel.swift; sourceTree = "<group>"; };
-		55E59BC526FF7FA400B75322 /* TEST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TEST.swift; sourceTree = "<group>"; };
+		55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		55E59BC826FF80B600B75322 /* BaseSKSceneMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSKSceneMacOS.swift; sourceTree = "<group>"; };
+		55E59BCB26FF83CD00B75322 /* DifficultyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyScene.swift; sourceTree = "<group>"; };
 		55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Upward3Particles.sks; sourceTree = "<group>"; };
 		55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificatePickup.swift; sourceTree = "<group>"; };
 		55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSceneBase.swift; sourceTree = "<group>"; };
 		55EAD45326FF55F000BB8D06 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
 		55EAD45626FF60D600BB8D06 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		55EAD45A26FF6FA500BB8D06 /* MenuSceneMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSceneMacOS.swift; sourceTree = "<group>"; };
-		55EAD45F26FF72CF00BB8D06 /* MapSceneMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSceneMacOS.swift; sourceTree = "<group>"; };
 		55EAD46426FF757500BB8D06 /* BaseSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSKScene.swift; sourceTree = "<group>"; };
 		55EAD46726FF773A00BB8D06 /* BaseSKSceneIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSKSceneIOS.swift; sourceTree = "<group>"; };
 		55EAD46926FF7A5900BB8D06 /* MapScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
@@ -394,7 +397,6 @@
 				554E534A26EFB34E00371E58 /* CH_first.png */,
 				55B64A8426F3CEAE00944766 /* CH_first_red.png */,
 				554E531A26EFAD4300371E58 /* AppDelegate.swift */,
-				55C83F3726FCE5BC00F42F53 /* MenuDifficultyScene.swift */,
 				55C83F7826FDFF4F00F42F53 /* DescriptionScene.swift */,
 				554E532226EFAD4300371E58 /* ViewController.swift */,
 				554E532626EFAD4400371E58 /* Main.storyboard */,
@@ -457,9 +459,10 @@
 			isa = PBXGroup;
 			children = (
 				554E532026EFAD4300371E58 /* GameScene.swift */,
-				55EAD45F26FF72CF00BB8D06 /* MapSceneMacOS.swift */,
 				55EAD46926FF7A5900BB8D06 /* MapScene.swift */,
 				55EAD46E26FF7C5000BB8D06 /* MenuScene.swift */,
+				55E59BC826FF80B600B75322 /* BaseSKSceneMacOS.swift */,
+				55E59BCB26FF83CD00B75322 /* DifficultyScene.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -514,7 +517,7 @@
 				55A579CF26F6464F0084239D /* GameScene_TEST.sks */,
 				554E531E26EFAD4300371E58 /* Actions.sks */,
 				55B64A3026F3467200944766 /* MenuScene.sks */,
-				55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */,
+				55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */,
 				55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */,
 				55EAD45326FF55F000BB8D06 /* MapScene.sks */,
 			);
@@ -633,6 +636,7 @@
 		55C83F0926FC66CD00F42F53 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				55C83F3726FCE5BC00F42F53 /* DifficultySceneBase.swift */,
 				55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */,
 				55B64A3226F3474900944766 /* MenuSceneBase.swift */,
 				55C83F2A26FC75E600F42F53 /* GameSceneBase.swift */,
@@ -648,7 +652,7 @@
 				55B64A3C26F3716000944766 /* CustomProgressBar.swift */,
 				55B64A3826F35E7600944766 /* SoundManager.swift */,
 				55B64A3A26F3602C00944766 /* GameVars.swift */,
-				55E59BC526FF7FA400B75322 /* TEST.swift */,
+				55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -890,7 +894,7 @@
 				55EAD44A26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55A579CE26F646480084239D /* GameScene_ORIG.sks in Resources */,
 				55C83F7326FDFB9D00F42F53 /* GameScene_FOURTH.sks in Resources */,
-				55C83F3526FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */,
+				55C83F3526FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
 				55C83F7626FDFD8A00F42F53 /* DescriptionScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -929,7 +933,7 @@
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
 				55EAD45526FF55F000BB8D06 /* MapScene.sks in Resources */,
 				55C83F7426FDFB9D00F42F53 /* GameScene_FOURTH.sks in Resources */,
-				55C83F3626FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */,
+				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,
 				55C83F0126FC666500F42F53 /* GameScene_TEST.sks in Resources */,
 				55B64A8726F4C34000944766 /* Assets.xcassets in Resources */,
@@ -985,14 +989,13 @@
 				55A579CC26F644080084239D /* WallwayLevel.swift in Sources */,
 				55C83F6D26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */,
 				55C83F2B26FC75E600F42F53 /* GameSceneBase.swift in Sources */,
-				55E59BC626FF7FA400B75322 /* TEST.swift in Sources */,
-				55EAD46126FF72EA00BB8D06 /* MapSceneMacOS.swift in Sources */,
+				55E59BC626FF7FA400B75322 /* UserDefaultsHelper.swift in Sources */,
 				55EAD45126FF559C00BB8D06 /* MapSceneBase.swift in Sources */,
 				55C83F7926FDFF4F00F42F53 /* DescriptionScene.swift in Sources */,
 				556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */,
 				55C83F6A26FDDF1F00F42F53 /* GameCenterState.swift in Sources */,
 				554E532126EFAD4300371E58 /* GameScene.swift in Sources */,
-				55C83F3826FCE5BC00F42F53 /* MenuDifficultyScene.swift in Sources */,
+				55C83F3826FCE5BC00F42F53 /* DifficultySceneBase.swift in Sources */,
 				55A579D326F64D1B0084239D /* CGFloatValueTransformer.swift in Sources */,
 				554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */,
 				55C83F6526FDDC6000F42F53 /* MenuState.swift in Sources */,
@@ -1011,6 +1014,8 @@
 				55A579BF26F4FEFF0084239D /* SyringePickup.swift in Sources */,
 				55C83F5A26FDDB8B00F42F53 /* GameStateMachine.swift in Sources */,
 				55A579C326F507DF0084239D /* SKSpriteNodeExt.swift in Sources */,
+				55E59BCC26FF83CD00B75322 /* DifficultyScene.swift in Sources */,
+				55E59BC926FF80B600B75322 /* BaseSKSceneMacOS.swift in Sources */,
 				559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */,
 				559442A626FE51350082DA72 /* GameState.swift in Sources */,
 				55B64A3B26F3602C00944766 /* GameVars.swift in Sources */,
@@ -1050,6 +1055,7 @@
 				559442A726FE51350082DA72 /* GameState.swift in Sources */,
 				55C83F6426FDDC5500F42F53 /* SettingsState.swift in Sources */,
 				55C83F2D26FC819E00F42F53 /* GameCenterHelper.swift in Sources */,
+				55E59BCA26FF837700B75322 /* DifficultySceneBase.swift in Sources */,
 				55C83F2E26FC819E00F42F53 /* GameCenterHelperExt.swift in Sources */,
 				55C83F2126FC689A00F42F53 /* ZombieGirl.swift in Sources */,
 				55C83F2226FC6A0400F42F53 /* GameVars.swift in Sources */,
@@ -1067,7 +1073,7 @@
 				55C83F1026FC673D00F42F53 /* MeadowLevel.swift in Sources */,
 				55B64A4526F37FD400944766 /* AppDelegate.swift in Sources */,
 				55C83F7E26FE119700F42F53 /* SettingsBundleHelper.swift in Sources */,
-				55E59BC726FF7FA500B75322 /* TEST.swift in Sources */,
+				55E59BC726FF7FA500B75322 /* UserDefaultsHelper.swift in Sources */,
 				55C83F2726FC6BB500F42F53 /* CustomProgressBar.swift in Sources */,
 				55C83F1426FC673D00F42F53 /* BasePath.swift in Sources */,
 				55C83F2026FC680C00F42F53 /* GameScene.swift in Sources */,

@@ -57,9 +57,9 @@ class ViewController: NSViewController {
         }
     
     func loadDifficultyMenu(level:Level){
-        if let scene = GKScene(fileNamed: "MenuSelectDifficulty") {
+        if let scene = GKScene(fileNamed: "DifficultyScene") {
             
-            if let sceneNode = scene.rootNode as! MenuDifficultyScene? {
+            if let sceneNode = scene.rootNode as! DifficultyScene? {
                 sceneNode.selLevel = level
                 sceneNode.scaleMode = .aspectFill
                 

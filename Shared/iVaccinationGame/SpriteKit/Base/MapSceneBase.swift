@@ -15,7 +15,7 @@ class MapSceneBase: BaseSKScene {
 //    var lblMedium:SKLabelNode?
 //    var lblHard:SKLabelNode?
 //    var lblNightmare:SKLabelNode?
-    var sceneNode:SKScene!
+//    var sceneNode:SKScene!
     var imgBG:SKSpriteNode!
     var imgBack:SKSpriteNode!
     
@@ -42,9 +42,7 @@ class MapSceneBase: BaseSKScene {
     }
     
     override func sceneDidLoad() {
-        
-//        self.view?.allowedTouchTypes = .indirect
-        self.sceneNode = self.scene
+        super.sceneDidLoad()
         self.imgBG = self.childNode(withName: "BG") as? SKSpriteNode
         self.imgBack = self.childNode(withName: "imgBack") as? SKSpriteNode
         

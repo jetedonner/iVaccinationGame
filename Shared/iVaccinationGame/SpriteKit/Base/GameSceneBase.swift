@@ -102,6 +102,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var thrownSyringeDarts:[SyringeDart] = []
     
     override func sceneDidLoad() {
+        super.sceneDidLoad()
         self.physicsWorld.contactDelegate = self
         
         self.selLevel = UserDefaultsHelper.levelID
@@ -182,11 +183,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.imgRedOut = self.contentNode!.childNode(withName: "redOut") as? SKSpriteNode
         self.imgRedOut?.alpha = 0.0
         
-//        self.syringe = self.contentNode!.childNode(withName: "Syringe") as? SKSpriteNode
-//        self.syringe?.isHidden = true
-//        self.syringe?.physicsBody = SKPhysicsBody(circleOfRadius: 15.0)
-//        self.syringe?.physicsBody?.affectedByGravity = false
-        
         self.scene?.addChild(self.zombieGirl)
         self.zombieGirl.physicsBody = SKPhysicsBody(rectangleOf: self.zombieGirl.size)
         self.zombieGirl.physicsBody?.affectedByGravity = false
@@ -201,20 +197,14 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.prgBar.zPosition = 1000
         self.addChild(self.prgBar)
         
-//        self.syringe?.physicsBody?.contactTestBitMask = 0b0001
         self.zombieGirl.physicsBody?.contactTestBitMask = 0b0010
-        
         self.scoreLblOrigPos = self.lblScore!.position
         
         #if os(macOS)
-//        self.currentLevel = self.levels[6]
-//        self.currentLevel.setupLevel(gameScene: self)
         self.loadLevel(levelID: self.selLevel)
         self.restartAfterGameOverNG(resetTime: true)
         self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
         #else
-//        self.currentLevel = self.levels[6]
-//        self.currentLevel.setupLevel(gameScene: self)
         self.loadLevel(levelID: self.selLevel)
         self.restartAfterGameOverNG(resetTime: true)
         self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
@@ -222,10 +212,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
         self.setupHandAnimation()
-//        gameRunning = true
-//        self.restartZombieAction()
-//        self.restartAfterGameOverNG(resetTime: true, loadNewLevel: true)
-        
     }
     
     func loadLevel(levelID:Level){

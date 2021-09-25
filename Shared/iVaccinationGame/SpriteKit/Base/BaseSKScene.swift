@@ -10,11 +10,16 @@ import SpriteKit
 
 class BaseSKScene: SKScene {
     
+    var sceneNode:SKScene!
+    
     override init() {
         super.init()
     }
-        
-//    @objc
+    
+    override func sceneDidLoad() {
+        self.sceneNode = self.scene
+    }
+    
     func touchOrClick(pos:CGPoint){
         
     }
