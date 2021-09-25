@@ -51,10 +51,7 @@ class KeyboardHandler{
             self.gameScene.setGamePaused(isPaused: true)
             break
         case KeyCode.KEY_W.rawValue: // S
-            SoundManagerNG.shared.playSound(sound: Sounds.shot, atVolume: 1.0, waitForCompletion: true)
-//            if let viewCtrl = self.gameScene.view?.window?.contentViewController{
-//                (viewCtrl as! ViewController).playSound(fileName: GameVars.BASE_MEDIA_DIR + "throwing-whip.mp3", atVolume: 1.0, waitForCompletion: true)
-//            }
+            SoundManager.shared.playSound(sound: .shot)
             break
         case KeyCode.KEY_P.rawValue: // P
 //            self.gameScene.setGamePaused(isPaused: !self.gameScene.gamePaused)

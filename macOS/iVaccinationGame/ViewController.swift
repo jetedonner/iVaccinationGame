@@ -17,46 +17,10 @@ class ViewController: NSViewController, AVAudioPlayerDelegate {
     
     @IBOutlet var skView: SKView!
     
-//    var player: AVAudioPlayer!
-    
     override func viewDidAppear() {
         super.viewDidAppear()
         self.skView.window?.acceptsMouseMovedEvents = true
     }
-    
-//    func playSound(fileName: String, atVolume: CGFloat, waitForCompletion: Bool){
-//
-//        let filename:NSString = NSString(string: fileName)
-//        let nameOnly = filename.deletingPathExtension //completeURL.deletingPathExtension().s fileName.stringByDeletingPathExtension
-//        let fileExt = filename.pathExtension // fileName.pathExtension
-//
-//        let soundPath:URL = Bundle.main.url(forResource: nameOnly, withExtension: fileExt)!
-//
-////        var error:NSError?
-//        do{
-//            self.player = try AVAudioPlayer(contentsOf: soundPath, fileTypeHint: AVFileType.mp3.rawValue)//, error: &error)
-//
-//            player.volume = 10.0// Float(atVolume)
-//            player.prepareToPlay()
-////            player.delegate = (NSApp.delegate as! AppDelegate).vc
-//            player.play()
-//
-////                let playAction: SKAction = SKAction.run { () -> Void in
-////                player.play()
-////            }
-//
-////            if(waitForCompletion){
-////                let waitAction = SKAction.wait(forDuration: player.duration)
-////                let groupAction: SKAction = SKAction.group([playAction, waitAction])
-////                return groupAction
-////            }
-//
-////            return playAction
-//        }catch{
-//            print("Error while playing music: \(error.localizedDescription)")
-////            return SKAction.wait(forDuration: 0.0)
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,7 +103,7 @@ class ViewController: NSViewController, AVAudioPlayerDelegate {
     func loadGameScene(difficulty:UserDefaultsDifficulty = .easy, level:Level = .Meadow){
         UserDefaultsHelper.difficulty = difficulty
         UserDefaultsHelper.levelID = level
-//        GameScene(
+
         if let scene = GKScene(fileNamed: "GameScene") {
             if let sceneNode = scene.rootNode as! GameScene? {
                 

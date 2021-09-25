@@ -66,9 +66,7 @@ class MenuScene: MenuSceneBase {
                 self.lblStartGame?.fontColor = .white
             }
 
-            if(UserDefaultsHelper.playSounds){
-                self.selNode?.run(SoundManager.menuHighliteSound)
-            }
+            SoundManager.shared.playSound(sound: .menuHighlite)
         }
     }
     

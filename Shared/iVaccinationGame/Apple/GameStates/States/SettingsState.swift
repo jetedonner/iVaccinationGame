@@ -18,11 +18,17 @@ class SettingsState: BaseState {
         self.gameScene.setGamePaused(isPaused: true)
         
         #if os(macOS)
-        let vcSettings:SettingsViewController = SettingsViewController()
-        vcSettings.gameScene = self.gameScene
-        if let viewCtrl = self.gameScene.view?.window?.contentViewController{
-            (viewCtrl as! ViewController).presentAsSheet(vcSettings)
-        }
+            let vcSettings:SettingsViewController = SettingsViewController()
+            vcSettings.gameScene = self.gameScene
+            if let viewCtrl = self.gameScene.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).presentAsSheet(vcSettings)
+            }
+        #else
+            if let url = URL(string:UIApplication.openSettingsURLString){
+                if UIApplication.shared.canOpenURL(url){
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
         #endif
     }
 }

@@ -44,6 +44,10 @@ class BasePickupNode: SKSpriteNode {
         self.addChild(self.upwardEmitterNode)
     }
     
+    func pickedUp(){
+        
+    }
+    
     func genNewPos(){
         var isBehindGKAccessPoint:Bool = true
         var isBehindHand:Bool = true

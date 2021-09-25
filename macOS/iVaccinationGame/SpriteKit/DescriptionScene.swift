@@ -28,9 +28,7 @@ class DescriptionScene: DescriptionSceneBase {
                 
             }
 
-            if(UserDefaultsHelper.playSounds){
-                self.selNode?.run(SoundManager.menuHighliteSound)
-            }
+            SoundManager.shared.playSound(sound: .menuHighlite)
         }
     }
     

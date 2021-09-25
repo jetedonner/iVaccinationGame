@@ -20,6 +20,7 @@ class MeadowLevel: BaseLevel {
         self.zombieImageName = "ZombieGirl2"
         self.zombieCuredImageName = "ZombieGirl2Un"
         self.zombieCount = 1
+        self.certRespawnRange = 5...10
         
         let exitMove1:SKAction = SKAction.moveBy(x: 60, y: 10, duration: 0.2)
         let exitMove2:SKAction = SKAction.moveBy(x: 60, y: -10, duration: 0.2)

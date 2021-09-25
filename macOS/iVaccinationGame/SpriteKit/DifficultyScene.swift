@@ -52,9 +52,7 @@ class DifficultyScene: DifficultySceneBase {
                 self.lblMedium?.fontColor = .white
             }
             
-            if(UserDefaultsHelper.playSounds){
-                self.selNode?.run(SoundManager.menuHighliteSound)
-            }
+            SoundManager.shared.playSound(sound: .menuHighlite)
         }
     }
     

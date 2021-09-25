@@ -43,13 +43,17 @@ class SettingsViewController: NSViewController {
                 gameScene?.songPlayer?.stop()
             }
             gameScene?.songPlayer?.volume = self.volume!.floatValue
-            SoundManagerNG.shared.masterVolume = CGFloat(self.volume!.floatValue)
+            SoundManager.shared.masterVolume = CGFloat(self.volume!.floatValue)
         }
         self.dismiss(sender)
-        let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to restart the game?")
+        let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to abort the current level?")
         if(answer){
-            print("RELOADING GAME")
-            self.gameScene!.restartLevel()
+//            print("RELOADING GAME")
+            self.gameScene!.runLevel(levelID: UserDefaultsHelper.levelID)
+//            self.gameScene!.loadLevel(levelID: UserDefaultsHelper.levelID)
+//            self.gameScene!.restartAfterGameOverNG(resetTime: true)
+//            self.gameScene!.showMessage(msg: "Level: \(self.currentLevel.levelName)")
+//            self.gameScene!.restartLevel()
         }
         if(self.gameScene != nil){
             self.gameScene?.setGamePaused(isPaused: false)

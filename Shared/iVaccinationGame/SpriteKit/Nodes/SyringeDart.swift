@@ -59,14 +59,8 @@ class SyringeDart: SKSpriteNode {
         }
         self.position = CGPoint(x: 0, y: -300)
         
-//        self.gameScene.syringe?.position = CGPoint(x: 0, y: -300)
-//        self.gameScene.syringe?.scale(to: CGSize(width: 64, height: 64))
-        if(UserDefaultsHelper.playSounds){
-//            self.gameScene.scene?.run(SoundManager.shotSound)
-            SoundManager.shared.playSound(sound: .shot)
-        }
-//        self.gameScene.syringe?.speed = UserDefaultsHelper.speedMultiplierForDifficulty
-//        self.gameScene.syringe?.run(
+        SoundManager.shared.playSound(sound: .shot)
+        
         self.speed = UserDefaultsHelper.speedMultiplierForDifficulty
         self.run(
             SKAction.group([
@@ -74,11 +68,7 @@ class SyringeDart: SKSpriteNode {
                 SKAction.scale(to: 0.5, duration: 0.5)
             ]),
             completion: {
-//                if(!self.gameScene.syringe!.isHidden){
-//                    self.gameScene.syringe?.run(SoundManager.impactSound)
-//                }
                 if(!self.isHidden){
-//                    self.gameScene.scene!.run(SoundManager.impactSound)
                     //TODO: SoundVariants
                     SoundManager.shared.playSound(sound: .impact1)
                     self.removeFromGameScene()
@@ -88,8 +78,6 @@ class SyringeDart: SKSpriteNode {
         self.gameScene.updateThrowingHandTexture()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.removeFromGameScene()
-//            self.gameScene.syringe?.isHidden = true
-//            self.gameScene.thrownSyringeDarts.remove(at: self.gameScene.thrownSyringeDarts.firstIndex(of: self)!)
         }
     }
     

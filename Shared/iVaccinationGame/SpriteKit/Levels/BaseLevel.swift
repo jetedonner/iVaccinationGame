@@ -30,6 +30,7 @@ class BaseLevel {
     
     var syringeRespawnYRange = -350.0..<(-100.0)
     var medkitRespawnYRange = -350.0..<(200.0)
+    var certRespawnRange = 5...20
     
     init(level:Level){
         self.level = level
