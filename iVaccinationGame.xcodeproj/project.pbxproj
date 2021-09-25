@@ -152,6 +152,10 @@
 		55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */; };
 		55EAD44D26FE990200BB8D06 /* CertificatePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */; };
 		55EAD44E26FE990200BB8D06 /* CertificatePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */; };
+		55EAD45126FF559C00BB8D06 /* MapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45026FF559C00BB8D06 /* MapScene.swift */; };
+		55EAD45226FF559C00BB8D06 /* MapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45026FF559C00BB8D06 /* MapScene.swift */; };
+		55EAD45426FF55F000BB8D06 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD45326FF55F000BB8D06 /* MapScene.sks */; };
+		55EAD45526FF55F000BB8D06 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD45326FF55F000BB8D06 /* MapScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +285,8 @@
 		55C83F8226FE326500F42F53 /* CityNightLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNightLevel.swift; sourceTree = "<group>"; };
 		55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Upward3Particles.sks; sourceTree = "<group>"; };
 		55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificatePickup.swift; sourceTree = "<group>"; };
+		55EAD45026FF559C00BB8D06 /* MapScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
+		55EAD45326FF55F000BB8D06 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -485,6 +491,7 @@
 				55B64A3026F3467200944766 /* MenuScene.sks */,
 				55C83F3426FCDEF500F42F53 /* MenuSelectDifficulty.sks */,
 				55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */,
+				55EAD45326FF55F000BB8D06 /* MapScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -586,6 +593,7 @@
 		55C83EFF26FC664C00F42F53 /* SpriteKit */ = {
 			isa = PBXGroup;
 			children = (
+				55EAD44F26FF556600BB8D06 /* Map */,
 				55B64A2F26F3463F00944766 /* Particles */,
 				55A579C626F50F200084239D /* Levels */,
 				55C83F0926FC66CD00F42F53 /* Base */,
@@ -655,6 +663,14 @@
 				55C83F5D26FDDB9D00F42F53 /* BaseState.swift */,
 			);
 			path = States;
+			sourceTree = "<group>";
+		};
+		55EAD44F26FF556600BB8D06 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				55EAD45026FF559C00BB8D06 /* MapScene.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -837,6 +853,7 @@
 				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
 				55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */,
+				55EAD45426FF55F000BB8D06 /* MapScene.sks in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
 				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
@@ -888,6 +905,7 @@
 				55C83F0826FC666500F42F53 /* GameScene_THIRD.sks in Resources */,
 				55C83F0326FC666500F42F53 /* GameScene_THIRD_alz.sks in Resources */,
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
+				55EAD45526FF55F000BB8D06 /* MapScene.sks in Resources */,
 				55C83F7426FDFB9D00F42F53 /* GameScene_FOURTH.sks in Resources */,
 				55C83F3626FCDEF500F42F53 /* MenuSelectDifficulty.sks in Resources */,
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,
@@ -943,6 +961,7 @@
 				55A579CC26F644080084239D /* WallwayLevel.swift in Sources */,
 				55C83F6D26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */,
 				55C83F2B26FC75E600F42F53 /* GameSceneBase.swift in Sources */,
+				55EAD45126FF559C00BB8D06 /* MapScene.swift in Sources */,
 				55C83F7926FDFF4F00F42F53 /* DescriptionScene.swift in Sources */,
 				556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */,
 				55B64A8326F3AB8700944766 /* UserDefaultsHelper.swift in Sources */,
@@ -999,6 +1018,7 @@
 				55C83F1E26FC675500F42F53 /* TimeInterval.swift in Sources */,
 				55C83F2C26FC75E600F42F53 /* GameSceneBase.swift in Sources */,
 				55C83F1226FC673D00F42F53 /* BaseLevel.swift in Sources */,
+				55EAD45226FF559C00BB8D06 /* MapScene.swift in Sources */,
 				55B64A4D26F37FD400944766 /* GameViewController.swift in Sources */,
 				559442A726FE51350082DA72 /* GameState.swift in Sources */,
 				55C83F6426FDDC5500F42F53 /* SettingsState.swift in Sources */,

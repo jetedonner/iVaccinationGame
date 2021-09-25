@@ -12,7 +12,10 @@ iVaccinationGame is a fun game which lets you vaccinate zombies to save the worl
 * [Icons made by Roundicons](https://www.flaticon.com/authors/roundicons)
 * [Icons made by Smashicons](https://www.flaticon.com/authors/smashicons)
 
-<div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+## Map-Generator
+* [azgaar.github.io/Fantasy-Map-Generator](https://azgaar.github.io/Fantasy-Map-Generator/)
+* GIMP
+
 
 ## Sounds
 * [Sound from Zapsplat.com](https://www.zapsplat.com)

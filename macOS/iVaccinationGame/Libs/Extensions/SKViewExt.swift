@@ -20,6 +20,9 @@ extension SKView {
         }else if let descScene = (self.scene as? DescriptionScene){
             descScene.mouseDown(with: event)
             return
+        }else if let mapScene = (self.scene as? MapScene){
+            mapScene.mouseDown(with: event)
+            return
         }else if let gameScene = (self.scene as? GameScene){
             super.mouseDown(with: event)
             

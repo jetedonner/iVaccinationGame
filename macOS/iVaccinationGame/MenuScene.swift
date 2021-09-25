@@ -15,6 +15,8 @@ class MenuScene: SKScene {
     var lblGameCenter:SKLabelNode?
     var lblSettings:SKLabelNode?
     var lblExit:SKLabelNode?
+    var lblMap:SKLabelNode?
+    
     var sceneNode:SKScene!
     var lblColor:NSColor?
     var selNode:SKLabelNode?
@@ -37,6 +39,8 @@ class MenuScene: SKScene {
         self.lblSettings = self.childNode(withName: "lblSettings") as? SKLabelNode
         self.lblGameCenter = self.childNode(withName: "lblGameCenter") as? SKLabelNode
         self.lblExit = self.childNode(withName: "lblExit") as? SKLabelNode
+        self.lblMap = self.childNode(withName: "lblMap") as? SKLabelNode
+        
         self.lblColor = self.lblStartGame?.fontColor
         self.selNode = self.lblStartGame
         self.isUserInteractionEnabled = true
@@ -58,6 +62,8 @@ class MenuScene: SKScene {
             newSelNode = self.lblExit
         }else if(node == self.lblStartGame){
             newSelNode = self.lblStartGame
+        }else if(node == self.lblMap){
+            newSelNode = self.lblMap
         }else{
             return
         }
@@ -69,19 +75,29 @@ class MenuScene: SKScene {
                 self.lblStartGame?.fontColor = .white
                 self.lblExit?.fontColor = .white
                 self.lblGameCenter?.fontColor = .white
+                self.lblMap?.fontColor = .white
             }else if(self.selNode == self.lblExit){
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblGameCenter?.fontColor = .white
+                self.lblMap?.fontColor = .white
                 self.lblExit?.fontColor = self.lblColor
             }else if(self.selNode == self.lblStartGame){
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = self.lblColor
                 self.lblExit?.fontColor = .white
                 self.lblGameCenter?.fontColor = .white
+                self.lblMap?.fontColor = .white
             }else if(self.selNode == self.lblGameCenter){
                 self.lblSettings?.fontColor = .white
                 self.lblGameCenter?.fontColor = self.lblColor
+                self.lblExit?.fontColor = .white
+                self.lblStartGame?.fontColor = .white
+                self.lblMap?.fontColor = .white
+            }else if(self.selNode == self.lblMap){
+                self.lblSettings?.fontColor = .white
+                self.lblMap?.fontColor = self.lblColor
+                self.lblGameCenter?.fontColor = .white
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
             }
@@ -112,6 +128,17 @@ class MenuScene: SKScene {
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).presentAsSheet(vcSettings)
             }
+        }else if(self.selNode == lblMap){
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadMap()
+            }
+//            let vcSettings:SettingsViewController = SettingsViewController()
+//            vcSettings.gameScene = nil
+//            if let viewCtrl = self.view?.window?.contentViewController{
+//                (viewCtrl as! ViewController).presentAsSheet(vcSettings)
+//            }
         }
+        
+        
     }
 }
