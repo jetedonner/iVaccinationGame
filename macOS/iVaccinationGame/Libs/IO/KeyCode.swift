@@ -15,6 +15,7 @@ enum KeyCode:UInt16{
     case KEY_3 = 20
     case KEY_4 = 21
     case KEY_S = 1
+    case KEY_W = 13
     case KEY_P = 35
     case KEY_ESC = 53
     case KEY_SPACE = 49

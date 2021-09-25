@@ -51,7 +51,6 @@
 		55B64A3326F3474900944766 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3226F3474900944766 /* MenuSceneBase.swift */; };
 		55B64A3526F3577D00944766 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A3426F3577D00944766 /* SettingsViewController.xib */; };
 		55B64A3726F3579600944766 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3626F3579600944766 /* SettingsViewController.swift */; };
-		55B64A3926F35E7600944766 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3826F35E7600944766 /* SoundManager.swift */; };
 		55B64A3B26F3602C00944766 /* GameVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3A26F3602C00944766 /* GameVars.swift */; };
 		55B64A3D26F3716000944766 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3C26F3716000944766 /* CustomProgressBar.swift */; };
 		55B64A4526F37FD400944766 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A4426F37FD400944766 /* AppDelegate.swift */; };
@@ -99,7 +98,6 @@
 		55C83F2526FC6B2800F42F53 /* BasePickupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579BC26F4FD950084239D /* BasePickupNode.swift */; };
 		55C83F2626FC6B2A00F42F53 /* SyringePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579BE26F4FEFF0084239D /* SyringePickup.swift */; };
 		55C83F2726FC6BB500F42F53 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3C26F3716000944766 /* CustomProgressBar.swift */; };
-		55C83F2826FC712000F42F53 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3826F35E7600944766 /* SoundManager.swift */; };
 		55C83F2926FC719300F42F53 /* Media.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 554E535126EFB60600371E58 /* Media.scnassets */; };
 		55C83F2B26FC75E600F42F53 /* GameSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F2A26FC75E600F42F53 /* GameSceneBase.swift */; };
 		55C83F2C26FC75E600F42F53 /* GameSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F2A26FC75E600F42F53 /* GameSceneBase.swift */; };
@@ -173,6 +171,11 @@
 		55EAD46D26FF7A9200BB8D06 /* MapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD46C26FF7A9200BB8D06 /* MapScene.swift */; };
 		55EAD46F26FF7C5000BB8D06 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD46E26FF7C5000BB8D06 /* MenuScene.swift */; };
 		55EAD47126FF7D0800BB8D06 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD47026FF7D0800BB8D06 /* MenuScene.swift */; };
+		55EE3D6526FFB7F200991D86 /* SoundManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */; };
+		55EE3D6626FFB7F200991D86 /* SoundManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */; };
+		55EE3D6826FFC16F00991D86 /* throwing-whip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D6726FFC16F00991D86 /* throwing-whip.mp3 */; };
+		55EE3D6A26FFC49C00991D86 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6926FFC49C00991D86 /* SoundManager.swift */; };
+		55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6926FFC49C00991D86 /* SoundManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,7 +252,6 @@
 		55B64A3226F3474900944766 /* MenuSceneBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSceneBase.swift; sourceTree = "<group>"; };
 		55B64A3426F3577D00944766 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		55B64A3626F3579600944766 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		55B64A3826F35E7600944766 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		55B64A3A26F3602C00944766 /* GameVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVars.swift; sourceTree = "<group>"; };
 		55B64A3C26F3716000944766 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		55B64A4226F37FD300944766 /* iVaccinationGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccinationGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,6 +320,9 @@
 		55EAD46C26FF7A9200BB8D06 /* MapScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
 		55EAD46E26FF7C5000BB8D06 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		55EAD47026FF7D0800BB8D06 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManagerExt.swift; sourceTree = "<group>"; };
+		55EE3D6726FFC16F00991D86 /* throwing-whip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "throwing-whip.mp3"; path = "Shared/iVaccinationGame/Media.scnassets/throwing-whip.mp3"; sourceTree = "<group>"; };
+		55EE3D6926FFC49C00991D86 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +377,7 @@
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
+				55EE3D6726FFC16F00991D86 /* throwing-whip.mp3 */,
 				55E59BD826FF9A9400B75322 /* iVaccination.entitlements */,
 				55E59BD226FF89C800B75322 /* iVaccinationGame.entitlements */,
 				55C83F4626FD1A1B00F42F53 /* iVaccinationGame-Info.plist */,
@@ -655,9 +661,10 @@
 			isa = PBXGroup;
 			children = (
 				55B64A3C26F3716000944766 /* CustomProgressBar.swift */,
-				55B64A3826F35E7600944766 /* SoundManager.swift */,
+				55EE3D6926FFC49C00991D86 /* SoundManager.swift */,
 				55B64A3A26F3602C00944766 /* GameVars.swift */,
 				55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */,
+				55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -952,6 +959,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55EE3D6826FFC16F00991D86 /* throwing-whip.mp3 in Resources */,
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */,
@@ -1037,16 +1045,17 @@
 				554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */,
 				55C83F6526FDDC6000F42F53 /* MenuState.swift in Sources */,
 				559442A926FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,
+				55EE3D6A26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55C83F6726FDDC7000F42F53 /* GameOverState.swift in Sources */,
 				55EAD46526FF757500BB8D06 /* BaseSKScene.swift in Sources */,
 				556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */,
-				55B64A3926F35E7600944766 /* SoundManager.swift in Sources */,
 				55EAD46F26FF7C5000BB8D06 /* MenuScene.swift in Sources */,
 				55C83F3226FCA9A200F42F53 /* GCAchievements.swift in Sources */,
 				559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */,
 				55B64A3726F3579600944766 /* SettingsViewController.swift in Sources */,
 				55C83F8126FE323800F42F53 /* CityJapanLevel.swift in Sources */,
 				55A579C826F5C5EC0084239D /* CitySkylineLevel.swift in Sources */,
+				55EE3D6526FFB7F200991D86 /* SoundManagerExt.swift in Sources */,
 				55A579CA26F638610084239D /* BaseLevel.swift in Sources */,
 				55A579BF26F4FEFF0084239D /* SyringePickup.swift in Sources */,
 				55C83F5A26FDDB8B00F42F53 /* GameStateMachine.swift in Sources */,
@@ -1105,6 +1114,7 @@
 				55E59BD726FF8C9D00B75322 /* ICloudStorageHelper.swift in Sources */,
 				55C83F8426FE326500F42F53 /* CityNightLevel.swift in Sources */,
 				55EAD46D26FF7A9200BB8D06 /* MapScene.swift in Sources */,
+				55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55C83F2526FC6B2800F42F53 /* BasePickupNode.swift in Sources */,
 				55C83F1D26FC675500F42F53 /* SKSpriteNodeExt.swift in Sources */,
 				55C83F1026FC673D00F42F53 /* MeadowLevel.swift in Sources */,
@@ -1112,6 +1122,7 @@
 				55C83F7E26FE119700F42F53 /* SettingsBundleHelper.swift in Sources */,
 				55E59BC726FF7FA500B75322 /* UserDefaultsHelper.swift in Sources */,
 				55C83F2726FC6BB500F42F53 /* CustomProgressBar.swift in Sources */,
+				55EE3D6626FFB7F200991D86 /* SoundManagerExt.swift in Sources */,
 				55C83F1426FC673D00F42F53 /* BasePath.swift in Sources */,
 				55C83F2026FC680C00F42F53 /* GameScene.swift in Sources */,
 				55C83F2626FC6B2A00F42F53 /* SyringePickup.swift in Sources */,
@@ -1126,7 +1137,6 @@
 				55C83F6E26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */,
 				55C83F1126FC673D00F42F53 /* WallwayLevel.swift in Sources */,
 				55C83F1326FC673D00F42F53 /* CitySkylineLevel.swift in Sources */,
-				55C83F2826FC712000F42F53 /* SoundManager.swift in Sources */,
 				55E59BD026FF873000B75322 /* DifficultyScene.swift in Sources */,
 				55EAD47126FF7D0800BB8D06 /* MenuScene.swift in Sources */,
 				55EAD46826FF773A00BB8D06 /* BaseSKSceneIOS.swift in Sources */,

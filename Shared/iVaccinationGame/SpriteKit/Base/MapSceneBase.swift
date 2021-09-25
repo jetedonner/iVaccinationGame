@@ -25,7 +25,7 @@ class MapSceneBase: BaseSKScene {
     var posMeadow:SKShapeNode?
     var posCitySkyline:SKShapeNode?
     
-    var textMeadow:SKTexture = SKTexture(imageNamed: "Map3")
+    var textMeadow:SKTexture = SKTexture(imageNamed: "Map4")
     var textCitySkyline:SKTexture = SKTexture(imageNamed: "Map3_done")
     
     var selNode:SKNode?

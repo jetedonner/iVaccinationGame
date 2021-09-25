@@ -13,6 +13,8 @@ class SettingsViewController: NSViewController {
     var gameScene:GameSceneBase?
     
     @IBOutlet var volume:NSSlider?
+    @IBOutlet var playBGMusic:NSSwitch?
+    @IBOutlet var playSounds:NSSwitch?
     @IBOutlet var sharedUserDefaultsController:NSUserDefaultsController?
     
     @IBAction func resetGCAchivements(_ sender:Any){
@@ -35,7 +37,13 @@ class SettingsViewController: NSViewController {
     
     @IBAction func closeAndResume(_ sender:Any){
         if(gameScene != nil){
+            if(self.playBGMusic!.state == .on){
+                gameScene?.songPlayer?.play()
+            }else{
+                gameScene?.songPlayer?.stop()
+            }
             gameScene?.songPlayer?.volume = self.volume!.floatValue
+            SoundManagerNG.shared.masterVolume = CGFloat(self.volume!.floatValue)
         }
         self.dismiss(sender)
         let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to restart the game?")

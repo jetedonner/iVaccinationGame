@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsViewController" customModule="iVaccinationGame" customModuleProvider="target">
             <connections>
+                <outlet property="playBGMusic" destination="tgS-s1-MCd" id="sSA-Qj-1ic"/>
+                <outlet property="playSounds" destination="Gbk-Tk-Loh" id="MFZ-Oy-Zm1"/>
                 <outlet property="sharedUserDefaultsController" destination="l72-UK-3kJ" id="f9f-Yq-KfE"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Gdp-jN-azl"/>
                 <outlet property="volume" destination="55r-j8-dSk" id="ivn-fz-wrz"/>

@@ -175,8 +175,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.certificatePickup?.size = CGSize(width: 64, height: 64)
         self.certificatePickup?.position = CGPoint(x: 300, y: 300)
         self.certificatePickup?.zPosition = 1000
-        self.certificatePickup?.alpha = 1.0
+//        self.certificatePickup?.alpha = 1.0
         self.scene?.addChild(self.certificatePickup!)
+        self.certificatePickup?.genNewPos()
         
         self.imgBlood = self.contentNode!.childNode(withName: "imgBlood") as? SKSpriteNode
         self.imgBlood?.isHidden = true
@@ -253,13 +254,14 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        if(UserDefaultsHelper.playSounds && UserDefaultsHelper.playBGMusic){
-            if let path = Bundle.main.path(forResource: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin", ofType: "mp3") {
-                let filePath = NSURL(fileURLWithPath:path)
-                songPlayer = try! AVAudioPlayer.init(contentsOf: filePath as URL)
-                songPlayer?.numberOfLoops = -1
-                songPlayer?.prepareToPlay()
-                songPlayer?.volume = 0.15
+        
+        if let path = Bundle.main.path(forResource: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin", ofType: "mp3") {
+            let filePath = NSURL(fileURLWithPath:path)
+            songPlayer = try! AVAudioPlayer.init(contentsOf: filePath as URL)
+            songPlayer?.numberOfLoops = -1
+            songPlayer?.prepareToPlay()
+            songPlayer?.volume = UserDefaultsHelper.volume
+            if(UserDefaultsHelper.playSounds && UserDefaultsHelper.playBGMusic){
                 songPlayer?.play()
             }
         }
@@ -270,7 +272,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         if let syringeDart = contact.bodyB.node as? SyringeDart{
             syringeDart.removeFromGameScene()
             if(UserDefaultsHelper.playSounds){
-                self.run(SoundManager.bulletImpactSound)
+//                self.run(SoundManager.bulletImpactSound)
+                SoundManager.shared.playSound(sound: .bulletImpact)
             }
             self.currentLevel.hits += 1
             self.addScore(score: self.currentLevel.scoreBase)
@@ -284,7 +287,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                     self.zombieGirl.addChild(explosionEmitterNode!)
                 }
                 if(UserDefaultsHelper.playSounds){
-                    self.zombieGirl.run(SoundManager.unzombiefiedSound) // telein
+//                    self.zombieGirl.run(SoundManager.unzombiefiedSound) // telein
+                    SoundManager.shared.playSound(sound: .unzombiefiedSound)
                 }
                 self.zombieGirl.run(SKAction.wait(forDuration: 0.45), completion: {
                     self.zombieGirl.texture = SKTexture(imageNamed: self.currentLevel.zombieCuredImageName)
@@ -337,22 +341,27 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
 //                self.medkitPickup?.position = CGPoint(x: newX, y: newY)
                 self.medkitPickup?.genNewPos()
             }
-            
-            self.zombieGirl.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)]), (UserDefaultsHelper.playSounds ? SoundManager.eatSound : SKAction.wait(forDuration: 0.0))]), completion: {
-                var painSnd:SKAction = SoundManager.painSounds[3]
+            // TODO SoundVar
+            SoundManager.shared.playSound(sound: .eat1)
+            self.zombieGirl.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)])]), completion: {
+//                var painSnd:SKAction = SoundManager.painSounds[3]
                 if(self.health >= 75.0){
-                    painSnd = SoundManager.painSounds[PainSoundLevel.PAIN_100.rawValue]
+                    SoundManager.shared.playSound(sound: .pain100)
+//                    painSnd = SoundManager.painSounds[PainSoundLevel.PAIN_100.rawValue]
                 }else if(self.health >= 50.0){
-                    painSnd = SoundManager.painSounds[PainSoundLevel.PAIN_75.rawValue]
+                    SoundManager.shared.playSound(sound: .pain75)
+//                    painSnd = SoundManager.painSounds[PainSoundLevel.PAIN_75.rawValue]
                 }else if(self.health >= 25.0){
-                    painSnd = SoundManager.painSounds[PainSoundLevel.PAIN_50.rawValue]
-                }else if(self.health < 25.0){
-                    painSnd = SoundManager.painSounds[PainSoundLevel.PAIN_25.rawValue]
+                    SoundManager.shared.playSound(sound: .pain50)
+//                    painSnd = SoundManager.painSounds[PainSoundLevel.PAIN_50.rawValue]
+                }else { //if(self.health < 25.0){
+                    SoundManager.shared.playSound(sound: .pain25)
+                    //                    painSnd = SoundManager.painSounds[PainSoundLevel.PAIN_25.rawValue]
                 }
                 
-                if(UserDefaultsHelper.playSounds){
-                    self.zombieGirl.run(painSnd)
-                }
+//                if(UserDefaultsHelper.playSounds){
+//                    self.zombieGirl.run(painSnd)
+//                }
                 self.zombieGirl.run(SKAction.wait(forDuration: 0.75), completion: {
                     self.restartZombieAction()
                 })
@@ -444,7 +453,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.zombieGirl.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
         if(UserDefaultsHelper.playSounds){
-            self.lblGameOver?.run(SoundManager.gameoverSound)
+            SoundManager.shared.playSound(sound: .gameover)
+//            self.lblGameOver?.run(SoundManager.gameoverSound)
         }
         self.lblGameOver?.run(SKAction.sequence([SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.group([SKAction.scale(to: 0.85, duration: self.gameOverFlashTimeStep)/*, SKAction.fadeOut(withDuration: self.gameOverFlashTimeStep)*/])]), completion: {
             self.lblPressAnyKey?.alpha = 0.0
@@ -497,7 +507,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             if(self.checkIsNode(node2Check: node, isNode: self.syringePickup!)){
                 self.syringePickup?.alpha = 0.0
                 if(UserDefaultsHelper.playSounds){
-                    self.contentNode?.run(SoundManager.syringePickupSound)
+//                    self.contentNode?.run(SoundManager.syringePickupSound)
+                    SoundManager.shared.playSound(sound: .syringePickup)
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.syringesLeft = 2
@@ -526,10 +537,19 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             return
         }
         
+        if(self.checkIsNode(node2Check: node, isNode: self.certificatePickup!)){
+            self.certificatePickup?.genNewPos()
+            return
+        }
+        
         if(self.checkIsNode(node2Check: node, isNode: self.medkitPickup!)){
             self.health += 25.0
             self.prgBar.setProgress(self.health / 100.0)
-            self.medkitPickup?.run(SKAction.group([SKAction.fadeAlpha(to: (self.health >= 100.0 ? 0.0 : 1.0), duration: 0.1), SoundManager.healthPickupSound]), completion: {
+//            let runSnd:SKAction = SKAction.run {
+//                SoundManager.playSound(fileName: GameVars.BASE_MEDIA_DIR + "throwing-whip.mp3", atVolume: SoundManager.masterVolume, waitForCompletion: true)
+//            }
+            SoundManager.shared.playSound(sound: .healthPickup)
+            self.medkitPickup?.run(SKAction.group([SKAction.fadeAlpha(to: (self.health >= 100.0 ? 0.0 : 1.0), duration: 0.1)]), completion: {
                 if(self.health >= 100.0){
                     self.medkitPickup?.alpha = 0.0
                 }

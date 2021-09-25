@@ -152,6 +152,15 @@ class UserDefaultsHelper{
         }
     }
     
+    static var volume:Float{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.volume.rawValue) == nil){
+                self.defaults.set(0.5, forKey: UserDefaultsName.volume.rawValue)
+            }
+            return self.defaults.float(forKey: UserDefaultsName.volume.rawValue)
+        }
+    }
+    
     static var devMode:Bool{
         get{
             if(self.defaults.value(forKey: UserDefaultsName.devMode.rawValue) == nil){

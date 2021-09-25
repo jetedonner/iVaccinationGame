@@ -62,7 +62,8 @@ class SyringeDart: SKSpriteNode {
 //        self.gameScene.syringe?.position = CGPoint(x: 0, y: -300)
 //        self.gameScene.syringe?.scale(to: CGSize(width: 64, height: 64))
         if(UserDefaultsHelper.playSounds){
-            self.gameScene.scene?.run(SoundManager.shotSound)
+//            self.gameScene.scene?.run(SoundManager.shotSound)
+            SoundManager.shared.playSound(sound: .shot)
         }
 //        self.gameScene.syringe?.speed = UserDefaultsHelper.speedMultiplierForDifficulty
 //        self.gameScene.syringe?.run(
@@ -77,7 +78,9 @@ class SyringeDart: SKSpriteNode {
 //                    self.gameScene.syringe?.run(SoundManager.impactSound)
 //                }
                 if(!self.isHidden){
-                    self.gameScene.scene!.run(SoundManager.impactSound)
+//                    self.gameScene.scene!.run(SoundManager.impactSound)
+                    //TODO: SoundVariants
+                    SoundManager.shared.playSound(sound: .impact1)
                     self.removeFromGameScene()
                 }
             }
