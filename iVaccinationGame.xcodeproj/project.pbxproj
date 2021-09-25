@@ -139,7 +139,7 @@
 		55C83F7426FDFB9D00F42F53 /* GameScene_FOURTH.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F7226FDFB9D00F42F53 /* GameScene_FOURTH.sks */; };
 		55C83F7626FDFD8A00F42F53 /* DescriptionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */; };
 		55C83F7726FDFD8A00F42F53 /* DescriptionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */; };
-		55C83F7926FDFF4F00F42F53 /* DescriptionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F7826FDFF4F00F42F53 /* DescriptionScene.swift */; };
+		55C83F7926FDFF4F00F42F53 /* DescriptionSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F7826FDFF4F00F42F53 /* DescriptionSceneBase.swift */; };
 		55C83F7C26FE116B00F42F53 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F7B26FE116B00F42F53 /* Settings.bundle */; };
 		55C83F7E26FE119700F42F53 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F7D26FE119700F42F53 /* SettingsBundleHelper.swift */; };
 		55C83F8026FE31EB00F42F53 /* CityJapanLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F7F26FE31EB00F42F53 /* CityJapanLevel.swift */; };
@@ -151,6 +151,8 @@
 		55E59BC926FF80B600B75322 /* BaseSKSceneMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BC826FF80B600B75322 /* BaseSKSceneMacOS.swift */; };
 		55E59BCA26FF837700B75322 /* DifficultySceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3726FCE5BC00F42F53 /* DifficultySceneBase.swift */; };
 		55E59BCC26FF83CD00B75322 /* DifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BCB26FF83CD00B75322 /* DifficultyScene.swift */; };
+		55E59BCE26FF867100B75322 /* DescriptionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BCD26FF867100B75322 /* DescriptionScene.swift */; };
+		55E59BD026FF873000B75322 /* DifficultyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E59BCF26FF873000B75322 /* DifficultyScene.swift */; };
 		55EAD44A26FE98C700BB8D06 /* Upward3Particles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */; };
 		55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */; };
 		55EAD44D26FE990200BB8D06 /* CertificatePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */; };
@@ -161,7 +163,6 @@
 		55EAD45726FF60D600BB8D06 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45626FF60D600BB8D06 /* Level.swift */; };
 		55EAD45826FF60D600BB8D06 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45626FF60D600BB8D06 /* Level.swift */; };
 		55EAD45926FF6F2700BB8D06 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3226F3474900944766 /* MenuSceneBase.swift */; };
-		55EAD45B26FF6FA500BB8D06 /* MenuSceneMacOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45A26FF6FA500BB8D06 /* MenuSceneMacOS.swift */; };
 		55EAD45E26FF72AD00BB8D06 /* MapSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */; };
 		55EAD46526FF757500BB8D06 /* BaseSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD46426FF757500BB8D06 /* BaseSKScene.swift */; };
 		55EAD46626FF757500BB8D06 /* BaseSKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD46426FF757500BB8D06 /* BaseSKScene.swift */; };
@@ -291,7 +292,7 @@
 		55C83F6C26FDFADE00F42F53 /* CityStreetLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityStreetLevel.swift; sourceTree = "<group>"; };
 		55C83F7226FDFB9D00F42F53 /* GameScene_FOURTH.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_FOURTH.sks; sourceTree = "<group>"; };
 		55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DescriptionScene.sks; sourceTree = "<group>"; };
-		55C83F7826FDFF4F00F42F53 /* DescriptionScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionScene.swift; sourceTree = "<group>"; };
+		55C83F7826FDFF4F00F42F53 /* DescriptionSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionSceneBase.swift; sourceTree = "<group>"; };
 		55C83F7B26FE116B00F42F53 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		55C83F7D26FE119700F42F53 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		55C83F7F26FE31EB00F42F53 /* CityJapanLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityJapanLevel.swift; sourceTree = "<group>"; };
@@ -299,12 +300,13 @@
 		55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		55E59BC826FF80B600B75322 /* BaseSKSceneMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSKSceneMacOS.swift; sourceTree = "<group>"; };
 		55E59BCB26FF83CD00B75322 /* DifficultyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyScene.swift; sourceTree = "<group>"; };
+		55E59BCD26FF867100B75322 /* DescriptionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionScene.swift; sourceTree = "<group>"; };
+		55E59BCF26FF873000B75322 /* DifficultyScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultyScene.swift; sourceTree = "<group>"; };
 		55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Upward3Particles.sks; sourceTree = "<group>"; };
 		55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificatePickup.swift; sourceTree = "<group>"; };
 		55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSceneBase.swift; sourceTree = "<group>"; };
 		55EAD45326FF55F000BB8D06 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
 		55EAD45626FF60D600BB8D06 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		55EAD45A26FF6FA500BB8D06 /* MenuSceneMacOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSceneMacOS.swift; sourceTree = "<group>"; };
 		55EAD46426FF757500BB8D06 /* BaseSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSKScene.swift; sourceTree = "<group>"; };
 		55EAD46726FF773A00BB8D06 /* BaseSKSceneIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSKSceneIOS.swift; sourceTree = "<group>"; };
 		55EAD46926FF7A5900BB8D06 /* MapScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
@@ -397,12 +399,10 @@
 				554E534A26EFB34E00371E58 /* CH_first.png */,
 				55B64A8426F3CEAE00944766 /* CH_first_red.png */,
 				554E531A26EFAD4300371E58 /* AppDelegate.swift */,
-				55C83F7826FDFF4F00F42F53 /* DescriptionScene.swift */,
 				554E532226EFAD4300371E58 /* ViewController.swift */,
 				554E532626EFAD4400371E58 /* Main.storyboard */,
 				55B64A3426F3577D00944766 /* SettingsViewController.xib */,
 				55B64A3626F3579600944766 /* SettingsViewController.swift */,
-				55EAD45A26FF6FA500BB8D06 /* MenuSceneMacOS.swift */,
 			);
 			path = iVaccinationGame;
 			sourceTree = "<group>";
@@ -463,6 +463,7 @@
 				55EAD46E26FF7C5000BB8D06 /* MenuScene.swift */,
 				55E59BC826FF80B600B75322 /* BaseSKSceneMacOS.swift */,
 				55E59BCB26FF83CD00B75322 /* DifficultyScene.swift */,
+				55E59BCD26FF867100B75322 /* DescriptionScene.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -538,16 +539,13 @@
 		55B64A4326F37FD300944766 /* iVaccination */ = {
 			isa = PBXGroup;
 			children = (
-				55C83F1F26FC680C00F42F53 /* GameScene.swift */,
+				55E59BD126FF876900B75322 /* SpriteKit */,
 				55B64A4426F37FD400944766 /* AppDelegate.swift */,
 				55B64A4C26F37FD400944766 /* GameViewController.swift */,
 				55B64A4E26F37FD400944766 /* Main.storyboard */,
 				55B64A5326F37FD500944766 /* LaunchScreen.storyboard */,
 				55C83F7B26FE116B00F42F53 /* Settings.bundle */,
 				55C83F7D26FE119700F42F53 /* SettingsBundleHelper.swift */,
-				55EAD46726FF773A00BB8D06 /* BaseSKSceneIOS.swift */,
-				55EAD46C26FF7A9200BB8D06 /* MapScene.swift */,
-				55EAD47026FF7D0800BB8D06 /* MenuScene.swift */,
 			);
 			path = iVaccination;
 			sourceTree = "<group>";
@@ -636,6 +634,7 @@
 		55C83F0926FC66CD00F42F53 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				55C83F7826FDFF4F00F42F53 /* DescriptionSceneBase.swift */,
 				55C83F3726FCE5BC00F42F53 /* DifficultySceneBase.swift */,
 				55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */,
 				55B64A3226F3474900944766 /* MenuSceneBase.swift */,
@@ -697,6 +696,18 @@
 				55C83F5D26FDDB9D00F42F53 /* BaseState.swift */,
 			);
 			path = States;
+			sourceTree = "<group>";
+		};
+		55E59BD126FF876900B75322 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				55C83F1F26FC680C00F42F53 /* GameScene.swift */,
+				55EAD46726FF773A00BB8D06 /* BaseSKSceneIOS.swift */,
+				55EAD46C26FF7A9200BB8D06 /* MapScene.swift */,
+				55EAD47026FF7D0800BB8D06 /* MenuScene.swift */,
+				55E59BCF26FF873000B75322 /* DifficultyScene.swift */,
+			);
+			path = SpriteKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -975,6 +986,7 @@
 				55C83EFC26FBB12400F42F53 /* ZombieGirl.swift in Sources */,
 				55A579BD26F4FD950084239D /* BasePickupNode.swift in Sources */,
 				55B64A7F26F3A43E00944766 /* GameCenterHelperExt.swift in Sources */,
+				55E59BCE26FF867100B75322 /* DescriptionScene.swift in Sources */,
 				55C83F6326FDDC5500F42F53 /* SettingsState.swift in Sources */,
 				55A579C126F507A10084239D /* SKViewExt.swift in Sources */,
 				55C83F5C26FDDB8B00F42F53 /* PauseState.swift in Sources */,
@@ -991,7 +1003,7 @@
 				55C83F2B26FC75E600F42F53 /* GameSceneBase.swift in Sources */,
 				55E59BC626FF7FA400B75322 /* UserDefaultsHelper.swift in Sources */,
 				55EAD45126FF559C00BB8D06 /* MapSceneBase.swift in Sources */,
-				55C83F7926FDFF4F00F42F53 /* DescriptionScene.swift in Sources */,
+				55C83F7926FDFF4F00F42F53 /* DescriptionSceneBase.swift in Sources */,
 				556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */,
 				55C83F6A26FDDF1F00F42F53 /* GameCenterState.swift in Sources */,
 				554E532126EFAD4300371E58 /* GameScene.swift in Sources */,
@@ -1020,7 +1032,6 @@
 				559442A626FE51350082DA72 /* GameState.swift in Sources */,
 				55B64A3B26F3602C00944766 /* GameVars.swift in Sources */,
 				55A579BB26F4F89D0084239D /* MedKitPickup.swift in Sources */,
-				55EAD45B26FF6FA500BB8D06 /* MenuSceneMacOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1090,6 +1101,7 @@
 				55C83F1126FC673D00F42F53 /* WallwayLevel.swift in Sources */,
 				55C83F1326FC673D00F42F53 /* CitySkylineLevel.swift in Sources */,
 				55C83F2826FC712000F42F53 /* SoundManager.swift in Sources */,
+				55E59BD026FF873000B75322 /* DifficultyScene.swift in Sources */,
 				55EAD47126FF7D0800BB8D06 /* MenuScene.swift in Sources */,
 				55EAD46826FF773A00BB8D06 /* BaseSKSceneIOS.swift in Sources */,
 				559442AA26FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,
