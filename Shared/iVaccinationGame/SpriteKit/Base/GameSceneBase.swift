@@ -485,6 +485,10 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             #if os(iOS)
                 if let viewCtrl = self.view?.window?.rootViewController{
 //                    (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.score)
+                    if(UserDefaultsHelper.levelID == .Meadow){
+                        UserDefaultsHelper.levelID = .CitySkyline
+                    }
+                    (viewCtrl as! GameViewController).loadMap()
                 }
             #else
                 if let viewCtrl = self.view?.window?.contentViewController{

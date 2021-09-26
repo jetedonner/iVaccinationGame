@@ -11,7 +11,7 @@ import SpriteKit
 class CertificatePickup: BasePickupNode {
     
     init(){
-        super.init(imageNamed: "CertificatePickup", emitterFileNamed: "Upward3Particles.sks")
+        super.init(imageNamed: "CertificatePickup", emitterFileNamed: "Upward3Particles.sks", size: CGSize(width: 64, height: 64))
     }
     
     override func pickedUp(){
