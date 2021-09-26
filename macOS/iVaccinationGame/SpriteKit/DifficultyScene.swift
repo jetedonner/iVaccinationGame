@@ -16,17 +16,25 @@ class DifficultyScene: DifficultySceneBase {
         let node = self.scene!.atPoint(location)
         var newSelNode:SKLabelNode?
         
-        if(node == self.lblEasy){
-            newSelNode = self.lblEasy
-        }else if(node == self.lblMedium){
-            newSelNode = self.lblMedium
-        }else if(node == self.lblHard){
-            newSelNode = self.lblHard
-        }else if(node == self.lblNightmare){
-            newSelNode = self.lblNightmare
+        if([self.lblEasy, self.lblMedium, self.lblHard, self.lblNightmare, self.lblBack].contains(node)){
+            newSelNode = node as? SKLabelNode
         }else{
             return
         }
+//        if(node == self.lblEasy){
+//            newSelNode = self.lblEasy
+//        }else if(node == self.lblMedium){
+//            newSelNode = self.lblMedium
+//        }else if(node == self.lblHard){
+//            newSelNode = self.lblHard
+//        }else if(node == self.lblNightmare){
+//            newSelNode = self.lblNightmare
+//        }else if(node == self.lblBack){
+//            newSelNode = self.lblBack
+//        }else{
+//            return
+//        }
+        
         
         if(newSelNode != self.selNode){
             self.selNode = newSelNode
@@ -35,21 +43,31 @@ class DifficultyScene: DifficultySceneBase {
                 self.lblMedium?.fontColor = .white
                 self.lblHard?.fontColor = .white
                 self.lblNightmare?.fontColor = .white
+                self.lblBack?.fontColor = .white
             }else if(self.selNode == self.lblMedium){
                 self.lblEasy?.fontColor = .white
                 self.lblHard?.fontColor = .white
                 self.lblNightmare?.fontColor = .white
                 self.lblMedium?.fontColor = self.lblColor
+                self.lblBack?.fontColor = .white
             }else if(self.selNode == self.lblHard){
                 self.lblEasy?.fontColor = .white
                 self.lblHard?.fontColor = self.lblColor
                 self.lblNightmare?.fontColor = .white
                 self.lblMedium?.fontColor = .white
+                self.lblBack?.fontColor = .white
             }else if(self.selNode == self.lblNightmare){
                 self.lblEasy?.fontColor = .white
                 self.lblNightmare?.fontColor = self.lblColor
                 self.lblHard?.fontColor = .white
                 self.lblMedium?.fontColor = .white
+                self.lblBack?.fontColor = .white
+            }else if(self.selNode == self.lblBack){
+                self.lblEasy?.fontColor = .white
+                self.lblNightmare?.fontColor = .white
+                self.lblHard?.fontColor = .white
+                self.lblMedium?.fontColor = .white
+                self.lblBack?.fontColor = self.lblColor
             }
             
             SoundManager.shared.playSound(sound: .menuHighlite)
@@ -58,7 +76,6 @@ class DifficultyScene: DifficultySceneBase {
     
     override func touchOrClick(pos: CGPoint) {
         super.touchOrClick(pos: pos)
-//        let node = self.scene!.atPoint(pos)
         
         if(self.selNode == lblEasy){
             if let viewCtrl = self.view?.window?.contentViewController{
@@ -75,6 +92,10 @@ class DifficultyScene: DifficultySceneBase {
         }else if(self.selNode == lblNightmare){
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadGameScene(difficulty: .nightmare, level: self.selLevel)
+            }
+        }else if(self.selNode == lblBack){
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadMenuScene()
             }
         }
     }

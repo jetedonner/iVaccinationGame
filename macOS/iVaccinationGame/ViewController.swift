@@ -30,33 +30,30 @@ class ViewController: NSViewController, AVAudioPlayerDelegate {
             self.gameCenterHelper = GameCenterHelper(vc: self)
             self.gameCenterHelper.loadGameCenter()
         }
-        self.loadMenu()
+        self.loadMenuScene()
     }
     
-        func loadMenu(){
-            
-            if let scene = GKScene(fileNamed: "MenuScene") {
+    func loadMenuScene(){
+        if let scene = GKScene(fileNamed: "MenuScene") {
+            if let sceneNode = scene.rootNode as! MenuScene? {
+                sceneNode.scaleMode = .aspectFill
                 
-                if let sceneNode = scene.rootNode as! MenuScene? {
-
-                    sceneNode.scaleMode = .aspectFill
+                if let view = self.skView {
+                    view.presentScene(sceneNode)
                     
-                    if let view = self.skView {
-                        view.presentScene(sceneNode)
-                        
-                        view.ignoresSiblingOrder = true
-                        
-                        if(UserDefaultsHelper.devMode){
-                            view.showsFPS = true
-                            view.showsNodeCount = true
-                            view.showsPhysics = true
-                        }
+                    view.ignoresSiblingOrder = true
+                    
+                    if(UserDefaultsHelper.devMode){
+                        view.showsFPS = true
+                        view.showsNodeCount = true
+                        view.showsPhysics = true
                     }
                 }
             }
         }
+    }
     
-    func loadDifficultyMenu(level:Level){
+    func loadDifficultyScene(level:Level){
         if let scene = GKScene(fileNamed: "DifficultyScene") {
             
             if let sceneNode = scene.rootNode as! DifficultyScene? {
@@ -78,8 +75,7 @@ class ViewController: NSViewController, AVAudioPlayerDelegate {
         }
     }
     
-    func loadMap(){
-        
+    func loadMapScene(){
         if let scene = GKScene(fileNamed: "MapScene") {
             if let sceneNode = scene.rootNode as! MapScene? {
                 

@@ -15,6 +15,8 @@ class DifficultySceneBase: BaseSKScene {
     var lblMedium:SKLabelNode?
     var lblHard:SKLabelNode?
     var lblNightmare:SKLabelNode?
+    var lblBack:SKLabelNode?
+    
 //    var sceneNode:SKScene!
     var lblColor:SKColor?
     var selNode:SKLabelNode?
@@ -36,6 +38,8 @@ class DifficultySceneBase: BaseSKScene {
         self.lblMedium = self.childNode(withName: "lblMedium") as? SKLabelNode
         self.lblHard = self.childNode(withName: "lblHard") as? SKLabelNode
         self.lblNightmare = self.childNode(withName: "lblNightmare") as? SKLabelNode
+        self.lblBack = self.childNode(withName: "lblBack") as? SKLabelNode
+        
         self.lblColor = self.lblEasy?.fontColor
         self.selNode = self.lblEasy
         self.isUserInteractionEnabled = true

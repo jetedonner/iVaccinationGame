@@ -13,17 +13,17 @@ class MapScene: MapSceneBase {
     override func touchOrClick(pos: CGPoint) {
         if(self.selNode == self.imgBack){
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadMenu()
+                (viewCtrl as! ViewController).loadMenuScene()
             }
         }else if(self.selNode == self.posMeadow){
             print("Meadow SELECTED")
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadDifficultyMenu(level: .Meadow)
+                (viewCtrl as! ViewController).loadDifficultyScene(level: .Meadow)
             }
         }else if(self.selNode == self.posCitySkyline){
             print("CitySkyline SELECTED")
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadDifficultyMenu(level: .CitySkyline)
+                (viewCtrl as! ViewController).loadDifficultyScene(level: .CitySkyline)
             }
         }
     }

@@ -79,7 +79,7 @@ class MenuScene: MenuSceneBase {
             NSApp.terminate(nil)
         }else if(self.selNode == lblStartGame){
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadDifficultyMenu(level: .Meadow)
+                (viewCtrl as! ViewController).loadDifficultyScene(level: .Meadow)
             }
         }else if(self.selNode == lblGameCenter){
 //            GKAccessPoint.shared.trigger(handler: {
@@ -93,7 +93,7 @@ class MenuScene: MenuSceneBase {
             }
         }else if(self.selNode == lblMap){
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadMap()
+                (viewCtrl as! ViewController).loadMapScene()
             }
         }
     }

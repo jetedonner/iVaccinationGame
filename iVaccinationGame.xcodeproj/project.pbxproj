@@ -322,7 +322,6 @@
 		55EAD46E26FF7C5000BB8D06 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		55EAD47026FF7D0800BB8D06 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManagerExt.swift; sourceTree = "<group>"; };
-		55EE3D6726FFC16F00991D86 /* throwing-whip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "throwing-whip.mp3"; path = "Shared/iVaccinationGame/Media.scnassets/throwing-whip.mp3"; sourceTree = "<group>"; };
 		55EE3D6926FFC49C00991D86 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		55EE3D6D26FFE3D500991D86 /* AppIconMacOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconMacOS.xcassets; sourceTree = "<group>"; };
 		55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconIOS.xcassets; sourceTree = "<group>"; };
@@ -380,7 +379,6 @@
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
-				55EE3D6726FFC16F00991D86 /* throwing-whip.mp3 */,
 				55E59BD826FF9A9400B75322 /* iVaccination.entitlements */,
 				55E59BD226FF89C800B75322 /* iVaccinationGame.entitlements */,
 				55C83F4626FD1A1B00F42F53 /* iVaccinationGame-Info.plist */,

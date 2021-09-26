@@ -379,23 +379,24 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         
         if(self.startTime == 0){
             self.startTime = currentTime
-            if(effectNode.parent == nil){
-                
-                let blurFilter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius": 15])
-                effectNode.filter = blurFilter
-                let blurNode:SKShapeNode = SKShapeNode(rect: self.frame)
-                
-                blurNode.fillColor = .white
-                blurNode.zPosition = 10001
-                
-                let fillTexture = self.view?.texture(from: contentNode!, crop: blurNode.frame)
-                blurNode.fillTexture = fillTexture
-                
-                effectNode.addChild(blurNode)
-                effectNode.zPosition = 10001
-                self.addChild(effectNode)
-                effectNode.isHidden = true
-            }
+            self.updateEffectNode()
+//            if(effectNode.parent == nil){
+//
+//                let blurFilter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius": 15])
+//                effectNode.filter = blurFilter
+//                let blurNode:SKShapeNode = SKShapeNode(rect: self.frame)
+//
+//                blurNode.fillColor = .white
+//                blurNode.zPosition = 10001
+//
+//                let fillTexture = self.view?.texture(from: contentNode!, crop: blurNode.frame)
+//                blurNode.fillTexture = fillTexture
+//
+//                effectNode.addChild(blurNode)
+//                effectNode.zPosition = 10001
+//                self.addChild(effectNode)
+//                effectNode.isHidden = true
+//            }
         }
         
         let timeDelta:TimeInterval = currentTime - self.startTime
@@ -408,6 +409,30 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.lastUpdateTime = currentTime
     }
     
+    func updateEffectNode(){
+        if(effectNode.parent != nil){
+            effectNode.removeFromParent()
+            effectNode = SKEffectNode()
+        }
+        
+        if(effectNode.parent == nil){
+            let blurFilter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius": 15])
+            effectNode.filter = blurFilter
+            let blurNode:SKShapeNode = SKShapeNode(rect: self.frame)
+            
+            blurNode.fillColor = .white
+            blurNode.zPosition = 10001
+            
+            let fillTexture = self.view?.texture(from: contentNode!, crop: blurNode.frame)
+            blurNode.fillTexture = fillTexture
+            
+            effectNode.addChild(blurNode)
+            effectNode.zPosition = 10001
+            self.addChild(effectNode)
+            effectNode.isHidden = true
+        }
+    }
+    
     func restartAfterGameOverNG(resetTime:Bool = true, loadNewLevel:Bool = false){
         self.waitForAnyKey = false
         self.lblGameOver?.isHidden = true
@@ -418,10 +443,14 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.health = 100.0
         self.bites = 0
         if(loadNewLevel){
-            self.currentLevel = self.levels.randomElement()!
-            self.restartLevel()
+            var g = SystemRandomNumberGenerator()
+            self.currentLevel = self.levels.randomElement(using: &g)!
+//            self.runLevel(levelID: self.currentLevel.level)
+            self.loadLevel(levelID: self.currentLevel.level)
+//            self.restartAfterGameOverNG(resetTime: true)
         }
         self.gameRunning = true
+        self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
         self.restartAfterHit(resetTime: resetTime)
     }
     
@@ -443,6 +472,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.lblScore?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 180), duration: 0.45), SKAction.scale(to: 2.5, duration: 0.45)]))
         self.lblGameOver?.alpha = 1.0
         self.lblGameOver?.isHidden = false
+        self.updateEffectNode()
         self.effectNode.isHidden = false
 
         self.zombieGirl.isPaused = true
@@ -488,14 +518,14 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                     if(UserDefaultsHelper.levelID == .Meadow){
                         UserDefaultsHelper.levelID = .CitySkyline
                     }
-                    (viewCtrl as! GameViewController).loadMap()
+                    (viewCtrl as! GameViewController).loadMapScene()
                 }
             #else
                 if let viewCtrl = self.view?.window?.contentViewController{
                     if(UserDefaultsHelper.levelID == .Meadow){
                         UserDefaultsHelper.levelID = .CitySkyline
                     }
-                    (viewCtrl as! ViewController).loadMap()
+                    (viewCtrl as! ViewController).loadMapScene()
                 }
             #endif
             return
