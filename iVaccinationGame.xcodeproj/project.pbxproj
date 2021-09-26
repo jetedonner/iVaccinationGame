@@ -65,7 +65,6 @@
 		55B64A7F26F3A43E00944766 /* GameCenterHelperExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */; };
 		55B64A8126F3A4AC00944766 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B64A8026F3A4AC00944766 /* GameKit.framework */; };
 		55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A8426F3CEAE00944766 /* CH_first_red.png */; };
-		55B64A8726F4C34000944766 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554E532426EFAD4400371E58 /* Assets.xcassets */; };
 		55C83EF226FB250E00F42F53 /* MeadowLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83EF126FB250E00F42F53 /* MeadowLevel.swift */; };
 		55C83EF426FB91A900F42F53 /* GameScene_THIRD.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF326FB91A900F42F53 /* GameScene_THIRD.sks */; };
 		55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF526FB942200F42F53 /* MeadowLeftActions.sks */; };
@@ -173,9 +172,11 @@
 		55EAD47126FF7D0800BB8D06 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD47026FF7D0800BB8D06 /* MenuScene.swift */; };
 		55EE3D6526FFB7F200991D86 /* SoundManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */; };
 		55EE3D6626FFB7F200991D86 /* SoundManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */; };
-		55EE3D6826FFC16F00991D86 /* throwing-whip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D6726FFC16F00991D86 /* throwing-whip.mp3 */; };
 		55EE3D6A26FFC49C00991D86 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6926FFC49C00991D86 /* SoundManager.swift */; };
 		55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6926FFC49C00991D86 /* SoundManager.swift */; };
+		55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554E532426EFAD4400371E58 /* Assets.xcassets */; };
+		55EE3D6E26FFE3D500991D86 /* AppIconMacOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D6D26FFE3D500991D86 /* AppIconMacOS.xcassets */; };
+		55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -323,6 +324,8 @@
 		55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManagerExt.swift; sourceTree = "<group>"; };
 		55EE3D6726FFC16F00991D86 /* throwing-whip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "throwing-whip.mp3"; path = "Shared/iVaccinationGame/Media.scnassets/throwing-whip.mp3"; sourceTree = "<group>"; };
 		55EE3D6926FFC49C00991D86 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		55EE3D6D26FFE3D500991D86 /* AppIconMacOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconMacOS.xcassets; sourceTree = "<group>"; };
+		55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconIOS.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,6 +410,7 @@
 		554E531926EFAD4300371E58 /* iVaccinationGame */ = {
 			isa = PBXGroup;
 			children = (
+				55EE3D6D26FFE3D500991D86 /* AppIconMacOS.xcassets */,
 				55A579C526F50F110084239D /* SpriteKit */,
 				55B64A2D26F3461200944766 /* Libs */,
 				554E534A26EFB34E00371E58 /* CH_first.png */,
@@ -559,6 +563,7 @@
 				55B64A5326F37FD500944766 /* LaunchScreen.storyboard */,
 				55C83F7B26FE116B00F42F53 /* Settings.bundle */,
 				55C83F7D26FE119700F42F53 /* SettingsBundleHelper.swift */,
+				55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */,
 			);
 			path = iVaccination;
 			sourceTree = "<group>";
@@ -932,6 +937,7 @@
 				55C83EF826FB9B4600F42F53 /* GameScene_THIRD_alz.sks in Resources */,
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
 				55B64A3126F3467200944766 /* MenuScene.sks in Resources */,
+				55EE3D6E26FFE3D500991D86 /* AppIconMacOS.xcassets in Resources */,
 				554E534B26EFB34E00371E58 /* CH_first.png in Resources */,
 				55EAD44A26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55A579CE26F646480084239D /* GameScene_ORIG.sks in Resources */,
@@ -959,7 +965,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55EE3D6826FFC16F00991D86 /* throwing-whip.mp3 in Resources */,
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */,
@@ -979,12 +984,13 @@
 				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,
 				55C83F0126FC666500F42F53 /* GameScene_TEST.sks in Resources */,
-				55B64A8726F4C34000944766 /* Assets.xcassets in Resources */,
 				55C83F3E26FCFC0400F42F53 /* LICENSE in Resources */,
 				55C83F0726FC666500F42F53 /* GameScene.sks in Resources */,
 				55C83F0D26FC673000F42F53 /* UpwardParticles.sks in Resources */,
 				55C83F0B26FC673000F42F53 /* MagicParticle.sks in Resources */,
 				55C83F0226FC666500F42F53 /* MenuScene.sks in Resources */,
+				55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */,
+				55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1521,7 +1527,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.ios.iVaccination;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.swift.ivaccinationgame;
 				PRODUCT_NAME = iVaccinationGame;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1556,7 +1562,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.ios.iVaccination;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.swift.ivaccinationgame;
 				PRODUCT_NAME = iVaccinationGame;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
