@@ -51,14 +51,16 @@ class MapSceneBase: BaseSKScene {
         self.lblLevel = self.childNode(withName: "lblLevel") as? SKLabelNode
         
         self.posMeadow = self.childNode(withName: "posMeadow") as? SKShapeNode
+        self.posMeadow?.zPosition = 1000
         self.posCitySkyline = self.childNode(withName: "posCitySkyline") as? SKShapeNode
-        
+        self.posCitySkyline?.zPosition = 1000
         
         if(UserDefaultsHelper.levelID == .Meadow){
             self.imgBG.texture = self.textMeadow
         }else{
             self.imgBG.texture = self.textCitySkyline
         }
+        self.imgBG.zPosition = 100
         self.isUserInteractionEnabled = true
         self.updateScoreFromICloud()
     }

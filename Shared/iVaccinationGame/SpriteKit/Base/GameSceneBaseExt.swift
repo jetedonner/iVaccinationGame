@@ -30,7 +30,8 @@ extension GameSceneBase{
         if(aboveNode == nil){
             aboveNode = self.zombieGirl
         }
-        let earnedMsg:BaseMessageNode = BaseMessageNode(text: "+\(score) Points", node: aboveNode!, messageType: .scrore)
+//        let earnedMsg:BaseMessageNode =
+        BaseMessageNode(text: "+\(score) Points", node: aboveNode!, messageType: .scrore)
 
 //        self.lblEarnedPoints.text = "+ \(score) Points"
 //        self.lblEarnedPoints.removeAllActions()
