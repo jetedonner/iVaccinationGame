@@ -19,6 +19,10 @@ class MapScene: MapSceneBase {
                 if let viewCtrl = self.view?.window?.rootViewController{
                     (viewCtrl as! GameViewController).loadGameScene()
                 }
+            }else if(node == self.imgBack){
+                if let viewCtrl = self.view?.window?.rootViewController{
+                    (viewCtrl as! GameViewController).loadMenuScene()
+                }
             }
         }
     }

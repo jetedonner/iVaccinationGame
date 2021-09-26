@@ -11,6 +11,8 @@ import GameKit
 
 class BasePickupNode: SKSpriteNode {
     
+    var pickupScore:Int = 0
+    
     var accumulatedFrameFactor:CGFloat{
         get {
             switch UserDefaultsHelper.difficulty{
@@ -58,11 +60,22 @@ class BasePickupNode: SKSpriteNode {
                 let newX:CGFloat = CGFloat.random(in: ((gameScene.frame.width / -2) + 20) ... ((gameScene.frame.width / 2) - 20))
                 let newY:CGFloat = CGFloat(Double.random(in: gameScene.currentLevel.syringeRespawnYRange))
                 newPoint = CGPoint(x: newX, y: newY)
-
+                
                 let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
                 print("GKAccessPointCoord: \(accsPntCoord)")
-                isBehindGKAccessPoint = accsPntCoord.contains(newPoint)
-                isBehindHand = gameScene.imgThrowingHand!.frame.contains(newPoint)
+                let accessFrame = gameScene.scene?.view?.convert(accsPntCoord, from: nil)// .convert(screenFrame, from: nil)
+                let ngPoint = gameScene.scene?.view?.convert(newPoint, from: gameScene.scene!)
+                if(accessFrame != nil){
+//                    isBehindGKAccessPoint = accessFrame!.contains(newPoint)
+                    isBehindGKAccessPoint = accessFrame!.contains(ngPoint!)
+                    isBehindHand = gameScene.imgThrowingHand!.frame.contains(newPoint)
+//                    newPoint = (gameScene.scene?.view?.convert(accsPntCoord.origin, to: gameScene.scene!))!
+//                    newPoint.y *= -1
+                }else{
+                    isBehindGKAccessPoint = false
+                    isBehindHand = false
+                }
+                
             }while(isBehindHand || isBehindGKAccessPoint)
             self.position = newPoint
             self.alpha = 1.0

@@ -12,6 +12,7 @@ class CertificatePickup: BasePickupNode {
     
     init(){
         super.init(imageNamed: "CertificatePickup", emitterFileNamed: "Upward3Particles.sks", size: CGSize(width: 64, height: 64))
+        self.pickupScore = 50
     }
     
     override func pickedUp(){
@@ -19,9 +20,9 @@ class CertificatePickup: BasePickupNode {
         if let gameScene = self.scene as? GameScene{
             SoundManager.shared.playSound(sound: .certPickup)
             self.isHidden = true
-            gameScene.addScore(score: 50)
-            gameScene.showEarnedPoints(score: 50, onNode: self)
-            DispatchQueue.global(qos: .background).asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certRespawnRange.randomElement()!), execute: {
+            gameScene.addScore(score: self.pickupScore)
+            gameScene.showEarnedPoints(score: self.pickupScore, onNode: self)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certRespawnRange.randomElement()!), execute: {
                 self.genNewPos()
                 self.isHidden = false
             })

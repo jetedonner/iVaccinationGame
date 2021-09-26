@@ -38,7 +38,7 @@ class ViewController: NSViewController, AVAudioPlayerDelegate {
             if let sceneNode = scene.rootNode as! MenuScene? {
                 sceneNode.scaleMode = .aspectFill
                 
-                if let view = self.skView {
+                if let view = self.view as! SKView? {
                     view.presentScene(sceneNode)
                     
                     view.ignoresSiblingOrder = true

@@ -30,13 +30,15 @@ extension GameSceneBase{
         if(aboveNode == nil){
             aboveNode = self.zombieGirl
         }
-        self.lblEarnedPoints.text = "+ \(score) Points"
-        self.lblEarnedPoints.removeAllActions()
-        self.lblEarnedPoints.zPosition = 1000
-        self.lblEarnedPoints.setScale(1.0)
-        self.lblEarnedPoints.position = CGPoint(x: aboveNode!.position.x, y: aboveNode!.position.y + (aboveNode!.frame.height / 2) + 20)
-        self.lblEarnedPoints.alpha = 1.0
-        self.lblEarnedPoints.run(SKAction.group([SKAction.move(by: CGVector(dx: 0, dy: 150), duration: self.earnedPointLblTime), SKAction.fadeOut(withDuration: self.earnedPointLblTime), SKAction.scale(to: 0.25, duration: self.earnedPointLblTime)]))
+        let earnedMsg:BaseMessageNode = BaseMessageNode(text: "+\(score) Points", node: aboveNode!, messageType: .scrore)
+
+//        self.lblEarnedPoints.text = "+ \(score) Points"
+//        self.lblEarnedPoints.removeAllActions()
+//        self.lblEarnedPoints.zPosition = 1000
+//        self.lblEarnedPoints.setScale(1.0)
+//        self.lblEarnedPoints.position = CGPoint(x: aboveNode!.position.x, y: aboveNode!.position.y + (aboveNode!.frame.height / 2) + 20)
+//        self.lblEarnedPoints.alpha = 1.0
+//        self.lblEarnedPoints.run(SKAction.group([SKAction.move(by: CGVector(dx: 0, dy: 150), duration: self.earnedPointLblTime), SKAction.fadeOut(withDuration: self.earnedPointLblTime), SKAction.scale(to: 0.25, duration: self.earnedPointLblTime)]))
     }
     
     func runHandThrowingAnimation(){

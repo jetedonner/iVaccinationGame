@@ -31,29 +31,14 @@ class SyringeDart: SKSpriteNode {
         
         self.gameScene.currentLevel.shots += 1
         self.gameScene.runHandThrowingAnimation()
-//        self.isHidden = false
         self.gameScene.syringesLeft -= 1
-        self.gameScene.lblSyringesLeft?.text = self.gameScene.syringesLeft.description + " / 2"
+        self.gameScene.setSyringesLeft(syringesLeft: self.gameScene.syringesLeft)
+        
         if(self.gameScene.syringesLeft == 1){
             self.gameScene.syringe2?.isHidden = true
         }else if(self.gameScene.syringesLeft == 0){
             self.gameScene.syringe1?.isHidden = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                var isBehindGKAccessPoint:Bool = true
-//                var isBehindHand:Bool = true
-//                var newPoint:CGPoint = CGPoint(x: 0, y: 0)
-//                repeat{
-//                    let newX:CGFloat = CGFloat.random(in: ((self.gameScene.frame.width / -2) + 20) ... ((self.gameScene.frame.width / 2) - 20))
-//                    let newY:CGFloat = CGFloat(Double.random(in: self.gameScene.currentLevel.syringeRespawnYRange))
-//                    newPoint = CGPoint(x: newX, y: newY)
-//
-//                    let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
-//                    print("GKAccessPointCoord: \(accsPntCoord)")
-//                    isBehindGKAccessPoint = accsPntCoord.contains(newPoint)
-//                    isBehindHand = self.gameScene.imgThrowingHand!.frame.contains(newPoint)
-//                }while(isBehindHand || isBehindGKAccessPoint)
-//                self.gameScene.syringePickup?.position = newPoint
-//                self.gameScene.syringePickup?.alpha = 1.0
                 self.gameScene.syringePickup?.genNewPos()
             }
         }

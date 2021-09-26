@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
         self.loadMenuScene()
     }
     
-    func loadMap(){
+    func loadMapScene(){
 
         if let scene = GKScene(fileNamed: "MapScene") {
             if let sceneNode = scene.rootNode as! MapScene? {
@@ -49,14 +49,7 @@ class GameViewController: UIViewController {
     func loadMenuScene(){
         if let scene = GKScene(fileNamed: "MenuScene") {
             
-            // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! MenuScene? {
-//                self.gameSceneObj = sceneNode
-                // Copy gameplay related content over to the scene
-//                sceneNode.entities = scene.entities
-//                sceneNode.graphs = scene.graphs
-                
-                // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
                 
                 // Present the scene
@@ -73,43 +66,15 @@ class GameViewController: UIViewController {
                 }
             }
         }
-//        if let scene = GKScene(fileNamed: "MenuScene") {
-//
-//            if let sceneNode = scene.rootNode as! MenuScene? {
-//
-//                sceneNode.scaleMode = .aspectFill
-//
-//                if let view = self.skView {
-//                    view.presentScene(sceneNode)
-//
-//                    view.ignoresSiblingOrder = true
-//
-//                    if(UserDefaultsHelper.devMode){
-//                        view.showsFPS = true
-//                        view.showsNodeCount = true
-//                        view.showsPhysics = true
-//                    }
-//                }
-//            }
-//        }
     }
     
     func loadGameScene(difficulty:UserDefaultsDifficulty = .easy, level:Level = .Meadow){
         UserDefaultsHelper.difficulty = difficulty
         UserDefaultsHelper.levelID = level
-        //        self.supportedInterfaceOrientations = .landscapeRight
-        // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
-        // including entities and graphs.
         if let scene = GKScene(fileNamed: "GameScene") {
             
-            // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
                 self.gameSceneObj = sceneNode
-                // Copy gameplay related content over to the scene
-//                sceneNode.entities = scene.entities
-//                sceneNode.graphs = scene.graphs
-                
-                // Set the scale mode to scale to fit the window
                 sceneNode.scaleMode = .aspectFill
                 
                 // Present the scene
@@ -127,6 +92,28 @@ class GameViewController: UIViewController {
             }
         }
         self.registerSettingsBundle()
+    }
+    
+    func loadDifficultyScene(level:Level){
+        if let scene = GKScene(fileNamed: "DifficultyScene") {
+            
+            if let sceneNode = scene.rootNode as! DifficultyScene? {
+                sceneNode.selLevel = level
+                sceneNode.scaleMode = .aspectFill
+                
+                if let view = self.view as! SKView? {
+                    view.presentScene(sceneNode)
+                    
+                    view.ignoresSiblingOrder = true
+                    
+                    if(UserDefaultsHelper.devMode){
+                        view.showsFPS = true
+                        view.showsNodeCount = true
+                        view.showsPhysics = true
+                    }
+                }
+            }
+        }
     }
     
     func registerSettingsBundle(){

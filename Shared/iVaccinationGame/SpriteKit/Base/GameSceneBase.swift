@@ -90,7 +90,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var levels:[BaseLevel] = []
     var currentLevel:BaseLevel = CitySkylineLevel()
     var scoreLblOrigPos:CGPoint = CGPoint()
-    var lblEarnedPoints:SKLabelNode!
+//    var lblEarnedPoints:SKLabelNode!
     let earnedPointLblTime:TimeInterval = 1.5
     
     var chIOS:SKSpriteNode!
@@ -138,8 +138,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.chIOS = self.contentNode!.childNode(withName: "chIOS") as? SKSpriteNode
         self.chIOS.alpha = 0.0
         
-        self.lblEarnedPoints = self.contentNode!.childNode(withName: "lblEarnedPoints") as? SKLabelNode
-        self.lblEarnedPoints.alpha = 0.0
+//        self.lblEarnedPoints = self.contentNode!.childNode(withName: "lblEarnedPoints") as? SKLabelNode
+//        self.lblEarnedPoints.alpha = 0.0
         
         self.lblGameOver = self.contentNode!.childNode(withName: "lblGameOver") as? SKLabelNode
         self.lblGameOver?.isHidden = true
@@ -215,6 +215,11 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
         self.setupHandAnimation()
+    }
+    
+    func setSyringesLeft(syringesLeft:Int){
+        self.syringesLeft = syringesLeft
+        self.lblSyringesLeft?.text = self.syringesLeft.description + " / 2"
     }
     
     func runLevel(levelID:Level){
@@ -491,6 +496,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             #if os(iOS)
                 if let viewCtrl = self.view?.window?.rootViewController{
                     (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.score)
+                    print("OLD HIGHSCORE IS: \(ICloudStorageHelper.highscore), LEVEL: \(ICloudStorageHelper.level)")
+                    ICloudStorageHelper.highscore = self.score
+                    ICloudStorageHelper.level = Level.CitySkyline.rawValue
                 }
             #else
                 if let viewCtrl = self.view?.window?.contentViewController{

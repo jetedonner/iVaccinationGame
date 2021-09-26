@@ -26,11 +26,14 @@ class MenuScene: MenuSceneBase {
             newSelNode = self.lblExit
         }else if(node == self.lblStartGame){
             newSelNode = self.lblStartGame
+        }else if(node == self.lblContinue){
+            newSelNode = self.lblContinue
         }else if(node == self.lblMap){
             newSelNode = self.lblMap
         }else{
             return
         }
+        
 
         if(newSelNode != self.selNode){
             self.selNode = newSelNode
@@ -40,40 +43,51 @@ class MenuScene: MenuSceneBase {
                 self.lblExit?.fontColor = .white
                 self.lblGameCenter?.fontColor = .white
                 self.lblMap?.fontColor = .white
+                self.lblContinue?.fontColor = .white
             }else if(self.selNode == self.lblExit){
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblGameCenter?.fontColor = .white
                 self.lblMap?.fontColor = .white
                 self.lblExit?.fontColor = self.lblColor
+                self.lblContinue?.fontColor = .white
             }else if(self.selNode == self.lblStartGame){
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = self.lblColor
                 self.lblExit?.fontColor = .white
                 self.lblGameCenter?.fontColor = .white
                 self.lblMap?.fontColor = .white
+                self.lblContinue?.fontColor = .white
             }else if(self.selNode == self.lblGameCenter){
                 self.lblSettings?.fontColor = .white
                 self.lblGameCenter?.fontColor = self.lblColor
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblMap?.fontColor = .white
+                self.lblContinue?.fontColor = .white
+            }else if(self.selNode == self.lblContinue){
+                self.lblSettings?.fontColor = .white
+                self.lblGameCenter?.fontColor = .white
+                self.lblExit?.fontColor = .white
+                self.lblStartGame?.fontColor = .white
+                self.lblMap?.fontColor = .white
+                self.lblContinue?.fontColor = self.lblColor
             }else if(self.selNode == self.lblMap){
                 self.lblSettings?.fontColor = .white
                 self.lblMap?.fontColor = self.lblColor
                 self.lblGameCenter?.fontColor = .white
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
+                self.lblContinue?.fontColor = .white
             }
 
+            
             SoundManager.shared.playSound(sound: .menuHighlite)
         }
     }
     
     override func touchOrClick(pos: CGPoint) {
         super.touchOrClick(pos: pos)
-//        let node = self.scene!.atPoint(pos)
-//        var newSelNode:SKLabelNode?
         
         if(self.selNode == lblExit){
             NSApp.terminate(nil)
@@ -85,6 +99,8 @@ class MenuScene: MenuSceneBase {
 //            GKAccessPoint.shared.trigger(handler: {
 //
 //            })
+        }else if(self.selNode == lblContinue){
+            
         }else if(self.selNode == lblSettings){
             let vcSettings:SettingsViewController = SettingsViewController()
             vcSettings.gameScene = nil

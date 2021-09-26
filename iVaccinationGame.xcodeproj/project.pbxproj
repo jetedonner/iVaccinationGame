@@ -177,6 +177,8 @@
 		55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554E532426EFAD4400371E58 /* Assets.xcassets */; };
 		55EE3D6E26FFE3D500991D86 /* AppIconMacOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D6D26FFE3D500991D86 /* AppIconMacOS.xcassets */; };
 		55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */; };
+		55EE3D7427009A3200991D86 /* BaseMessageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7327009A3200991D86 /* BaseMessageNode.swift */; };
+		55EE3D7527009A3200991D86 /* BaseMessageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7327009A3200991D86 /* BaseMessageNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,6 +327,7 @@
 		55EE3D6926FFC49C00991D86 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		55EE3D6D26FFE3D500991D86 /* AppIconMacOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconMacOS.xcassets; sourceTree = "<group>"; };
 		55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconIOS.xcassets; sourceTree = "<group>"; };
+		55EE3D7327009A3200991D86 /* BaseMessageNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMessageNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,6 +461,7 @@
 				55A579BE26F4FEFF0084239D /* SyringePickup.swift */,
 				55C83EFB26FBB12400F42F53 /* ZombieGirl.swift */,
 				5594429F26FE4F710082DA72 /* SyringeDart.swift */,
+				55EE3D7327009A3200991D86 /* BaseMessageNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -1063,6 +1067,7 @@
 				55A579CA26F638610084239D /* BaseLevel.swift in Sources */,
 				55A579BF26F4FEFF0084239D /* SyringePickup.swift in Sources */,
 				55C83F5A26FDDB8B00F42F53 /* GameStateMachine.swift in Sources */,
+				55EE3D7427009A3200991D86 /* BaseMessageNode.swift in Sources */,
 				55A579C326F507DF0084239D /* SKSpriteNodeExt.swift in Sources */,
 				55E59BCC26FF83CD00B75322 /* DifficultyScene.swift in Sources */,
 				55E59BC926FF80B600B75322 /* BaseSKSceneMacOS.swift in Sources */,
@@ -1140,6 +1145,7 @@
 				55EAD45826FF60D600BB8D06 /* Level.swift in Sources */,
 				55C83F6E26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */,
 				55C83F1126FC673D00F42F53 /* WallwayLevel.swift in Sources */,
+				55EE3D7527009A3200991D86 /* BaseMessageNode.swift in Sources */,
 				55C83F1326FC673D00F42F53 /* CitySkylineLevel.swift in Sources */,
 				55E59BD026FF873000B75322 /* DifficultyScene.swift in Sources */,
 				55EAD47126FF7D0800BB8D06 /* MenuScene.swift in Sources */,

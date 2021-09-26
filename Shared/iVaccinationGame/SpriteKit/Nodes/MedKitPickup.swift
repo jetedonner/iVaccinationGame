@@ -12,6 +12,7 @@ class MedKitPickup: BasePickupNode {
     
     init(){
         super.init(imageNamed: "MedicinePickup", emitterFileNamed: "Upward2Particles.sks")
+        self.pickupScore = 25
     }
     
     override func pickedUp(){
@@ -20,6 +21,9 @@ class MedKitPickup: BasePickupNode {
             gameScene.health += 25.0
             gameScene.prgBar.setProgress(gameScene.health / 100.0)
 
+            gameScene.addScore(score: self.pickupScore)
+            gameScene.showEarnedPoints(score: self.pickupScore, onNode: self)
+            
             SoundManager.shared.playSound(sound: .healthPickup)
 
             self.run(SKAction.group([SKAction.fadeAlpha(to: (gameScene.health >= 100.0 ? 0.0 : 1.0), duration: 0.1)]), completion: {
