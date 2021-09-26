@@ -20,8 +20,8 @@ class MenuScene: MenuSceneBase {
             newSelNode = self.lblSettings
         }else if(node == self.lblExit){
             newSelNode = self.lblExit
-        }else if(node == self.lblGameCenter){
-            newSelNode = self.lblGameCenter
+//        }else if(node == self.lblGameCenter){
+//            newSelNode = self.lblGameCenter
         }else if(node == self.lblExit){
             newSelNode = self.lblExit
         }else if(node == self.lblStartGame){
@@ -41,13 +41,13 @@ class MenuScene: MenuSceneBase {
                 self.lblSettings?.fontColor = self.lblColor
                 self.lblStartGame?.fontColor = .white
                 self.lblExit?.fontColor = .white
-                self.lblGameCenter?.fontColor = .white
+//                self.lblGameCenter?.fontColor = .white
                 self.lblMap?.fontColor = .white
                 self.lblContinue?.fontColor = .white
             }else if(self.selNode == self.lblExit){
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
-                self.lblGameCenter?.fontColor = .white
+//                self.lblGameCenter?.fontColor = .white
                 self.lblMap?.fontColor = .white
                 self.lblExit?.fontColor = self.lblColor
                 self.lblContinue?.fontColor = .white
@@ -55,19 +55,19 @@ class MenuScene: MenuSceneBase {
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = self.lblColor
                 self.lblExit?.fontColor = .white
-                self.lblGameCenter?.fontColor = .white
+//                self.lblGameCenter?.fontColor = .white
                 self.lblMap?.fontColor = .white
                 self.lblContinue?.fontColor = .white
-            }else if(self.selNode == self.lblGameCenter){
-                self.lblSettings?.fontColor = .white
-                self.lblGameCenter?.fontColor = self.lblColor
-                self.lblExit?.fontColor = .white
-                self.lblStartGame?.fontColor = .white
-                self.lblMap?.fontColor = .white
-                self.lblContinue?.fontColor = .white
+//            }else if(self.selNode == self.lblGameCenter){
+//                self.lblSettings?.fontColor = .white
+//                self.lblGameCenter?.fontColor = self.lblColor
+//                self.lblExit?.fontColor = .white
+//                self.lblStartGame?.fontColor = .white
+//                self.lblMap?.fontColor = .white
+//                self.lblContinue?.fontColor = .white
             }else if(self.selNode == self.lblContinue){
                 self.lblSettings?.fontColor = .white
-                self.lblGameCenter?.fontColor = .white
+//                self.lblGameCenter?.fontColor = .white
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblMap?.fontColor = .white
@@ -75,7 +75,7 @@ class MenuScene: MenuSceneBase {
             }else if(self.selNode == self.lblMap){
                 self.lblSettings?.fontColor = .white
                 self.lblMap?.fontColor = self.lblColor
-                self.lblGameCenter?.fontColor = .white
+//                self.lblGameCenter?.fontColor = .white
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblContinue?.fontColor = .white
@@ -95,12 +95,14 @@ class MenuScene: MenuSceneBase {
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadDifficultyScene(level: .Meadow)
             }
-        }else if(self.selNode == lblGameCenter){
-//            GKAccessPoint.shared.trigger(handler: {
-//
-//            })
+//        }else if(self.selNode == lblGameCenter){
+////            GKAccessPoint.shared.trigger(handler: {
+////
+////            })
         }else if(self.selNode == lblContinue){
-            
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadMapScene()
+            }
         }else if(self.selNode == lblSettings){
             let vcSettings:SettingsViewController = SettingsViewController()
             vcSettings.gameScene = nil

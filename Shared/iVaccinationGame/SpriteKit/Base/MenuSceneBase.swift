@@ -13,7 +13,7 @@ class MenuSceneBase: BaseSKScene {
     
     var lblStartGame:SKLabelNode?
     var lblContinue:SKLabelNode?
-    var lblGameCenter:SKLabelNode?
+//    var lblGameCenter:SKLabelNode?
     var lblSettings:SKLabelNode?
     var lblExit:SKLabelNode?
     var lblMap:SKLabelNode?
@@ -37,7 +37,7 @@ class MenuSceneBase: BaseSKScene {
         self.lblStartGame = self.childNode(withName: "lblStartGame") as? SKLabelNode
         self.lblContinue = self.childNode(withName: "lblContinue") as? SKLabelNode
         self.lblSettings = self.childNode(withName: "lblSettings") as? SKLabelNode
-        self.lblGameCenter = self.childNode(withName: "lblGameCenter") as? SKLabelNode
+//        self.lblGameCenter = self.childNode(withName: "lblGameCenter") as? SKLabelNode
         self.lblExit = self.childNode(withName: "lblExit") as? SKLabelNode
         self.lblMap = self.childNode(withName: "lblMap") as? SKLabelNode
         
