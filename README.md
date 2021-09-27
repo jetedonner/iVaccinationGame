@@ -1,6 +1,5 @@
 # iVaccinationGame
-iVaccinationGame is a fun game which lets you vaccinate zombies to save the world population from diseases and viruses
-
+iVaccinationGame is a fun game which lets you vaccinate zombies to save the world population from diseases and viruses.
 
 # Credits
 ## Images
@@ -16,7 +15,5 @@ iVaccinationGame is a fun game which lets you vaccinate zombies to save the worl
 * [azgaar.github.io/Fantasy-Map-Generator](https://azgaar.github.io/Fantasy-Map-Generator/)
 * GIMP
 
-
 ## Sounds
-* [Sound from Zapsplat.com](https://www.zapsplat.com)
-
+* [Sound from Zapsplat.com](https://www.zapsplat.com)   

@@ -6,8 +6,6 @@
 //
 
 import Foundation
-//import Cocoa
-//import UIKit
 import SpriteKit
 
 extension NSValueTransformerName {
@@ -22,10 +20,6 @@ extension CGFloat {
 }
 
 class CGFloatValueTransformer: ValueTransformer {
-    
-    override func valueClassForBinding(_ binding: NSBindingName) -> AnyClass? {
-        return Optional<CGFloat>.self as! AnyClass
-    }
     
     override func transformedValue(_ value: Any?) -> Any? {
         return (value as! CGFloat).rounded(toPlaces:2)

@@ -63,7 +63,6 @@
 		55B64A7926F3831D00944766 /* UpwardParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A7726F3831D00944766 /* UpwardParticles.sks */; };
 		55B64A7D26F3A3A300944766 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7C26F3A3A300944766 /* GameCenterHelper.swift */; };
 		55B64A7F26F3A43E00944766 /* GameCenterHelperExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */; };
-		55B64A8126F3A4AC00944766 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B64A8026F3A4AC00944766 /* GameKit.framework */; };
 		55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A8426F3CEAE00944766 /* CH_first_red.png */; };
 		55C83EF226FB250E00F42F53 /* MeadowLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83EF126FB250E00F42F53 /* MeadowLevel.swift */; };
 		55C83EF426FB91A900F42F53 /* GameScene_THIRD.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF326FB91A900F42F53 /* GameScene_THIRD.sks */; };
@@ -102,7 +101,6 @@
 		55C83F2C26FC75E600F42F53 /* GameSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F2A26FC75E600F42F53 /* GameSceneBase.swift */; };
 		55C83F2D26FC819E00F42F53 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7C26F3A3A300944766 /* GameCenterHelper.swift */; };
 		55C83F2E26FC819E00F42F53 /* GameCenterHelperExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */; };
-		55C83F3026FC984E00F42F53 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55C83F2F26FC984E00F42F53 /* GameKit.framework */; };
 		55C83F3226FCA9A200F42F53 /* GCAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3126FCA9A200F42F53 /* GCAchievements.swift */; };
 		55C83F3326FCA9A200F42F53 /* GCAchievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F3126FCA9A200F42F53 /* GCAchievements.swift */; };
 		55C83F3526FCDEF500F42F53 /* DifficultyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */; };
@@ -181,6 +179,8 @@
 		55EE3D7527009A3200991D86 /* BaseMessageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7327009A3200991D86 /* BaseMessageNode.swift */; };
 		55EE3D772701ECEA00991D86 /* IViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D762701ECEA00991D86 /* IViewController.swift */; };
 		55EE3D782701ECEA00991D86 /* IViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D762701ECEA00991D86 /* IViewController.swift */; };
+		55EE3D7A2702317A00991D86 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EE3D792702317A00991D86 /* GameKit.framework */; };
+		55EE3D7C2702318900991D86 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EE3D7B2702318900991D86 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,7 +272,6 @@
 		55B64A7726F3831D00944766 /* UpwardParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = UpwardParticles.sks; sourceTree = "<group>"; };
 		55B64A7C26F3A3A300944766 /* GameCenterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
 		55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelperExt.swift; sourceTree = "<group>"; };
-		55B64A8026F3A4AC00944766 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		55B64A8426F3CEAE00944766 /* CH_first_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CH_first_red.png; sourceTree = "<group>"; };
 		55C83EF126FB250E00F42F53 /* MeadowLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeadowLevel.swift; sourceTree = "<group>"; };
 		55C83EF326FB91A900F42F53 /* GameScene_THIRD.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_THIRD.sks; sourceTree = "<group>"; };
@@ -282,7 +281,6 @@
 		55C83EFB26FBB12400F42F53 /* ZombieGirl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZombieGirl.swift; sourceTree = "<group>"; };
 		55C83F1F26FC680C00F42F53 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		55C83F2A26FC75E600F42F53 /* GameSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameSceneBase.swift; path = Shared/iVaccinationGame/SpriteKit/Base/GameSceneBase.swift; sourceTree = SOURCE_ROOT; };
-		55C83F2F26FC984E00F42F53 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		55C83F3126FCA9A200F42F53 /* GCAchievements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCAchievements.swift; sourceTree = "<group>"; };
 		55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DifficultyScene.sks; sourceTree = "<group>"; };
 		55C83F3726FCE5BC00F42F53 /* DifficultySceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultySceneBase.swift; sourceTree = "<group>"; };
@@ -331,6 +329,8 @@
 		55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconIOS.xcassets; sourceTree = "<group>"; };
 		55EE3D7327009A3200991D86 /* BaseMessageNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMessageNode.swift; sourceTree = "<group>"; };
 		55EE3D762701ECEA00991D86 /* IViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IViewController.swift; sourceTree = "<group>"; };
+		55EE3D792702317A00991D86 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		55EE3D7B2702318900991D86 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,7 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				554E535526EFBA5400371E58 /* AVFoundation.framework in Frameworks */,
-				55B64A8126F3A4AC00944766 /* GameKit.framework in Frameworks */,
+				55EE3D7A2702317A00991D86 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +361,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55C83F3026FC984E00F42F53 /* GameKit.framework in Frameworks */,
+				55EE3D7C2702318900991D86 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,8 +448,8 @@
 		554E535326EFBA5400371E58 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				55C83F2F26FC984E00F42F53 /* GameKit.framework */,
-				55B64A8026F3A4AC00944766 /* GameKit.framework */,
+				55EE3D7B2702318900991D86 /* GameKit.framework */,
+				55EE3D792702317A00991D86 /* GameKit.framework */,
 				554E535426EFBA5400371E58 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
