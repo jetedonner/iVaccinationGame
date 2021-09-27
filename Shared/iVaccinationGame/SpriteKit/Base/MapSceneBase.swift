@@ -28,7 +28,7 @@ class MapSceneBase: BaseSKScene {
     var textMeadow:SKTexture = SKTexture(imageNamed: "Map5")
     var textCitySkyline:SKTexture = SKTexture(imageNamed: "Map5")
     
-    var selNode:SKNode?
+//    var selNode:SKNode?
     
     var textBackArrowSel:SKTexture = SKTexture(imageNamed: "BackArrowSel")
     var textBackArrow:SKTexture = SKTexture(imageNamed: "BackArrow")
@@ -68,5 +68,15 @@ class MapSceneBase: BaseSKScene {
     func updateScoreFromICloud(){
         self.lblScore.text = "Score: \(ICloudStorageHelper.highscore)"
         self.lblLevel.text = "Level: \(ICloudStorageHelper.level)"
+    }
+    
+    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
+        if(self.selNode == self.imgBack){
+            viewController.loadMenuScene()
+        }else if(self.selNode == self.posMeadow){
+            viewController.loadDifficultyScene(level: .Meadow)
+        }else if(self.selNode == self.posCitySkyline){
+            viewController.loadDifficultyScene(level: .CitySkyline)
+        }
     }
 }

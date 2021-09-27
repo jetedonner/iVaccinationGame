@@ -11,6 +11,7 @@ import SpriteKit
 class BaseSKScene: SKScene {
     
     var sceneNode:SKScene!
+    var selNode:SKNode?
     
     override init() {
         super.init()
@@ -20,9 +21,8 @@ class BaseSKScene: SKScene {
         self.sceneNode = self.scene
     }
     
-    func touchOrClick(pos:CGPoint){
-        var tmp = -1
-        tmp /= -1
+    func touchOrClick(pos:CGPoint, viewController:IViewController){
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

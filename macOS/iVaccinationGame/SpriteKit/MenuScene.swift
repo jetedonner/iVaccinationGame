@@ -14,7 +14,7 @@ class MenuScene: MenuSceneBase {
         super.mouseMoved(with: event)
         let location = event.location(in: self.sceneNode)
         let node = self.scene!.atPoint(location)
-        var newSelNode:SKLabelNode?
+//        var newSelNode:SKLabelNode?
 
         if(node == self.lblSettings){
             newSelNode = self.lblSettings
@@ -86,32 +86,16 @@ class MenuScene: MenuSceneBase {
         }
     }
     
-    override func touchOrClick(pos: CGPoint) {
-        super.touchOrClick(pos: pos)
+    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
+        super.touchOrClick(pos: pos, viewController: viewController)
         
         if(self.selNode == lblExit){
             NSApp.terminate(nil)
-        }else if(self.selNode == lblStartGame){
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadDifficultyScene(level: .Meadow)
-            }
-//        }else if(self.selNode == lblGameCenter){
-////            GKAccessPoint.shared.trigger(handler: {
-////
-////            })
-        }else if(self.selNode == lblContinue){
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadMapScene()
-            }
         }else if(self.selNode == lblSettings){
             let vcSettings:SettingsViewController = SettingsViewController()
             vcSettings.gameScene = nil
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).presentAsSheet(vcSettings)
-            }
-        }else if(self.selNode == lblMap){
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadMapScene()
             }
         }
     }

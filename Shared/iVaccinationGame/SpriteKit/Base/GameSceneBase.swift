@@ -385,23 +385,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         if(self.startTime == 0){
             self.startTime = currentTime
             self.updateEffectNode()
-//            if(effectNode.parent == nil){
-//
-//                let blurFilter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius": 15])
-//                effectNode.filter = blurFilter
-//                let blurNode:SKShapeNode = SKShapeNode(rect: self.frame)
-//
-//                blurNode.fillColor = .white
-//                blurNode.zPosition = 10001
-//
-//                let fillTexture = self.view?.texture(from: contentNode!, crop: blurNode.frame)
-//                blurNode.fillTexture = fillTexture
-//
-//                effectNode.addChild(blurNode)
-//                effectNode.zPosition = 10001
-//                self.addChild(effectNode)
-//                effectNode.isHidden = true
-//            }
         }
         
         let timeDelta:TimeInterval = currentTime - self.startTime

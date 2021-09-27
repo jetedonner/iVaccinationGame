@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 import AVKit
 
-class ViewController: NSViewController, AVAudioPlayerDelegate {
+class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
     
     var gameCenterHelper:GameCenterHelper!
     var gameSceneObj:GameScene!

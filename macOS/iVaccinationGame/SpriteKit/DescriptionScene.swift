@@ -24,19 +24,10 @@ class DescriptionScene: DescriptionSceneBase {
 
         if(newSelNode != self.selNode){
             self.selNode = newSelNode
-            if(self.selNode == self.lblContinue){
-                
-            }
-
+//            if(self.selNode == self.lblContinue){
+//                
+//            }
             SoundManager.shared.playSound(sound: .menuHighlite)
-        }
-    }
-    
-    override func touchOrClick(pos: CGPoint) {
-        if(self.selNode == lblContinue){
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadGameScene(difficulty: .easy)
-            }
         }
     }
 }

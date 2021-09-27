@@ -16,25 +16,17 @@ class DifficultyScene: DifficultySceneBase {
         let node = self.scene!.atPoint(location)
         var newSelNode:SKLabelNode?
         
-        if([self.lblEasy, self.lblMedium, self.lblHard, self.lblNightmare, self.lblBack].contains(node)){
+        if([
+            self.lblEasy,
+            self.lblMedium,
+            self.lblHard,
+            self.lblNightmare,
+            self.lblBack
+        ].contains(node)){
             newSelNode = node as? SKLabelNode
         }else{
             return
         }
-//        if(node == self.lblEasy){
-//            newSelNode = self.lblEasy
-//        }else if(node == self.lblMedium){
-//            newSelNode = self.lblMedium
-//        }else if(node == self.lblHard){
-//            newSelNode = self.lblHard
-//        }else if(node == self.lblNightmare){
-//            newSelNode = self.lblNightmare
-//        }else if(node == self.lblBack){
-//            newSelNode = self.lblBack
-//        }else{
-//            return
-//        }
-        
         
         if(newSelNode != self.selNode){
             self.selNode = newSelNode
@@ -71,32 +63,6 @@ class DifficultyScene: DifficultySceneBase {
             }
             
             SoundManager.shared.playSound(sound: .menuHighlite)
-        }
-    }
-    
-    override func touchOrClick(pos: CGPoint) {
-        super.touchOrClick(pos: pos)
-        
-        if(self.selNode == lblEasy){
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadGameScene(difficulty: .easy, level: self.selLevel)
-            }
-        }else if(self.selNode == lblMedium){
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadGameScene(difficulty: .medium, level: self.selLevel)
-            }
-        }else if(self.selNode == lblHard){
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadGameScene(difficulty: .hard, level: self.selLevel)
-            }
-        }else if(self.selNode == lblNightmare){
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadGameScene(difficulty: .nightmare, level: self.selLevel)
-            }
-        }else if(self.selNode == lblBack){
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadMenuScene()
-            }
         }
     }
 }

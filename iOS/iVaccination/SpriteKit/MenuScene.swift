@@ -10,24 +10,15 @@ import SpriteKit
 
 class MenuScene: MenuSceneBase {
     
-    override func touchOrClick(pos: CGPoint) {
-        if let menuScene = (self.scene as? MenuScene){
-            
-            let node = self.atPoint(pos)
-            
-            if(node == self.lblMap){
-                if let viewCtrl = self.view?.window?.rootViewController{
-                    (viewCtrl as! GameViewController).loadMapScene()
-                }
-            }else if(node == self.lblStartGame){
-                if let viewCtrl = self.view?.window?.rootViewController{
-                    (viewCtrl as! GameViewController).loadDifficultyScene(level: .Meadow)
-                }
-            }else if(node == self.lblContinue){
-                if let viewCtrl = self.view?.window?.rootViewController{
-                    (viewCtrl as! GameViewController).loadMapScene()
-                }
-            }
-        }
-    }
+//    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
+//        super.touchOrClick(pos: pos, viewController: viewController)
+//        let node = self.atPoint(pos)
+//        if(node == self.lblExit){
+//             
+//        }else if(node == self.lblStartGame){
+//            viewController.loadDifficultyScene(level: .Meadow)
+//        }else if(node == self.lblContinue){
+//            viewController.loadMapScene()
+//        }
+//    }
 }

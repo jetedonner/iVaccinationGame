@@ -10,24 +10,24 @@ import SpriteKit
 
 class MapScene: MapSceneBase {
 
-    override func touchOrClick(pos: CGPoint) {
-        if let mapScene = (self.scene as? MapScene){
-
-            let node = self.atPoint(pos)
-
-            if(node == self.posMeadow){
-                if let viewCtrl = self.view?.window?.rootViewController{
-                    (viewCtrl as! GameViewController).loadGameScene()
-                }
-            }else if(node == self.posCitySkyline){
-                if let viewCtrl = self.view?.window?.rootViewController{
-                    (viewCtrl as! GameViewController).loadGameScene(difficulty: .easy, level: .CitySkyline)
-                }
-            }else if(node == self.imgBack){
-                if let viewCtrl = self.view?.window?.rootViewController{
-                    (viewCtrl as! GameViewController).loadMenuScene()
-                }
-            }
-        }
-    }
+//    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
+//        if let mapScene = (self.scene as? MapScene){
+//
+//            let node = self.atPoint(pos)
+//
+//            if(node == self.posMeadow){
+//                if let viewCtrl = self.view?.window?.rootViewController{
+//                    (viewCtrl as! GameViewController).loadGameScene()
+//                }
+//            }else if(node == self.posCitySkyline){
+//                if let viewCtrl = self.view?.window?.rootViewController{
+//                    (viewCtrl as! GameViewController).loadGameScene(difficulty: .easy, level: .CitySkyline)
+//                }
+//            }else if(node == self.imgBack){
+//                if let viewCtrl = self.view?.window?.rootViewController{
+//                    (viewCtrl as! GameViewController).loadMenuScene()
+//                }
+//            }
+//        }
+//    }
 }

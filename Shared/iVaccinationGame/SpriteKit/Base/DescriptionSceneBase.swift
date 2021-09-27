@@ -12,13 +12,7 @@ import GameKit
 class DescriptionSceneBase: BaseSKScene {
     
     var lblContinue:SKLabelNode?
-//    var lblMedium:SKLabelNode?
-//    var lblHard:SKLabelNode?
-//    var lblNightmare:SKLabelNode?
-//    var sceneNode:SKScene!
-//    var lblColor:NSColor?
-    var selNode:SKLabelNode?
-//    var viewCtrl:ViewController?
+//    var selNode:SKLabelNode?
     
     override var isUserInteractionEnabled: Bool {
         get {
@@ -33,5 +27,12 @@ class DescriptionSceneBase: BaseSKScene {
         super.sceneDidLoad()
         self.lblContinue = self.childNode(withName: "lblContinue") as? SKLabelNode
         self.isUserInteractionEnabled = true
+    }
+    
+    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
+        super.touchOrClick(pos: pos, viewController: viewController)
+        if(self.selNode == lblContinue){
+            viewController.loadGameScene(difficulty: .easy, level: .Meadow)
+        }
     }
 }

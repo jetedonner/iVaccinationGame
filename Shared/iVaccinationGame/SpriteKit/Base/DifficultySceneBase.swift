@@ -19,7 +19,7 @@ class DifficultySceneBase: BaseSKScene {
     
 //    var sceneNode:SKScene!
     var lblColor:SKColor?
-    var selNode:SKLabelNode?
+//    var selNode:SKLabelNode?
     
     var selLevel:Level = .Meadow
     
@@ -45,4 +45,19 @@ class DifficultySceneBase: BaseSKScene {
         self.isUserInteractionEnabled = true
     }
     
+    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
+        super.touchOrClick(pos: pos, viewController: viewController)
+
+        if(self.selNode == lblEasy){
+            viewController.loadGameScene(difficulty: .easy, level: self.selLevel)
+        }else if(self.selNode == lblMedium){
+            viewController.loadGameScene(difficulty: .medium, level: self.selLevel)
+        }else if(self.selNode == lblHard){
+            viewController.loadGameScene(difficulty: .hard, level: self.selLevel)
+        }else if(self.selNode == lblNightmare){
+            viewController.loadGameScene(difficulty: .nightmare, level: self.selLevel)
+        }else if(self.selNode == lblBack){
+            viewController.loadMenuScene()
+        }
+    }
 }

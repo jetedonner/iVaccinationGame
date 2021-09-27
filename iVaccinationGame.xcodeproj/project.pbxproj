@@ -179,6 +179,8 @@
 		55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */; };
 		55EE3D7427009A3200991D86 /* BaseMessageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7327009A3200991D86 /* BaseMessageNode.swift */; };
 		55EE3D7527009A3200991D86 /* BaseMessageNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7327009A3200991D86 /* BaseMessageNode.swift */; };
+		55EE3D772701ECEA00991D86 /* IViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D762701ECEA00991D86 /* IViewController.swift */; };
+		55EE3D782701ECEA00991D86 /* IViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D762701ECEA00991D86 /* IViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -328,6 +330,7 @@
 		55EE3D6D26FFE3D500991D86 /* AppIconMacOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconMacOS.xcassets; sourceTree = "<group>"; };
 		55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconIOS.xcassets; sourceTree = "<group>"; };
 		55EE3D7327009A3200991D86 /* BaseMessageNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMessageNode.swift; sourceTree = "<group>"; };
+		55EE3D762701ECEA00991D86 /* IViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -660,6 +663,7 @@
 				55C83F2A26FC75E600F42F53 /* GameSceneBase.swift */,
 				559442A226FE50800082DA72 /* GameSceneBaseExt.swift */,
 				55EAD46426FF757500BB8D06 /* BaseSKScene.swift */,
+				55EE3D762701ECEA00991D86 /* IViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1068,6 +1072,7 @@
 				55A579BF26F4FEFF0084239D /* SyringePickup.swift in Sources */,
 				55C83F5A26FDDB8B00F42F53 /* GameStateMachine.swift in Sources */,
 				55EE3D7427009A3200991D86 /* BaseMessageNode.swift in Sources */,
+				55EE3D772701ECEA00991D86 /* IViewController.swift in Sources */,
 				55A579C326F507DF0084239D /* SKSpriteNodeExt.swift in Sources */,
 				55E59BCC26FF83CD00B75322 /* DifficultyScene.swift in Sources */,
 				55E59BC926FF80B600B75322 /* BaseSKSceneMacOS.swift in Sources */,
@@ -1103,6 +1108,7 @@
 				55C83F5426FDDAF000F42F53 /* GameStateMachine.swift in Sources */,
 				55C83F5926FDDB8500F42F53 /* PlayingState.swift in Sources */,
 				55C83F1E26FC675500F42F53 /* TimeInterval.swift in Sources */,
+				55EE3D782701ECEA00991D86 /* IViewController.swift in Sources */,
 				55C83F2C26FC75E600F42F53 /* GameSceneBase.swift in Sources */,
 				55C83F1226FC673D00F42F53 /* BaseLevel.swift in Sources */,
 				55B64A4D26F37FD400944766 /* GameViewController.swift in Sources */,

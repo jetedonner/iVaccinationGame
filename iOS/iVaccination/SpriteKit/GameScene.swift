@@ -13,8 +13,8 @@ class GameScene: GameSceneBase {
     var chTimeout:TimeInterval = 0.75
     var chScale:CGFloat = 1.65
     
-    override func touchOrClick(pos: CGPoint) {
-        super.touchOrClick(pos: pos)
+    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
+        super.touchOrClick(pos: pos, viewController: viewController)
         if let gameScene = (self.scene as? GameScene){
 
             if(!gameScene.gameRunning && gameScene.waitForAnyKey){

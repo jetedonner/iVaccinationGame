@@ -13,15 +13,12 @@ class MenuSceneBase: BaseSKScene {
     
     var lblStartGame:SKLabelNode?
     var lblContinue:SKLabelNode?
-//    var lblGameCenter:SKLabelNode?
     var lblSettings:SKLabelNode?
     var lblExit:SKLabelNode?
     var lblMap:SKLabelNode?
     
-//    var sceneNode:SKScene!
     var lblColor:SKColor?
-    var selNode:SKLabelNode?
-//    var viewCtrl:ViewController?
+//    var selNode:SKLabelNode?
     
     override var isUserInteractionEnabled: Bool {
         get {
@@ -37,12 +34,22 @@ class MenuSceneBase: BaseSKScene {
         self.lblStartGame = self.childNode(withName: "lblStartGame") as? SKLabelNode
         self.lblContinue = self.childNode(withName: "lblContinue") as? SKLabelNode
         self.lblSettings = self.childNode(withName: "lblSettings") as? SKLabelNode
-//        self.lblGameCenter = self.childNode(withName: "lblGameCenter") as? SKLabelNode
         self.lblExit = self.childNode(withName: "lblExit") as? SKLabelNode
         self.lblMap = self.childNode(withName: "lblMap") as? SKLabelNode
-        
         self.lblColor = self.lblStartGame?.fontColor
         self.selNode = self.lblStartGame
         self.isUserInteractionEnabled = true
+    }
+    
+    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
+        super.touchOrClick(pos: pos, viewController: viewController)
+        let node = self.atPoint(pos)
+        if(node == self.lblMap){
+            viewController.loadMapScene()
+        }else if(node == self.lblStartGame){
+            viewController.loadDifficultyScene(level: .Meadow)
+        }else if(node == self.lblContinue){
+            viewController.loadMapScene()
+        }
     }
 }

@@ -12,7 +12,10 @@ extension BaseSKScene{
     
     func touchDown(atPoint pos : CGPoint) {
         print("touchDown")
-        self.touchOrClick(pos: pos)
+        if let viewCtrl = self.view?.window?.rootViewController{
+            self.selNode = self.atPoint(pos)
+            self.touchOrClick(pos: pos, viewController: (viewCtrl as! GameViewController))
+        }
     }
     
     func touchUp(atPoint pos : CGPoint) {
@@ -25,7 +28,7 @@ extension BaseSKScene{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesBegan")
+//        print("touchesBegan")
 //        if let label = self.label {
 //            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
 //        }
@@ -38,12 +41,12 @@ extension BaseSKScene{
 //    }
 //
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesEnded")
+//        print("touchesEnded")
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesCancelled")
+//        print("touchesCancelled")
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
 }
