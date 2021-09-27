@@ -17,9 +17,7 @@ class DifficultySceneBase: BaseSKScene {
     var lblNightmare:SKLabelNode?
     var lblBack:SKLabelNode?
     
-//    var sceneNode:SKScene!
     var lblColor:SKColor?
-//    var selNode:SKLabelNode?
     
     var selLevel:Level = .Meadow
     

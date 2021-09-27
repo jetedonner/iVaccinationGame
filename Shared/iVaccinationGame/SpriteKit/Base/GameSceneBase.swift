@@ -19,7 +19,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var gamePaused:Bool = false
     func setGamePaused(isPaused:Bool = true){
         self.gamePaused = isPaused
-//        self.gameRunning = !isPaused
         if(self.gamePaused){
             self.view?.isPaused = true
             self.pauseStartTime = self.curTime
@@ -33,8 +32,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var lastUpdateTime:TimeInterval = 0.0
     var label : SKLabelNode?
     var spinnyNode : SKShapeNode?
-    
-//    var syringe:SKSpriteNode?
     var syringe1:SKSpriteNode?
     var syringe2:SKSpriteNode?
     
@@ -66,7 +63,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var lblSyringesLeft:SKLabelNode?
     var lblMessage:SKLabelNode?
     
-    
     var prgBar:CustomProgressBar = CustomProgressBar()
     var mousePos:CGPoint = CGPoint()
     
@@ -90,7 +86,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var levels:[BaseLevel] = []
     var currentLevel:BaseLevel = CitySkylineLevel()
     var scoreLblOrigPos:CGPoint = CGPoint()
-//    var lblEarnedPoints:SKLabelNode!
     let earnedPointLblTime:TimeInterval = 1.5
     
     var chIOS:SKSpriteNode!
@@ -106,7 +101,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         self.selLevel = UserDefaultsHelper.levelID
-        
         self.levels = [
             CitySkylineLevel(),
             WallwayLevel(),
@@ -122,7 +116,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.gameStateMachine = GameStateMachine(gameScene: self)
         
         self.zombieGirl = ZombieGirl(zombieImageName: self.currentLevel.zombieImageName)
-        self.gameDuration = UserDefaultsHelper.roundTime // (UserDefaultsHelper.roundTime == nil ? 30.0 : UserDefaultsHelper.roundTime)
+        self.gameDuration = UserDefaultsHelper.roundTime
         self.contentNode = self.childNode(withName: "contentNode")! as SKNode
         self.bg = self.contentNode!.childNode(withName: "BG") as? SKSpriteNode
         
@@ -137,9 +131,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.imgThrowingHand = self.contentNode!.childNode(withName: "ThrowingHand") as? SKSpriteNode
         self.chIOS = self.contentNode!.childNode(withName: "chIOS") as? SKSpriteNode
         self.chIOS.alpha = 0.0
-        
-//        self.lblEarnedPoints = self.contentNode!.childNode(withName: "lblEarnedPoints") as? SKLabelNode
-//        self.lblEarnedPoints.alpha = 0.0
         
         self.lblGameOver = self.contentNode!.childNode(withName: "lblGameOver") as? SKLabelNode
         self.lblGameOver?.isHidden = true
@@ -175,7 +166,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.certificatePickup?.size = CGSize(width: 64, height: 64)
         self.certificatePickup?.position = CGPoint(x: 300, y: 300)
         self.certificatePickup?.zPosition = 1000
-//        self.certificatePickup?.alpha = 1.0
         self.scene?.addChild(self.certificatePickup!)
         self.certificatePickup?.genNewPos()
         
@@ -201,17 +191,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.zombieGirl.physicsBody?.contactTestBitMask = 0b0010
         self.scoreLblOrigPos = self.lblScore!.position
         
-//        #if os(macOS)
         self.runLevel(levelID: self.selLevel)
-//        self.loadLevel(levelID: self.selLevel)
-//        self.restartAfterGameOverNG(resetTime: true)
-//        self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
-//        #else
-//        self.runLevel(levelID: self.selLevel)
-////        self.loadLevel(levelID: self.selLevel)
-////        self.restartAfterGameOverNG(resetTime: true)
-////        self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
-//        #endif
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
         self.setupHandAnimation()
@@ -432,10 +412,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.bites = 0
         if(loadNewLevel){
             var g = SystemRandomNumberGenerator()
-            self.currentLevel = self.levels.randomElement(using: &g)!
-//            self.runLevel(levelID: self.currentLevel.level)
-            self.loadLevel(levelID: self.currentLevel.level)
-//            self.restartAfterGameOverNG(resetTime: true)
+//            self.currentLevel = self.levels.randomElement(using: &g)!
+            self.loadLevel(levelID: self.levels.randomElement(using: &g)!.level)
         }
         self.gameRunning = true
         self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
@@ -445,8 +423,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     func restartAfterHit(resetTime:Bool = true){
         if(resetTime){
             self.startTime = 0
-//            self.lastUpdateTime = 0
-//            self.gameDuration = 0
         }
         
         self.zombieGirl.removeAllActions()
@@ -505,7 +481,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         if(!self.gameRunning && self.waitForAnyKey){
             #if os(iOS)
                 if let viewCtrl = self.view?.window?.rootViewController{
-//                    (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.score)
                     if(UserDefaultsHelper.levelID == .Meadow){
                         UserDefaultsHelper.levelID = .CitySkyline
                     }

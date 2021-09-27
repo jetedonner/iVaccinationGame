@@ -18,7 +18,6 @@ class MenuSceneBase: BaseSKScene {
     var lblMap:SKLabelNode?
     
     var lblColor:SKColor?
-//    var selNode:SKLabelNode?
     
     override var isUserInteractionEnabled: Bool {
         get {

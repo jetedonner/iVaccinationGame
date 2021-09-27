@@ -12,7 +12,6 @@ import GameKit
 class DescriptionSceneBase: BaseSKScene {
     
     var lblContinue:SKLabelNode?
-//    var selNode:SKLabelNode?
     
     override var isUserInteractionEnabled: Bool {
         get {

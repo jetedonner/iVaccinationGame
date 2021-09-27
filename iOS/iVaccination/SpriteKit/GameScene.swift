@@ -18,7 +18,6 @@ class GameScene: GameSceneBase {
         if let gameScene = (self.scene as? GameScene){
 
             if(!gameScene.gameRunning && gameScene.waitForAnyKey){
-//                gameScene.restartAfterGameOverNG()
                 gameScene.clickedAtPoint(point: pos)
                 return
             }

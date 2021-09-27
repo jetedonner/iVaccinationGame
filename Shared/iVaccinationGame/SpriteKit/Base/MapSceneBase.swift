@@ -11,28 +11,19 @@ import GameKit
 
 class MapSceneBase: BaseSKScene {
     
-//    var lblContinue:SKLabelNode?
-//    var lblMedium:SKLabelNode?
-//    var lblHard:SKLabelNode?
-//    var lblNightmare:SKLabelNode?
-//    var sceneNode:SKScene!
     var imgBG:SKSpriteNode!
     var imgBack:SKSpriteNode!
     var lblScore:SKLabelNode!
     var lblLevel:SKLabelNode!
     
-//    var lblColor:NSColor?
     var posMeadow:SKShapeNode?
     var posCitySkyline:SKShapeNode?
     
     var textMeadow:SKTexture = SKTexture(imageNamed: "Map5")
     var textCitySkyline:SKTexture = SKTexture(imageNamed: "Map5")
     
-//    var selNode:SKNode?
-    
     var textBackArrowSel:SKTexture = SKTexture(imageNamed: "BackArrowSel")
     var textBackArrow:SKTexture = SKTexture(imageNamed: "BackArrow")
-//    var viewCtrl:ViewController?
     
     override var isUserInteractionEnabled: Bool {
         get {

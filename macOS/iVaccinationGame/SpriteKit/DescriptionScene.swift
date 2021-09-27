@@ -24,9 +24,6 @@ class DescriptionScene: DescriptionSceneBase {
 
         if(newSelNode != self.selNode){
             self.selNode = newSelNode
-//            if(self.selNode == self.lblContinue){
-//                
-//            }
             SoundManager.shared.playSound(sound: .menuHighlite)
         }
     }

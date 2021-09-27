@@ -14,14 +14,12 @@ class MenuScene: MenuSceneBase {
         super.mouseMoved(with: event)
         let location = event.location(in: self.sceneNode)
         let node = self.scene!.atPoint(location)
-//        var newSelNode:SKLabelNode?
-
+        var newSelNode:SKLabelNode?
+        
         if(node == self.lblSettings){
             newSelNode = self.lblSettings
         }else if(node == self.lblExit){
             newSelNode = self.lblExit
-//        }else if(node == self.lblGameCenter){
-//            newSelNode = self.lblGameCenter
         }else if(node == self.lblExit){
             newSelNode = self.lblExit
         }else if(node == self.lblStartGame){
@@ -33,7 +31,6 @@ class MenuScene: MenuSceneBase {
         }else{
             return
         }
-        
 
         if(newSelNode != self.selNode){
             self.selNode = newSelNode
@@ -41,13 +38,11 @@ class MenuScene: MenuSceneBase {
                 self.lblSettings?.fontColor = self.lblColor
                 self.lblStartGame?.fontColor = .white
                 self.lblExit?.fontColor = .white
-//                self.lblGameCenter?.fontColor = .white
                 self.lblMap?.fontColor = .white
                 self.lblContinue?.fontColor = .white
             }else if(self.selNode == self.lblExit){
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
-//                self.lblGameCenter?.fontColor = .white
                 self.lblMap?.fontColor = .white
                 self.lblExit?.fontColor = self.lblColor
                 self.lblContinue?.fontColor = .white
@@ -55,19 +50,10 @@ class MenuScene: MenuSceneBase {
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = self.lblColor
                 self.lblExit?.fontColor = .white
-//                self.lblGameCenter?.fontColor = .white
                 self.lblMap?.fontColor = .white
                 self.lblContinue?.fontColor = .white
-//            }else if(self.selNode == self.lblGameCenter){
-//                self.lblSettings?.fontColor = .white
-//                self.lblGameCenter?.fontColor = self.lblColor
-//                self.lblExit?.fontColor = .white
-//                self.lblStartGame?.fontColor = .white
-//                self.lblMap?.fontColor = .white
-//                self.lblContinue?.fontColor = .white
             }else if(self.selNode == self.lblContinue){
                 self.lblSettings?.fontColor = .white
-//                self.lblGameCenter?.fontColor = .white
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblMap?.fontColor = .white
@@ -75,13 +61,10 @@ class MenuScene: MenuSceneBase {
             }else if(self.selNode == self.lblMap){
                 self.lblSettings?.fontColor = .white
                 self.lblMap?.fontColor = self.lblColor
-//                self.lblGameCenter?.fontColor = .white
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblContinue?.fontColor = .white
             }
-
-            
             SoundManager.shared.playSound(sound: .menuHighlite)
         }
     }

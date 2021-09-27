@@ -7,18 +7,21 @@
 
 import Foundation
 import SpriteKit
+import UIKit
 
 class MenuScene: MenuSceneBase {
     
-//    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
-//        super.touchOrClick(pos: pos, viewController: viewController)
-//        let node = self.atPoint(pos)
-//        if(node == self.lblExit){
-//             
-//        }else if(node == self.lblStartGame){
-//            viewController.loadDifficultyScene(level: .Meadow)
-//        }else if(node == self.lblContinue){
-//            viewController.loadMapScene()
-//        }
-//    }
+    override func touchOrClick(pos: CGPoint, viewController: IViewController) {
+        super.touchOrClick(pos: pos, viewController: viewController)
+        
+        if(self.selNode == self.lblSettings){
+            if let url = URL(string:UIApplication.openSettingsURLString){
+                if UIApplication.shared.canOpenURL(url){
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+        }else if(self.selNode == self.lblExit){
+            UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+        }
+    }
 }
