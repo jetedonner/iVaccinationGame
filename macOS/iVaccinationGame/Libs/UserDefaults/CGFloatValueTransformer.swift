@@ -20,7 +20,6 @@ extension CGFloat {
 }
 
 class CGFloatValueTransformer: ValueTransformer {
-    
     override func transformedValue(_ value: Any?) -> Any? {
         return (value as! CGFloat).rounded(toPlaces:2)
     }

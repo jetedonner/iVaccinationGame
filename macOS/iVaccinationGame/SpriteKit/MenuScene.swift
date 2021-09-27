@@ -16,21 +16,17 @@ class MenuScene: MenuSceneBase {
         let node = self.scene!.atPoint(location)
         var newSelNode:SKLabelNode?
         
-        if(node == self.lblSettings){
-            newSelNode = self.lblSettings
-        }else if(node == self.lblExit){
-            newSelNode = self.lblExit
-        }else if(node == self.lblExit){
-            newSelNode = self.lblExit
-        }else if(node == self.lblStartGame){
-            newSelNode = self.lblStartGame
-        }else if(node == self.lblContinue){
-            newSelNode = self.lblContinue
-        }else if(node == self.lblMap){
-            newSelNode = self.lblMap
+        if([
+            self.lblSettings,
+            self.lblExit,
+            self.lblStartGame,
+            self.lblContinue,
+            self.lblMap
+        ].contains(node)){
+            newSelNode = node as? SKLabelNode
         }else{
             return
-        }
+        }2
 
         if(newSelNode != self.selNode){
             self.selNode = newSelNode
