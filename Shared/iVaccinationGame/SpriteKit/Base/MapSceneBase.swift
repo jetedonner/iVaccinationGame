@@ -43,7 +43,6 @@ class MapSceneBase: BaseSKScene {
             self.imgBG.texture = self.textCitySkyline
         }
         self.imgBG.zPosition = 100
-        self.isUserInteractionEnabled = true
         self.updateScoreFromICloud()
     }
     

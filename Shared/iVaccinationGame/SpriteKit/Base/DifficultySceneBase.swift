@@ -30,7 +30,6 @@ class DifficultySceneBase: BaseSKScene {
         
         self.lblColor = self.lblEasy?.fontColor
         self.selNode = self.lblEasy
-        self.isUserInteractionEnabled = true
     }
     
     override func touchOrClick(pos: CGPoint, viewController:IViewController) {

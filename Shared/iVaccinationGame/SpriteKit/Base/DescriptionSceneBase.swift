@@ -16,7 +16,6 @@ class DescriptionSceneBase: BaseSKScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         self.lblContinue = self.childNode(withName: "lblContinue") as? SKLabelNode
-        self.isUserInteractionEnabled = true
     }
     
     override func touchOrClick(pos: CGPoint, viewController:IViewController) {

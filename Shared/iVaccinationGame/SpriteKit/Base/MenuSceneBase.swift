@@ -30,7 +30,6 @@ class MenuSceneBase: BaseSKScene {
         self.lblVersion?.text = "Version: \(VersionHelper.getAppVersion()) - Build: \(VersionHelper.getAppBuild())"
         self.lblColor = self.lblStartGame?.fontColor
         self.selNode = self.lblStartGame
-        self.isUserInteractionEnabled = true
     }
     
     override func touchOrClick(pos: CGPoint, viewController:IViewController) {
