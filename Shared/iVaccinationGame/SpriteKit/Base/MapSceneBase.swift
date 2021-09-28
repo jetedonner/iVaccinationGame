@@ -25,15 +25,6 @@ class MapSceneBase: BaseSKScene {
     var textBackArrowSel:SKTexture = SKTexture(imageNamed: "BackArrowSel")
     var textBackArrow:SKTexture = SKTexture(imageNamed: "BackArrow")
     
-    override var isUserInteractionEnabled: Bool {
-        get {
-            return true
-        }
-        set {
-//            super.isUserInteractionEnabled = newValue
-        }
-    }
-    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         self.imgBG = self.childNode(withName: "BG") as? SKSpriteNode

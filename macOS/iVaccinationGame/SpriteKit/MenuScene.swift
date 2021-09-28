@@ -26,7 +26,7 @@ class MenuScene: MenuSceneBase {
             newSelNode = node as? SKLabelNode
         }else{
             return
-        }2
+        }
 
         if(newSelNode != self.selNode){
             self.selNode = newSelNode

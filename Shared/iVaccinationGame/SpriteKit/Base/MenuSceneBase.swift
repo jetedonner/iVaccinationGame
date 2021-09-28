@@ -16,17 +16,8 @@ class MenuSceneBase: BaseSKScene {
     var lblSettings:SKLabelNode?
     var lblExit:SKLabelNode?
     var lblMap:SKLabelNode?
-    
+    var lblVersion:SKLabelNode?
     var lblColor:SKColor?
-    
-    override var isUserInteractionEnabled: Bool {
-        get {
-            return true
-        }
-        set {
-//            super.isUserInteractionEnabled = newValue
-        }
-    }
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -35,6 +26,8 @@ class MenuSceneBase: BaseSKScene {
         self.lblSettings = self.childNode(withName: "lblSettings") as? SKLabelNode
         self.lblExit = self.childNode(withName: "lblExit") as? SKLabelNode
         self.lblMap = self.childNode(withName: "lblMap") as? SKLabelNode
+        self.lblVersion = self.childNode(withName: "lblVersion") as? SKLabelNode
+        self.lblVersion?.text = "Version: \(VersionHelper.getAppVersion()) - Build: \(VersionHelper.getAppBuild())"
         self.lblColor = self.lblStartGame?.fontColor
         self.selNode = self.lblStartGame
         self.isUserInteractionEnabled = true

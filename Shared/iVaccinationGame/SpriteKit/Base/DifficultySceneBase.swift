@@ -16,19 +16,9 @@ class DifficultySceneBase: BaseSKScene {
     var lblHard:SKLabelNode?
     var lblNightmare:SKLabelNode?
     var lblBack:SKLabelNode?
-    
     var lblColor:SKColor?
     
     var selLevel:Level = .Meadow
-    
-    override var isUserInteractionEnabled: Bool {
-        get {
-            return true
-        }
-        set {
-//            super.isUserInteractionEnabled = newValue
-        }
-    }
     
     override func sceneDidLoad() {
         super.sceneDidLoad()

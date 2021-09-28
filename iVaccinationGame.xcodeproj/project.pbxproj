@@ -181,6 +181,8 @@
 		55EE3D782701ECEA00991D86 /* IViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D762701ECEA00991D86 /* IViewController.swift */; };
 		55EE3D7A2702317A00991D86 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EE3D792702317A00991D86 /* GameKit.framework */; };
 		55EE3D7C2702318900991D86 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EE3D7B2702318900991D86 /* GameKit.framework */; };
+		55EE3D7E270377FC00991D86 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7D270377FC00991D86 /* VersionHelper.swift */; };
+		55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7D270377FC00991D86 /* VersionHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,6 +333,7 @@
 		55EE3D762701ECEA00991D86 /* IViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IViewController.swift; sourceTree = "<group>"; };
 		55EE3D792702317A00991D86 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		55EE3D7B2702318900991D86 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		55EE3D7D270377FC00991D86 /* VersionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -676,6 +679,7 @@
 				55B64A3A26F3602C00944766 /* GameVars.swift */,
 				55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */,
 				55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */,
+				55EE3D7D270377FC00991D86 /* VersionHelper.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -1065,6 +1069,7 @@
 				55C83F3226FCA9A200F42F53 /* GCAchievements.swift in Sources */,
 				559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */,
 				55B64A3726F3579600944766 /* SettingsViewController.swift in Sources */,
+				55EE3D7E270377FC00991D86 /* VersionHelper.swift in Sources */,
 				55C83F8126FE323800F42F53 /* CityJapanLevel.swift in Sources */,
 				55A579C826F5C5EC0084239D /* CitySkylineLevel.swift in Sources */,
 				55EE3D6526FFB7F200991D86 /* SoundManagerExt.swift in Sources */,
@@ -1130,6 +1135,7 @@
 				55C83F8426FE326500F42F53 /* CityNightLevel.swift in Sources */,
 				55EAD46D26FF7A9200BB8D06 /* MapScene.swift in Sources */,
 				55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */,
+				55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */,
 				55C83F2526FC6B2800F42F53 /* BasePickupNode.swift in Sources */,
 				55C83F1D26FC675500F42F53 /* SKSpriteNodeExt.swift in Sources */,
 				55C83F1026FC673D00F42F53 /* MeadowLevel.swift in Sources */,
@@ -1281,7 +1287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1336,7 +1342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
