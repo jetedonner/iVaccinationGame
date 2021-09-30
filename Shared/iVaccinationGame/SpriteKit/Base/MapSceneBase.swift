@@ -18,6 +18,10 @@ class MapSceneBase: BaseSKScene {
     var lblDifficulty:SKLabelNode!
     var lblTask:SKLabelNode!
     
+    var lblTooltip:SKLabelNode!
+    
+    
+    
     var currentContainer:SKShapeNode!
     
     var posTouchNodes:SKNode?
@@ -28,6 +32,9 @@ class MapSceneBase: BaseSKScene {
     var posJapanStreet:SKShapeNode?
     var posBackStreet:SKShapeNode?
     var posScarryStreet:SKShapeNode?
+    
+    var contTooltip:SKShapeNode?
+    
     
     var textMeadow:SKTexture = SKTexture(imageNamed: "Map7")
     var textCitySkyline:SKTexture = SKTexture(imageNamed: "Map7a")
@@ -82,13 +89,34 @@ class MapSceneBase: BaseSKScene {
         self.posScarryStreet?.zPosition = 1000
         self.posScarryStreet?.lineWidth = 0.0
         
+        self.contTooltip = self.childNode(withName: "contTooltip") as? SKShapeNode
+        self.contTooltip?.zPosition = 1001
+        self.lblTooltip = self.contTooltip!.childNode(withName: "lblTooltip") as? SKLabelNode
+        self.contTooltip?.alpha = 0.0
+        
         self.loadMapBGTexture()
+        self.enableLocations()
         
         self.imgBG.zPosition = 100
         self.updateScoreFromICloud()
     }
     
+    var oldSelNode:SKNode?
+    
+    func showTooltip(msg:String, pos:CGPoint){
+        self.lblTooltip.text = msg
+        let halfWidth = (self.contTooltip?.frame.width)! / 2
+        let newPos:CGPoint = CGPoint(x: pos.x + halfWidth, y: pos.y)
+        self.contTooltip?.position = newPos
+        self.contTooltip?.alpha = 1.0
+    }
+    
+    func fadeOutTooltip(){
+        self.contTooltip?.run(SKAction.sequence([SKAction.wait(forDuration: 3.0), SKAction.fadeAlpha(to: 0.0, duration: 0.5)]))
+    }
+    
     func loadMapBGTexture(){
+//        ICloudStorageHelper.level
         if(UserDefaultsHelper.levelID == .Meadow){
             self.imgBG.texture = self.textMeadow
         }else if(UserDefaultsHelper.levelID == .CitySkyline){
@@ -112,11 +140,44 @@ class MapSceneBase: BaseSKScene {
         }
     }
     
+    func enableLocations(){
+        let currentLevel:Level = UserDefaultsHelper.levelID
+        var start2Disable:Bool = false
+        for level in Level.allCases {
+            print("Enabling Level-Pos: \(level) -> \(start2Disable)")
+            self.getPosNode4Level(level: level).isHidden = start2Disable
+            if(level == currentLevel){
+                start2Disable = true
+            }
+        }
+    }
+    
     func updateScoreFromICloud(){
         self.lblScore.text = "Score: \(ICloudStorageHelper.highscore)"
         self.lblLevel.text = "Level: \(ICloudStorageHelper.level)"
         self.lblDifficulty.text = "Difficulty: \(ICloudStorageHelper.difficulty)"
         
+    }
+    
+    func getPosNode4Level(level:Level)->SKShapeNode{
+        switch level {
+        case .Meadow:
+            return self.posMeadow!
+        case .CitySkyline:
+            return self.posCitySkyline!
+        case .CityStreet:
+            return self.posCityStreet!
+        case .CityJapan:
+            return self.posJapanStreet!
+        case .ScarryStreet:
+            return self.posScarryStreet!
+        case .CityNight:
+            return self.posBackStreet!
+        case .Wallway:
+            return self.posWallway!
+        case .MissionAccomplished:
+            return self.posScarryStreet!
+        }
     }
     
     override func touchOrClick(pos: CGPoint, viewController:IViewController) {
@@ -132,13 +193,7 @@ class MapSceneBase: BaseSKScene {
             self.posScarryStreet
         ].contains(self.selNode)){
             viewController.loadGameScene(difficulty: UserDefaultsHelper.difficulty, level: self.getLevelForPosNode(posNode: self.selNode as! SKShapeNode))
-//            viewController.loadDifficultyScene()//level: self.getLevelForPosNode(posNode: self.selNode as! SKShapeNode))
         }
-        /*else if(self.selNode == self.posMeadow){
-            viewController.loadDifficultyScene(level: .Meadow)
-        }else if(self.selNode == self.posCitySkyline){
-            viewController.loadDifficultyScene(level: .CitySkyline)
-        }*/
     }
     
     func getLevelForPosNode(posNode:SKShapeNode)->Level{

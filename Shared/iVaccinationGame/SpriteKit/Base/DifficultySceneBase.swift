@@ -18,7 +18,7 @@ class DifficultySceneBase: BaseSKScene {
     var lblBack:SKLabelNode?
     var lblColor:SKColor?
     
-//    var selLevel:Level = .Meadow
+    var initLevel:Level = .Meadow
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
@@ -36,17 +36,13 @@ class DifficultySceneBase: BaseSKScene {
         super.touchOrClick(pos: pos, viewController: viewController)
 
         if(self.selNode == lblEasy){
-            viewController.loadMapScene(difficulty: .easy, level: .Meadow)
-//            viewController.loadGameScene(difficulty: .easy, level: self.selLevel)
+            viewController.loadMapScene(difficulty: .easy, level: self.initLevel)
         }else if(self.selNode == lblMedium){
-            viewController.loadMapScene(difficulty: .medium, level: .Meadow)
-//            viewController.loadGameScene(difficulty: .medium, level: self.selLevel)
+            viewController.loadMapScene(difficulty: .medium, level: self.initLevel)
         }else if(self.selNode == lblHard){
-            viewController.loadMapScene(difficulty: .hard, level: .Meadow)
-//            viewController.loadGameScene(difficulty: .hard, level: self.selLevel)
+            viewController.loadMapScene(difficulty: .hard, level: self.initLevel)
         }else if(self.selNode == lblNightmare){
-            viewController.loadMapScene(difficulty: .nightmare, level: .Meadow)
-//            viewController.loadGameScene(difficulty: .nightmare, level: self.selLevel)
+            viewController.loadMapScene(difficulty: .nightmare, level: self.initLevel)
         }else if(self.selNode == lblBack){
             viewController.loadMenuScene()
         }

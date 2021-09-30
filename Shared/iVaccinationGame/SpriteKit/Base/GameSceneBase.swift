@@ -448,6 +448,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         SoundManager.shared.stopBGSound()
         self.scoreLblOrigPos = self.lblScore!.position
         self.lblScore?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 180), duration: 0.45), SKAction.scale(to: 2.5, duration: 0.45)]))
+        ICloudStorageHelper.score[self.currentLevel.level.getDesc()] = self.player.score
         self.lblGameOver?.alpha = 1.0
         self.lblGameOver?.isHidden = false
         self.updateEffectNode()
@@ -465,13 +466,18 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             self.lblPressAnyKey?.run(SKAction.fadeIn(withDuration: 0.45), completion: {
                 self.waitForAnyKey = true
             })
+            let nextLevel:Level = self.currentLevel.level.getNextLevel()
+            UserDefaultsHelper.levelID = nextLevel
             if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
             #if os(iOS)
                 if let viewCtrl = self.view?.window?.rootViewController{
                     (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.player.score)
                     print("OLD HIGHSCORE IS: \(ICloudStorageHelper.highscore), LEVEL: \(ICloudStorageHelper.level), DIFFICULTY: \(ICloudStorageHelper.difficulty)")
                     ICloudStorageHelper.highscore = self.player.score
-                    ICloudStorageHelper.level = self.currentLevel.level.getNextLevel().rawValue
+                    UserDefaultsHelper.score = self.player.score
+//                    let nextLevel:Level = self.currentLevel.level.getNextLevel()
+//                    UserDefaultsHelper.levelID = nextLevel
+                    ICloudStorageHelper.level = nextLevel.getDesc()
                     ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
                 }
             #else
@@ -479,7 +485,10 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                     (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.player.score)
                     print("OLD HIGHSCORE IS: \(ICloudStorageHelper.highscore), LEVEL: \(ICloudStorageHelper.level), DIFFICULTY: \(ICloudStorageHelper.difficulty)")
                     ICloudStorageHelper.highscore = self.player.score
-                    ICloudStorageHelper.level = self.currentLevel.level.getNextLevel().rawValue
+                    UserDefaultsHelper.score = self.player.score
+//                    let nextLevel:Level = self.currentLevel.level.getNextLevel()
+//                    UserDefaultsHelper.levelID = nextLevel
+                    ICloudStorageHelper.level = nextLevel.getDesc()
                     ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
                 }
             #endif
@@ -495,22 +504,23 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     
     func clickedAtPoint(point:CGPoint){
         if(!self.gameRunning && self.waitForAnyKey){
-            if(UserDefaultsHelper.levelID == .Meadow){
-                UserDefaultsHelper.levelID = .CitySkyline
-            }else if(UserDefaultsHelper.levelID == .CitySkyline){
-                UserDefaultsHelper.levelID = .CityStreet
-            }else if(UserDefaultsHelper.levelID == .CityStreet){
-                UserDefaultsHelper.levelID = .Wallway
-            }else if(UserDefaultsHelper.levelID == .Wallway){
-                UserDefaultsHelper.levelID = .CityJapan
-            }else if(UserDefaultsHelper.levelID == .CityJapan){
-                UserDefaultsHelper.levelID = .CityNight
-            }else if(UserDefaultsHelper.levelID == .CityNight){
-                UserDefaultsHelper.levelID = .ScarryStreet
-            }else if(UserDefaultsHelper.levelID == .ScarryStreet){
-                UserDefaultsHelper.levelID = .MissionAccomplished
-            }
-            ICloudStorageHelper.level = UserDefaultsHelper.levelID.rawValue
+//            UserDefaultsHelper.levelID = UserDefaultsHelper.levelID.getNextLevel()
+//            if(UserDefaultsHelper.levelID == .Meadow){
+//                UserDefaultsHelper.levelID = .CitySkyline
+//            }else if(UserDefaultsHelper.levelID == .CitySkyline){
+//                UserDefaultsHelper.levelID = .CityStreet
+//            }else if(UserDefaultsHelper.levelID == .CityStreet){
+//                UserDefaultsHelper.levelID = .Wallway
+//            }else if(UserDefaultsHelper.levelID == .Wallway){
+//                UserDefaultsHelper.levelID = .CityJapan
+//            }else if(UserDefaultsHelper.levelID == .CityJapan){
+//                UserDefaultsHelper.levelID = .CityNight
+//            }else if(UserDefaultsHelper.levelID == .CityNight){
+//                UserDefaultsHelper.levelID = .ScarryStreet
+//            }else if(UserDefaultsHelper.levelID == .ScarryStreet){
+//                UserDefaultsHelper.levelID = .MissionAccomplished
+//            }
+            ICloudStorageHelper.level = UserDefaultsHelper.levelID.getDesc()
             #if os(iOS)
                 if let viewCtrl = self.view?.window?.rootViewController{
                     (viewCtrl as! GameViewController).loadMapScene()

@@ -51,7 +51,6 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
     func loadDifficultyScene(){
         if let scene = GKScene(fileNamed: "DifficultyScene") {
             if let sceneNode = scene.rootNode as! DifficultyScene? {
-//                sceneNode.selLevel = level
                 sceneNode.scaleMode = .aspectFill
                 if let view = self.view as! SKView? {
                     view.presentSceneNG(sceneNode)

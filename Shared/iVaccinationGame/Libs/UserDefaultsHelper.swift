@@ -39,10 +39,10 @@ class UserDefaultsHelper{
     static var roundTime:TimeInterval{
         get{
             var retTime:TimeInterval = 60
-            
-//            UserDefaults.standard.bool(forKey: SettingsBundleKeys.Reset)
-            
             switch defaults.string(forKey: UserDefaultsName.roundTime.rawValue){
+            case "10 Seconds":
+                retTime = 10
+                break
             case "30 Seconds":
                 retTime = 30
                 break
@@ -112,31 +112,41 @@ class UserDefaultsHelper{
 //    }
     
     static var levelID:Level{
-        set{ self.defaults.set(newValue.rawValue, forKey: UserDefaultsName.levelID.rawValue) }
+        set{ self.defaults.set(newValue.getDesc(), forKey: UserDefaultsName.levelID.rawValue) }
         get{
             if(self.defaults.value(forKey: UserDefaultsName.levelID.rawValue) == nil){
-                self.defaults.set(Level.Meadow.rawValue, forKey: UserDefaultsName.levelID.rawValue)
+                self.defaults.set(Level.Meadow.getDesc(), forKey: UserDefaultsName.levelID.rawValue)
             }
             let levelIDString = defaults.string(forKey: UserDefaultsName.levelID.rawValue)!
             switch levelIDString {
-            case Level.Meadow.rawValue:
-                return Level.Meadow
-            case Level.CitySkyline.rawValue:
-                return Level.CitySkyline
-            case Level.CityStreet.rawValue:
-                return Level.CityStreet
-            case Level.CityNight.rawValue:
-                return Level.CityNight
-            case Level.CityJapan.rawValue:
-                return Level.CityJapan
-            case Level.Wallway.rawValue:
-                return Level.Wallway
-            case Level.ScarryStreet.rawValue:
-                return Level.ScarryStreet
+            case Level.Meadow.getDesc():
+                return .Meadow
+            case Level.CitySkyline.getDesc():
+                return .CitySkyline
+            case Level.CityStreet.getDesc():
+                return .CityStreet
+            case Level.CityNight.getDesc():
+                return .CityNight
+            case Level.CityJapan.getDesc():
+                return .CityJapan
+            case Level.Wallway.getDesc():
+                return .Wallway
+            case Level.ScarryStreet.getDesc():
+                return .ScarryStreet
             default:
-                return Level.Meadow
+                return .Meadow
             }
         }
+    }
+    
+    static var score:Int{
+        get{
+//            if(self.defaults.integer(forKey: UserDefaultsName.score.rawValue) == nil){
+//                self.defaults.set(0, forKey: UserDefaultsName.score.rawValue)
+//            }
+            return self.defaults.integer(forKey: UserDefaultsName.score.rawValue)
+        }
+        set{ self.defaults.set(newValue, forKey: UserDefaultsName.score.rawValue) }
     }
     
     static var level:String{
