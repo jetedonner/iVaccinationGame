@@ -87,36 +87,4 @@ class GCAchievements:NSObject{
             }
         })
     }
-
-//    func getAllCompletedAchivements(){
-//        if GKLocalPlayer.local.isAuthenticated {
-//            GKAchievement.loadAchievements(completionHandler: { achievements, error in
-//                if error != nil {
-//                    if let error = error {
-//                        print("Error in loading achievements: \(error)")
-//                    }
-//                }
-//                if achievements != nil {
-//                    self.achievements = achievements
-//                    for achievement in achievements! {
-//                        if(achievement.isCompleted){
-//                            print("Achievements: ID: " + achievement.identifier + ", " + achievement.percentComplete.description + "% complete")
-//                            if(achievement.identifier == GameCenterHelper.achievements.achivements10HeadshotsID){
-//                                print("Achievement: Headshot 10 completed")
-//                                self.HeadShots = self.HeadShots10AchievementCount
-//                            }else if(achievement.identifier == GameCenterHelper.achievements.achivements20GoodiesID){
-//                                print("Achievement: Goodies 20 completed")
-//                                self.GoodiesWithMoving = self.GoodiesWithMoving20AchievementCount
-////                            }else if(achievement.identifier == GameCenterHelper.achievements.achivements20GoodiesID){
-////                                print("Achievement: Goodies 20 completed")
-//                            }
-//                            //                            if(achievement.identifier == self.achivements10HeadshotsID){
-//                            //                                self.headShots = self.headShots10AchievementCount
-//                            //                            }
-//                        }
-//                    }
-//                }
-//            })
-//        }
-//    }
 }
