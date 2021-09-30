@@ -48,10 +48,23 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
         }
     }
     
-    func loadDifficultyScene(level:Level){
+    func loadDifficultyScene(){
         if let scene = GKScene(fileNamed: "DifficultyScene") {
             if let sceneNode = scene.rootNode as! DifficultyScene? {
-                sceneNode.selLevel = level
+//                sceneNode.selLevel = level
+                sceneNode.scaleMode = .aspectFill
+                if let view = self.view as! SKView? {
+                    view.presentSceneNG(sceneNode)
+                }
+            }
+        }
+    }
+    
+    func loadMapScene(difficulty:UserDefaultsDifficulty, level:Level = .Meadow){
+        UserDefaultsHelper.difficulty = difficulty
+        UserDefaultsHelper.levelID = level
+        if let scene = GKScene(fileNamed: "MapScene") {
+            if let sceneNode = scene.rootNode as! MapScene? {
                 sceneNode.scaleMode = .aspectFill
                 if let view = self.view as! SKView? {
                     view.presentSceneNG(sceneNode)

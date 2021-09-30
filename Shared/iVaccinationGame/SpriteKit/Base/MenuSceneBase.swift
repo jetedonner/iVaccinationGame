@@ -26,6 +26,8 @@ class MenuSceneBase: BaseSKScene {
         self.lblSettings = self.childNode(withName: "lblSettings") as? SKLabelNode
         self.lblExit = self.childNode(withName: "lblExit") as? SKLabelNode
         self.lblMap = self.childNode(withName: "lblMap") as? SKLabelNode
+        self.lblMap?.isHidden = !VersionHelper.getDevMode()
+
         self.lblVersion = self.childNode(withName: "lblVersion") as? SKLabelNode
         self.lblVersion?.text = "Version: \(VersionHelper.getAppVersion()) - Build: \(VersionHelper.getAppBuild())"
         self.lblColor = self.lblStartGame?.fontColor
@@ -38,7 +40,7 @@ class MenuSceneBase: BaseSKScene {
         if(node == self.lblMap){
             viewController.loadMapScene()
         }else if(node == self.lblStartGame){
-            viewController.loadDifficultyScene(level: .Meadow)
+            viewController.loadDifficultyScene()
         }else if(node == self.lblContinue){
             viewController.loadMapScene()
         }

@@ -23,7 +23,7 @@ class SyringePickup: BasePickupNode {
     init(pickupType:SyringePickupType = .two, vaccineType:VaccineType = .Perofixa){
         self.pickupType = pickupType
         self.vaccineType = vaccineType
-        super.init(imageNamed: "Syringe", emitterFileNamed: "UpwardParticles.sks", size: CGSize(width: 76.8, height: 76.8))
+        super.init(imageNamed: (self.vaccineType == .JnJ ? "SyringeGreen" : "SyringeYellow"), emitterFileNamed: "UpwardParticles.sks", size: CGSize(width: 76.8, height: 76.8))
         self.pickupScore = 25
     }
     

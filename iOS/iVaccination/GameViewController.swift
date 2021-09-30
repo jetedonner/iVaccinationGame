@@ -16,6 +16,7 @@ class GameViewController: UIViewController, IViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        (UIApplication.shared.delegate as! AppDelegate).vc = self
         
         if(UserDefaultsHelper.useGameCenter){
             self.gameCenterHelper = GameCenterHelper(vc: self)

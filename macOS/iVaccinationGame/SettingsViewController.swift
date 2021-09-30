@@ -65,11 +65,13 @@ class SettingsViewController: NSViewController {
     @IBAction func closeAndResume(_ sender:Any){
         if(gameScene != nil){
             if(self.playBGMusic!.state == .on){
-                gameScene?.songPlayer?.play()
+                SoundManager.shared.playBGSound()
+//                gameScene?.songPlayer?.play()
             }else{
-                gameScene?.songPlayer?.stop()
+                SoundManager.shared.stopBGSound()
+//                gameScene?.songPlayer?.stop()
             }
-            gameScene?.songPlayer?.volume = self.volume!.floatValue
+            SoundManager.shared.songPlayer?.volume = self.volume!.floatValue
             SoundManager.shared.masterVolume = CGFloat(self.volume!.floatValue)
             UserDefaultsHelper.volume = self.volume!.floatValue
         }

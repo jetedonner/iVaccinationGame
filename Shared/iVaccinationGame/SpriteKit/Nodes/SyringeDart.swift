@@ -31,8 +31,6 @@ class SyringeDart: SKSpriteNode {
         
         self.gameScene.currentLevel.shots += 1
         self.gameScene.runHandThrowingAnimation()
-//        self.gameScene.syringesLeft -= 1
-//        self.gameScene.setSyringesLeft(syringesLeft: self.gameScene.syringesLeft)
         self.gameScene.player.shootSyringe()
         self.gameScene.setSyringesHUD()
         
@@ -56,8 +54,7 @@ class SyringeDart: SKSpriteNode {
             ]),
             completion: {
                 if(!self.isHidden){
-                    //TODO: SoundVariants
-                    SoundManager.shared.playSound(sound: .impact1)
+                    SoundManager.shared.playSound(sounds: [.impact1, .impact2, .impact3])
                     self.removeFromGameScene()
                 }
             }

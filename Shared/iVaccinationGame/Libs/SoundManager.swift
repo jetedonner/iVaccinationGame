@@ -36,6 +36,11 @@ class SoundManager:NSObject{
     
     var masterVolume:CGFloat = 0.75
     var player:AVAudioPlayer!
+    var songPlayer:AVAudioPlayer?
+    
+    func playSound(sounds: [Sounds], atVolume: CGFloat = CGFloat(UserDefaultsHelper.volume), waitForCompletion: Bool = false){
+        self.playSound(sound: sounds.randomElement()!, atVolume: atVolume, waitForCompletion: waitForCompletion)
+    }
     
     func playSound(sound: Sounds, atVolume: CGFloat = CGFloat(UserDefaultsHelper.volume), waitForCompletion: Bool = false){
         
@@ -55,6 +60,29 @@ class SoundManager:NSObject{
             player.play()
         }catch{
             print("Error while playing music: \(error.localizedDescription)")
+        }
+    }
+    
+    func playBGSound(){
+        if let path = Bundle.main.path(forResource: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin", ofType: "mp3") {
+            let filePath = NSURL(fileURLWithPath:path)
+            self.songPlayer = try! AVAudioPlayer.init(contentsOf: filePath as URL)
+            self.songPlayer?.numberOfLoops = -1
+            self.songPlayer?.prepareToPlay()
+            self.songPlayer?.volume = UserDefaultsHelper.volume
+            if(UserDefaultsHelper.playSounds && UserDefaultsHelper.playBGMusic){
+                self.songPlayer?.play()
+            }
+        }
+    }
+    
+    func stopBGSound(pause:Bool = false){
+        if(UserDefaultsHelper.playSounds && UserDefaultsHelper.playBGMusic){
+            if(!pause){
+                self.songPlayer?.stop()
+            }else{
+                self.songPlayer?.pause()
+            }
         }
     }
 }

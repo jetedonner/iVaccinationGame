@@ -18,6 +18,10 @@ enum UserDefaultsName:String{
     case useGameCenter = "useGameCenter"
     case uploadHighscore = "uploadHighscore"
     case devMode = "devMode"
+    
+    case levelID = "levelID"
+    case score = "score"
+    case cretificates = "cretificates"
 }
 
 
@@ -101,10 +105,38 @@ class UserDefaultsHelper{
         }
     }
     
-    static var _levelID:Level = .Meadow
+//    static var _levelID:Level = .Meadow
+//    static var levelID:Level{
+//        get{ self._levelID }
+//        set{ self._levelID = newValue }
+//    }
+    
     static var levelID:Level{
-        get{ self._levelID }
-        set{ self._levelID = newValue }
+        set{ self.defaults.set(newValue.rawValue, forKey: UserDefaultsName.levelID.rawValue) }
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.levelID.rawValue) == nil){
+                self.defaults.set(Level.Meadow.rawValue, forKey: UserDefaultsName.levelID.rawValue)
+            }
+            let levelIDString = defaults.string(forKey: UserDefaultsName.levelID.rawValue)!
+            switch levelIDString {
+            case Level.Meadow.rawValue:
+                return Level.Meadow
+            case Level.CitySkyline.rawValue:
+                return Level.CitySkyline
+            case Level.CityStreet.rawValue:
+                return Level.CityStreet
+            case Level.CityNight.rawValue:
+                return Level.CityNight
+            case Level.CityJapan.rawValue:
+                return Level.CityJapan
+            case Level.Wallway.rawValue:
+                return Level.Wallway
+            case Level.ScarryStreet.rawValue:
+                return Level.ScarryStreet
+            default:
+                return Level.Meadow
+            }
+        }
     }
     
     static var level:String{

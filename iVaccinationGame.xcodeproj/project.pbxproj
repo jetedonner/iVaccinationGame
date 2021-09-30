@@ -183,6 +183,8 @@
 		55EE3D932705AB6B00991D86 /* VaccineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D912705AB6B00991D86 /* VaccineType.swift */; };
 		55EE3D962705ACD400991D86 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D952705ACD400991D86 /* Player.swift */; };
 		55EE3D972705ACD400991D86 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D952705ACD400991D86 /* Player.swift */; };
+		55EE3D992705BD7900991D86 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D982705BD7900991D86 /* ArrayExt.swift */; };
+		55EE3D9A2705BD7900991D86 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D982705BD7900991D86 /* ArrayExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -334,6 +336,7 @@
 		55EE3D8E2705A7E200991D86 /* VaccineArsenal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineArsenal.swift; sourceTree = "<group>"; };
 		55EE3D912705AB6B00991D86 /* VaccineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineType.swift; sourceTree = "<group>"; };
 		55EE3D952705ACD400991D86 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		55EE3D982705BD7900991D86 /* ArrayExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -684,6 +687,7 @@
 			children = (
 				5552BFA826F26ABE0034C812 /* TimeInterval.swift */,
 				55A579C226F507DF0084239D /* SKSpriteNodeExt.swift */,
+				55EE3D982705BD7900991D86 /* ArrayExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1040,6 +1044,7 @@
 				554E532326EFAD4300371E58 /* ViewController.swift in Sources */,
 				55E59BD626FF8C9D00B75322 /* ICloudStorageHelper.swift in Sources */,
 				55B64A3D26F3716000944766 /* CustomProgressBar.swift in Sources */,
+				55EE3D992705BD7900991D86 /* ArrayExt.swift in Sources */,
 				55C83F5B26FDDB8B00F42F53 /* PlayingState.swift in Sources */,
 				55EAD46B26FF7A7D00BB8D06 /* MapScene.swift in Sources */,
 				556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */,
@@ -1143,6 +1148,7 @@
 				55C83F2126FC689A00F42F53 /* ZombieGirl.swift in Sources */,
 				55C83F2226FC6A0400F42F53 /* GameVars.swift in Sources */,
 				559442A126FE4F710082DA72 /* SyringeDart.swift in Sources */,
+				55EE3D9A2705BD7900991D86 /* ArrayExt.swift in Sources */,
 				55C83F6B26FDDF1F00F42F53 /* GameCenterState.swift in Sources */,
 				55C83F5E26FDDB9D00F42F53 /* BaseState.swift in Sources */,
 				55C83F8026FE31EB00F42F53 /* CityJapanLevel.swift in Sources */,

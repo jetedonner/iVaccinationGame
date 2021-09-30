@@ -35,7 +35,7 @@ class BaseLevel {
     init(level:Level){
         self.level = level
         self.initLevel()
-        self.zombieCurrentPath = self.zombiePaths.randomElement()!
+        self.zombieCurrentPath = self.zombiePaths.getRandom()
     }
     
     func initLevel(){
@@ -45,12 +45,11 @@ class BaseLevel {
     func setupLevel(gameScene:GameSceneBase){
         gameScene.bg?.texture = SKTexture(imageNamed: self.backgroundImageName + (self.isNightTime() ? "Night" : ""))
         gameScene.zombieGirl.texture = SKTexture(imageNamed: self.zombieImageName)
-        if let path = self.zombiePaths.randomElement(){
-            gameScene.zombieGirl.position = path.initPos
-            gameScene.zombieGirl.setScale(path.initScale)
-            if(path.hideOnStart){
-                gameScene.zombieGirl.xScale = 0.0
-            }
+        let path = self.zombiePaths.getRandom()
+        gameScene.zombieGirl.position = path.initPos
+        gameScene.zombieGirl.setScale(path.initScale)
+        if(path.hideOnStart){
+            gameScene.zombieGirl.xScale = 0.0
         }
     }
     

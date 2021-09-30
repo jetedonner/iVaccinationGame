@@ -16,7 +16,9 @@ class MapSceneBase: BaseSKScene {
     var lblScore:SKLabelNode!
     var lblLevel:SKLabelNode!
     var lblDifficulty:SKLabelNode!
+    var lblTask:SKLabelNode!
     
+    var currentContainer:SKShapeNode!
     
     var posTouchNodes:SKNode?
     var posMeadow:SKShapeNode?
@@ -27,8 +29,16 @@ class MapSceneBase: BaseSKScene {
     var posBackStreet:SKShapeNode?
     var posScarryStreet:SKShapeNode?
     
-    var textMeadow:SKTexture = SKTexture(imageNamed: "Map6")
-    var textCitySkyline:SKTexture = SKTexture(imageNamed: "Map6")
+    var textMeadow:SKTexture = SKTexture(imageNamed: "Map7")
+    var textCitySkyline:SKTexture = SKTexture(imageNamed: "Map7a")
+    var textCitySkyline2:SKTexture = SKTexture(imageNamed: "Map7b")
+    var textCitySkyline3:SKTexture = SKTexture(imageNamed: "Map7c")
+    var textCitySkyline4:SKTexture = SKTexture(imageNamed: "Map7d")
+    var textCitySkyline5:SKTexture = SKTexture(imageNamed: "Map7e")
+    var textCitySkyline6:SKTexture = SKTexture(imageNamed: "Map7f")
+    var textCitySkyline7:SKTexture = SKTexture(imageNamed: "Map7g")
+    
+    var textMissionAccomplished:SKTexture = SKTexture(imageNamed: "MissionAccomplished")
     
     var textBackArrowSel:SKTexture = SKTexture(imageNamed: "BackArrowSel")
     var textBackArrow:SKTexture = SKTexture(imageNamed: "BackArrow")
@@ -37,9 +47,14 @@ class MapSceneBase: BaseSKScene {
         super.sceneDidLoad()
         self.imgBG = self.childNode(withName: "BG") as? SKSpriteNode
         self.imgBack = self.childNode(withName: "imgBack") as? SKSpriteNode
-        self.lblScore = self.childNode(withName: "lblScore") as? SKLabelNode
-        self.lblLevel = self.childNode(withName: "lblLevel") as? SKLabelNode
-        self.lblDifficulty = self.childNode(withName: "lblDifficulty") as? SKLabelNode
+        self.currentContainer = self.childNode(withName: "currentContainer") as? SKShapeNode
+        
+        
+        self.lblScore = self.currentContainer.childNode(withName: "lblScore") as? SKLabelNode
+        self.lblLevel = self.currentContainer.childNode(withName: "lblLevel") as? SKLabelNode
+        self.lblDifficulty = self.currentContainer.childNode(withName: "lblDifficulty") as? SKLabelNode
+        
+        self.lblTask = self.childNode(withName: "lblTask") as? SKLabelNode
         
         
         self.posTouchNodes = self.childNode(withName: "posTouchNodes")
@@ -67,13 +82,34 @@ class MapSceneBase: BaseSKScene {
         self.posScarryStreet?.zPosition = 1000
         self.posScarryStreet?.lineWidth = 0.0
         
-        if(UserDefaultsHelper.levelID == .Meadow){
-            self.imgBG.texture = self.textMeadow
-        }else{
-            self.imgBG.texture = self.textCitySkyline
-        }
+        self.loadMapBGTexture()
+        
         self.imgBG.zPosition = 100
         self.updateScoreFromICloud()
+    }
+    
+    func loadMapBGTexture(){
+        if(UserDefaultsHelper.levelID == .Meadow){
+            self.imgBG.texture = self.textMeadow
+        }else if(UserDefaultsHelper.levelID == .CitySkyline){
+            self.imgBG.texture = self.textCitySkyline
+        }else if(UserDefaultsHelper.levelID == .CityStreet){
+            self.imgBG.texture = self.textCitySkyline2
+        }else if(UserDefaultsHelper.levelID == .Wallway){
+            self.imgBG.texture = self.textCitySkyline3
+        }else if(UserDefaultsHelper.levelID == .CityJapan){
+            self.imgBG.texture = self.textCitySkyline4
+        }else if(UserDefaultsHelper.levelID == .CityNight){
+            self.imgBG.texture = self.textCitySkyline5
+        }else if(UserDefaultsHelper.levelID == .ScarryStreet){
+            self.imgBG.texture = self.textCitySkyline6
+        }else if(UserDefaultsHelper.levelID == .MissionAccomplished){
+            self.imgBG.texture = self.textMissionAccomplished
+            self.currentContainer.isHidden = true
+            self.lblTask.isHidden = true
+        }else{
+            self.imgBG.texture = self.textCitySkyline7
+        }
     }
     
     func updateScoreFromICloud(){
@@ -95,7 +131,8 @@ class MapSceneBase: BaseSKScene {
             self.posBackStreet,
             self.posScarryStreet
         ].contains(self.selNode)){
-            viewController.loadDifficultyScene(level: self.getLevelForPosNode(posNode: self.selNode as! SKShapeNode))
+            viewController.loadGameScene(difficulty: UserDefaultsHelper.difficulty, level: self.getLevelForPosNode(posNode: self.selNode as! SKShapeNode))
+//            viewController.loadDifficultyScene()//level: self.getLevelForPosNode(posNode: self.selNode as! SKShapeNode))
         }
         /*else if(self.selNode == self.posMeadow){
             viewController.loadDifficultyScene(level: .Meadow)
