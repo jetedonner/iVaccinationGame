@@ -145,7 +145,9 @@ class MapSceneBase: BaseSKScene {
         var start2Disable:Bool = false
         for level in Level.allCases {
             print("Enabling Level-Pos: \(level) -> \(start2Disable)")
-            self.getPosNode4Level(level: level).isHidden = start2Disable
+            if let posNode = self.getPosNode4Level(level: level){
+//                posNode.isHidden = start2Disable
+            }
             if(level == currentLevel){
                 start2Disable = true
             }
@@ -159,7 +161,7 @@ class MapSceneBase: BaseSKScene {
         
     }
     
-    func getPosNode4Level(level:Level)->SKShapeNode{
+    func getPosNode4Level(level:Level)->SKShapeNode?{
         switch level {
         case .Meadow:
             return self.posMeadow!
@@ -176,7 +178,7 @@ class MapSceneBase: BaseSKScene {
         case .Wallway:
             return self.posWallway!
         case .MissionAccomplished:
-            return self.posScarryStreet!
+            return nil
         }
     }
     

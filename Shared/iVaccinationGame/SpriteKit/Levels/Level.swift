@@ -61,15 +61,17 @@ enum Level:Int, CaseIterable{
         case .CityStreet:
             return "City Street"
         case .Wallway:
-            return "City Japan"
+            return "Wallway"
         case .CityJapan:
-            return "City Night"
+            return "City Japan"
         case .CityNight:
-            return "Scarry Street"
+            return "City Night"
         case .ScarryStreet:
+            return "Scarry Street"
+        case .MissionAccomplished:
             return "Mission Accomplished"
-        default:
-            return "[NONE]"
+//        default:
+//            return "[NONE]"
         }
     }
     

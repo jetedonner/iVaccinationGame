@@ -41,25 +41,45 @@ class MapScene: MapSceneBase {
             self.imgBack.texture = self.textBackArrow
             self.showTooltip(msg: "City skyline (\(self.tooltipScore) Points)", pos: location)
         }else if(node == self.posCityStreet){
+//            self.selNode = node
+//            self.imgBack.texture = self.textBackArrow
+//            self.showTooltip(msg: "City street", pos: location)
+            self.tooltipScore = (dict[Level.CityStreet.getDesc()] ?? 0)
             self.selNode = node
             self.imgBack.texture = self.textBackArrow
-            self.showTooltip(msg: "City street", pos: location)
+            self.showTooltip(msg: "City street (\(self.tooltipScore) Points)", pos: location)
         }else if(node == self.posWallway){
+//            self.selNode = node
+//            self.imgBack.texture = self.textBackArrow
+//            self.showTooltip(msg: "Wallway", pos: location)
+            self.tooltipScore = (dict[Level.Wallway.getDesc()] ?? 0)
             self.selNode = node
             self.imgBack.texture = self.textBackArrow
-            self.showTooltip(msg: "Wallway", pos: location)
+            self.showTooltip(msg: "Wallway (\(self.tooltipScore) Points)", pos: location)
         }else if(node == self.posBackStreet){
+//            self.selNode = node
+//            self.imgBack.texture = self.textBackArrow
+//            self.showTooltip(msg: "Back street", pos: location)
+            self.tooltipScore = (dict[Level.CityNight.getDesc()] ?? 0)
             self.selNode = node
             self.imgBack.texture = self.textBackArrow
-            self.showTooltip(msg: "Back street", pos: location)
+            self.showTooltip(msg: "Back street (\(self.tooltipScore) Points)", pos: location)
         }else if(node == self.posJapanStreet){
+//            self.selNode = node
+//            self.imgBack.texture = self.textBackArrow
+//            self.showTooltip(msg: "Japan street", pos: location)
+            self.tooltipScore = (dict[Level.CityJapan.getDesc()] ?? 0)
             self.selNode = node
             self.imgBack.texture = self.textBackArrow
-            self.showTooltip(msg: "Japan street", pos: location)
+            self.showTooltip(msg: "Japan street (\(self.tooltipScore) Points)", pos: location)
         }else if(node == self.posScarryStreet){
+//            self.selNode = node
+//            self.imgBack.texture = self.textBackArrow
+//            self.showTooltip(msg: "Scarry street", pos: location)
+            self.tooltipScore = (dict[Level.ScarryStreet.getDesc()] ?? 0)
             self.selNode = node
             self.imgBack.texture = self.textBackArrow
-            self.showTooltip(msg: "Scarry street", pos: location)
+            self.showTooltip(msg: "Scarry street (\(self.tooltipScore) Points)", pos: location)
         }else{
             if(node != self.contTooltip && node != self.lblTooltip){
                 self.selNode = node

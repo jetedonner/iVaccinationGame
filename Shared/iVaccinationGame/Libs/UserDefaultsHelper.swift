@@ -133,6 +133,8 @@ class UserDefaultsHelper{
                 return .Wallway
             case Level.ScarryStreet.getDesc():
                 return .ScarryStreet
+            case Level.MissionAccomplished.getDesc():
+                return .MissionAccomplished
             default:
                 return .Meadow
             }
