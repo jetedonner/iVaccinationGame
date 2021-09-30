@@ -473,8 +473,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                 if let viewCtrl = self.view?.window?.rootViewController{
                     (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.player.score)
                     print("OLD HIGHSCORE IS: \(ICloudStorageHelper.highscore), LEVEL: \(ICloudStorageHelper.level), DIFFICULTY: \(ICloudStorageHelper.difficulty)")
-                    ICloudStorageHelper.highscore = self.player.score
-                    UserDefaultsHelper.score = self.player.score
+                    ICloudStorageHelper.highscore += self.player.score
+                    UserDefaultsHelper.score += self.player.score
 //                    let nextLevel:Level = self.currentLevel.level.getNextLevel()
 //                    UserDefaultsHelper.levelID = nextLevel
                     ICloudStorageHelper.level = nextLevel.getDesc()
@@ -484,8 +484,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                 if let viewCtrl = self.view?.window?.contentViewController{
                     (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.player.score)
                     print("OLD HIGHSCORE IS: \(ICloudStorageHelper.highscore), LEVEL: \(ICloudStorageHelper.level), DIFFICULTY: \(ICloudStorageHelper.difficulty)")
-                    ICloudStorageHelper.highscore = self.player.score
-                    UserDefaultsHelper.score = self.player.score
+                    ICloudStorageHelper.highscore += self.player.score
+                    UserDefaultsHelper.score += self.player.score
 //                    let nextLevel:Level = self.currentLevel.level.getNextLevel()
 //                    UserDefaultsHelper.levelID = nextLevel
                     ICloudStorageHelper.level = nextLevel.getDesc()

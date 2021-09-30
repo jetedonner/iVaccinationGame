@@ -18,9 +18,8 @@ class MapSceneBase: BaseSKScene {
     var lblDifficulty:SKLabelNode!
     var lblTask:SKLabelNode!
     
+    var contTooltip:SKShapeNode?
     var lblTooltip:SKLabelNode!
-    
-    
     
     var currentContainer:SKShapeNode!
     
@@ -30,11 +29,8 @@ class MapSceneBase: BaseSKScene {
     var posCityStreet:SKShapeNode?
     var posWallway:SKShapeNode?
     var posJapanStreet:SKShapeNode?
-    var posBackStreet:SKShapeNode?
+    var posCityNight:SKShapeNode?
     var posScarryStreet:SKShapeNode?
-    
-    var contTooltip:SKShapeNode?
-    
     
     var textMeadow:SKTexture = SKTexture(imageNamed: "Map7")
     var textCitySkyline:SKTexture = SKTexture(imageNamed: "Map7a")
@@ -82,9 +78,9 @@ class MapSceneBase: BaseSKScene {
         self.posJapanStreet = self.childNode(withName: "posJapanStreet") as? SKShapeNode
         self.posJapanStreet?.zPosition = 1000
         self.posJapanStreet?.lineWidth = 0.0
-        self.posBackStreet = self.childNode(withName: "posBackStreet") as? SKShapeNode
-        self.posBackStreet?.zPosition = 1000
-        self.posBackStreet?.lineWidth = 0.0
+        self.posCityNight = self.childNode(withName: "posBackStreet") as? SKShapeNode
+        self.posCityNight?.zPosition = 1000
+        self.posCityNight?.lineWidth = 0.0
         self.posScarryStreet = self.childNode(withName: "posScarryStreet") as? SKShapeNode
         self.posScarryStreet?.zPosition = 1000
         self.posScarryStreet?.lineWidth = 0.0
@@ -174,7 +170,7 @@ class MapSceneBase: BaseSKScene {
         case .ScarryStreet:
             return self.posScarryStreet!
         case .CityNight:
-            return self.posBackStreet!
+            return self.posCityNight!
         case .Wallway:
             return self.posWallway!
         case .MissionAccomplished:
@@ -191,7 +187,7 @@ class MapSceneBase: BaseSKScene {
             self.posCityStreet,
             self.posWallway,
             self.posJapanStreet,
-            self.posBackStreet,
+            self.posCityNight,
             self.posScarryStreet
         ].contains(self.selNode)){
             viewController.loadGameScene(difficulty: UserDefaultsHelper.difficulty, level: self.getLevelForPosNode(posNode: self.selNode as! SKShapeNode))
@@ -210,7 +206,7 @@ class MapSceneBase: BaseSKScene {
             return .Wallway
         case self.posJapanStreet:
             return .CityJapan
-        case self.posBackStreet:
+        case self.posCityNight:
             return .CityNight
         case self.posScarryStreet:
             return .ScarryStreet
