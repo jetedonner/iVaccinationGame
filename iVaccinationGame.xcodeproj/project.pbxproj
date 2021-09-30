@@ -155,8 +155,8 @@
 		55EAD44D26FE990200BB8D06 /* CertificatePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */; };
 		55EAD44E26FE990200BB8D06 /* CertificatePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */; };
 		55EAD45126FF559C00BB8D06 /* MapSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */; };
-		55EAD45426FF55F000BB8D06 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD45326FF55F000BB8D06 /* MapScene.sks */; };
-		55EAD45526FF55F000BB8D06 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD45326FF55F000BB8D06 /* MapScene.sks */; };
+		55EAD45426FF55F000BB8D06 /* MapSceneOrig.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD45326FF55F000BB8D06 /* MapSceneOrig.sks */; };
+		55EAD45526FF55F000BB8D06 /* MapSceneOrig.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD45326FF55F000BB8D06 /* MapSceneOrig.sks */; };
 		55EAD45726FF60D600BB8D06 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45626FF60D600BB8D06 /* Level.swift */; };
 		55EAD45826FF60D600BB8D06 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45626FF60D600BB8D06 /* Level.swift */; };
 		55EAD45926FF6F2700BB8D06 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3226F3474900944766 /* MenuSceneBase.swift */; };
@@ -183,6 +183,8 @@
 		55EE3D7C2702318900991D86 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EE3D7B2702318900991D86 /* GameKit.framework */; };
 		55EE3D7E270377FC00991D86 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7D270377FC00991D86 /* VersionHelper.swift */; };
 		55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7D270377FC00991D86 /* VersionHelper.swift */; };
+		55EE3D8127058F1000991D86 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D8027058F1000991D86 /* MapScene.sks */; };
+		55EE3D8227058F1000991D86 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D8027058F1000991D86 /* MapScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,7 +319,7 @@
 		55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Upward3Particles.sks; sourceTree = "<group>"; };
 		55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificatePickup.swift; sourceTree = "<group>"; };
 		55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSceneBase.swift; sourceTree = "<group>"; };
-		55EAD45326FF55F000BB8D06 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
+		55EAD45326FF55F000BB8D06 /* MapSceneOrig.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapSceneOrig.sks; sourceTree = "<group>"; };
 		55EAD45626FF60D600BB8D06 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		55EAD46426FF757500BB8D06 /* BaseSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSKScene.swift; sourceTree = "<group>"; };
 		55EAD46726FF773A00BB8D06 /* BaseSKSceneIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSKSceneIOS.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		55EE3D792702317A00991D86 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		55EE3D7B2702318900991D86 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		55EE3D7D270377FC00991D86 /* VersionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionHelper.swift; sourceTree = "<group>"; };
+		55EE3D8027058F1000991D86 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -545,7 +548,8 @@
 				55B64A3026F3467200944766 /* MenuScene.sks */,
 				55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */,
 				55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */,
-				55EAD45326FF55F000BB8D06 /* MapScene.sks */,
+				55EAD45326FF55F000BB8D06 /* MapSceneOrig.sks */,
+				55EE3D8027058F1000991D86 /* MapScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -936,7 +940,8 @@
 				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
 				55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */,
-				55EAD45426FF55F000BB8D06 /* MapScene.sks in Resources */,
+				55EAD45426FF55F000BB8D06 /* MapSceneOrig.sks in Resources */,
+				55EE3D8127058F1000991D86 /* MapScene.sks in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
 				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
@@ -977,6 +982,7 @@
 			files = (
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
+				55EE3D8227058F1000991D86 /* MapScene.sks in Resources */,
 				55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */,
 				55C83F0426FC666500F42F53 /* GameScene_ORIG.sks in Resources */,
 				55C83F7C26FE116B00F42F53 /* Settings.bundle in Resources */,
@@ -989,7 +995,7 @@
 				55C83F0826FC666500F42F53 /* GameScene_THIRD.sks in Resources */,
 				55C83F0326FC666500F42F53 /* GameScene_THIRD_alz.sks in Resources */,
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
-				55EAD45526FF55F000BB8D06 /* MapScene.sks in Resources */,
+				55EAD45526FF55F000BB8D06 /* MapSceneOrig.sks in Resources */,
 				55C83F7426FDFB9D00F42F53 /* GameScene_FOURTH.sks in Resources */,
 				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,

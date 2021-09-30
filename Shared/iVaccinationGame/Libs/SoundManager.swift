@@ -50,7 +50,7 @@ class SoundManager:NSObject{
         
         do{
             self.player = try AVAudioPlayer(contentsOf: soundPath, fileTypeHint: AVFileType.mp3.rawValue)
-            player.volume = Float(self.masterVolume)
+            player.volume = Float(atVolume)
             player.prepareToPlay()
             player.play()
         }catch{

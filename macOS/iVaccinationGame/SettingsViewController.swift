@@ -44,6 +44,7 @@ class SettingsViewController: NSViewController {
             }
             gameScene?.songPlayer?.volume = self.volume!.floatValue
             SoundManager.shared.masterVolume = CGFloat(self.volume!.floatValue)
+            UserDefaultsHelper.volume = self.volume!.floatValue
         }
         self.dismiss(sender)
         let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to abort the current level?")

@@ -159,6 +159,7 @@ class UserDefaultsHelper{
             }
             return self.defaults.float(forKey: UserDefaultsName.volume.rawValue)
         }
+        set{ self.defaults.set(newValue, forKey: UserDefaultsName.volume.rawValue) }
     }
     
     static var devMode:Bool{
