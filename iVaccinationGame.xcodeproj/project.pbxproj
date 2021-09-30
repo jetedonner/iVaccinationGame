@@ -337,6 +337,7 @@
 		55EE3D912705AB6B00991D86 /* VaccineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineType.swift; sourceTree = "<group>"; };
 		55EE3D952705ACD400991D86 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		55EE3D982705BD7900991D86 /* ArrayExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
+		55EE3D9B27063C2800991D86 /* iVaccination-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "iVaccination-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +392,7 @@
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
+				55EE3D9B27063C2800991D86 /* iVaccination-Info.plist */,
 				55E59BD826FF9A9400B75322 /* iVaccination.entitlements */,
 				55E59BD226FF89C800B75322 /* iVaccinationGame.entitlements */,
 				55C83F4626FD1A1B00F42F53 /* iVaccinationGame-Info.plist */,
@@ -1558,6 +1560,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iVaccination-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1593,6 +1596,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iVaccination-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

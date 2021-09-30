@@ -20,7 +20,10 @@ class KeyboardHandler{
     func keyDown(with event: NSEvent) {
         print("KeyPressed: %d", event.keyCode)
         if(self.gameScene.waitForAnyKey){
-            self.gameScene.restartAfterGameOverNG(resetTime: true, loadNewLevel: true)
+//            self.gameScene.restartAfterGameOverNG(resetTime: true, loadNewLevel: true)
+            if let viewCtrl = self.gameScene.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadMapScene()
+            }
             return
         }
         

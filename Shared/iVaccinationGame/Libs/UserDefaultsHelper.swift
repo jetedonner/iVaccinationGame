@@ -17,6 +17,7 @@ enum UserDefaultsName:String{
     case volume = "volume"
     case useGameCenter = "useGameCenter"
     case uploadHighscore = "uploadHighscore"
+    case autoNightMode = "autoNightMode"
     case devMode = "devMode"
     
     case levelID = "levelID"
@@ -157,6 +158,15 @@ class UserDefaultsHelper{
                 self.defaults.set("City Skyline", forKey: UserDefaultsName.level.rawValue)
             }
             return defaults.string(forKey: UserDefaultsName.level.rawValue)!
+        }
+    }
+    
+    static var autoNightMode:Bool{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.autoNightMode.rawValue) == nil){
+                self.defaults.set(true, forKey: UserDefaultsName.autoNightMode.rawValue)
+            }
+            return self.defaults.bool(forKey: UserDefaultsName.autoNightMode.rawValue)
         }
     }
     

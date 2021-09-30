@@ -43,7 +43,7 @@ class BaseLevel {
     }
     
     func setupLevel(gameScene:GameSceneBase){
-        gameScene.bg?.texture = SKTexture(imageNamed: self.backgroundImageName + (self.isNightTime() ? "Night" : ""))
+        gameScene.bg?.texture = SKTexture(imageNamed: self.backgroundImageName + (UserDefaultsHelper.autoNightMode && self.isNightTime() ? "Night" : ""))
         gameScene.zombieGirl.texture = SKTexture(imageNamed: self.zombieImageName)
         let path = self.zombiePaths.getRandom()
         gameScene.zombieGirl.position = path.initPos
