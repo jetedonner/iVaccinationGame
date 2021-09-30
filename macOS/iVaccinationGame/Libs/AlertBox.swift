@@ -17,11 +17,7 @@ class AlertBox{
         alert.alertStyle = .warning
         alert.addButton(withTitle: "OK")
         alert.addButton(withTitle: "Cancel")
-//        var newFrame = alert.window.frame
-//        newFrame.origin = CGPoint(x: 20, y: 20)
         alert.window.setFrameOrigin(CGPoint(x: 200, y: 200))// = newFrame
-//        alert.window.frame.origin.x = 20
-//        alert.window.frame.origin.y = 20
         return alert.runModal() == .alertFirstButtonReturn
     }
 }

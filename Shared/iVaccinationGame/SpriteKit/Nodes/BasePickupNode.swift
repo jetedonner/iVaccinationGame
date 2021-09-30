@@ -63,14 +63,11 @@ class BasePickupNode: SKSpriteNode {
                 
                 let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
                 print("GKAccessPointCoord: \(accsPntCoord)")
-                let accessFrame = gameScene.scene?.view?.convert(accsPntCoord, from: nil)// .convert(screenFrame, from: nil)
+                let accessFrame = gameScene.scene?.view?.convert(accsPntCoord, from: nil)
                 let ngPoint = gameScene.scene?.view?.convert(newPoint, from: gameScene.scene!)
                 if(accessFrame != nil){
-//                    isBehindGKAccessPoint = accessFrame!.contains(newPoint)
                     isBehindGKAccessPoint = accessFrame!.contains(ngPoint!)
                     isBehindHand = gameScene.imgThrowingHand!.frame.contains(newPoint)
-//                    newPoint = (gameScene.scene?.view?.convert(accsPntCoord.origin, to: gameScene.scene!))!
-//                    newPoint.y *= -1
                 }else{
                     isBehindGKAccessPoint = false
                     isBehindHand = false

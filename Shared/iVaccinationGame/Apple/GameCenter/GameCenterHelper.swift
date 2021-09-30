@@ -95,7 +95,7 @@ class GameCenterHelper: NSObject {
                     })
                 #endif
             } else {
-//            print("Error authentication to GameCenter: \(error?.localizedDescription ?? "none")")
+                print("Error authentication to GameCenter: \(error?.localizedDescription ?? "none")")
             }
         }
     }
@@ -114,24 +114,11 @@ class GameCenterHelper: NSObject {
     }
     
     func updateScore(with value: Int) {
-        
         GKLeaderboard.submitScore(123456, context: 0, player: GKLocalPlayer.local, leaderboardIDs: [self.leaderboardID],  completionHandler: {error in
             if(error != nil){
                 print("Error uploading score to Game Center leaderboard: \(String(describing: error))")
             }
         })
-        
-//        let score = GKScore(leaderboardIdentifier: leaderboardID)
-//        score.value = Int64(value)
-//        let scr = GKLeaderboardScore()
-//        scr.leaderboardID = self.leaderboardID
-//        scr.player = GKLocalPlayer.local
-//        scr.value = value
-//        scr.context = 1586145789
-//        GKScore.report([scr], withEligibleChallenges: [], withCompletionHandler: { error in
-//            let res = error
-//            _ = res
-//        })
     }
 }
 

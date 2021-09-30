@@ -52,16 +52,13 @@ class MapSceneBase: BaseSKScene {
         self.imgBack = self.childNode(withName: "imgBack") as? SKSpriteNode
         self.currentContainer = self.childNode(withName: "currentContainer") as? SKShapeNode
         
-        
         self.lblScore = self.currentContainer.childNode(withName: "lblScore") as? SKLabelNode
         self.lblLevel = self.currentContainer.childNode(withName: "lblLevel") as? SKLabelNode
         self.lblDifficulty = self.currentContainer.childNode(withName: "lblDifficulty") as? SKLabelNode
         
         self.lblTask = self.childNode(withName: "lblTask") as? SKLabelNode
         
-        
         self.posTouchNodes = self.childNode(withName: "posTouchNodes")
-//        self.posTouchNodes?.alpha = 0.0
         
         self.posMeadow = self.childNode(withName: "posMeadow") as? SKShapeNode
         self.posMeadow?.zPosition = 1000

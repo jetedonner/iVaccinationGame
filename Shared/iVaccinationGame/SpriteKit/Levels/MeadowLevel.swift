@@ -27,29 +27,13 @@ class MeadowLevel: BaseLevel {
         
         let scn:SKScene = SKScene(fileNamed: "MeadowLeftActions.sks")!
         let scn2:SKScene = SKScene(fileNamed: "MeadowRightActions.sks")!
-//        SKAction(named: "MeadowLeftActions", from: URL "Scenes/MeadowLeftActions.sks")
-//        let testAction = SKAction(named: "MeadowLeftActions")!
         
         self.zombiePaths.append(
             BasePath(
                 initPos: CGPoint(x: -192.1, y: -88.134),
                 initScale: 0.35,
                 path:
-                    (scn.value(forKey: "actions") as! NSDictionary).value(forKey: "MeadowLeft") as! SKAction
-                    /*SKAction.sequence([
-                    SKAction.group([
-                        SKAction.moveBy(x: 100, y: -40, duration: 2.0),
-                        SKAction.scale(to: 0.65, duration: 2.0)
-                    ]),
-                    SKAction.group([
-                        SKAction.moveBy(x: -205, y: -80, duration: 2.5),
-                        SKAction.scale(to: 1.0, duration: 2.5)
-                    ]),
-                    SKAction.group([
-                        SKAction.moveBy(x: 560, y: -170, duration: 2.9),
-                        SKAction.scale(to: 3.0, duration: 2.9)
-                    ])
-                ])*/,
+                    (scn.value(forKey: "actions") as! NSDictionary).value(forKey: "MeadowLeft") as! SKAction,
                 exitPath: SKAction.sequence([
                     exitMove1, exitMove2,
                     exitMove1, exitMove2,

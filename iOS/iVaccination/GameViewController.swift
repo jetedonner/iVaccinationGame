@@ -28,19 +28,9 @@ class GameViewController: UIViewController, IViewController {
     func loadCreditsScene(){
         if let scene = GKScene(fileNamed: "CreditsScene") {
             if let sceneNode = scene.rootNode as! CreditsScene? {
-
                 sceneNode.scaleMode = .aspectFill
-
                 if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-
-                    view.ignoresSiblingOrder = true
-
-                    if(UserDefaultsHelper.devMode){
-                        view.showsFPS = true
-                        view.showsNodeCount = true
-                        view.showsPhysics = true
-                    }
+                    view.presentSceneNG(sceneNode)
                 }
             }
         }
@@ -53,22 +43,11 @@ class GameViewController: UIViewController, IViewController {
     }
     
     func loadMapScene(){
-
         if let scene = GKScene(fileNamed: "MapScene") {
             if let sceneNode = scene.rootNode as! MapScene? {
-
                 sceneNode.scaleMode = .aspectFill
-
                 if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-
-                    view.ignoresSiblingOrder = true
-
-                    if(UserDefaultsHelper.devMode){
-                        view.showsFPS = true
-                        view.showsNodeCount = true
-                        view.showsPhysics = true
-                    }
+                    view.presentSceneNG(sceneNode)
                 }
             }
         }
@@ -76,21 +55,10 @@ class GameViewController: UIViewController, IViewController {
     
     func loadMenuScene(){
         if let scene = GKScene(fileNamed: "MenuScene") {
-            
             if let sceneNode = scene.rootNode as! MenuScene? {
                 sceneNode.scaleMode = .aspectFill
-                
-                // Present the scene
                 if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    if(UserDefaultsHelper.devMode){
-                        view.showsFPS = true
-                        view.showsNodeCount = true
-                        view.showsPhysics = true
-                    }
+                    view.presentSceneNG(sceneNode)
                 }
             }
         }
@@ -100,22 +68,11 @@ class GameViewController: UIViewController, IViewController {
         UserDefaultsHelper.difficulty = difficulty
         UserDefaultsHelper.levelID = level
         if let scene = GKScene(fileNamed: "GameScene") {
-            
             if let sceneNode = scene.rootNode as! GameScene? {
                 self.gameSceneObj = sceneNode
                 sceneNode.scaleMode = .aspectFill
-                
-                // Present the scene
                 if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    if(UserDefaultsHelper.devMode){
-                        view.showsFPS = true
-                        view.showsNodeCount = true
-                        view.showsPhysics = true
-                    }
+                    view.presentSceneNG(sceneNode)
                 }
             }
         }
@@ -124,21 +81,10 @@ class GameViewController: UIViewController, IViewController {
     
     func loadDifficultyScene(){
         if let scene = GKScene(fileNamed: "DifficultyScene") {
-            
             if let sceneNode = scene.rootNode as! DifficultyScene? {
-//                sceneNode.selLevel = level
                 sceneNode.scaleMode = .aspectFill
-                
                 if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    if(UserDefaultsHelper.devMode){
-                        view.showsFPS = true
-                        view.showsNodeCount = true
-                        view.showsPhysics = true
-                    }
+                    view.presentSceneNG(sceneNode)
                 }
             }
         }
@@ -156,14 +102,6 @@ class GameViewController: UIViewController, IViewController {
     override var shouldAutorotate: Bool {
         return true
     }
-
-//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-//        if UIDevice.current.userInterfaceIdiom == .phone {
-//            return .portrait
-//        } else {
-//            return .portrait
-//        }
-//    }
 
     override var prefersStatusBarHidden: Bool {
         return true

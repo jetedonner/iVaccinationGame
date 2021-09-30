@@ -20,7 +20,6 @@ class KeyboardHandler{
     func keyDown(with event: NSEvent) {
         print("KeyPressed: %d", event.keyCode)
         if(self.gameScene.waitForAnyKey){
-//            self.gameScene.restartAfterGameOverNG(resetTime: true, loadNewLevel: true)
             if let viewCtrl = self.gameScene.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadMapScene()
             }
@@ -57,10 +56,6 @@ class KeyboardHandler{
             SoundManager.shared.playSound(sound: .shot)
             break
         case KeyCode.KEY_P.rawValue: // P
-//            self.gameScene.setGamePaused(isPaused: !self.gameScene.gamePaused)
-//            self.gameScene.lblGameOver?.text = (self.gameScene.isPaused ? "Pause" : "Game Over")
-//            self.gameScene.lblGameOver?.alpha = (self.gameScene.isPaused ? 1.0 : 0.0)
-//            self.gameScene.lblGameOver?.isHidden = !self.gameScene.isPaused
             if(self.gameScene.gameStateMachine.currentState is PlayingState){
                 self.gameScene.gameStateMachine.enter(PauseState.self)
             }else if(self.gameScene.gameStateMachine.currentState is PauseState){
@@ -74,12 +69,6 @@ class KeyboardHandler{
             #if os(macOS)// || os(iOS)
             self.gameScene.gameStateMachine.enter(SettingsState.self)
             #endif
-//            self.gameScene.setGamePaused(isPaused: true)
-//            let vcSettings:SettingsViewController = SettingsViewController()
-//            vcSettings.gameScene = self.gameScene
-//            if let viewCtrl = self.gameScene.view?.window?.contentViewController{
-//                (viewCtrl as! ViewController).presentAsSheet(vcSettings)
-//            }
             break
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")

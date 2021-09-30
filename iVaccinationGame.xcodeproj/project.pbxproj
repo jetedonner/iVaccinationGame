@@ -124,7 +124,6 @@
 		55C83F7726FDFD8A00F42F53 /* DescriptionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */; };
 		55C83F7926FDFF4F00F42F53 /* DescriptionSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F7826FDFF4F00F42F53 /* DescriptionSceneBase.swift */; };
 		55C83F7C26FE116B00F42F53 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F7B26FE116B00F42F53 /* Settings.bundle */; };
-		55C83F7E26FE119700F42F53 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F7D26FE119700F42F53 /* SettingsBundleHelper.swift */; };
 		55C83F8026FE31EB00F42F53 /* CityJapanLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F7F26FE31EB00F42F53 /* CityJapanLevel.swift */; };
 		55C83F8126FE323800F42F53 /* CityJapanLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F7F26FE31EB00F42F53 /* CityJapanLevel.swift */; };
 		55C83F8326FE326500F42F53 /* CityNightLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F8226FE326500F42F53 /* CityNightLevel.swift */; };
@@ -154,8 +153,6 @@
 		55EAD46D26FF7A9200BB8D06 /* MapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD46C26FF7A9200BB8D06 /* MapScene.swift */; };
 		55EAD46F26FF7C5000BB8D06 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD46E26FF7C5000BB8D06 /* MenuScene.swift */; };
 		55EAD47126FF7D0800BB8D06 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD47026FF7D0800BB8D06 /* MenuScene.swift */; };
-		55EE3D6526FFB7F200991D86 /* SoundManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */; };
-		55EE3D6626FFB7F200991D86 /* SoundManagerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */; };
 		55EE3D6A26FFC49C00991D86 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6926FFC49C00991D86 /* SoundManager.swift */; };
 		55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D6926FFC49C00991D86 /* SoundManager.swift */; };
 		55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554E532426EFAD4400371E58 /* Assets.xcassets */; };
@@ -191,6 +188,8 @@
 		55EE3DA127063E2300991D86 /* CreditsSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D9F27063E2300991D86 /* CreditsSceneBase.swift */; };
 		55EE3DA92706436E00991D86 /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DA82706436E00991D86 /* CreditsScene.swift */; };
 		55EE3DAB270643E500991D86 /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DAA270643E500991D86 /* CreditsScene.swift */; };
+		55EE3DAD270646D600991D86 /* SkViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DAC270646D600991D86 /* SkViewExt.swift */; };
+		55EE3DAE270646F700991D86 /* SkViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DAC270646D600991D86 /* SkViewExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -305,7 +304,6 @@
 		55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DescriptionScene.sks; sourceTree = "<group>"; };
 		55C83F7826FDFF4F00F42F53 /* DescriptionSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionSceneBase.swift; sourceTree = "<group>"; };
 		55C83F7B26FE116B00F42F53 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		55C83F7D26FE119700F42F53 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		55C83F7F26FE31EB00F42F53 /* CityJapanLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityJapanLevel.swift; sourceTree = "<group>"; };
 		55C83F8226FE326500F42F53 /* CityNightLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityNightLevel.swift; sourceTree = "<group>"; };
 		55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
@@ -326,7 +324,6 @@
 		55EAD46C26FF7A9200BB8D06 /* MapScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScene.swift; sourceTree = "<group>"; };
 		55EAD46E26FF7C5000BB8D06 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		55EAD47026FF7D0800BB8D06 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
-		55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManagerExt.swift; sourceTree = "<group>"; };
 		55EE3D6926FFC49C00991D86 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		55EE3D6D26FFE3D500991D86 /* AppIconMacOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconMacOS.xcassets; sourceTree = "<group>"; };
 		55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIconIOS.xcassets; sourceTree = "<group>"; };
@@ -348,6 +345,7 @@
 		55EE3D9F27063E2300991D86 /* CreditsSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsSceneBase.swift; sourceTree = "<group>"; };
 		55EE3DA82706436E00991D86 /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
 		55EE3DAA270643E500991D86 /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
+		55EE3DAC270646D600991D86 /* SkViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkViewExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -581,7 +579,6 @@
 				55B64A4E26F37FD400944766 /* Main.storyboard */,
 				55B64A5326F37FD500944766 /* LaunchScreen.storyboard */,
 				55C83F7B26FE116B00F42F53 /* Settings.bundle */,
-				55C83F7D26FE119700F42F53 /* SettingsBundleHelper.swift */,
 				55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */,
 			);
 			path = iVaccination;
@@ -691,7 +688,6 @@
 				55EE3D6926FFC49C00991D86 /* SoundManager.swift */,
 				55B64A3A26F3602C00944766 /* GameVars.swift */,
 				55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */,
-				55EE3D6426FFB7F100991D86 /* SoundManagerExt.swift */,
 				55EE3D7D270377FC00991D86 /* VersionHelper.swift */,
 			);
 			path = Libs;
@@ -703,6 +699,7 @@
 				5552BFA826F26ABE0034C812 /* TimeInterval.swift */,
 				55A579C226F507DF0084239D /* SKSpriteNodeExt.swift */,
 				55EE3D982705BD7900991D86 /* ArrayExt.swift */,
+				55EE3DAC270646D600991D86 /* SkViewExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1073,6 +1070,7 @@
 				55E59BCE26FF867100B75322 /* DescriptionScene.swift in Sources */,
 				55C83F6326FDDC5500F42F53 /* SettingsState.swift in Sources */,
 				55A579C126F507A10084239D /* SKViewExt.swift in Sources */,
+				55EE3DAD270646D600991D86 /* SkViewExt.swift in Sources */,
 				55EE3D8C2705A67800991D86 /* JillAndJasmineVaccine.swift in Sources */,
 				55C83F5C26FDDB8B00F42F53 /* PauseState.swift in Sources */,
 				5552BFA926F26ABE0034C812 /* TimeInterval.swift in Sources */,
@@ -1114,7 +1112,6 @@
 				55EE3D7E270377FC00991D86 /* VersionHelper.swift in Sources */,
 				55C83F8126FE323800F42F53 /* CityJapanLevel.swift in Sources */,
 				55A579C826F5C5EC0084239D /* CitySkylineLevel.swift in Sources */,
-				55EE3D6526FFB7F200991D86 /* SoundManagerExt.swift in Sources */,
 				55A579CA26F638610084239D /* BaseLevel.swift in Sources */,
 				55A579BF26F4FEFF0084239D /* SyringePickup.swift in Sources */,
 				55C83F5A26FDDB8B00F42F53 /* GameStateMachine.swift in Sources */,
@@ -1173,6 +1170,7 @@
 				55C83F5E26FDDB9D00F42F53 /* BaseState.swift in Sources */,
 				55C83F8026FE31EB00F42F53 /* CityJapanLevel.swift in Sources */,
 				55EAD45E26FF72AD00BB8D06 /* MapSceneBase.swift in Sources */,
+				55EE3DAE270646F700991D86 /* SkViewExt.swift in Sources */,
 				55EAD44E26FE990200BB8D06 /* CertificatePickup.swift in Sources */,
 				55EE3D862705A58F00991D86 /* VaccineBase.swift in Sources */,
 				55EE3D902705A7E200991D86 /* VaccineArsenal.swift in Sources */,
@@ -1188,10 +1186,8 @@
 				55C83F1D26FC675500F42F53 /* SKSpriteNodeExt.swift in Sources */,
 				55C83F1026FC673D00F42F53 /* MeadowLevel.swift in Sources */,
 				55B64A4526F37FD400944766 /* AppDelegate.swift in Sources */,
-				55C83F7E26FE119700F42F53 /* SettingsBundleHelper.swift in Sources */,
 				55E59BC726FF7FA500B75322 /* UserDefaultsHelper.swift in Sources */,
 				55C83F2726FC6BB500F42F53 /* CustomProgressBar.swift in Sources */,
-				55EE3D6626FFB7F200991D86 /* SoundManagerExt.swift in Sources */,
 				55C83F1426FC673D00F42F53 /* BasePath.swift in Sources */,
 				55EE3D8A2705A63500991D86 /* PerofixaVaccine.swift in Sources */,
 				55C83F2026FC680C00F42F53 /* GameScene.swift in Sources */,

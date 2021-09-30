@@ -27,7 +27,7 @@ enum Sounds:String{
     case eat1 = "eat_crunch_1.mp3"
     case eat2 = "eat_crunch_2.mp3"
     case certPickup = "paperturn.mp3"
-    
+    case youWin = "youWin.mp3"
 }
 
 class SoundManager:NSObject{

@@ -100,17 +100,9 @@ class UserDefaultsHelper{
                 return 2.75
             case .nightmare:
                 return 3.75
-//            default:
-//                return 1.5
             }
         }
     }
-    
-//    static var _levelID:Level = .Meadow
-//    static var levelID:Level{
-//        get{ self._levelID }
-//        set{ self._levelID = newValue }
-//    }
     
     static var levelID:Level{
         set{ self.defaults.set(newValue.getDesc(), forKey: UserDefaultsName.levelID.rawValue) }
@@ -144,9 +136,6 @@ class UserDefaultsHelper{
     
     static var score:Int{
         get{
-//            if(self.defaults.integer(forKey: UserDefaultsName.score.rawValue) == nil){
-//                self.defaults.set(0, forKey: UserDefaultsName.score.rawValue)
-//            }
             return self.defaults.integer(forKey: UserDefaultsName.score.rawValue)
         }
         set{ self.defaults.set(newValue, forKey: UserDefaultsName.score.rawValue) }

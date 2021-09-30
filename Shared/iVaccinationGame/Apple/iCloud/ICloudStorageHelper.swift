@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import Cocoa
 
 class ICloudStorageHelper{
     
@@ -26,8 +25,9 @@ class ICloudStorageHelper{
     }
     
     static var score:[String:Int]{
-        get{ //NSUbiquitousKeyValueStore.default.dictionary(forKey: self.scoreKey)
-            return (NSUbiquitousKeyValueStore.default.dictionary(forKey: self.scoreKey) != nil ? NSUbiquitousKeyValueStore.default.dictionary(forKey: self.scoreKey) as! [String:Int] : ["Meadow": 0]) }
+        get{
+            return (NSUbiquitousKeyValueStore.default.dictionary(forKey: self.scoreKey) != nil ? NSUbiquitousKeyValueStore.default.dictionary(forKey: self.scoreKey) as! [String:Int] : ["Meadow": 0])
+        }
         set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.scoreKey) }
     }
     

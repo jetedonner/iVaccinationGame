@@ -43,6 +43,7 @@
 			</array>
 			<key>Values</key>
 			<array>
+				<string>10 Seconds</string>
 				<string>30 Seconds</string>
 				<string>1 Minute</string>
 				<string>2 Minutes</string>

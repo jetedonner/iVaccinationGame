@@ -25,13 +25,11 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             if(UserDefaultsHelper.playSounds && UserDefaultsHelper.playBGMusic){
                 SoundManager.shared.stopBGSound(pause: true)
             }
-//            self.songPlayer?.pause()
         }else{
             self.view?.isPaused = false
             if(UserDefaultsHelper.playSounds && UserDefaultsHelper.playBGMusic){
                 SoundManager.shared.songPlayer?.play()
             }
-//            self.songPlayer?.play()
         }
     }
     
@@ -58,9 +56,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var contentNode:SKNode?
     var bg:SKSpriteNode?
     
-//    var score:Int = 0
-//    var syringesLeft:Int = 2
-    
     var effectNode:SKEffectNode = SKEffectNode()
     var lblGameOver:SKLabelNode?
     var lblPressAnyKey:SKLabelNode?
@@ -76,9 +71,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var startTime:TimeInterval = 0
     var pauseStartTime:TimeInterval = 0
     var gameDuration:TimeInterval = GameVars.DEV_ROUND_TIME
-    
-//    var bites:Int = 0
-//    var health:CGFloat = 100.0
+
     var damage:CGFloat = GameVars.DEV_ZOMBIE_DAMAGE
     
     let explosionEmitterNode = SKEmitterNode(fileNamed:"MagicParticle.sks")
@@ -88,7 +81,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var gameRunning:Bool = false
     var waitForAnyKey:Bool = false
     var curTime:TimeInterval = 0
-//    var songPlayer:AVAudioPlayer?
     
     var levels:[BaseLevel] = []
     var currentLevel:BaseLevel = CitySkylineLevel()
@@ -100,9 +92,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var fullHands:SKTexture = SKTexture(imageNamed: "ThrowingFingers")
     
     var zombieGirl:ZombieGirl!
-    
     var player:Player = Player()
-    
     var thrownSyringeDarts:[SyringeDart] = []
     
     override func sceneDidLoad() {
@@ -206,13 +196,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.setupHandAnimation()
     }
     
-//    func setSyringesLeft(syringesLeft:Int){
-//        self.syringesLeft = syringesLeft
-//        self.lblSyringesLeft?.text = self.syringesLeft.description + " / 2"
-//    }
-    
     func setSyringesHUD(){
-//        self.syringesLeft = syringesLeft
         self.lblSyringesLeft?.text = self.player.vaccineArsenal.vaccinesInArsenal[.Perofixa]!.description + " / 2"
     }
     
@@ -235,7 +219,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     }
     
     func restartLevel(){
-        
         if(UserDefaultsHelper.level == "City Skyline" || UserDefaultsHelper.level == "City Skyline (Night)"){
             self.currentLevel = self.levels[0]
         }else if(UserDefaultsHelper.level == "Wallway" || UserDefaultsHelper.level == "Wallway (Night)"){
@@ -259,20 +242,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
-        
         if(UserDefaultsHelper.playSounds && UserDefaultsHelper.playBGMusic){
             SoundManager.shared.playBGSound()
         }
-//        if let path = Bundle.main.path(forResource: GameVars.BASE_MEDIA_DIR + "Possession-HumansWin", ofType: "mp3") {
-//            let filePath = NSURL(fileURLWithPath:path)
-//            songPlayer = try! AVAudioPlayer.init(contentsOf: filePath as URL)
-//            songPlayer?.numberOfLoops = -1
-//            songPlayer?.prepareToPlay()
-//            songPlayer?.volume = UserDefaultsHelper.volume
-//            if(UserDefaultsHelper.playSounds && UserDefaultsHelper.playBGMusic){
-//                songPlayer?.play()
-//            }
-//        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -285,11 +257,12 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             self.currentLevel.hits += 1
             self.addScore(score: self.currentLevel.scoreBase)
             self.showEarnedPoints()
+            
             if(self.currentLevel.hits % 2 == 0){
+                self.zombieGirl.removeAllActions()
                 
                 explosionEmitterNode?.setScale(0.35)
                 explosionEmitterNode?.isHidden = false
-                
                 if(explosionEmitterNode?.parent == nil){
                     self.zombieGirl.addChild(explosionEmitterNode!)
                 }
@@ -313,7 +286,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.imgBlood?.isHidden = true
         self.zombieGirl.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
-        self.currentLevel.zombieCurrentPath = self.currentLevel.zombiePaths.getRandom()// .randomElement()!
+        self.currentLevel.zombieCurrentPath = self.currentLevel.zombiePaths.getRandom()
         if(self.currentLevel.zombieCurrentPath.hideOnStart){
             self.zombieGirl.xScale = 0.0
         }else{
@@ -330,9 +303,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                 self.imgRedOut?.run(SKAction.fadeIn(withDuration: 1.0), completion: {
                     self.imgRedOut?.alpha = 0.0
                     self.imgBlood?.isHidden = true
+                    self.showGameOver()
                     self.player.resetPlayer()
                     self.prgBar.setProgress(1.0)
-                    self.showGameOver()
                 })
             }
             
@@ -425,8 +398,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.lblScore?.setScale(1.0)
         self.player.resetPlayer()
         if(loadNewLevel){
-//            var g = SystemRandomNumberGenerator()
-            self.loadLevel(levelID: self.levels.getRandom().level)// .randomElement(using: &g)!.level)
+            self.loadLevel(levelID: self.levels.getRandom().level)
         }
         self.gameRunning = true
         self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
@@ -437,7 +409,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         if(resetTime){
             self.startTime = 0
         }
-        
         self.zombieGirl.removeAllActions()
         self.zombieGirl.isPaused = false
         self.restartZombieAction()
@@ -458,7 +429,13 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.zombieGirl.removeAllActions()
         self.explosionEmitterNode?.removeFromParent()
 
-        SoundManager.shared.playSound(sound: .gameover)
+        if(self.player.health <= 0.0){
+            SoundManager.shared.playSound(sound: .gameover)
+            self.lblGameOver?.text = "Game over!"
+        }else{
+            SoundManager.shared.playSound(sound: .youWin)
+            self.lblGameOver?.text = "You win!"
+        }
 
         self.lblGameOver?.run(SKAction.sequence([SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.group([SKAction.scale(to: 0.85, duration: self.gameOverFlashTimeStep)/*, SKAction.fadeOut(withDuration: self.gameOverFlashTimeStep)*/])]), completion: {
             self.lblPressAnyKey?.alpha = 0.0
@@ -472,22 +449,16 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             #if os(iOS)
                 if let viewCtrl = self.view?.window?.rootViewController{
                     (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.player.score)
-                    print("OLD HIGHSCORE IS: \(ICloudStorageHelper.highscore), LEVEL: \(ICloudStorageHelper.level), DIFFICULTY: \(ICloudStorageHelper.difficulty)")
                     ICloudStorageHelper.highscore += self.player.score
                     UserDefaultsHelper.score += self.player.score
-//                    let nextLevel:Level = self.currentLevel.level.getNextLevel()
-//                    UserDefaultsHelper.levelID = nextLevel
                     ICloudStorageHelper.level = nextLevel.getDesc()
                     ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
                 }
             #else
                 if let viewCtrl = self.view?.window?.contentViewController{
                     (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.player.score)
-                    print("OLD HIGHSCORE IS: \(ICloudStorageHelper.highscore), LEVEL: \(ICloudStorageHelper.level), DIFFICULTY: \(ICloudStorageHelper.difficulty)")
                     ICloudStorageHelper.highscore += self.player.score
                     UserDefaultsHelper.score += self.player.score
-//                    let nextLevel:Level = self.currentLevel.level.getNextLevel()
-//                    UserDefaultsHelper.levelID = nextLevel
                     ICloudStorageHelper.level = nextLevel.getDesc()
                     ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
                 }
@@ -504,22 +475,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     
     func clickedAtPoint(point:CGPoint){
         if(!self.gameRunning && self.waitForAnyKey){
-//            UserDefaultsHelper.levelID = UserDefaultsHelper.levelID.getNextLevel()
-//            if(UserDefaultsHelper.levelID == .Meadow){
-//                UserDefaultsHelper.levelID = .CitySkyline
-//            }else if(UserDefaultsHelper.levelID == .CitySkyline){
-//                UserDefaultsHelper.levelID = .CityStreet
-//            }else if(UserDefaultsHelper.levelID == .CityStreet){
-//                UserDefaultsHelper.levelID = .Wallway
-//            }else if(UserDefaultsHelper.levelID == .Wallway){
-//                UserDefaultsHelper.levelID = .CityJapan
-//            }else if(UserDefaultsHelper.levelID == .CityJapan){
-//                UserDefaultsHelper.levelID = .CityNight
-//            }else if(UserDefaultsHelper.levelID == .CityNight){
-//                UserDefaultsHelper.levelID = .ScarryStreet
-//            }else if(UserDefaultsHelper.levelID == .ScarryStreet){
-//                UserDefaultsHelper.levelID = .MissionAccomplished
-//            }
             ICloudStorageHelper.level = UserDefaultsHelper.levelID.getDesc()
             #if os(iOS)
                 if let viewCtrl = self.view?.window?.rootViewController{

@@ -58,12 +58,5 @@ class AppDelegate:  UIResponder, UIApplicationDelegate {
         var tmp = -1
         tmp /= -1
     }
-
-
-//    public static func main(){
-//        var tmp = -1
-//        tmp /= -1
-//        super.main()
-//    }
 }
 

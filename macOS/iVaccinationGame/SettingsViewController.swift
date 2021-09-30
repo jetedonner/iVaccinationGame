@@ -66,10 +66,8 @@ class SettingsViewController: NSViewController {
         if(gameScene != nil){
             if(self.playBGMusic!.state == .on){
                 SoundManager.shared.playBGSound()
-//                gameScene?.songPlayer?.play()
             }else{
                 SoundManager.shared.stopBGSound()
-//                gameScene?.songPlayer?.stop()
             }
             SoundManager.shared.songPlayer?.volume = self.volume!.floatValue
             SoundManager.shared.masterVolume = CGFloat(self.volume!.floatValue)

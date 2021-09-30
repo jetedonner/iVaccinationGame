@@ -40,8 +40,6 @@ class SyringePickup: BasePickupNode {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 gameScene.player.vaccineArsenal.addVaccine(accineType: self.vaccineType, ammount: self.pickupType.rawValue)
                 gameScene.setSyringesHUD()
-//                gameScene.syringesLeft += self.pickupType.rawValue
-//                gameScene.setSyringesLeft(syringesLeft: gameScene.syringesLeft)
                 gameScene.syringe2?.isHidden = false
                 gameScene.syringe1?.isHidden = false
                 gameScene.updateThrowingHandTexture()
