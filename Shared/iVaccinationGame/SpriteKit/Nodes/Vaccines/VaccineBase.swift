@@ -14,30 +14,6 @@ struct BaseVaccineNG {
 }
 
 protocol BaseVaccine:Hashable{
-    var name:String { get set } //= "Base Vaccine"
-//    var keyCode:Int = 0
+    var name:String { get set }
     var healAmount:CGFloat { get set }// = 50.0
-    
-    /*init(name:String, healAmount:CGFloat) {
-        self.name = name
-        self.healAmount = healAmount
-    }*/
 }
-
-//class VaccineBase:Hashable{
-//    
-//    static func == (lhs: VaccineBase, rhs: VaccineBase) -> Bool {
-//        return lhs.name == rhs.name
-//    }
-//    
-//    
-//    var name:String = "Base Vaccine"
-//    var keyCode:Int = 0
-//    var healAmount:CGFloat = 50.0
-//    
-//    init(name:String, healAmount:CGFloat) {
-//        self.name = name
-//        self.healAmount = healAmount
-//    }
-//    
-//}

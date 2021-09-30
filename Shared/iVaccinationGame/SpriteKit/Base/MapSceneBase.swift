@@ -137,9 +137,9 @@ class MapSceneBase: BaseSKScene {
         let currentLevel:Level = UserDefaultsHelper.levelID
         var start2Disable:Bool = false
         for level in Level.allCases {
-            print("Enabling Level-Pos: \(level) -> \(start2Disable)")
+//            print("Enabling Level-Pos: \(level) -> \(start2Disable)")
             if let posNode = self.getPosNode4Level(level: level){
-//                posNode.isHidden = start2Disable
+                posNode.isHidden = start2Disable
             }
             if(level == currentLevel){
                 start2Disable = true
