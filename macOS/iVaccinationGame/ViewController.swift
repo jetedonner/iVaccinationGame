@@ -31,6 +31,17 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
         self.loadMenuScene()
     }
     
+    func loadCreditsScene(){
+        if let scene = GKScene(fileNamed: "CreditsScene") {
+            if let sceneNode = scene.rootNode as! CreditsScene? {
+                sceneNode.scaleMode = .aspectFill
+                if let view = self.view as! SKView? {
+                    view.presentSceneNG(sceneNode)
+                }
+            }
+        }
+    }
+    
     @IBAction func loadSettingsDialog(_ sender:Any?){
         let vcSettings:SettingsViewController = SettingsViewController()
         vcSettings.gameScene = nil

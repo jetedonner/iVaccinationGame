@@ -185,6 +185,12 @@
 		55EE3D972705ACD400991D86 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D952705ACD400991D86 /* Player.swift */; };
 		55EE3D992705BD7900991D86 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D982705BD7900991D86 /* ArrayExt.swift */; };
 		55EE3D9A2705BD7900991D86 /* ArrayExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D982705BD7900991D86 /* ArrayExt.swift */; };
+		55EE3D9D27063E1700991D86 /* CreditsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D9C27063E1700991D86 /* CreditsScene.sks */; };
+		55EE3D9E27063E1700991D86 /* CreditsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D9C27063E1700991D86 /* CreditsScene.sks */; };
+		55EE3DA027063E2300991D86 /* CreditsSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D9F27063E2300991D86 /* CreditsSceneBase.swift */; };
+		55EE3DA127063E2300991D86 /* CreditsSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D9F27063E2300991D86 /* CreditsSceneBase.swift */; };
+		55EE3DA92706436E00991D86 /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DA82706436E00991D86 /* CreditsScene.swift */; };
+		55EE3DAB270643E500991D86 /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DAA270643E500991D86 /* CreditsScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -338,6 +344,10 @@
 		55EE3D952705ACD400991D86 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		55EE3D982705BD7900991D86 /* ArrayExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExt.swift; sourceTree = "<group>"; };
 		55EE3D9B27063C2800991D86 /* iVaccination-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "iVaccination-Info.plist"; sourceTree = "<group>"; };
+		55EE3D9C27063E1700991D86 /* CreditsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CreditsScene.sks; sourceTree = "<group>"; };
+		55EE3D9F27063E2300991D86 /* CreditsSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsSceneBase.swift; sourceTree = "<group>"; };
+		55EE3DA82706436E00991D86 /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
+		55EE3DAA270643E500991D86 /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,6 +505,7 @@
 				55E59BC826FF80B600B75322 /* BaseSKSceneMacOS.swift */,
 				55E59BCB26FF83CD00B75322 /* DifficultyScene.swift */,
 				55E59BCD26FF867100B75322 /* DescriptionScene.swift */,
+				55EE3DAA270643E500991D86 /* CreditsScene.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -544,6 +555,7 @@
 				55B64A3026F3467200944766 /* MenuScene.sks */,
 				55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */,
 				55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */,
+				55EE3D9C27063E1700991D86 /* CreditsScene.sks */,
 				55EE3D8027058F1000991D86 /* MapScene.sks */,
 			);
 			path = Scenes;
@@ -660,6 +672,7 @@
 			isa = PBXGroup;
 			children = (
 				55C83F7826FDFF4F00F42F53 /* DescriptionSceneBase.swift */,
+				55EE3D9F27063E2300991D86 /* CreditsSceneBase.swift */,
 				55C83F3726FCE5BC00F42F53 /* DifficultySceneBase.swift */,
 				55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */,
 				55B64A3226F3474900944766 /* MenuSceneBase.swift */,
@@ -735,6 +748,7 @@
 				55EAD46C26FF7A9200BB8D06 /* MapScene.swift */,
 				55EAD47026FF7D0800BB8D06 /* MenuScene.swift */,
 				55E59BCF26FF873000B75322 /* DifficultyScene.swift */,
+				55EE3DA82706436E00991D86 /* CreditsScene.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -966,6 +980,7 @@
 				55EE3D8127058F1000991D86 /* MapScene.sks in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
+				55EE3D9D27063E1700991D86 /* CreditsScene.sks in Resources */,
 				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
 				55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */,
 				55B64A7926F3831D00944766 /* UpwardParticles.sks in Resources */,
@@ -1017,6 +1032,7 @@
 				55C83F0D26FC673000F42F53 /* UpwardParticles.sks in Resources */,
 				55C83F0B26FC673000F42F53 /* MagicParticle.sks in Resources */,
 				55C83F0226FC666500F42F53 /* MenuScene.sks in Resources */,
+				55EE3D9E27063E1700991D86 /* CreditsScene.sks in Resources */,
 				55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */,
 				55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */,
 			);
@@ -1072,6 +1088,7 @@
 				55A579CC26F644080084239D /* WallwayLevel.swift in Sources */,
 				55C83F6D26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */,
 				55C83F2B26FC75E600F42F53 /* GameSceneBase.swift in Sources */,
+				55EE3DAB270643E500991D86 /* CreditsScene.swift in Sources */,
 				55E59BC626FF7FA400B75322 /* UserDefaultsHelper.swift in Sources */,
 				55EAD45126FF559C00BB8D06 /* MapSceneBase.swift in Sources */,
 				55C83F7926FDFF4F00F42F53 /* DescriptionSceneBase.swift in Sources */,
@@ -1083,6 +1100,7 @@
 				55A579D326F64D1B0084239D /* CGFloatValueTransformer.swift in Sources */,
 				554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */,
 				55C83F6526FDDC6000F42F53 /* MenuState.swift in Sources */,
+				55EE3DA027063E2300991D86 /* CreditsSceneBase.swift in Sources */,
 				559442A926FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,
 				55EE3D6A26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55C83F6726FDDC7000F42F53 /* GameOverState.swift in Sources */,
@@ -1166,6 +1184,7 @@
 				55EE3D972705ACD400991D86 /* Player.swift in Sources */,
 				55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */,
 				55C83F2526FC6B2800F42F53 /* BasePickupNode.swift in Sources */,
+				55EE3DA127063E2300991D86 /* CreditsSceneBase.swift in Sources */,
 				55C83F1D26FC675500F42F53 /* SKSpriteNodeExt.swift in Sources */,
 				55C83F1026FC673D00F42F53 /* MeadowLevel.swift in Sources */,
 				55B64A4526F37FD400944766 /* AppDelegate.swift in Sources */,
@@ -1192,6 +1211,7 @@
 				55EE3D7527009A3200991D86 /* BaseMessageNode.swift in Sources */,
 				55C83F1326FC673D00F42F53 /* CitySkylineLevel.swift in Sources */,
 				55E59BD026FF873000B75322 /* DifficultyScene.swift in Sources */,
+				55EE3DA92706436E00991D86 /* CreditsScene.swift in Sources */,
 				55EAD47126FF7D0800BB8D06 /* MenuScene.swift in Sources */,
 				55EAD46826FF773A00BB8D06 /* BaseSKSceneIOS.swift in Sources */,
 				559442AA26FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,

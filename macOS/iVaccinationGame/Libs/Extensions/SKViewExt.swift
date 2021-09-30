@@ -23,6 +23,9 @@ extension SKView {
         }else if let mapScene = (self.scene as? MapScene){
             mapScene.mouseDown(with: event)
             return
+        }else if let creditsScene = (self.scene as? CreditsScene){
+            creditsScene.mouseDown(with: event)
+            return
         }else if let gameScene = (self.scene as? GameScene){
             super.mouseDown(with: event)
             let location = event.location(in: gameScene.bg!)

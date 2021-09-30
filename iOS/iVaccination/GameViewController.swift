@@ -25,6 +25,27 @@ class GameViewController: UIViewController, IViewController {
         self.loadMenuScene()
     }
     
+    func loadCreditsScene(){
+        if let scene = GKScene(fileNamed: "CreditsScene") {
+            if let sceneNode = scene.rootNode as! CreditsScene? {
+
+                sceneNode.scaleMode = .aspectFill
+
+                if let view = self.view as! SKView? {
+                    view.presentScene(sceneNode)
+
+                    view.ignoresSiblingOrder = true
+
+                    if(UserDefaultsHelper.devMode){
+                        view.showsFPS = true
+                        view.showsNodeCount = true
+                        view.showsPhysics = true
+                    }
+                }
+            }
+        }
+    }
+    
     func loadMapScene(difficulty:UserDefaultsDifficulty, level:Level = .Meadow){
         UserDefaultsHelper.difficulty = difficulty
         UserDefaultsHelper.levelID = level

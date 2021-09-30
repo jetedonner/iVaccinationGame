@@ -38,7 +38,7 @@ class MenuSceneBase: BaseSKScene {
         super.touchOrClick(pos: pos, viewController: viewController)
         let node = self.atPoint(pos)
         if(node == self.lblMap){
-            viewController.loadMapScene()
+            viewController.loadCreditsScene()
         }else if(node == self.lblStartGame){
             viewController.loadDifficultyScene()
         }else if(node == self.lblContinue){

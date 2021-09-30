@@ -11,6 +11,7 @@ import SpriteKit
 protocol IViewController{
     func loadMenuScene()
     func loadDifficultyScene()
+    func loadCreditsScene()
     func loadMapScene()
     func loadMapScene(difficulty:UserDefaultsDifficulty, level:Level)
     func loadGameScene(difficulty:UserDefaultsDifficulty, level:Level)
