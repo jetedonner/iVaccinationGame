@@ -13,7 +13,7 @@ iVaccinationGame is a fun game which lets you vaccinate zombies to save the worl
 
 ## Map-Generator
 * [azgaar.github.io/Fantasy-Map-Generator](https://azgaar.github.io/Fantasy-Map-Generator/)
-* GIMP
+* [GIMP](https://www.gimp.org/downloads/)
 
 ## Sounds
 * [Sound from Zapsplat.com](https://www.zapsplat.com)   
