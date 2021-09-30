@@ -17,8 +17,8 @@ extension GameSceneBase{
     }
     
     func addScore(score:Int){
-        self.score += score
-        self.lblScore?.text = self.score.description + " Points"
+        self.player.addScore(score: score)
+        self.lblScore?.text = self.player.score.description + " Points"
         self.lblScore?.run(SKAction.scale(by: 1.5, duration: 0.35),completion: {
             self.lblScore?.xScale = 1.0
             self.lblScore?.yScale = 1.0
@@ -50,7 +50,7 @@ extension GameSceneBase{
     }
     
     func updateThrowingHandTexture(){
-        if(self.syringesLeft <= 0){
+        if(!self.player.hasSyringes){
             self.imgThrowingHand?.texture = self.emptyHands
         }else{
             self.imgThrowingHand?.texture = self.fullHands

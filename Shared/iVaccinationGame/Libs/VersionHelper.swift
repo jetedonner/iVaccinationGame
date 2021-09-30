@@ -18,4 +18,8 @@ class VersionHelper{
     static func getAppBuild()->String{
         return (Bundle.main.infoDictionary?["CFBundleVersion"] as? String)!
     }
+    
+    static func getDevMode()->Bool{
+        return (Bundle.main.infoDictionary?["DevMode"] as? Bool)!
+    }
 }

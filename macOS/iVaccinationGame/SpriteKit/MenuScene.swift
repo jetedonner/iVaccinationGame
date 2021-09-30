@@ -71,10 +71,8 @@ class MenuScene: MenuSceneBase {
         if(self.selNode == lblExit){
             NSApp.terminate(nil)
         }else if(self.selNode == lblSettings){
-            let vcSettings:SettingsViewController = SettingsViewController()
-            vcSettings.gameScene = nil
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).presentAsSheet(vcSettings)
+                (viewCtrl as! ViewController).loadSettingsDialog(nil)
             }
         }
     }

@@ -17,6 +17,33 @@ class SettingsViewController: NSViewController {
     @IBOutlet var playSounds:NSSwitch?
     @IBOutlet var sharedUserDefaultsController:NSUserDefaultsController?
     
+    @IBOutlet var swtDevMode:NSSwitch?
+    @IBOutlet var cmdTestAch:NSButton?
+    @IBOutlet var cmdResetAch:NSButton?
+    @IBOutlet var lblDevMode:NSTextField?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if(VersionHelper.getDevMode()){
+            self.swtDevMode?.isHidden = false
+            self.lblDevMode?.isHidden = false
+            self.showHideAchButtons(hide: (self.swtDevMode?.state == .off))
+        }else{
+            self.swtDevMode?.isHidden = true
+            self.lblDevMode?.isHidden = true
+            self.showHideAchButtons(hide: true)
+        }
+    }
+    
+    @IBAction func switchDevMode(_ sender:Any){
+        self.showHideAchButtons(hide: (self.swtDevMode?.state == .off))
+    }
+    
+    func showHideAchButtons(hide:Bool){
+        self.cmdTestAch?.isHidden = hide
+        self.cmdResetAch?.isHidden = hide
+    }
+    
     @IBAction func resetGCAchivements(_ sender:Any){
         GCAchievements.shared.resetAllCompletedAchivements()
     }
@@ -30,9 +57,9 @@ class SettingsViewController: NSViewController {
     @IBAction func closeAndDiscardChanges(_ sender:Any){
         self.sharedUserDefaultsController?.revert(nil)
         if(gameScene != nil){
-            self.dismiss(sender)
             self.gameScene?.setGamePaused(isPaused: false)
         }
+        self.dismiss(sender)
     }
     
     @IBAction func closeAndResume(_ sender:Any){
@@ -47,17 +74,13 @@ class SettingsViewController: NSViewController {
             UserDefaultsHelper.volume = self.volume!.floatValue
         }
         self.dismiss(sender)
-        let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to abort the current level?")
-        if(answer){
-//            print("RELOADING GAME")
-            self.gameScene!.runLevel(levelID: UserDefaultsHelper.levelID)
-//            self.gameScene!.loadLevel(levelID: UserDefaultsHelper.levelID)
-//            self.gameScene!.restartAfterGameOverNG(resetTime: true)
-//            self.gameScene!.showMessage(msg: "Level: \(self.currentLevel.levelName)")
-//            self.gameScene!.restartLevel()
-        }
         if(self.gameScene != nil){
-            self.gameScene?.setGamePaused(isPaused: false)
+            let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to abort the current level?")
+            if(answer){
+                self.gameScene!.runLevel(levelID: UserDefaultsHelper.levelID)
+            }else{
+                self.gameScene?.setGamePaused(isPaused: false)
+            }
         }
     }
 }

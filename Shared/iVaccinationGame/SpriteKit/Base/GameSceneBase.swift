@@ -47,12 +47,11 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var imgThrowingHand:SKSpriteNode?
     var imgArrowDown:SKSpriteNode?
     
-    
     var contentNode:SKNode?
     var bg:SKSpriteNode?
     
-    var score:Int = 0
-    var syringesLeft:Int = 2
+//    var score:Int = 0
+//    var syringesLeft:Int = 2
     
     var effectNode:SKEffectNode = SKEffectNode()
     var lblGameOver:SKLabelNode?
@@ -70,8 +69,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var pauseStartTime:TimeInterval = 0
     var gameDuration:TimeInterval = GameVars.DEV_ROUND_TIME
     
-    var bites:Int = 0
-    var health:CGFloat = 100.0
+//    var bites:Int = 0
+//    var health:CGFloat = 100.0
     var damage:CGFloat = GameVars.DEV_ZOMBIE_DAMAGE
     
     let explosionEmitterNode = SKEmitterNode(fileNamed:"MagicParticle.sks")
@@ -93,6 +92,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var fullHands:SKTexture = SKTexture(imageNamed: "ThrowingFingers")
     
     var zombieGirl:ZombieGirl!
+    
+    var player:Player = Player()
     
     var thrownSyringeDarts:[SyringeDart] = []
     
@@ -197,9 +198,14 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.setupHandAnimation()
     }
     
-    func setSyringesLeft(syringesLeft:Int){
-        self.syringesLeft = syringesLeft
-        self.lblSyringesLeft?.text = self.syringesLeft.description + " / 2"
+//    func setSyringesLeft(syringesLeft:Int){
+//        self.syringesLeft = syringesLeft
+//        self.lblSyringesLeft?.text = self.syringesLeft.description + " / 2"
+//    }
+    
+    func setSyringesHUD(){
+//        self.syringesLeft = syringesLeft
+        self.lblSyringesLeft?.text = self.player.vaccineArsenal.vaccinesInArsenal[.Perofixa]!.description + " / 2"
     }
     
     func runLevel(levelID:Level){
@@ -307,33 +313,35 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.zombieGirl.texture =  SKTexture(imageNamed: "ZombieGirl2")
         self.zombieGirl.speed = UserDefaultsHelper.speedMultiplierForDifficulty
         self.zombieGirl.run(self.currentLevel.zombieCurrentPath.path, completion: {
-            self.health -= self.currentLevel.zombieDamage
-            self.bites += 1
+//            self.health -= self.currentLevel.zombieDamage
+//            self.bites += 1
+//            self.player.zombieBite(damage: self.currentLevel.zombieDamage)
             self.imgBlood?.isHidden = false
             self.imgBlood?.alpha = 1.0
-            if(self.health <= 0.0){
+            if(self.player.zombieBite(damage: self.currentLevel.zombieDamage)/*self.health <= 0.0*/){
                 self.imgRedOut?.run(SKAction.fadeIn(withDuration: 1.0), completion: {
                     self.imgRedOut?.alpha = 0.0
                     self.imgBlood?.isHidden = true
-                    self.health = 100.0
+//                    self.health = 100.0
+                    self.player.resetPlayer()
                     self.prgBar.setProgress(1.0)
                     self.showGameOver()
                 })
             }
             
-            self.prgBar.setProgress(self.health / 100.0)
+            self.prgBar.setProgress(self.player.health / 100.0)
             
-            if(self.health <= 75.0){
+            if(self.player.health <= 75.0){
                 self.medkitPickup?.genNewPos()
             }
             // TODO SoundVar
             SoundManager.shared.playSound(sound: .eat1)
             self.zombieGirl.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)])]), completion: {
-                if(self.health >= 75.0){
+                if(self.player.health >= 75.0){
                     SoundManager.shared.playSound(sound: .pain100)
-                }else if(self.health >= 50.0){
+                }else if(self.player.health >= 50.0){
                     SoundManager.shared.playSound(sound: .pain75)
-                }else if(self.health >= 25.0){
+                }else if(self.player.health >= 25.0){
                     SoundManager.shared.playSound(sound: .pain50)
                 }else {
                     SoundManager.shared.playSound(sound: .pain25)
@@ -408,8 +416,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.effectNode.isHidden = true
         self.lblScore?.position = self.scoreLblOrigPos
         self.lblScore?.setScale(1.0)
-        self.health = 100.0
-        self.bites = 0
+        self.player.resetPlayer()
         if(loadNewLevel){
             var g = SystemRandomNumberGenerator()
 //            self.currentLevel = self.levels.randomElement(using: &g)!
@@ -432,6 +439,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     
     func showGameOver(){
         self.gameRunning = false
+        self.songPlayer?.stop()
         self.scoreLblOrigPos = self.lblScore!.position
         self.lblScore?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 180), duration: 0.45), SKAction.scale(to: 2.5, duration: 0.45)]))
         self.lblGameOver?.alpha = 1.0
@@ -461,16 +469,16 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                 }
             #else
                 if let viewCtrl = self.view?.window?.contentViewController{
-                    (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.score)
+                    (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.player.score)
                     print("OLD HIGHSCORE IS: \(ICloudStorageHelper.highscore), LEVEL: \(ICloudStorageHelper.level)")
-                    ICloudStorageHelper.highscore = self.score
+                    ICloudStorageHelper.highscore = self.player.score
                     ICloudStorageHelper.level = Level.CitySkyline.rawValue
                 }
             #endif
                 if(self.currentLevel.shots > 0 && self.currentLevel.shots == self.currentLevel.hits){
                     GCAchievements.shared.add2perfectThrows()
                 }
-                if(self.bites == 0){
+                if(self.player.bites == 0){
                     GCAchievements.shared.add2stayHealthy()
                 }
             }
@@ -518,7 +526,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             return
         }
         
-        if(self.syringesLeft <= 0){
+        if(!self.player.hasSyringes){
             return
         }
         

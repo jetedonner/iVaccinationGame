@@ -32,20 +32,20 @@ class KeyboardHandler{
             self.gameScene.restartAfterHit()
             break
         case KeyCode.KEY_1.rawValue: // 1
-            self.gameScene.lblVacc?.text = "Vaccine: Moderna"
-            self.gameScene.lblVacc?.fontColor = self.gameScene.lblTime?.fontColor
+//            self.gameScene.lblVacc?.text = "Vaccine: Moderna"
+//            self.gameScene.lblVacc?.fontColor = self.gameScene.lblTime?.fontColor
             break
         case KeyCode.KEY_2.rawValue: // 2
-            self.gameScene.lblVacc?.text = "Vaccine: Pfizer"
-            self.gameScene.lblVacc?.fontColor = .orange
+//            self.gameScene.lblVacc?.text = "Vaccine: Pfizer"
+//            self.gameScene.lblVacc?.fontColor = .orange
             break
         case KeyCode.KEY_3.rawValue: // 3
-            self.gameScene.lblVacc?.text = "Vaccine: Johnson & Johnson"
-            self.gameScene.lblVacc?.fontColor = .green
+//            self.gameScene.lblVacc?.text = "Vaccine: Johnson & Johnson"
+//            self.gameScene.lblVacc?.fontColor = .green
             break
         case KeyCode.KEY_4.rawValue: // 4
-            self.gameScene.lblVacc?.text = "Vaccine: Sputnik"
-            self.gameScene.lblVacc?.fontColor = .yellow
+//            self.gameScene.lblVacc?.text = "Vaccine: Sputnik"
+//            self.gameScene.lblVacc?.fontColor = .yellow
             break
         case KeyCode.KEY_S.rawValue: // S
             self.gameScene.setGamePaused(isPaused: true)

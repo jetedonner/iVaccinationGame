@@ -32,6 +32,18 @@ extension SKView {
 }
 
 extension SKView {
+    
+    func presentSceneNG(_ scene: SKScene?){
+        self.presentScene(scene)
+        self.ignoresSiblingOrder = true
+        
+        if(UserDefaultsHelper.devMode){
+            self.showsFPS = true
+            self.showsNodeCount = true
+            self.showsPhysics = true
+        }
+    }
+    
     override open func resetCursorRects() {
         if let gameScene = (self.scene as? GameScene){
             gameScene.imgCH = self.resize(image: NSImage(named:NSImage.Name("CH_first_red.png"))!, w: 64, h: 64)

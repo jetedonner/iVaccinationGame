@@ -20,6 +20,7 @@ class CertificatePickup: BasePickupNode {
         if let gameScene = self.scene as? GameScene{
             SoundManager.shared.playSound(sound: .certPickup)
             self.isHidden = true
+            gameScene.player.pickedUpCert()
             gameScene.addScore(score: self.pickupScore)
             gameScene.showEarnedPoints(score: self.pickupScore, onNode: self)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certRespawnRange.randomElement()!), execute: {

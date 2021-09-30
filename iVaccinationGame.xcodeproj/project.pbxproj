@@ -25,8 +25,6 @@
 		556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
-		5594429D26FE47120082DA72 /* GameScene_Japan.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5594429C26FE47120082DA72 /* GameScene_Japan.sks */; };
-		5594429E26FE47120082DA72 /* GameScene_Japan.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5594429C26FE47120082DA72 /* GameScene_Japan.sks */; };
 		559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A126FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A226FE50800082DA72 /* GameSceneBaseExt.swift */; };
@@ -44,8 +42,6 @@
 		55A579C826F5C5EC0084239D /* CitySkylineLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579C726F5C5EC0084239D /* CitySkylineLevel.swift */; };
 		55A579CA26F638610084239D /* BaseLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579C926F638610084239D /* BaseLevel.swift */; };
 		55A579CC26F644080084239D /* WallwayLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579CB26F644080084239D /* WallwayLevel.swift */; };
-		55A579CE26F646480084239D /* GameScene_ORIG.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55A579CD26F646480084239D /* GameScene_ORIG.sks */; };
-		55A579D026F6464F0084239D /* GameScene_TEST.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55A579CF26F6464F0084239D /* GameScene_TEST.sks */; };
 		55A579D326F64D1B0084239D /* CGFloatValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579D226F64D1B0084239D /* CGFloatValueTransformer.swift */; };
 		55B64A3126F3467200944766 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A3026F3467200944766 /* MenuScene.sks */; };
 		55B64A3326F3474900944766 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3226F3474900944766 /* MenuSceneBase.swift */; };
@@ -65,20 +61,14 @@
 		55B64A7F26F3A43E00944766 /* GameCenterHelperExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */; };
 		55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A8426F3CEAE00944766 /* CH_first_red.png */; };
 		55C83EF226FB250E00F42F53 /* MeadowLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83EF126FB250E00F42F53 /* MeadowLevel.swift */; };
-		55C83EF426FB91A900F42F53 /* GameScene_THIRD.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF326FB91A900F42F53 /* GameScene_THIRD.sks */; };
 		55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF526FB942200F42F53 /* MeadowLeftActions.sks */; };
-		55C83EF826FB9B4600F42F53 /* GameScene_THIRD_alz.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF726FB9B4600F42F53 /* GameScene_THIRD_alz.sks */; };
 		55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF926FB9CF600F42F53 /* MeadowRightActions.sks */; };
 		55C83EFC26FBB12400F42F53 /* ZombieGirl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83EFB26FBB12400F42F53 /* ZombieGirl.swift */; };
 		55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF926FB9CF600F42F53 /* MeadowRightActions.sks */; };
-		55C83F0126FC666500F42F53 /* GameScene_TEST.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55A579CF26F6464F0084239D /* GameScene_TEST.sks */; };
 		55C83F0226FC666500F42F53 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A3026F3467200944766 /* MenuScene.sks */; };
-		55C83F0326FC666500F42F53 /* GameScene_THIRD_alz.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF726FB9B4600F42F53 /* GameScene_THIRD_alz.sks */; };
-		55C83F0426FC666500F42F53 /* GameScene_ORIG.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55A579CD26F646480084239D /* GameScene_ORIG.sks */; };
 		55C83F0526FC666500F42F53 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531E26EFAD4300371E58 /* Actions.sks */; };
 		55C83F0626FC666500F42F53 /* MeadowLeftActions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF526FB942200F42F53 /* MeadowLeftActions.sks */; };
 		55C83F0726FC666500F42F53 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531C26EFAD4300371E58 /* GameScene.sks */; };
-		55C83F0826FC666500F42F53 /* GameScene_THIRD.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83EF326FB91A900F42F53 /* GameScene_THIRD.sks */; };
 		55C83F0B26FC673000F42F53 /* MagicParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5552BFA626F264130034C812 /* MagicParticle.sks */; };
 		55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55A579B726F4D1800084239D /* Upward2Particles.sks */; };
 		55C83F0D26FC673000F42F53 /* UpwardParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A7726F3831D00944766 /* UpwardParticles.sks */; };
@@ -130,8 +120,6 @@
 		55C83F6B26FDDF1F00F42F53 /* GameCenterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F6926FDDF1F00F42F53 /* GameCenterState.swift */; };
 		55C83F6D26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F6C26FDFADE00F42F53 /* CityStreetLevel.swift */; };
 		55C83F6E26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F6C26FDFADE00F42F53 /* CityStreetLevel.swift */; };
-		55C83F7326FDFB9D00F42F53 /* GameScene_FOURTH.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F7226FDFB9D00F42F53 /* GameScene_FOURTH.sks */; };
-		55C83F7426FDFB9D00F42F53 /* GameScene_FOURTH.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F7226FDFB9D00F42F53 /* GameScene_FOURTH.sks */; };
 		55C83F7626FDFD8A00F42F53 /* DescriptionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */; };
 		55C83F7726FDFD8A00F42F53 /* DescriptionScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */; };
 		55C83F7926FDFF4F00F42F53 /* DescriptionSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C83F7826FDFF4F00F42F53 /* DescriptionSceneBase.swift */; };
@@ -155,8 +143,6 @@
 		55EAD44D26FE990200BB8D06 /* CertificatePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */; };
 		55EAD44E26FE990200BB8D06 /* CertificatePickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */; };
 		55EAD45126FF559C00BB8D06 /* MapSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */; };
-		55EAD45426FF55F000BB8D06 /* MapSceneOrig.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD45326FF55F000BB8D06 /* MapSceneOrig.sks */; };
-		55EAD45526FF55F000BB8D06 /* MapSceneOrig.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EAD45326FF55F000BB8D06 /* MapSceneOrig.sks */; };
 		55EAD45726FF60D600BB8D06 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45626FF60D600BB8D06 /* Level.swift */; };
 		55EAD45826FF60D600BB8D06 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EAD45626FF60D600BB8D06 /* Level.swift */; };
 		55EAD45926FF6F2700BB8D06 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3226F3474900944766 /* MenuSceneBase.swift */; };
@@ -185,6 +171,18 @@
 		55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7D270377FC00991D86 /* VersionHelper.swift */; };
 		55EE3D8127058F1000991D86 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D8027058F1000991D86 /* MapScene.sks */; };
 		55EE3D8227058F1000991D86 /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D8027058F1000991D86 /* MapScene.sks */; };
+		55EE3D852705A58F00991D86 /* VaccineBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D842705A58F00991D86 /* VaccineBase.swift */; };
+		55EE3D862705A58F00991D86 /* VaccineBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D842705A58F00991D86 /* VaccineBase.swift */; };
+		55EE3D892705A63500991D86 /* PerofixaVaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D882705A63500991D86 /* PerofixaVaccine.swift */; };
+		55EE3D8A2705A63500991D86 /* PerofixaVaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D882705A63500991D86 /* PerofixaVaccine.swift */; };
+		55EE3D8C2705A67800991D86 /* JillAndJasmineVaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D8B2705A67800991D86 /* JillAndJasmineVaccine.swift */; };
+		55EE3D8D2705A67800991D86 /* JillAndJasmineVaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D8B2705A67800991D86 /* JillAndJasmineVaccine.swift */; };
+		55EE3D8F2705A7E200991D86 /* VaccineArsenal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D8E2705A7E200991D86 /* VaccineArsenal.swift */; };
+		55EE3D902705A7E200991D86 /* VaccineArsenal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D8E2705A7E200991D86 /* VaccineArsenal.swift */; };
+		55EE3D922705AB6B00991D86 /* VaccineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D912705AB6B00991D86 /* VaccineType.swift */; };
+		55EE3D932705AB6B00991D86 /* VaccineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D912705AB6B00991D86 /* VaccineType.swift */; };
+		55EE3D962705ACD400991D86 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D952705ACD400991D86 /* Player.swift */; };
+		55EE3D972705ACD400991D86 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D952705ACD400991D86 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,7 +238,6 @@
 		556FBE7E26F7032B00F8081C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		556FBE8026F77A6C00F8081C /* BasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePath.swift; sourceTree = "<group>"; };
 		556FBE8226F7858D00F8081C /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
-		5594429C26FE47120082DA72 /* GameScene_Japan.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_Japan.sks; sourceTree = "<group>"; };
 		5594429F26FE4F710082DA72 /* SyringeDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringeDart.swift; sourceTree = "<group>"; };
 		559442A226FE50800082DA72 /* GameSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt.swift; sourceTree = "<group>"; };
 		559442A526FE51350082DA72 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -254,8 +251,6 @@
 		55A579C726F5C5EC0084239D /* CitySkylineLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySkylineLevel.swift; sourceTree = "<group>"; };
 		55A579C926F638610084239D /* BaseLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLevel.swift; sourceTree = "<group>"; };
 		55A579CB26F644080084239D /* WallwayLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallwayLevel.swift; sourceTree = "<group>"; };
-		55A579CD26F646480084239D /* GameScene_ORIG.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_ORIG.sks; sourceTree = "<group>"; };
-		55A579CF26F6464F0084239D /* GameScene_TEST.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_TEST.sks; sourceTree = "<group>"; };
 		55A579D226F64D1B0084239D /* CGFloatValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatValueTransformer.swift; sourceTree = "<group>"; };
 		55B64A3026F3467200944766 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		55B64A3226F3474900944766 /* MenuSceneBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSceneBase.swift; sourceTree = "<group>"; };
@@ -278,9 +273,7 @@
 		55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterHelperExt.swift; sourceTree = "<group>"; };
 		55B64A8426F3CEAE00944766 /* CH_first_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CH_first_red.png; sourceTree = "<group>"; };
 		55C83EF126FB250E00F42F53 /* MeadowLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeadowLevel.swift; sourceTree = "<group>"; };
-		55C83EF326FB91A900F42F53 /* GameScene_THIRD.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_THIRD.sks; sourceTree = "<group>"; };
 		55C83EF526FB942200F42F53 /* MeadowLeftActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MeadowLeftActions.sks; sourceTree = "<group>"; };
-		55C83EF726FB9B4600F42F53 /* GameScene_THIRD_alz.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_THIRD_alz.sks; sourceTree = "<group>"; };
 		55C83EF926FB9CF600F42F53 /* MeadowRightActions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MeadowRightActions.sks; sourceTree = "<group>"; };
 		55C83EFB26FBB12400F42F53 /* ZombieGirl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZombieGirl.swift; sourceTree = "<group>"; };
 		55C83F1F26FC680C00F42F53 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -301,7 +294,6 @@
 		55C83F6626FDDC7000F42F53 /* GameOverState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverState.swift; sourceTree = "<group>"; };
 		55C83F6926FDDF1F00F42F53 /* GameCenterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCenterState.swift; sourceTree = "<group>"; };
 		55C83F6C26FDFADE00F42F53 /* CityStreetLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityStreetLevel.swift; sourceTree = "<group>"; };
-		55C83F7226FDFB9D00F42F53 /* GameScene_FOURTH.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_FOURTH.sks; sourceTree = "<group>"; };
 		55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = DescriptionScene.sks; sourceTree = "<group>"; };
 		55C83F7826FDFF4F00F42F53 /* DescriptionSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionSceneBase.swift; sourceTree = "<group>"; };
 		55C83F7B26FE116B00F42F53 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -319,7 +311,6 @@
 		55EAD44926FE98C700BB8D06 /* Upward3Particles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Upward3Particles.sks; sourceTree = "<group>"; };
 		55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificatePickup.swift; sourceTree = "<group>"; };
 		55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSceneBase.swift; sourceTree = "<group>"; };
-		55EAD45326FF55F000BB8D06 /* MapSceneOrig.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapSceneOrig.sks; sourceTree = "<group>"; };
 		55EAD45626FF60D600BB8D06 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		55EAD46426FF757500BB8D06 /* BaseSKScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSKScene.swift; sourceTree = "<group>"; };
 		55EAD46726FF773A00BB8D06 /* BaseSKSceneIOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSKSceneIOS.swift; sourceTree = "<group>"; };
@@ -337,6 +328,12 @@
 		55EE3D7B2702318900991D86 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		55EE3D7D270377FC00991D86 /* VersionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionHelper.swift; sourceTree = "<group>"; };
 		55EE3D8027058F1000991D86 /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
+		55EE3D842705A58F00991D86 /* VaccineBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineBase.swift; sourceTree = "<group>"; };
+		55EE3D882705A63500991D86 /* PerofixaVaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerofixaVaccine.swift; sourceTree = "<group>"; };
+		55EE3D8B2705A67800991D86 /* JillAndJasmineVaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JillAndJasmineVaccine.swift; sourceTree = "<group>"; };
+		55EE3D8E2705A7E200991D86 /* VaccineArsenal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineArsenal.swift; sourceTree = "<group>"; };
+		55EE3D912705AB6B00991D86 /* VaccineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineType.swift; sourceTree = "<group>"; };
+		55EE3D952705ACD400991D86 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +461,7 @@
 		55A579B926F4F8810084239D /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				55EE3D872705A60900991D86 /* Vaccines */,
 				55A579BC26F4FD950084239D /* BasePickupNode.swift */,
 				55A579BA26F4F89D0084239D /* MedKitPickup.swift */,
 				55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */,
@@ -535,20 +533,12 @@
 		55B64A2E26F3462E00944766 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				55C83EF926FB9CF600F42F53 /* MeadowRightActions.sks */,
-				55C83EF526FB942200F42F53 /* MeadowLeftActions.sks */,
+				55EE3D832705A2C200991D86 /* Actions */,
 				554E531C26EFAD4300371E58 /* GameScene.sks */,
-				55C83EF326FB91A900F42F53 /* GameScene_THIRD.sks */,
-				55C83EF726FB9B4600F42F53 /* GameScene_THIRD_alz.sks */,
-				55A579CD26F646480084239D /* GameScene_ORIG.sks */,
-				55C83F7226FDFB9D00F42F53 /* GameScene_FOURTH.sks */,
-				5594429C26FE47120082DA72 /* GameScene_Japan.sks */,
-				55A579CF26F6464F0084239D /* GameScene_TEST.sks */,
 				554E531E26EFAD4300371E58 /* Actions.sks */,
 				55B64A3026F3467200944766 /* MenuScene.sks */,
 				55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */,
 				55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */,
-				55EAD45326FF55F000BB8D06 /* MapSceneOrig.sks */,
 				55EE3D8027058F1000991D86 /* MapScene.sks */,
 			);
 			path = Scenes;
@@ -651,6 +641,7 @@
 		55C83EFF26FC664C00F42F53 /* SpriteKit */ = {
 			isa = PBXGroup;
 			children = (
+				55EE3D942705ACC800991D86 /* Player */,
 				55B64A2F26F3463F00944766 /* Particles */,
 				55A579C626F50F200084239D /* Levels */,
 				55C83F0926FC66CD00F42F53 /* Base */,
@@ -758,6 +749,35 @@
 				55B64A7E26F3A43E00944766 /* GameCenterHelperExt.swift */,
 			);
 			path = GameCenter;
+			sourceTree = "<group>";
+		};
+		55EE3D832705A2C200991D86 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				55C83EF926FB9CF600F42F53 /* MeadowRightActions.sks */,
+				55C83EF526FB942200F42F53 /* MeadowLeftActions.sks */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		55EE3D872705A60900991D86 /* Vaccines */ = {
+			isa = PBXGroup;
+			children = (
+				55EE3D842705A58F00991D86 /* VaccineBase.swift */,
+				55EE3D882705A63500991D86 /* PerofixaVaccine.swift */,
+				55EE3D8B2705A67800991D86 /* JillAndJasmineVaccine.swift */,
+				55EE3D8E2705A7E200991D86 /* VaccineArsenal.swift */,
+				55EE3D912705AB6B00991D86 /* VaccineType.swift */,
+			);
+			path = Vaccines;
+			sourceTree = "<group>";
+		};
+		55EE3D942705ACC800991D86 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				55EE3D952705ACD400991D86 /* Player.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -934,13 +954,9 @@
 				55A579B826F4D1800084239D /* Upward2Particles.sks in Resources */,
 				5552BFA726F264130034C812 /* MagicParticle.sks in Resources */,
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
-				5594429D26FE47120082DA72 /* GameScene_Japan.sks in Resources */,
-				55A579D026F6464F0084239D /* GameScene_TEST.sks in Resources */,
-				55C83EF426FB91A900F42F53 /* GameScene_THIRD.sks in Resources */,
 				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
 				55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */,
-				55EAD45426FF55F000BB8D06 /* MapSceneOrig.sks in Resources */,
 				55EE3D8127058F1000991D86 /* MapScene.sks in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
@@ -949,14 +965,11 @@
 				55B64A7926F3831D00944766 /* UpwardParticles.sks in Resources */,
 				55B64A3526F3577D00944766 /* SettingsViewController.xib in Resources */,
 				554E535226EFB60600371E58 /* Media.scnassets in Resources */,
-				55C83EF826FB9B4600F42F53 /* GameScene_THIRD_alz.sks in Resources */,
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
 				55B64A3126F3467200944766 /* MenuScene.sks in Resources */,
 				55EE3D6E26FFE3D500991D86 /* AppIconMacOS.xcassets in Resources */,
 				554E534B26EFB34E00371E58 /* CH_first.png in Resources */,
 				55EAD44A26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
-				55A579CE26F646480084239D /* GameScene_ORIG.sks in Resources */,
-				55C83F7326FDFB9D00F42F53 /* GameScene_FOURTH.sks in Resources */,
 				55C83F3526FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
 				55C83F7626FDFD8A00F42F53 /* DescriptionScene.sks in Resources */,
 			);
@@ -984,22 +997,15 @@
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				55EE3D8227058F1000991D86 /* MapScene.sks in Resources */,
 				55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */,
-				55C83F0426FC666500F42F53 /* GameScene_ORIG.sks in Resources */,
 				55C83F7C26FE116B00F42F53 /* Settings.bundle in Resources */,
 				55C83F4426FCFC3400F42F53 /* README.md in Resources */,
 				55C83F0526FC666500F42F53 /* Actions.sks in Resources */,
 				55C83F7726FDFD8A00F42F53 /* DescriptionScene.sks in Resources */,
-				5594429E26FE47120082DA72 /* GameScene_Japan.sks in Resources */,
 				55C83F2926FC719300F42F53 /* Media.scnassets in Resources */,
 				55C83F0626FC666500F42F53 /* MeadowLeftActions.sks in Resources */,
-				55C83F0826FC666500F42F53 /* GameScene_THIRD.sks in Resources */,
-				55C83F0326FC666500F42F53 /* GameScene_THIRD_alz.sks in Resources */,
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
-				55EAD45526FF55F000BB8D06 /* MapSceneOrig.sks in Resources */,
-				55C83F7426FDFB9D00F42F53 /* GameScene_FOURTH.sks in Resources */,
 				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,
-				55C83F0126FC666500F42F53 /* GameScene_TEST.sks in Resources */,
 				55C83F3E26FCFC0400F42F53 /* LICENSE in Resources */,
 				55C83F0726FC666500F42F53 /* GameScene.sks in Resources */,
 				55C83F0D26FC673000F42F53 /* UpwardParticles.sks in Resources */,
@@ -1044,13 +1050,16 @@
 				55E59BCE26FF867100B75322 /* DescriptionScene.swift in Sources */,
 				55C83F6326FDDC5500F42F53 /* SettingsState.swift in Sources */,
 				55A579C126F507A10084239D /* SKViewExt.swift in Sources */,
+				55EE3D8C2705A67800991D86 /* JillAndJasmineVaccine.swift in Sources */,
 				55C83F5C26FDDB8B00F42F53 /* PauseState.swift in Sources */,
 				5552BFA926F26ABE0034C812 /* TimeInterval.swift in Sources */,
 				55EAD44D26FE990200BB8D06 /* CertificatePickup.swift in Sources */,
 				55B64A3326F3474900944766 /* MenuSceneBase.swift in Sources */,
 				55C83EF226FB250E00F42F53 /* MeadowLevel.swift in Sources */,
 				55EAD45726FF60D600BB8D06 /* Level.swift in Sources */,
+				55EE3D922705AB6B00991D86 /* VaccineType.swift in Sources */,
 				55C83F4926FD268A00F42F53 /* KeyCode.swift in Sources */,
+				55EE3D962705ACD400991D86 /* Player.swift in Sources */,
 				55B64A7D26F3A3A300944766 /* GameCenterHelper.swift in Sources */,
 				55C83F8326FE326500F42F53 /* CityNightLevel.swift in Sources */,
 				55A579CC26F644080084239D /* WallwayLevel.swift in Sources */,
@@ -1060,6 +1069,7 @@
 				55EAD45126FF559C00BB8D06 /* MapSceneBase.swift in Sources */,
 				55C83F7926FDFF4F00F42F53 /* DescriptionSceneBase.swift in Sources */,
 				556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */,
+				55EE3D852705A58F00991D86 /* VaccineBase.swift in Sources */,
 				55C83F6A26FDDF1F00F42F53 /* GameCenterState.swift in Sources */,
 				554E532126EFAD4300371E58 /* GameScene.swift in Sources */,
 				55C83F3826FCE5BC00F42F53 /* DifficultySceneBase.swift in Sources */,
@@ -1075,6 +1085,7 @@
 				55C83F3226FCA9A200F42F53 /* GCAchievements.swift in Sources */,
 				559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */,
 				55B64A3726F3579600944766 /* SettingsViewController.swift in Sources */,
+				55EE3D8F2705A7E200991D86 /* VaccineArsenal.swift in Sources */,
 				55EE3D7E270377FC00991D86 /* VersionHelper.swift in Sources */,
 				55C83F8126FE323800F42F53 /* CityJapanLevel.swift in Sources */,
 				55A579C826F5C5EC0084239D /* CitySkylineLevel.swift in Sources */,
@@ -1087,6 +1098,7 @@
 				55A579C326F507DF0084239D /* SKSpriteNodeExt.swift in Sources */,
 				55E59BCC26FF83CD00B75322 /* DifficultyScene.swift in Sources */,
 				55E59BC926FF80B600B75322 /* BaseSKSceneMacOS.swift in Sources */,
+				55EE3D892705A63500991D86 /* PerofixaVaccine.swift in Sources */,
 				559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */,
 				559442A626FE51350082DA72 /* GameState.swift in Sources */,
 				55B64A3B26F3602C00944766 /* GameVars.swift in Sources */,
@@ -1136,11 +1148,14 @@
 				55C83F8026FE31EB00F42F53 /* CityJapanLevel.swift in Sources */,
 				55EAD45E26FF72AD00BB8D06 /* MapSceneBase.swift in Sources */,
 				55EAD44E26FE990200BB8D06 /* CertificatePickup.swift in Sources */,
+				55EE3D862705A58F00991D86 /* VaccineBase.swift in Sources */,
+				55EE3D902705A7E200991D86 /* VaccineArsenal.swift in Sources */,
 				55C83F6126FDDC4100F42F53 /* MenuState.swift in Sources */,
 				55E59BD726FF8C9D00B75322 /* ICloudStorageHelper.swift in Sources */,
 				55C83F8426FE326500F42F53 /* CityNightLevel.swift in Sources */,
 				55EAD46D26FF7A9200BB8D06 /* MapScene.swift in Sources */,
 				55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */,
+				55EE3D972705ACD400991D86 /* Player.swift in Sources */,
 				55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */,
 				55C83F2526FC6B2800F42F53 /* BasePickupNode.swift in Sources */,
 				55C83F1D26FC675500F42F53 /* SKSpriteNodeExt.swift in Sources */,
@@ -1151,14 +1166,17 @@
 				55C83F2726FC6BB500F42F53 /* CustomProgressBar.swift in Sources */,
 				55EE3D6626FFB7F200991D86 /* SoundManagerExt.swift in Sources */,
 				55C83F1426FC673D00F42F53 /* BasePath.swift in Sources */,
+				55EE3D8A2705A63500991D86 /* PerofixaVaccine.swift in Sources */,
 				55C83F2026FC680C00F42F53 /* GameScene.swift in Sources */,
 				55C83F2626FC6B2A00F42F53 /* SyringePickup.swift in Sources */,
 				55EAD46626FF757500BB8D06 /* BaseSKScene.swift in Sources */,
 				559442A426FE50800082DA72 /* GameSceneBaseExt.swift in Sources */,
 				55C83F5126FDD96F00F42F53 /* KeyCode.swift in Sources */,
+				55EE3D8D2705A67800991D86 /* JillAndJasmineVaccine.swift in Sources */,
 				55C83F2426FC6B2500F42F53 /* MedKitPickup.swift in Sources */,
 				55C83F6826FDDC7000F42F53 /* GameOverState.swift in Sources */,
 				55EAD45926FF6F2700BB8D06 /* MenuSceneBase.swift in Sources */,
+				55EE3D932705AB6B00991D86 /* VaccineType.swift in Sources */,
 				55C83F5726FDDB4100F42F53 /* PauseState.swift in Sources */,
 				55EAD45826FF60D600BB8D06 /* Level.swift in Sources */,
 				55C83F6E26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */,

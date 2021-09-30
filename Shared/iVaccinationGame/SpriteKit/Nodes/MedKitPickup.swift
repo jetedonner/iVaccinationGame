@@ -18,16 +18,15 @@ class MedKitPickup: BasePickupNode {
     override func pickedUp(){
         super.pickedUp()
         if let gameScene = self.scene as? GameScene{
-            gameScene.health += 25.0
-            gameScene.prgBar.setProgress(gameScene.health / 100.0)
-
+            gameScene.player.pickedUpMedKit(healValue: 25.0)
+            gameScene.prgBar.setProgress(gameScene.player.health / 100.0)
             gameScene.addScore(score: self.pickupScore)
             gameScene.showEarnedPoints(score: self.pickupScore, onNode: self)
             
             SoundManager.shared.playSound(sound: .healthPickup)
 
-            self.run(SKAction.group([SKAction.fadeAlpha(to: (gameScene.health >= 100.0 ? 0.0 : 1.0), duration: 0.1)]), completion: {
-                if(gameScene.health >= 100.0){
+            self.run(SKAction.group([SKAction.fadeAlpha(to: (gameScene.player.health >= 100.0 ? 0.0 : 1.0), duration: 0.1)]), completion: {
+                if(gameScene.player.health >= 100.0){
                     self.alpha = 0.0
                 }
             })

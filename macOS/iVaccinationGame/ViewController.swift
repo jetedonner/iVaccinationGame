@@ -15,11 +15,9 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
     var gameCenterHelper:GameCenterHelper!
     var gameSceneObj:GameScene!
     
-    @IBOutlet var skView: SKView!
-    
     override func viewDidAppear() {
         super.viewDidAppear()
-        self.skView.window?.acceptsMouseMovedEvents = true
+        self.view.window?.acceptsMouseMovedEvents = true
     }
     
     override func viewDidLoad() {
@@ -33,21 +31,18 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
         self.loadMenuScene()
     }
     
+    @IBAction func loadSettingsDialog(_ sender:Any?){
+        let vcSettings:SettingsViewController = SettingsViewController()
+        vcSettings.gameScene = nil
+        self.presentAsSheet(vcSettings)
+    }
+    
     func loadMenuScene(){
         if let scene = GKScene(fileNamed: "MenuScene") {
             if let sceneNode = scene.rootNode as! MenuScene? {
                 sceneNode.scaleMode = .aspectFill
-                
                 if let view = self.view as! SKView? {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    if(UserDefaultsHelper.devMode){
-                        view.showsFPS = true
-                        view.showsNodeCount = true
-                        view.showsPhysics = true
-                    }
+                    view.presentSceneNG(sceneNode)
                 }
             }
         }
@@ -55,21 +50,11 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
     
     func loadDifficultyScene(level:Level){
         if let scene = GKScene(fileNamed: "DifficultyScene") {
-            
             if let sceneNode = scene.rootNode as! DifficultyScene? {
                 sceneNode.selLevel = level
                 sceneNode.scaleMode = .aspectFill
-                
-                if let view = self.skView {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    if(UserDefaultsHelper.devMode){
-                        view.showsFPS = true
-                        view.showsNodeCount = true
-                        view.showsPhysics = true
-                    }
+                if let view = self.view as! SKView? {
+                    view.presentSceneNG(sceneNode)
                 }
             }
         }
@@ -78,19 +63,9 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
     func loadMapScene(){
         if let scene = GKScene(fileNamed: "MapScene") {
             if let sceneNode = scene.rootNode as! MapScene? {
-                
                 sceneNode.scaleMode = .aspectFill
-                
-                if let view = self.skView {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    if(UserDefaultsHelper.devMode){
-                        view.showsFPS = true
-                        view.showsNodeCount = true
-                        view.showsPhysics = true
-                    }
+                if let view = self.view as! SKView? {
+                    view.presentSceneNG(sceneNode)
                 }
             }
         }
@@ -102,22 +77,11 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
 
         if let scene = GKScene(fileNamed: "GameScene") {
             if let sceneNode = scene.rootNode as! GameScene? {
-                
                 self.gameSceneObj = sceneNode
-                
                 sceneNode.scaleMode = .aspectFill
-                
-                if let view = self.skView {
-                    view.presentScene(sceneNode)
+                if let view = self.view as! SKView? {
+                    view.presentSceneNG(sceneNode)
                     view.resetCursorRects()
-
-                    view.ignoresSiblingOrder = true
-                    
-                    if(UserDefaultsHelper.devMode){
-                        view.showsFPS = true
-                        view.showsNodeCount = true
-                        view.showsPhysics = true
-                    }
                 }
             }
         }

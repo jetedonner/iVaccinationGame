@@ -8,9 +8,13 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsViewController" customModule="iVaccinationGame" customModuleProvider="target">
             <connections>
+                <outlet property="cmdResetAch" destination="e8Y-hQ-9s8" id="PDD-BE-zkI"/>
+                <outlet property="cmdTestAch" destination="4t9-Xi-B1J" id="d0U-zH-qzJ"/>
+                <outlet property="lblDevMode" destination="kDy-IU-TPn" id="OR8-K2-dBX"/>
                 <outlet property="playBGMusic" destination="tgS-s1-MCd" id="sSA-Qj-1ic"/>
                 <outlet property="playSounds" destination="Gbk-Tk-Loh" id="MFZ-Oy-Zm1"/>
                 <outlet property="sharedUserDefaultsController" destination="l72-UK-3kJ" id="f9f-Yq-KfE"/>
+                <outlet property="swtDevMode" destination="OYW-aS-pBl" id="0jw-X0-ptC"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Gdp-jN-azl"/>
                 <outlet property="volume" destination="55r-j8-dSk" id="ivn-fz-wrz"/>
             </connections>
@@ -197,6 +201,7 @@
                     <rect key="frame" x="420" y="313" width="42" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <connections>
+                        <action selector="switchDevMode:" target="-2" id="OyG-54-zOU"/>
                         <binding destination="l72-UK-3kJ" name="value" keyPath="values.devMode" id="WZ6-2m-xO1">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>

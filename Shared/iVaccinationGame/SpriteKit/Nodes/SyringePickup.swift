@@ -9,6 +9,7 @@ import Foundation
 import SpriteKit
 
 enum SyringePickupType:Int{
+    case one = 1
     case two = 2
     case four = 4
     case six = 6
@@ -17,9 +18,11 @@ enum SyringePickupType:Int{
 class SyringePickup: BasePickupNode {
     
     let pickupType:SyringePickupType
+    let vaccineType:VaccineType
     
-    init(pickupType:SyringePickupType = .two){
+    init(pickupType:SyringePickupType = .two, vaccineType:VaccineType = .Perofixa){
         self.pickupType = pickupType
+        self.vaccineType = vaccineType
         super.init(imageNamed: "Syringe", emitterFileNamed: "UpwardParticles.sks", size: CGSize(width: 76.8, height: 76.8))
         self.pickupScore = 25
     }
@@ -35,8 +38,10 @@ class SyringePickup: BasePickupNode {
             gameScene.showEarnedPoints(score: self.pickupScore, onNode: self)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                gameScene.syringesLeft += self.pickupType.rawValue
-                gameScene.setSyringesLeft(syringesLeft: gameScene.syringesLeft)
+                gameScene.player.vaccineArsenal.addVaccine(accineType: self.vaccineType, ammount: self.pickupType.rawValue)
+                gameScene.setSyringesHUD()
+//                gameScene.syringesLeft += self.pickupType.rawValue
+//                gameScene.setSyringesLeft(syringesLeft: gameScene.syringesLeft)
                 gameScene.syringe2?.isHidden = false
                 gameScene.syringe1?.isHidden = false
                 gameScene.updateThrowingHandTexture()

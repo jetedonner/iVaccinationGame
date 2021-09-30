@@ -31,12 +31,14 @@ class SyringeDart: SKSpriteNode {
         
         self.gameScene.currentLevel.shots += 1
         self.gameScene.runHandThrowingAnimation()
-        self.gameScene.syringesLeft -= 1
-        self.gameScene.setSyringesLeft(syringesLeft: self.gameScene.syringesLeft)
+//        self.gameScene.syringesLeft -= 1
+//        self.gameScene.setSyringesLeft(syringesLeft: self.gameScene.syringesLeft)
+        self.gameScene.player.shootSyringe()
+        self.gameScene.setSyringesHUD()
         
-        if(self.gameScene.syringesLeft == 1){
+        if(self.gameScene.player.syringesCount == 1){
             self.gameScene.syringe2?.isHidden = true
-        }else if(self.gameScene.syringesLeft == 0){
+        }else if(!self.gameScene.player.hasSyringes){
             self.gameScene.syringe1?.isHidden = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.gameScene.syringePickup?.genNewPos()
