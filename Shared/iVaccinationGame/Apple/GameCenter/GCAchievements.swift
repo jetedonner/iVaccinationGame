@@ -26,10 +26,14 @@ class GCAchievements:NSObject{
     public var achivementCompleteAllLevelsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevels"
     public var achivementCompleteAllLevels:GKAchievement?
     
-//    public var achivementCompleteAllLevelsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevels"
-//    public var achivementCompleteAllLevels:GKAchievement?
+    public var achivementCompleteAllLevelsPerfectThrowID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfectthrows"
+    public var achivementCompleteAllLevelsPerfectThrow:GKAchievement?
     
+    public var achivementCompleteAllLevelsPerfectHealthID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfecthealth"
+    public var achivementCompleteAllLevelsPerfectHealth:GKAchievement?
     
+    public var achivementCompleteAllLevelsPerfectCertsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfectcertificates"
+    public var achivementCompleteAllLevelsPerfectCerts:GKAchievement?
     
     private var _perfectThrows:Int = 0
     public var PerfectThrows:Int{
@@ -54,6 +58,24 @@ class GCAchievements:NSObject{
         get{ return self._completeAllLevels }
         set{ self._completeAllLevels = newValue }
     }
+    
+    private var _completeAllLevelsPerfectThrows:Int = 0
+    public var CompleteAllLevelsPerfectThrows:Int{
+        get{ return self._completeAllLevelsPerfectThrows }
+        set{ self._completeAllLevelsPerfectThrows = newValue }
+    }
+    
+    private var _completeAllLevelsPerfectHealth:Int = 0
+    public var CompleteAllLevelsPerfectHealth:Int{
+        get{ return self._completeAllLevelsPerfectHealth }
+        set{ self._completeAllLevelsPerfectHealth = newValue }
+    }
+    
+    private var _completeAllLevelsPerfectCerts:Int = 0
+    public var CompleteAllLevelsPerfectCerts:Int{
+        get{ return self._completeAllLevelsPerfectCerts }
+        set{ self._completeAllLevelsPerfectCerts = newValue }
+    }
 
     func add2perfectThrows(times2Add:Int = 1){
         self.add2Achivement(identifier: achivementPerfectThrowsID, obj2Add2: &PerfectThrows, max2Add2: PerfectThrows, point2Add: 25)
@@ -69,6 +91,18 @@ class GCAchievements:NSObject{
     
     func add2completeAllLevels(times2Add:Int = 1){
         self.add2Achivement(identifier: achivementCompleteAllLevelsID, obj2Add2: &CompleteAllLevels, max2Add2: CompleteAllLevels, point2Add: 100)
+    }
+    
+    func add2completeAllLevelsPerfestThrow(times2Add:Int = 1){
+        self.add2Achivement(identifier: achivementCompleteAllLevelsPerfectThrowID, obj2Add2: &CompleteAllLevelsPerfectThrows, max2Add2: CompleteAllLevelsPerfectThrows, point2Add: 100)
+    }
+    
+    func add2completeAllLevelsPerfestHealth(times2Add:Int = 1){
+        self.add2Achivement(identifier: achivementCompleteAllLevelsPerfectHealthID, obj2Add2: &CompleteAllLevelsPerfectHealth, max2Add2: CompleteAllLevelsPerfectHealth, point2Add: 100)
+    }
+    
+    func add2completeAllLevelsPerfestCerts(times2Add:Int = 1){
+        self.add2Achivement(identifier: achivementCompleteAllLevelsPerfectCertsID, obj2Add2: &CompleteAllLevelsPerfectCerts, max2Add2: CompleteAllLevelsPerfectCerts, point2Add: 100)
     }
 
     @discardableResult
