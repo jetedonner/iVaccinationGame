@@ -24,7 +24,8 @@ class CitySkylineLevel: BaseLevel {
         let exitMove1:SKAction = SKAction.moveBy(x: 60, y: 10, duration: 0.2)
         let exitMove2:SKAction = SKAction.moveBy(x: 60, y: -10, duration: 0.2)
         
-        self.zombiePaths.append(
+        self.zombiePaths[.easy] = [BasePath]()
+        self.zombiePaths[.easy]?.append(
             BasePath(
                 initPos: CGPoint(x: -126.717, y: -85.909),
                 initScale: 0.5,

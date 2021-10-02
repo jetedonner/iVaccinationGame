@@ -36,7 +36,7 @@ class GameViewController: UIViewController, IViewController {
         }
     }
     
-    func loadMapScene(difficulty:UserDefaultsDifficulty, level:Level = .Meadow){
+    func loadMapScene(difficulty:Difficulty, level:Level = .Meadow){
         UserDefaultsHelper.difficulty = difficulty
         UserDefaultsHelper.levelID = level
         self.loadMapScene()
@@ -64,7 +64,7 @@ class GameViewController: UIViewController, IViewController {
         }
     }
     
-    func loadGameScene(difficulty:UserDefaultsDifficulty = .easy, level:Level = .Meadow){
+    func loadGameScene(difficulty:Difficulty = .easy, level:Level = .Meadow){
         UserDefaultsHelper.difficulty = difficulty
         UserDefaultsHelper.levelID = level
         if let scene = GKScene(fileNamed: "GameScene") {

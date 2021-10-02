@@ -70,7 +70,7 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
         }
     }
     
-    func loadMapScene(difficulty:UserDefaultsDifficulty, level:Level = .Meadow){
+    func loadMapScene(difficulty:Difficulty, level:Level = .Meadow){
         UserDefaultsHelper.difficulty = difficulty
         UserDefaultsHelper.levelID = level
         if let scene = GKScene(fileNamed: "MapScene") {
@@ -94,7 +94,7 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
         }
     }
     
-    func loadGameScene(difficulty:UserDefaultsDifficulty = .easy, level:Level = .Meadow){
+    func loadGameScene(difficulty:Difficulty = .easy, level:Level = .Meadow){
         UserDefaultsHelper.difficulty = difficulty
         UserDefaultsHelper.levelID = level
 

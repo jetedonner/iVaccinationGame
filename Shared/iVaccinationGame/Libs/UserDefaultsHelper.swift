@@ -25,14 +25,6 @@ enum UserDefaultsName:String{
     case cretificates = "cretificates"
 }
 
-
-enum UserDefaultsDifficulty:String{
-    case easy = "Easy"
-    case medium = "Medium"
-    case hard = "Hard"
-    case nightmare = "Nightmare"
-}
-
 class UserDefaultsHelper{
     
     static let defaults = UserDefaults.standard
@@ -64,9 +56,9 @@ class UserDefaultsHelper{
         }
     }
     
-    static var difficulty:UserDefaultsDifficulty{
+    static var difficulty:Difficulty{
         get{
-            var retDiff:UserDefaultsDifficulty = .easy
+            var retDiff:Difficulty = .easy
             switch defaults.string(forKey: UserDefaultsName.difficulty.rawValue){
             case "Easy":
                 retDiff = .easy

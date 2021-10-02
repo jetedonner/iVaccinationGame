@@ -28,7 +28,7 @@ extension GameSceneBase{
     func showEarnedPoints(score:Int = 100, onNode:SKNode? = nil){
         var aboveNode:SKNode? = onNode
         if(aboveNode == nil){
-            aboveNode = self.zombieGirl
+//            aboveNode = self.zombieGirl
         }
         _ = BaseMessageNode(text: "+\(score) Points", node: aboveNode!, messageType: .scrore)
     }

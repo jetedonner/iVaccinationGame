@@ -46,7 +46,8 @@ class SyringeDart: SKSpriteNode {
         
         SoundManager.shared.playSound(sound: .shot)
         
-        self.speed = UserDefaultsHelper.speedMultiplierForDifficulty
+//        self.speed = UserDefaultsHelper.speedMultiplierForDifficulty
+        self.speed = self.gameScene.currentLevel.currentLevelConfig.speedFactor.multiplier
         self.run(
             SKAction.group([
                 SKAction.move(to: point, duration: 0.5),

@@ -28,7 +28,8 @@ class WallwayLevel: BaseLevel {
             let exitWay1:SKAction = SKAction.moveBy(x: 60, y: 10, duration: 0.2)
             let exitWay2:SKAction = SKAction.moveBy(x: 60, y: -10, duration: 0.2)
             
-            self.zombiePaths.append(
+            self.zombiePaths[.easy] = [BasePath]()
+            self.zombiePaths[.easy]?.append(
                 BasePath(
                     initPos: CGPoint(x: -566.0, y: -218.678),
                     initScale: 1.0,
@@ -57,7 +58,7 @@ class WallwayLevel: BaseLevel {
             let exitWay1:SKAction = SKAction.moveBy(x: -60, y: 10, duration: 0.2)
             let exitWay2:SKAction = SKAction.moveBy(x: -60, y: -10, duration: 0.2)
             
-            self.zombiePaths.append(
+            self.zombiePaths[.easy]?.append(
                 BasePath(
                     initPos: CGPoint(x: 566.0, y: -218.678),
                     initScale: 1.0,

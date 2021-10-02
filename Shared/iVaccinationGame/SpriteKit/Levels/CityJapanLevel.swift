@@ -24,8 +24,9 @@ class CityJapanLevel: BaseLevel {
         let exitWay1:SKAction = SKAction.moveBy(x: 60, y: 10, duration: 0.2)
         let exitWay2:SKAction = SKAction.moveBy(x: 60, y: -10, duration: 0.2)
 
+        self.zombiePaths[.easy] = [BasePath]()
         for idx in 0..<2{
-            self.zombiePaths.append(
+            self.zombiePaths[.easy]?.append(
                 BasePath(
                     initPos: CGPoint(x: 72, y: -83),
                     initScale: 0.3,
@@ -58,7 +59,7 @@ class CityJapanLevel: BaseLevel {
             let exitWay1:SKAction = SKAction.moveBy(x: 60, y: 10, duration: 0.2)
             let exitWay2:SKAction = SKAction.moveBy(x: 60, y: -10, duration: 0.2)
 
-            self.zombiePaths.append(
+            self.zombiePaths[.easy]?.append(
                 BasePath(
                     initPos: CGPoint(x: -566.0, y: -174.75),
                     initScale: 1.0,
@@ -87,7 +88,7 @@ class CityJapanLevel: BaseLevel {
             let exitWay1:SKAction = SKAction.moveBy(x: -60, y: 10, duration: 0.2)
             let exitWay2:SKAction = SKAction.moveBy(x: -60, y: -10, duration: 0.2)
 
-            self.zombiePaths.append(
+            self.zombiePaths[.easy]?.append(
                 BasePath(
                     initPos: CGPoint(x: 566.0, y: -174.75),
                     initScale: 1.0,

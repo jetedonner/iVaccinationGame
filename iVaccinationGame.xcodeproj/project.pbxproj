@@ -22,6 +22,12 @@
 		554E535526EFBA5400371E58 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554E535426EFBA5400371E58 /* AVFoundation.framework */; };
 		5552BFA726F264130034C812 /* MagicParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5552BFA626F264130034C812 /* MagicParticle.sks */; };
 		5552BFA926F26ABE0034C812 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552BFA826F26ABE0034C812 /* TimeInterval.swift */; };
+		5561AF722708AF28007B3F8F /* LevelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF712708AF28007B3F8F /* LevelConfig.swift */; };
+		5561AF732708AF28007B3F8F /* LevelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF712708AF28007B3F8F /* LevelConfig.swift */; };
+		5561AF752708B07F007B3F8F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF742708B07F007B3F8F /* Enums.swift */; };
+		5561AF762708B07F007B3F8F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF742708B07F007B3F8F /* Enums.swift */; };
+		5561AF782708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */; };
+		5561AF792708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */; };
 		556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
@@ -242,6 +248,9 @@
 		554E535426EFBA5400371E58 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5552BFA626F264130034C812 /* MagicParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicParticle.sks; sourceTree = "<group>"; };
 		5552BFA826F26ABE0034C812 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		5561AF712708AF28007B3F8F /* LevelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelConfig.swift; sourceTree = "<group>"; };
+		5561AF742708B07F007B3F8F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt2.swift; sourceTree = "<group>"; };
 		556FBE7E26F7032B00F8081C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		556FBE8026F77A6C00F8081C /* BasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePath.swift; sourceTree = "<group>"; };
 		556FBE8226F7858D00F8081C /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -471,6 +480,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5561AF70270782CA007B3F8F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				55A579C926F638610084239D /* BaseLevel.swift */,
+				556FBE8026F77A6C00F8081C /* BasePath.swift */,
+				55EAD45626FF60D600BB8D06 /* Level.swift */,
+				5561AF712708AF28007B3F8F /* LevelConfig.swift */,
+				5561AF742708B07F007B3F8F /* Enums.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		55A579B926F4F8810084239D /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +532,7 @@
 		55A579C626F50F200084239D /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				5561AF70270782CA007B3F8F /* Base */,
 				55C83EF126FB250E00F42F53 /* MeadowLevel.swift */,
 				55A579C726F5C5EC0084239D /* CitySkylineLevel.swift */,
 				55C83F6C26FDFADE00F42F53 /* CityStreetLevel.swift */,
@@ -518,9 +540,6 @@
 				559442A826FE83C20082DA72 /* ScarryStreetLevel.swift */,
 				55C83F8226FE326500F42F53 /* CityNightLevel.swift */,
 				55A579CB26F644080084239D /* WallwayLevel.swift */,
-				55A579C926F638610084239D /* BaseLevel.swift */,
-				556FBE8026F77A6C00F8081C /* BasePath.swift */,
-				55EAD45626FF60D600BB8D06 /* Level.swift */,
 			);
 			path = Levels;
 			sourceTree = "<group>";
@@ -675,6 +694,7 @@
 				55B64A3226F3474900944766 /* MenuSceneBase.swift */,
 				55C83F2A26FC75E600F42F53 /* GameSceneBase.swift */,
 				559442A226FE50800082DA72 /* GameSceneBaseExt.swift */,
+				5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */,
 				55EAD46426FF757500BB8D06 /* BaseSKScene.swift */,
 				55EE3D762701ECEA00991D86 /* IViewController.swift */,
 			);
@@ -1080,6 +1100,7 @@
 				55EAD45726FF60D600BB8D06 /* Level.swift in Sources */,
 				55EE3D922705AB6B00991D86 /* VaccineType.swift in Sources */,
 				55C83F4926FD268A00F42F53 /* KeyCode.swift in Sources */,
+				5561AF782708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */,
 				55EE3D962705ACD400991D86 /* Player.swift in Sources */,
 				55B64A7D26F3A3A300944766 /* GameCenterHelper.swift in Sources */,
 				55C83F8326FE326500F42F53 /* CityNightLevel.swift in Sources */,
@@ -1102,6 +1123,7 @@
 				559442A926FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,
 				55EE3D6A26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55C83F6726FDDC7000F42F53 /* GameOverState.swift in Sources */,
+				5561AF752708B07F007B3F8F /* Enums.swift in Sources */,
 				55EAD46526FF757500BB8D06 /* BaseSKScene.swift in Sources */,
 				556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */,
 				55EAD46F26FF7C5000BB8D06 /* MenuScene.swift in Sources */,
@@ -1116,6 +1138,7 @@
 				55A579BF26F4FEFF0084239D /* SyringePickup.swift in Sources */,
 				55C83F5A26FDDB8B00F42F53 /* GameStateMachine.swift in Sources */,
 				55EE3D7427009A3200991D86 /* BaseMessageNode.swift in Sources */,
+				5561AF722708AF28007B3F8F /* LevelConfig.swift in Sources */,
 				55EE3D772701ECEA00991D86 /* IViewController.swift in Sources */,
 				55A579C326F507DF0084239D /* SKSpriteNodeExt.swift in Sources */,
 				55E59BCC26FF83CD00B75322 /* DifficultyScene.swift in Sources */,
@@ -1153,6 +1176,7 @@
 				55C83F5426FDDAF000F42F53 /* GameStateMachine.swift in Sources */,
 				55C83F5926FDDB8500F42F53 /* PlayingState.swift in Sources */,
 				55C83F1E26FC675500F42F53 /* TimeInterval.swift in Sources */,
+				5561AF792708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */,
 				55EE3D782701ECEA00991D86 /* IViewController.swift in Sources */,
 				55C83F2C26FC75E600F42F53 /* GameSceneBase.swift in Sources */,
 				55C83F1226FC673D00F42F53 /* BaseLevel.swift in Sources */,
@@ -1181,6 +1205,7 @@
 				55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55EE3D972705ACD400991D86 /* Player.swift in Sources */,
 				55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */,
+				5561AF732708AF28007B3F8F /* LevelConfig.swift in Sources */,
 				55C83F2526FC6B2800F42F53 /* BasePickupNode.swift in Sources */,
 				55EE3DA127063E2300991D86 /* CreditsSceneBase.swift in Sources */,
 				55C83F1D26FC675500F42F53 /* SKSpriteNodeExt.swift in Sources */,
@@ -1194,6 +1219,7 @@
 				55C83F2626FC6B2A00F42F53 /* SyringePickup.swift in Sources */,
 				55EAD46626FF757500BB8D06 /* BaseSKScene.swift in Sources */,
 				559442A426FE50800082DA72 /* GameSceneBaseExt.swift in Sources */,
+				5561AF762708B07F007B3F8F /* Enums.swift in Sources */,
 				55C83F5126FDD96F00F42F53 /* KeyCode.swift in Sources */,
 				55EE3D8D2705A67800991D86 /* JillAndJasmineVaccine.swift in Sources */,
 				55C83F2426FC6B2500F42F53 /* MedKitPickup.swift in Sources */,

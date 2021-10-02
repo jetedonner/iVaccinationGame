@@ -91,7 +91,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var emptyHands:SKTexture = SKTexture(imageNamed: "ThrowingFingersEmpty")
     var fullHands:SKTexture = SKTexture(imageNamed: "ThrowingFingers")
     
-    var zombieGirl:ZombieGirl!
+//    var zombieGirl:ZombieGirl!
     var player:Player = Player()
     var thrownSyringeDarts:[SyringeDart] = []
     
@@ -114,7 +114,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         
         self.gameStateMachine = GameStateMachine(gameScene: self)
         
-        self.zombieGirl = ZombieGirl(zombieImageName: self.currentLevel.zombieImageName)
+//        self.zombieGirl = ZombieGirl(zombieImageName: self.currentLevel.zombieImageName)
         self.gameDuration = UserDefaultsHelper.roundTime
         self.contentNode = self.childNode(withName: "contentNode")! as SKNode
         self.bg = self.contentNode!.childNode(withName: "BG") as? SKSpriteNode
@@ -173,24 +173,25 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.imgRedOut = self.contentNode!.childNode(withName: "redOut") as? SKSpriteNode
         self.imgRedOut?.alpha = 0.0
         
-        self.scene?.addChild(self.zombieGirl)
-        self.zombieGirl.physicsBody = SKPhysicsBody(rectangleOf: self.zombieGirl.size)
-        self.zombieGirl.physicsBody?.affectedByGravity = false
-        self.zombieGirl.physicsBody?.isDynamic = false
-        
-        if(UserDefaultsHelper.devMode){
-            self.zombieGirl.addDbgBorder()
-        }
+//        self.scene?.addChild(self.zombieGirl)
+//        self.zombieGirl.physicsBody = SKPhysicsBody(rectangleOf: self.zombieGirl.size)
+//        self.zombieGirl.physicsBody?.affectedByGravity = false
+//        self.zombieGirl.physicsBody?.isDynamic = false
+//
+//        if(UserDefaultsHelper.devMode){
+//            self.zombieGirl.addDbgBorder()
+//        }
         
         self.prgBar.setProgress(1.0)
         self.prgBar.position = CGPoint(x: (self.frame.width / 2) - 20 , y: (self.frame.height / 2) - 12 - 70)
         self.prgBar.zPosition = 1000
         self.addChild(self.prgBar)
         
-        self.zombieGirl.physicsBody?.contactTestBitMask = 0b0010
+//        self.zombieGirl.physicsBody?.contactTestBitMask = 0b0010
         self.scoreLblOrigPos = self.lblScore!.position
         
-        self.runLevel(levelID: self.selLevel)
+        self.runLevelConfig(levelID: self.selLevel, difficulty: UserDefaultsHelper.difficulty)
+        
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
         self.setupHandAnimation()
@@ -206,6 +207,13 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
     }
     
+    func runLevelConfig(levelID:Level, difficulty:Difficulty){
+        self.loadLevelConfig(levelID: levelID, difficulty: difficulty)
+        self.restartGameNG()
+//        self.restartAfterGameOverNG(resetTime: true)
+//        self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
+    }
+    
     func loadLevel(levelID:Level){
         for level in self.levels{
             if(level.level == levelID){
@@ -216,6 +224,18 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         }
         self.currentLevel = self.levels[0]
         self.currentLevel.setupLevel(gameScene: self)
+    }
+    
+    func loadLevelConfig(levelID:Level, difficulty:Difficulty){
+        for level in self.levels{
+            if(level.level == levelID){
+                self.currentLevel = level
+                self.currentLevel.setupLevelConfig(gameScene: self, difficulty: difficulty)
+                return
+            }
+        }
+//        self.currentLevel = self.levels[0]
+//        self.currentLevel.setupLevel(gameScene: self)
     }
     
     func restartLevel(){
@@ -256,83 +276,86 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             
             self.currentLevel.hits += 1
             self.addScore(score: self.currentLevel.scoreBase)
-            self.showEarnedPoints()
-            
-            if(self.currentLevel.hits % 2 == 0){
-                self.zombieGirl.removeAllActions()
+            if let zombieGirl = contact.bodyA.node as? ZombieGirl{
+                self.showEarnedPoints(score: 100, onNode: zombieGirl)
                 
-                explosionEmitterNode?.setScale(0.35)
-                explosionEmitterNode?.isHidden = false
-                if(explosionEmitterNode?.parent == nil){
-                    self.zombieGirl.addChild(explosionEmitterNode!)
-                }
-                
-                SoundManager.shared.playSound(sound: .unzombiefiedSound)
-                
-                self.zombieGirl.run(SKAction.wait(forDuration: 0.45), completion: {
-                    self.zombieGirl.texture = SKTexture(imageNamed: self.currentLevel.zombieCuredImageName)
-                    self.explosionEmitterNode?.removeFromParent()
-                    self.zombieGirl.removeAllActions()
-                    self.zombieGirl.run(self.currentLevel.zombieCurrentPath.exitPath, completion: {
-                        self.restartAfterHit(resetTime: false)
+                if(self.currentLevel.hits % 2 == 0){
+                    zombieGirl.removeAllActions()
+    
+                    explosionEmitterNode?.setScale(0.35)
+                    explosionEmitterNode?.isHidden = false
+                    if(explosionEmitterNode?.parent == nil){
+                        zombieGirl.addChild(explosionEmitterNode!)
+                    }
+    
+                    SoundManager.shared.playSound(sound: .unzombiefiedSound)
+    
+                    zombieGirl.run(SKAction.wait(forDuration: 0.45), completion: {
+                        zombieGirl.texture = SKTexture(imageNamed: self.currentLevel.zombieCuredImageName)
+                        self.explosionEmitterNode?.removeFromParent()
+                        zombieGirl.removeAllActions()
+                        zombieGirl.run(self.currentLevel.zombieCurrentPath.exitPath, completion: {
+//                            self.restartAfterHit(resetTime: false)
+                            self.restartZombieActions()
+                        })
                     })
-                })
+                }
             }
             return
         }
     }
     
     func restartZombieAction(){
-        self.imgBlood?.isHidden = true
-        self.zombieGirl.removeAllActions()
-        self.explosionEmitterNode?.removeFromParent()
-        self.currentLevel.zombieCurrentPath = self.currentLevel.zombiePaths.getRandom()
-        if(self.currentLevel.zombieCurrentPath.hideOnStart){
-            self.zombieGirl.xScale = 0.0
-        }else{
-            self.zombieGirl.xScale = self.currentLevel.zombieCurrentPath.initScale
-        }
-        self.zombieGirl.yScale = self.currentLevel.zombieCurrentPath.initScale
-        self.zombieGirl.position = self.currentLevel.zombieCurrentPath.initPos
-        self.zombieGirl.texture =  SKTexture(imageNamed: "ZombieGirl2")
-        self.zombieGirl.speed = UserDefaultsHelper.speedMultiplierForDifficulty
-        self.zombieGirl.run(self.currentLevel.zombieCurrentPath.path, completion: {
-            self.imgBlood?.isHidden = false
-            self.imgBlood?.alpha = 1.0
-            if(self.player.zombieBite(damage: self.currentLevel.zombieDamage)){
-                self.imgRedOut?.run(SKAction.fadeIn(withDuration: 1.0), completion: {
-                    self.imgRedOut?.alpha = 0.0
-                    self.imgBlood?.isHidden = true
-                    self.showGameOver()
-                    self.player.resetPlayer()
-                    self.prgBar.setProgress(1.0)
-                })
-            }
-            
-            self.prgBar.setProgress(self.player.health / 100.0)
-            
-            if(self.player.health <= 75.0){
-                self.medkitPickup?.genNewPos()
-            }
-            
-            SoundManager.shared.playSound(sounds: [.eat1, .eat2])
-            self.zombieGirl.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)])]), completion: {
-                if(self.player.health >= 75.0){
-                    SoundManager.shared.playSound(sound: .pain100)
-                }else if(self.player.health >= 50.0){
-                    SoundManager.shared.playSound(sound: .pain75)
-                }else if(self.player.health >= 25.0){
-                    SoundManager.shared.playSound(sound: .pain50)
-                }else {
-                    SoundManager.shared.playSound(sound: .pain25)
-                }
-                
-                self.zombieGirl.run(SKAction.wait(forDuration: 0.75), completion: {
-                    self.restartZombieAction()
-                })
-            })
-        })
-        self.zombieGirl.zPosition = 101
+//        self.imgBlood?.isHidden = true
+//        self.zombieGirl.removeAllActions()
+//        self.explosionEmitterNode?.removeFromParent()
+//        self.currentLevel.zombieCurrentPath = self.currentLevel.zombiePaths[.easy]!.getRandom()
+//        if(self.currentLevel.zombieCurrentPath.hideOnStart){
+//            self.zombieGirl.xScale = 0.0
+//        }else{
+//            self.zombieGirl.xScale = self.currentLevel.zombieCurrentPath.initScale
+//        }
+//        self.zombieGirl.yScale = self.currentLevel.zombieCurrentPath.initScale
+//        self.zombieGirl.position = self.currentLevel.zombieCurrentPath.initPos
+//        self.zombieGirl.texture =  SKTexture(imageNamed: "ZombieGirl2")
+//        self.zombieGirl.speed = UserDefaultsHelper.speedMultiplierForDifficulty
+//        self.zombieGirl.run(self.currentLevel.zombieCurrentPath.path, completion: {
+//            self.imgBlood?.isHidden = false
+//            self.imgBlood?.alpha = 1.0
+//            if(self.player.zombieBite(damage: self.currentLevel.zombieDamage)){
+//                self.imgRedOut?.run(SKAction.fadeIn(withDuration: 1.0), completion: {
+//                    self.imgRedOut?.alpha = 0.0
+//                    self.imgBlood?.isHidden = true
+//                    self.showGameOver()
+//                    self.player.resetPlayer()
+//                    self.prgBar.setProgress(1.0)
+//                })
+//            }
+//
+//            self.prgBar.setProgress(self.player.health / 100.0)
+//
+//            if(self.player.health <= 75.0){
+//                self.medkitPickup?.genNewPos()
+//            }
+//
+//            SoundManager.shared.playSound(sounds: [.eat1, .eat2])
+//            self.zombieGirl.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)])]), completion: {
+//                if(self.player.health >= 75.0){
+//                    SoundManager.shared.playSound(sound: .pain100)
+//                }else if(self.player.health >= 50.0){
+//                    SoundManager.shared.playSound(sound: .pain75)
+//                }else if(self.player.health >= 25.0){
+//                    SoundManager.shared.playSound(sound: .pain50)
+//                }else {
+//                    SoundManager.shared.playSound(sound: .pain25)
+//                }
+//
+//                self.zombieGirl.run(SKAction.wait(forDuration: 0.75), completion: {
+//                    self.restartZombieAction()
+//                })
+//            })
+//        })
+//        self.zombieGirl.zPosition = 101
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -409,8 +432,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         if(resetTime){
             self.startTime = 0
         }
-        self.zombieGirl.removeAllActions()
-        self.zombieGirl.isPaused = false
+//        self.zombieGirl.removeAllActions()
+//        self.zombieGirl.isPaused = false
         self.restartZombieAction()
     }
     
@@ -425,8 +448,10 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.updateEffectNode()
         self.effectNode.isHidden = false
 
-        self.zombieGirl.isPaused = true
-        self.zombieGirl.removeAllActions()
+//        self.zombieGirl.isPaused = true
+//        self.zombieGirl.removeAllActions()
+        
+        self.currentLevel.endLevel()
         self.explosionEmitterNode?.removeFromParent()
 
         if(self.player.health <= 0.0){

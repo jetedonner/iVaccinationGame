@@ -13,6 +13,6 @@ protocol IViewController{
     func loadDifficultyScene()
     func loadCreditsScene()
     func loadMapScene()
-    func loadMapScene(difficulty:UserDefaultsDifficulty, level:Level)
-    func loadGameScene(difficulty:UserDefaultsDifficulty, level:Level)
+    func loadMapScene(difficulty:Difficulty, level:Level)
+    func loadGameScene(difficulty:Difficulty, level:Level)
 }

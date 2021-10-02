@@ -17,6 +17,12 @@ import Cocoa
 
 class ZombieGirl: SKSpriteNode {
     
+    private var _currentPath:BasePath = BasePath()
+    var currentPath:BasePath{
+        get{ return self._currentPath }
+        set{ self._currentPath = newValue }
+    }
+    
     private var _healed:Bool = false
     var isHealed:Bool{
         get{ return self._healed }
@@ -37,6 +43,12 @@ class ZombieGirl: SKSpriteNode {
     
     init(zombieImageName:String){
         super.init(texture: SKTexture(imageNamed: zombieImageName), color: .clear, size: CGSize(width: 108, height: 163))
+    }
+    
+    func addPhysicBody(){
+        self.physicsBody = SKPhysicsBody(rectangleOf: self.size)
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.isDynamic = false
     }
     
     #if os(iOS)
