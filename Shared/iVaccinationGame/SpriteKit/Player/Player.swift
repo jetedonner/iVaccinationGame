@@ -22,6 +22,7 @@ class Player{
     var bites:Int = 0
     var health:CGFloat = 100.0
     var score:Int = 0
+    var certs:Int = 0
     
     var certsPickedUp:Int = 0
     var medKitsPickedUp:Int = 0
@@ -35,6 +36,10 @@ class Player{
         self.health = 100.0
         self.certsPickedUp = 0
         self.medKitsPickedUp = 0
+    }
+    
+    func addCert(cerCount:Int = 1){
+        self.certs += cerCount
     }
     
     func addScore(score:Int){

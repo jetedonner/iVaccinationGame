@@ -20,8 +20,16 @@ class GCAchievements:NSObject{
     public var achivementStayHealthyID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.stayhealthy"
     public var achivementStayHealthy:GKAchievement?
     
+    public var achivementCollectAllCertsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.collectallcertificates"
+    public var achivementCollectAllCerts:GKAchievement?
+    
     public var achivementCompleteAllLevelsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevels"
     public var achivementCompleteAllLevels:GKAchievement?
+    
+//    public var achivementCompleteAllLevelsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevels"
+//    public var achivementCompleteAllLevels:GKAchievement?
+    
+    
     
     private var _perfectThrows:Int = 0
     public var PerfectThrows:Int{
@@ -33,6 +41,12 @@ class GCAchievements:NSObject{
     public var StayHealthy:Int{
         get{ return self._stayHealthy }
         set{ self._stayHealthy = newValue }
+    }
+    
+    private var _collectAllCerts:Int = 0
+    public var CollectAllCerts:Int{
+        get{ return self._collectAllCerts }
+        set{ self._collectAllCerts = newValue }
     }
     
     private var _completeAllLevels:Int = 0
@@ -47,6 +61,10 @@ class GCAchievements:NSObject{
     
     func add2stayHealthy(times2Add:Int = 1){
         self.add2Achivement(identifier: achivementStayHealthyID, obj2Add2: &StayHealthy, max2Add2: StayHealthy, point2Add: 15)
+    }
+    
+    func add2collectAllCerts(times2Add:Int = 1){
+        self.add2Achivement(identifier: achivementCollectAllCertsID, obj2Add2: &CollectAllCerts, max2Add2: CollectAllCerts, point2Add: 25)
     }
     
     func add2completeAllLevels(times2Add:Int = 1){

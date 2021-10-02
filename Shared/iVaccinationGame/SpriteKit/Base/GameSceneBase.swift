@@ -60,6 +60,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var lblGameOver:SKLabelNode?
     var lblPressAnyKey:SKLabelNode?
     var lblScore:SKLabelNode?
+    var lblCerts:SKLabelNode?
     var lblTime:SKLabelNode?
     var lblVacc:SKLabelNode?
     var lblSyringesLeft:SKLabelNode?
@@ -138,6 +139,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.lblPressAnyKey?.isHidden = true
         
         self.lblScore = self.contentNode!.childNode(withName: "lblScore") as? SKLabelNode
+        self.lblCerts = self.contentNode!.childNode(withName: "lblCerts") as? SKLabelNode
+        
         self.lblTime = self.contentNode!.childNode(withName: "lblTime") as? SKLabelNode
         self.lblVacc = self.contentNode!.childNode(withName: "lblVacc") as? SKLabelNode
         self.lblSyringesLeft = self.contentNode!.childNode(withName: "lblSyringesLeft") as? SKLabelNode
@@ -295,6 +298,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                         self.explosionEmitterNode?.removeFromParent()
                         zombieGirl.removeAllActions()
                         zombieGirl.run(self.currentLevel.zombieCurrentPath.exitPath, completion: {
+                            self.currentLevel.removeZombieGirl(zombieGirl: zombieGirl)
 //                            self.restartAfterHit(resetTime: false)
                             self.restartZombieActions()
                         })

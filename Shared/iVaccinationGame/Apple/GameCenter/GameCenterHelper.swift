@@ -15,8 +15,8 @@ protocol GameCenterHelperDelegate: AnyObject {
 class GameCenterHelper: NSObject {
     
     private let leaderboardID = "grp.ch.kimhauser.swift.ivaccination"
-    
-    private var leaderboard:GKLeaderboard = GKLeaderboard()
+    private let leaderboardVaccinationsID = "grp.ch.kimhauser.swift.ivaccination.vaccinations"
+    private let leaderboardCertificatesID = "grp.ch.kimhauser.swift.ivaccination.certificates"
     
     let inviteMessage:String = "Hey there join me for a iVaccination fight!"
     var currentVC: GKMatchmakerViewController?
@@ -62,25 +62,33 @@ class GameCenterHelper: NSObject {
                   ) { [weak self] _,_ in
                       #if os(macOS)
                       if(GKAccessPoint.shared.isPresentingGameCenter){
-                          if((self!.viewController as! ViewController).gameSceneObj.gameRunning){
-                              (self!.viewController as! ViewController).gameSceneObj.setGamePaused(isPaused: true)
+                          if let gameSceneObj = (self!.viewController as! ViewController).gameSceneObj{
+                              if(gameSceneObj.gameRunning){
+                                  gameSceneObj.setGamePaused(isPaused: true)
+                              }
                           }
                       }else{
-                          if((self!.viewController as! ViewController).gameSceneObj.gamePaused){
-                              (self!.viewController as! ViewController).gameSceneObj.setGamePaused(isPaused: false)
+                          if let gameSceneObj = (self!.viewController as! ViewController).gameSceneObj{
+                              if(gameSceneObj.gamePaused){
+                                  gameSceneObj.setGamePaused(isPaused: false)
+                              }
+                              DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25, execute: {
+                                  gameSceneObj.view?.resetCursorRects()
+                              })
                           }
-                          DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25, execute: {
-                              (self!.viewController as! ViewController).gameSceneObj.view?.resetCursorRects()
-                          })
                       }
                       #else
                       if(GKAccessPoint.shared.isPresentingGameCenter){
-                          if((self!.viewController as! GameViewController).gameSceneObj.gameRunning){
-                              (self!.viewController as! GameViewController).gameSceneObj.setGamePaused(isPaused: true)
+                          if let gameSceneObj = (self!.viewController as! ViewController).gameSceneObj{
+                              if(gameSceneObj.gameRunning){
+                                  gameSceneObj.setGamePaused(isPaused: true)
+                              }
                           }
                       }else{
-                          if((self!.viewController as! GameViewController).gameSceneObj.gamePaused){
-                              (self!.viewController as! GameViewController).gameSceneObj.setGamePaused(isPaused: false)
+                          if let gameSceneObj = (self!.viewController as! ViewController).gameSceneObj{
+                              if(gameSceneObj.gamePaused){
+                                  gameSceneObj.setGamePaused(isPaused: false)
+                              }
                           }
                       }
                       #endif
@@ -115,6 +123,22 @@ class GameCenterHelper: NSObject {
     
     func updateScore(with value: Int) {
         GKLeaderboard.submitScore(123456, context: 0, player: GKLocalPlayer.local, leaderboardIDs: [self.leaderboardID],  completionHandler: {error in
+            if(error != nil){
+                print("Error uploading score to Game Center leaderboard: \(String(describing: error))")
+            }
+        })
+    }
+    
+    func updateCertificates(with value: Int) {
+        GKLeaderboard.submitScore(value, context: 0, player: GKLocalPlayer.local, leaderboardIDs: [self.leaderboardCertificatesID],  completionHandler: {error in
+            if(error != nil){
+                print("Error uploading score to Game Center leaderboard: \(String(describing: error))")
+            }
+        })
+    }
+    
+    func updateVaccinations(with value: Int) {
+        GKLeaderboard.submitScore(value, context: 0, player: GKLocalPlayer.local, leaderboardIDs: [self.leaderboardVaccinationsID],  completionHandler: {error in
             if(error != nil){
                 print("Error uploading score to Game Center leaderboard: \(String(describing: error))")
             }

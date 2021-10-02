@@ -12,24 +12,34 @@ extension GameSceneBase{
     
     func showMessage(msg:String){
         self.lblMessage?.text = msg
+        self.lblMessage?.isHidden = false
         self.lblMessage?.alpha = 1.0
         self.lblMessage?.run(SKAction.sequence([SKAction.wait(forDuration: 2.5), SKAction.fadeAlpha(to: 0.0, duration: 0.5)]))
+    }
+    
+    func addCert(certCount:Int = 1){
+        self.player.addCert(cerCount: certCount)
+        self.lblCerts?.text = self.player.certs.description + " Certs"
+        self.lblCerts?.run(SKAction.scale(by: 1.15, duration: 0.35),completion: {
+            self.lblCerts?.xScale = 1.0
+            self.lblCerts?.yScale = 1.0
+        })
     }
     
     func addScore(score:Int){
         self.player.addScore(score: score)
         self.lblScore?.text = self.player.score.description + " Points"
-        self.lblScore?.run(SKAction.scale(by: 1.5, duration: 0.35),completion: {
+        self.lblScore?.run(SKAction.scale(by: 1.15, duration: 0.35),completion: {
             self.lblScore?.xScale = 1.0
             self.lblScore?.yScale = 1.0
         })
     }
     
     func showEarnedPoints(score:Int = 100, onNode:SKNode? = nil){
-        var aboveNode:SKNode? = onNode
-        if(aboveNode == nil){
-//            aboveNode = self.zombieGirl
-        }
+        let aboveNode:SKNode? = onNode
+//        if(aboveNode == nil){
+////            aboveNode = self.zombieGirl
+//        }
         _ = BaseMessageNode(text: "+\(score) Points", node: aboveNode!, messageType: .scrore)
     }
     
