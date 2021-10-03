@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 enum Difficulty:String{
     case easy = "Easy"
@@ -25,10 +26,6 @@ enum Difficulty:String{
             return .nightmare
         }
     }
-    
-//    func getSpeedFactorVal()->CGFloat{
-//        return self.getSpeedFactor().rawValue
-//    }
 }
 
 enum Duration:Int{
@@ -41,10 +38,10 @@ enum Duration:Int{
 }
 
 enum SpeedFactor:CGFloat{
-    case easy = 1.5
-    case medium = 2.25
-    case hard = 3.5
-    case nightmare = 4.5
+    case easy = 1.0
+    case medium = 1.5
+    case hard = 2.5
+    case nightmare = 3.5
     
     var multiplier:CGFloat{
         get{ return self.rawValue }

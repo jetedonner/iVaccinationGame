@@ -170,6 +170,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.certificatePickup?.zPosition = 1000
         self.scene?.addChild(self.certificatePickup!)
         self.certificatePickup?.genNewPos()
+        self.certificatePickup?.startTimeout()
         
         self.imgBlood = self.contentNode!.childNode(withName: "imgBlood") as? SKSpriteNode
         self.imgBlood?.isHidden = true
@@ -213,8 +214,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     func runLevelConfig(levelID:Level, difficulty:Difficulty){
         self.loadLevelConfig(levelID: levelID, difficulty: difficulty)
         self.restartGameNG()
-//        self.restartAfterGameOverNG(resetTime: true)
-//        self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
     }
     
     func loadLevel(levelID:Level){
@@ -230,15 +229,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     }
     
     func loadLevelConfig(levelID:Level, difficulty:Difficulty){
-        for level in self.levels{
-            if(level.level == levelID){
-                self.currentLevel = level
-                self.currentLevel.setupLevelConfig(gameScene: self, difficulty: difficulty)
-                return
-            }
-        }
-//        self.currentLevel = self.levels[0]
-//        self.currentLevel.setupLevel(gameScene: self)
+        let level = self.levels.filter({ $0.level == levelID })[0]
+        self.currentLevel = level
+        self.currentLevel.setupLevelConfig(gameScene: self, difficulty: difficulty)
     }
     
     func restartLevel(){
@@ -297,7 +290,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                         zombieGirl.texture = SKTexture(imageNamed: self.currentLevel.zombieCuredImageName)
                         self.explosionEmitterNode?.removeFromParent()
                         zombieGirl.removeAllActions()
-                        zombieGirl.run(self.currentLevel.zombieCurrentPath.exitPath, completion: {
+                        zombieGirl.run(zombieGirl.currentPath.exitPath, completion: {
                             self.currentLevel.removeZombieGirl(zombieGirl: zombieGirl)
 //                            self.restartAfterHit(resetTime: false)
                             self.restartZombieActions()

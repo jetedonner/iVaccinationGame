@@ -23,9 +23,12 @@ extension GameSceneBase{
         if(resetTime){
             self.startTime = 0
         }
-//        self.zombieGirl.removeAllActions()
-//        self.zombieGirl.isPaused = false
         self.restartZombieActions()
+        for _ in 0..<self.currentLevel.currentLevelConfig.zombieCountAtOnce{
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(self.currentLevel.currentLevelConfig.zombieRespawnRange.randomElement()!), execute: {
+                self.restartZombieActions()
+            })
+        }
         
         self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
 //        self.restartAfterHit(resetTime: resetTime)

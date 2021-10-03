@@ -16,17 +16,32 @@ class CertificatePickup: BasePickupNode {
     }
     
     override func pickedUp(){
+        self.pickedUp(afterTimeOut: false)
+    }
+    
+    func pickedUp(afterTimeOut:Bool = false){
         super.pickedUp()
         if let gameScene = self.scene as? GameScene{
-            SoundManager.shared.playSound(sound: .certPickup)
             self.isHidden = true
-            gameScene.player.pickedUpCert()
-            gameScene.addCert()
-            gameScene.addScore(score: self.pickupScore)
-            gameScene.showEarnedPoints(score: self.pickupScore, onNode: self)
+            if(!afterTimeOut){
+                SoundManager.shared.playSound(sound: .certPickup)
+                gameScene.player.pickedUpCert()
+                gameScene.addCert()
+                gameScene.addScore(score: self.pickupScore)
+                gameScene.showEarnedPoints(score: self.pickupScore, onNode: self)
+            }
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certRespawnRange.randomElement()!), execute: {
                 self.genNewPos()
                 self.isHidden = false
+                self.startTimeout()
+            })
+        }
+    }
+    
+    func startTimeout(){
+        if let gameScene = self.scene as? GameScene{
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certLifetimeRange.randomElement()!), execute: {
+                self.pickedUp(afterTimeOut: true)
             })
         }
     }

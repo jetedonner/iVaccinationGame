@@ -79,13 +79,13 @@ class GameCenterHelper: NSObject {
                       }
                       #else
                       if(GKAccessPoint.shared.isPresentingGameCenter){
-                          if let gameSceneObj = (self!.viewController as! ViewController).gameSceneObj{
+                          if let gameSceneObj = (self!.viewController as! GameViewController).gameSceneObj{
                               if(gameSceneObj.gameRunning){
                                   gameSceneObj.setGamePaused(isPaused: true)
                               }
                           }
                       }else{
-                          if let gameSceneObj = (self!.viewController as! ViewController).gameSceneObj{
+                          if let gameSceneObj = (self!.viewController as! GameViewController).gameSceneObj{
                               if(gameSceneObj.gamePaused){
                                   gameSceneObj.setGamePaused(isPaused: false)
                               }
@@ -122,7 +122,7 @@ class GameCenterHelper: NSObject {
     }
     
     func updateScore(with value: Int) {
-        GKLeaderboard.submitScore(123456, context: 0, player: GKLocalPlayer.local, leaderboardIDs: [self.leaderboardID],  completionHandler: {error in
+        GKLeaderboard.submitScore(value, context: 0, player: GKLocalPlayer.local, leaderboardIDs: [self.leaderboardID],  completionHandler: {error in
             if(error != nil){
                 print("Error uploading score to Game Center leaderboard: \(String(describing: error))")
             }

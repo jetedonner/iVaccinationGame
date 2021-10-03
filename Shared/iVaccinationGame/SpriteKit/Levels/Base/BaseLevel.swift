@@ -44,21 +44,22 @@ class BaseLevel {
     var syringeRespawnYRange = -350.0..<(-100.0)
     var medkitRespawnYRange = -350.0..<(200.0)
     var certRespawnRange = 5...15
+    var certLifetimeRange = 7...15
     
-    init(level:Level){
+    init(level:Level, levelName:String, bgImageName:String){
         self.level = level
-        self.initLevel()
+        self.levelName = levelName
+        self.backgroundImageName = bgImageName
         self.initLevelConfig()
-        self.zombieCurrentPath = self.zombiePaths[.easy]!.getRandom()
     }
     
     func initLevelConfig() {
     
     }
     
-    func initLevel(){
-        
-    }
+//    func initLevel(){
+//        
+//    }
     
     func endLevel(){
         for zombieGirl in zombieGirls {

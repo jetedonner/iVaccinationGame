@@ -28,6 +28,8 @@
 		5561AF762708B07F007B3F8F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF742708B07F007B3F8F /* Enums.swift */; };
 		5561AF782708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */; };
 		5561AF792708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */; };
+		5561AF7C270A026B007B3F8F /* CertificatePickupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */; };
+		5561AF7D270A026B007B3F8F /* CertificatePickupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */; };
 		556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
@@ -251,6 +253,7 @@
 		5561AF712708AF28007B3F8F /* LevelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelConfig.swift; sourceTree = "<group>"; };
 		5561AF742708B07F007B3F8F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt2.swift; sourceTree = "<group>"; };
+		5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatePickupManager.swift; sourceTree = "<group>"; };
 		556FBE7E26F7032B00F8081C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		556FBE8026F77A6C00F8081C /* BasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePath.swift; sourceTree = "<group>"; };
 		556FBE8226F7858D00F8081C /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -492,9 +495,18 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		5561AF7A270A0256007B3F8F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		55A579B926F4F8810084239D /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				5561AF7A270A0256007B3F8F /* Manager */,
 				55EE3D872705A60900991D86 /* Vaccines */,
 				55A579BC26F4FD950084239D /* BasePickupNode.swift */,
 				55A579BA26F4F89D0084239D /* MedKitPickup.swift */,
@@ -1093,6 +1105,7 @@
 				55EE3DAD270646D600991D86 /* SkViewExt.swift in Sources */,
 				55EE3D8C2705A67800991D86 /* JillAndJasmineVaccine.swift in Sources */,
 				55C83F5C26FDDB8B00F42F53 /* PauseState.swift in Sources */,
+				5561AF7C270A026B007B3F8F /* CertificatePickupManager.swift in Sources */,
 				5552BFA926F26ABE0034C812 /* TimeInterval.swift in Sources */,
 				55EAD44D26FE990200BB8D06 /* CertificatePickup.swift in Sources */,
 				55B64A3326F3474900944766 /* MenuSceneBase.swift in Sources */,
@@ -1205,6 +1218,7 @@
 				55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55EE3D972705ACD400991D86 /* Player.swift in Sources */,
 				55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */,
+				5561AF7D270A026B007B3F8F /* CertificatePickupManager.swift in Sources */,
 				5561AF732708AF28007B3F8F /* LevelConfig.swift in Sources */,
 				55C83F2526FC6B2800F42F53 /* BasePickupNode.swift in Sources */,
 				55EE3DA127063E2300991D86 /* CreditsSceneBase.swift in Sources */,

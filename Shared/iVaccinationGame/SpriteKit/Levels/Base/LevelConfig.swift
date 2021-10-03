@@ -12,6 +12,8 @@ class LevelConfig{
     
     var difficulty:Difficulty = .easy
     var zombieCountAtOnce:Int = 1
+    var zombieRespawnRange = 2...4
+    
     var syringePickupsAtOnce:Int = 1
     var certificatePickupsAtOnce:Int = 1
     var duration:Duration = .Minutes1
