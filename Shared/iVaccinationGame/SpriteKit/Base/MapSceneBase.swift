@@ -14,6 +14,10 @@ class MapSceneBase: BaseSKScene {
     var imgBG:SKSpriteNode!
     var imgBack:SKSpriteNode!
     var lblScore:SKLabelNode!
+    var lblCertificates:SKLabelNode!
+    
+    
+    
     var lblLevel:SKLabelNode!
     var lblDifficulty:SKLabelNode!
     var lblTask:SKLabelNode!
@@ -53,6 +57,9 @@ class MapSceneBase: BaseSKScene {
         self.currentContainer = self.childNode(withName: "currentContainer") as? SKShapeNode
         
         self.lblScore = self.currentContainer.childNode(withName: "lblScore") as? SKLabelNode
+        self.lblCertificates = self.currentContainer.childNode(withName: "lblCertificates") as? SKLabelNode
+        
+        
         self.lblLevel = self.currentContainer.childNode(withName: "lblLevel") as? SKLabelNode
         self.lblDifficulty = self.currentContainer.childNode(withName: "lblDifficulty") as? SKLabelNode
         
@@ -149,6 +156,8 @@ class MapSceneBase: BaseSKScene {
     
     func updateScoreFromICloud(){
         self.lblScore.text = "Score: \(ICloudStorageHelper.highscore)"
+        self.lblCertificates.text = "Certificate(s): \(ICloudStorageHelper.certificates)"
+        
         self.lblLevel.text = "Level: \(ICloudStorageHelper.level)"
         self.lblDifficulty.text = "Difficulty: \(ICloudStorageHelper.difficulty)"
         

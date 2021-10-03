@@ -18,8 +18,9 @@ extension GameSceneBase{
     }
     
     func addCert(certCount:Int = 1){
-        self.player.addCert(cerCount: certCount)
-        self.lblCerts?.text = self.player.certs.description + " Certs"
+//        self.player.addCert(cerCount: certCount)
+        self.player.pickedUpCert()
+        self.lblCerts?.text = self.player.certsPickedUp.description + " Certs"
         self.lblCerts?.run(SKAction.scale(by: 1.15, duration: 0.35),completion: {
             self.lblCerts?.xScale = 1.0
             self.lblCerts?.yScale = 1.0

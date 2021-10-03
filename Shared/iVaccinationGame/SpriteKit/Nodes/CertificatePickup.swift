@@ -38,7 +38,7 @@ class CertificatePickup: BasePickupNode {
         }
     }
     
-    func startTimeout(){
+    override func startTimeout(){
         if let gameScene = self.scene as? GameScene{
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certLifetimeRange.randomElement()!), execute: {
                 self.pickedUp(afterTimeOut: true)

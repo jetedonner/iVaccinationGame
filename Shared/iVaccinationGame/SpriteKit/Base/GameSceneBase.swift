@@ -43,7 +43,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     
     var medkitPickup:MedKitPickup?
     var syringePickup:SyringePickup?
-    var certificatePickup:CertificatePickup?
+//    var certificatePickup:CertificatePickup?
+    var certificatePickupManager:CertificatePickupManager!
     
     var handInitRot:CGFloat?
     var handInitPos:CGPoint?
@@ -110,8 +111,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             CityNightLevel(),
             ScarryStreetLevel()
         ]
-        
-        self.currentLevel = self.levels[4]
+//        self.currentLevel = self.levels[4]
         
         self.gameStateMachine = GameStateMachine(gameScene: self)
         
@@ -164,27 +164,22 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.syringePickup?.alpha = 0.0
         self.scene?.addChild(self.syringePickup!)
         
-        self.certificatePickup = CertificatePickup()
-        self.certificatePickup?.size = CGSize(width: 64, height: 64)
-        self.certificatePickup?.position = CGPoint(x: 300, y: 300)
-        self.certificatePickup?.zPosition = 1000
-        self.scene?.addChild(self.certificatePickup!)
-        self.certificatePickup?.genNewPos()
-        self.certificatePickup?.startTimeout()
+        
+//        self.certificatePickup = CertificatePickup()
+//        self.certificatePickup?.size = CGSize(width: 64, height: 64)
+//        self.certificatePickup?.position = CGPoint(x: 300, y: 300)
+//        self.certificatePickup?.zPosition = 1000
+//        self.scene?.addChild(self.certificatePickup!)
+//        self.certificatePickup?.genNewPos()
+//        self.certificatePickup?.startTimeout()
         
         self.imgBlood = self.contentNode!.childNode(withName: "imgBlood") as? SKSpriteNode
         self.imgBlood?.isHidden = true
         self.imgRedOut = self.contentNode!.childNode(withName: "redOut") as? SKSpriteNode
         self.imgRedOut?.alpha = 0.0
         
-//        self.scene?.addChild(self.zombieGirl)
-//        self.zombieGirl.physicsBody = SKPhysicsBody(rectangleOf: self.zombieGirl.size)
-//        self.zombieGirl.physicsBody?.affectedByGravity = false
-//        self.zombieGirl.physicsBody?.isDynamic = false
-//
-//        if(UserDefaultsHelper.devMode){
-//            self.zombieGirl.addDbgBorder()
-//        }
+        self.certificatePickupManager = CertificatePickupManager(gameScene: self)
+        self.certificatePickupManager.startPickupManager()
         
         self.prgBar.setProgress(1.0)
         self.prgBar.position = CGPoint(x: (self.frame.width / 2) - 20 , y: (self.frame.height / 2) - 12 - 70)
@@ -372,7 +367,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         
         if(self.startTime == 0){
             self.startTime = currentTime
-            self.updateEffectNode()
+//            self.updateEffectNode()
         }
         
         let timeDelta:TimeInterval = currentTime - self.startTime
@@ -440,10 +435,11 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.scoreLblOrigPos = self.lblScore!.position
         self.lblScore?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 180), duration: 0.45), SKAction.scale(to: 2.5, duration: 0.45)]))
         ICloudStorageHelper.score[self.currentLevel.level.getDesc()] = self.player.score
+        ICloudStorageHelper.certificate[self.currentLevel.level.getDesc()] = self.player.certsPickedUp
+        ICloudStorageHelper.certificates += self.player.certsPickedUp
         self.lblGameOver?.alpha = 1.0
         self.lblGameOver?.isHidden = false
-        self.updateEffectNode()
-        self.effectNode.isHidden = false
+        
 
 //        self.zombieGirl.isPaused = true
 //        self.zombieGirl.removeAllActions()
@@ -458,6 +454,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             SoundManager.shared.playSound(sound: .youWin)
             self.lblGameOver?.text = "You win!"
         }
+        
+        self.updateEffectNode()
+        self.effectNode.isHidden = false
 
         self.lblGameOver?.run(SKAction.sequence([SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.group([SKAction.scale(to: 0.85, duration: self.gameOverFlashTimeStep)/*, SKAction.fadeOut(withDuration: self.gameOverFlashTimeStep)*/])]), completion: {
             self.lblPressAnyKey?.alpha = 0.0
@@ -471,6 +470,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             #if os(iOS)
                 if let viewCtrl = self.view?.window?.rootViewController{
                     (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.player.score)
+                    (viewCtrl as! GameViewController).gameCenterHelper.updateCertificates(with: self.player.certsPickedUp)
                     ICloudStorageHelper.highscore += self.player.score
                     UserDefaultsHelper.score += self.player.score
                     ICloudStorageHelper.level = nextLevel.getDesc()
@@ -479,6 +479,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             #else
                 if let viewCtrl = self.view?.window?.contentViewController{
                     (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.player.score)
+                    (viewCtrl as! ViewController).gameCenterHelper.updateCertificates(with: self.player.certsPickedUp)
                     ICloudStorageHelper.highscore += self.player.score
                     UserDefaultsHelper.score += self.player.score
                     ICloudStorageHelper.level = nextLevel.getDesc()
@@ -521,9 +522,11 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             return
         }
         
-        if(self.checkIsNode(node2Check: node, isNode: self.certificatePickup!)){
-            self.certificatePickup?.pickedUp()
-            return
+        for certNode in self.certificatePickupManager.pickups{
+            if(self.checkIsNode(node2Check: node, isNode: certNode)){
+                certNode.pickedUp()
+                return
+            }
         }
         
         if(self.checkIsNode(node2Check: node, isNode: self.medkitPickup!)){

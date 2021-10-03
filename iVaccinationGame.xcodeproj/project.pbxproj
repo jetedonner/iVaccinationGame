@@ -30,6 +30,8 @@
 		5561AF792708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */; };
 		5561AF7C270A026B007B3F8F /* CertificatePickupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */; };
 		5561AF7D270A026B007B3F8F /* CertificatePickupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */; };
+		5561AF7F270A083F007B3F8F /* PickupManagerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF7E270A083F007B3F8F /* PickupManagerBase.swift */; };
+		5561AF80270A083F007B3F8F /* PickupManagerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF7E270A083F007B3F8F /* PickupManagerBase.swift */; };
 		556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
@@ -254,6 +256,7 @@
 		5561AF742708B07F007B3F8F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt2.swift; sourceTree = "<group>"; };
 		5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatePickupManager.swift; sourceTree = "<group>"; };
+		5561AF7E270A083F007B3F8F /* PickupManagerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupManagerBase.swift; sourceTree = "<group>"; };
 		556FBE7E26F7032B00F8081C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		556FBE8026F77A6C00F8081C /* BasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePath.swift; sourceTree = "<group>"; };
 		556FBE8226F7858D00F8081C /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -499,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */,
+				5561AF7E270A083F007B3F8F /* PickupManagerBase.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1106,6 +1110,7 @@
 				55EE3D8C2705A67800991D86 /* JillAndJasmineVaccine.swift in Sources */,
 				55C83F5C26FDDB8B00F42F53 /* PauseState.swift in Sources */,
 				5561AF7C270A026B007B3F8F /* CertificatePickupManager.swift in Sources */,
+				5561AF7F270A083F007B3F8F /* PickupManagerBase.swift in Sources */,
 				5552BFA926F26ABE0034C812 /* TimeInterval.swift in Sources */,
 				55EAD44D26FE990200BB8D06 /* CertificatePickup.swift in Sources */,
 				55B64A3326F3474900944766 /* MenuSceneBase.swift in Sources */,
@@ -1251,6 +1256,7 @@
 				55EAD47126FF7D0800BB8D06 /* MenuScene.swift in Sources */,
 				55EAD46826FF773A00BB8D06 /* BaseSKSceneIOS.swift in Sources */,
 				559442AA26FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,
+				5561AF80270A083F007B3F8F /* PickupManagerBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

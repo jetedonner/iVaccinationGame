@@ -78,6 +78,14 @@ class BasePickupNode: SKSpriteNode {
             self.alpha = 1.0
         }
     }
+    
+    func startTimeout(){
+//        if let gameScene = self.scene as? GameScene{
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certLifetimeRange.randomElement()!), execute: {
+//                self.pickedUp()
+//            })
+//        }
+    }
 
     override func calculateAccumulatedFrame() -> CGRect {
         let frm = self.frame
