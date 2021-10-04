@@ -44,8 +44,26 @@ class SettingsViewController: NSViewController {
         self.cmdResetAch?.isHidden = hide
     }
     
+    @IBAction func resetALL(_ sender:Any){
+        ICloudStorageHelper.resetAllICloudValues()
+        UserDefaultsHelper.resetUserDefValues()
+        GCAchievements.shared.resetAllCompletedAchivements()
+        _ = AlertBox.dialogOK(message: "All values reset", text: "All values and achievements reset ok!")
+    }
+    
+    @IBAction func resetICloud(_ sender:Any){
+        ICloudStorageHelper.resetAllICloudValues()
+        _ = AlertBox.dialogOK(message: "iCloud values reset", text: "All iCloud values reset ok!")
+    }
+    
+    @IBAction func resetUserDef(_ sender:Any){
+        UserDefaultsHelper.resetUserDefValues()
+        _ = AlertBox.dialogOK(message: "UserDefault values reset", text: "All UserDefault values reset ok!")
+    }
+    
     @IBAction func resetGCAchivements(_ sender:Any){
         GCAchievements.shared.resetAllCompletedAchivements()
+        _ = AlertBox.dialogOK(message: "All achievements reset", text: "All achievements reset ok!")
     }
     
     @IBAction func testGCAchivements(_ sender:Any){

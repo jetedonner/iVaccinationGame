@@ -117,7 +117,9 @@ class MapSceneBase: BaseSKScene {
     
     func loadMapBGTexture(){
 //        ICloudStorageHelper.level
-        if(UserDefaultsHelper.levelID == .Meadow){
+        if(UserDefaultsHelper.levelID == .NewGame){
+            self.imgBG.texture = self.textMeadow
+        }else if(UserDefaultsHelper.levelID == .Meadow){
             self.imgBG.texture = self.textMeadow
         }else if(UserDefaultsHelper.levelID == .CitySkyline){
             self.imgBG.texture = self.textCitySkyline
@@ -165,6 +167,8 @@ class MapSceneBase: BaseSKScene {
     
     func getPosNode4Level(level:Level)->SKShapeNode?{
         switch level {
+        case .NewGame:
+            return self.posMeadow!
         case .Meadow:
             return self.posMeadow!
         case .CitySkyline:

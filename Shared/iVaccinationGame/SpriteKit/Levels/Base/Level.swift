@@ -8,6 +8,7 @@
 import Foundation
 
 enum Level:Int, CaseIterable{
+    case NewGame = 0
     case Meadow = 1
     case CitySkyline = 2
     case CityStreet = 3
@@ -17,9 +18,36 @@ enum Level:Int, CaseIterable{
     case ScarryStreet = 7
     case MissionAccomplished = 8
     
+    init?(levelIDString:String){
+        switch levelIDString {
+        case Level.NewGame.getDesc():
+            self.init(rawValue: Level.NewGame.rawValue)
+        case Level.Meadow.getDesc():
+            self.init(rawValue: Level.Meadow.rawValue)
+        case Level.CitySkyline.getDesc():
+            self.init(rawValue: Level.CitySkyline.rawValue)
+        case Level.CityStreet.getDesc():
+            self.init(rawValue: Level.CityStreet.rawValue)
+        case Level.CityNight.getDesc():
+            self.init(rawValue: Level.CityNight.rawValue)
+        case Level.CityJapan.getDesc():
+            self.init(rawValue: Level.CityJapan.rawValue)
+        case Level.Wallway.getDesc():
+            self.init(rawValue: Level.Wallway.rawValue)
+        case Level.ScarryStreet.getDesc():
+            self.init(rawValue: Level.ScarryStreet.rawValue)
+        case Level.MissionAccomplished.getDesc():
+            self.init(rawValue: Level.MissionAccomplished.rawValue)
+        default:
+            self.init(rawValue: Level.Meadow.rawValue)
+        }
+    }
+    
     func getDesc(currentLevel:Level? = nil)->String{
         let dCurLevel:Level = (currentLevel ?? self)
         switch dCurLevel {
+        case .NewGame:
+            return "New game"
         case .Meadow:
             return "Meadow"
         case .CitySkyline:
@@ -42,6 +70,8 @@ enum Level:Int, CaseIterable{
     func getNextLevel(currentLevel:Level? = nil)->Level{
         let dCurLevel:Level = (currentLevel ?? self)
         switch dCurLevel {
+        case .NewGame:
+            return .Meadow
         case .Meadow:
             return .CitySkyline
         case .CitySkyline:

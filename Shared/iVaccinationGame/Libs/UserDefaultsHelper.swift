@@ -21,8 +21,10 @@ enum UserDefaultsName:String{
     case devMode = "devMode"
     
     case levelID = "levelID"
+    case highscore = "highscore"
     case score = "score"
-    case cretificates = "cretificates"
+    case certificates = "certificates"
+    case certificate = "certificate"
 }
 
 class UserDefaultsHelper{
@@ -81,20 +83,21 @@ class UserDefaultsHelper{
         set{ defaults.set(newValue.rawValue, forKey: UserDefaultsName.difficulty.rawValue) }
     }
     
-    static var speedMultiplierForDifficulty:CGFloat{
-        get{
-            switch self.difficulty{
-            case .easy:
-                return 1.5
-            case .medium:
-                return 2.0
-            case .hard:
-                return 2.75
-            case .nightmare:
-                return 3.75
-            }
-        }
-    }
+//    static var roundTime:Duration{
+//        get{
+//            return Duration(rawValue: defaults.integer(forKey: UserDefaultsName.roundTime.rawValue))!
+//        }
+//        set{
+//            defaults.set(newValue.rawValue, forKey: UserDefaultsName.roundTime.rawValue)
+//        }
+//    }
+//
+//    static var difficulty:Difficulty{
+//        get{
+//            return Difficulty(rawValue: defaults.string(forKey: UserDefaultsName.difficulty.rawValue)!)!
+//        }
+//        set{ defaults.set(newValue.rawValue, forKey: UserDefaultsName.difficulty.rawValue) }
+//    }
     
     static var levelID:Level{
         set{ self.defaults.set(newValue.getDesc(), forKey: UserDefaultsName.levelID.rawValue) }
@@ -102,43 +105,84 @@ class UserDefaultsHelper{
             if(self.defaults.value(forKey: UserDefaultsName.levelID.rawValue) == nil){
                 self.defaults.set(Level.Meadow.getDesc(), forKey: UserDefaultsName.levelID.rawValue)
             }
-            let levelIDString = defaults.string(forKey: UserDefaultsName.levelID.rawValue)!
-            switch levelIDString {
-            case Level.Meadow.getDesc():
-                return .Meadow
-            case Level.CitySkyline.getDesc():
-                return .CitySkyline
-            case Level.CityStreet.getDesc():
-                return .CityStreet
-            case Level.CityNight.getDesc():
-                return .CityNight
-            case Level.CityJapan.getDesc():
-                return .CityJapan
-            case Level.Wallway.getDesc():
-                return .Wallway
-            case Level.ScarryStreet.getDesc():
-                return .ScarryStreet
-            case Level.MissionAccomplished.getDesc():
-                return .MissionAccomplished
-            default:
-                return .Meadow
-            }
+//            let levelIDString = defaults.string(forKey: UserDefaultsName.levelID.rawValue)!
+            return Level(levelIDString: defaults.string(forKey: UserDefaultsName.levelID.rawValue)!)!
+//            switch levelIDString {
+//            case Level.Meadow.getDesc():
+//                return .Meadow
+//            case Level.CitySkyline.getDesc():
+//                return .CitySkyline
+//            case Level.CityStreet.getDesc():
+//                return .CityStreet
+//            case Level.CityNight.getDesc():
+//                return .CityNight
+//            case Level.CityJapan.getDesc():
+//                return .CityJapan
+//            case Level.Wallway.getDesc():
+//                return .Wallway
+//            case Level.ScarryStreet.getDesc():
+//                return .ScarryStreet
+//            case Level.MissionAccomplished.getDesc():
+//                return .MissionAccomplished
+//            default:
+//                return .Meadow
+//            }
         }
     }
     
-    static var score:Int{
+    static func resetUserDefValues(){
+        UserDefaultsHelper.highscore = 0
+        UserDefaultsHelper.certificates = 0
+        UserDefaultsHelper.level = Level.NewGame.getDesc()
+        UserDefaultsHelper.difficulty = .easy
+        for level in Level.allCases{
+            UserDefaultsHelper.certificate[level.getDesc()] = 0
+            UserDefaultsHelper.score[level.getDesc()] = 0
+        }
+        
+    }
+    
+    static var certificates:Int{
         get{
-            return self.defaults.integer(forKey: UserDefaultsName.score.rawValue)
+            return self.defaults.integer(forKey: UserDefaultsName.certificates.rawValue)
+        }
+        set{ self.defaults.set(newValue, forKey: UserDefaultsName.certificates.rawValue) }
+    }
+    
+    static var highscore:Int{
+        get{
+            return self.defaults.integer(forKey: UserDefaultsName.highscore.rawValue)
+        }
+        set{ self.defaults.set(newValue, forKey: UserDefaultsName.highscore.rawValue) }
+    }
+    
+    static var score:[String:Int]{
+        get{
+            return (self.defaults.dictionary(forKey: UserDefaultsName.score.rawValue) != nil ? self.defaults.dictionary(forKey: UserDefaultsName.score.rawValue) as! [String:Int] : [Level.Meadow.getDesc(): 0])
         }
         set{ self.defaults.set(newValue, forKey: UserDefaultsName.score.rawValue) }
+    }
+
+    static var certificate:[String:Int]{
+        get{
+            return (self.defaults.dictionary(forKey: UserDefaultsName.certificate.rawValue) != nil ? self.defaults.dictionary(forKey: UserDefaultsName.certificate.rawValue) as! [String:Int] : [Level.Meadow.getDesc(): 0])
+        }
+        set{ self.defaults.set(newValue, forKey: UserDefaultsName.certificate.rawValue) }
+//        get{
+//            return (NSUbiquitousKeyValueStore.default.dictionary(forKey: self.certificateKey) != nil ? NSUbiquitousKeyValueStore.default.dictionary(forKey: self.certificateKey) as! [String:Int] : ["Meadow": 0])
+//        }
+//        set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.certificateKey) }
     }
     
     static var level:String{
         get{
             if(self.defaults.value(forKey: UserDefaultsName.level.rawValue) == nil){
-                self.defaults.set("City Skyline", forKey: UserDefaultsName.level.rawValue)
+                self.defaults.set(Level.NewGame.getDesc(), forKey: UserDefaultsName.level.rawValue)
             }
             return defaults.string(forKey: UserDefaultsName.level.rawValue)!
+        }
+        set{
+            self.defaults.set(newValue, forKey: UserDefaultsName.level.rawValue)
         }
     }
     

@@ -469,10 +469,10 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
             #if os(iOS)
                 if let viewCtrl = self.view?.window?.rootViewController{
-                    (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.player.score)
+                    (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.player.highscore)
                     (viewCtrl as! GameViewController).gameCenterHelper.updateCertificates(with: self.player.certsPickedUp)
-                    ICloudStorageHelper.highscore += self.player.score
-                    UserDefaultsHelper.score += self.player.score
+                    ICloudStorageHelper.highscore += self.player.highscore
+                    UserDefaultsHelper.highscore += self.player.highscore
                     ICloudStorageHelper.level = nextLevel.getDesc()
                     ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
                 }
@@ -481,7 +481,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                     (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.player.score)
                     (viewCtrl as! ViewController).gameCenterHelper.updateCertificates(with: self.player.certsPickedUp)
                     ICloudStorageHelper.highscore += self.player.score
-                    UserDefaultsHelper.score += self.player.score
+                    UserDefaultsHelper.highscore += self.player.score
                     ICloudStorageHelper.level = nextLevel.getDesc()
                     ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
                 }

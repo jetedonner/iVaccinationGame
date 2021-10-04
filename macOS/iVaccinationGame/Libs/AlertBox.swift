@@ -20,4 +20,15 @@ class AlertBox{
         alert.window.setFrameOrigin(CGPoint(x: 200, y: 200))// = newFrame
         return alert.runModal() == .alertFirstButtonReturn
     }
+    
+    static func dialogOK(message: String, text: String) -> Bool {
+        let alert = NSAlert()
+        alert.messageText = message
+        alert.informativeText = text
+        alert.alertStyle = .informational
+        alert.addButton(withTitle: "OK")
+//        alert.addButton(withTitle: "Cancel")
+        alert.window.setFrameOrigin(CGPoint(x: 200, y: 200))// = newFrame
+        return alert.runModal() == .alertFirstButtonReturn
+    }
 }

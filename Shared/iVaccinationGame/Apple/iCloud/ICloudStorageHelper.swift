@@ -49,4 +49,18 @@ class ICloudStorageHelper{
         get{ return (NSUbiquitousKeyValueStore.default.string(forKey: self.difficultyKey) != nil ? NSUbiquitousKeyValueStore.default.string(forKey: self.difficultyKey)! : "Easy") }
         set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.difficultyKey) }
     }
+    
+    static func resetAllICloudValues(){
+        ICloudStorageHelper.certificates = 0
+        ICloudStorageHelper.highscore = 0
+        ICloudStorageHelper.difficulty = Difficulty.easy.rawValue
+        ICloudStorageHelper.level = Level.Meadow.getDesc()
+        
+        for level in Level.allCases{
+            ICloudStorageHelper.certificate[level.getDesc()] = 0
+            ICloudStorageHelper.score[level.getDesc()] = 0
+        }
+        
+        
+    }
 }
