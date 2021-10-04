@@ -163,6 +163,12 @@ class MapSceneBase: BaseSKScene {
         self.lblLevel.text = "Level: \(ICloudStorageHelper.level)"
         self.lblDifficulty.text = "Difficulty: \(ICloudStorageHelper.difficulty)"
         
+        if(ICloudStorageHelper.difficulty == Difficulty.nightmare.rawValue){
+            self.lblDifficulty.fontColor = SKColor.red
+        }else{
+            self.lblDifficulty.fontColor = SKColor.white
+        }
+        
     }
     
     func getPosNode4Level(level:Level)->SKShapeNode?{

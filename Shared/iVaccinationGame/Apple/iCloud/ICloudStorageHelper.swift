@@ -27,7 +27,7 @@ class ICloudStorageHelper{
     }
     
     static var level:String{
-        get{ return (NSUbiquitousKeyValueStore.default.string(forKey: self.levelKey) != nil ? NSUbiquitousKeyValueStore.default.string(forKey: self.levelKey)! : "Meadow") }
+        get{ return (NSUbiquitousKeyValueStore.default.string(forKey: self.levelKey) != nil ? NSUbiquitousKeyValueStore.default.string(forKey: self.levelKey)! : "New Game") }
         set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.levelKey) }
     }
     
@@ -54,7 +54,7 @@ class ICloudStorageHelper{
         ICloudStorageHelper.certificates = 0
         ICloudStorageHelper.highscore = 0
         ICloudStorageHelper.difficulty = Difficulty.easy.rawValue
-        ICloudStorageHelper.level = Level.Meadow.getDesc()
+        ICloudStorageHelper.level = Level.NewGame.getDesc()
         
         for level in Level.allCases{
             ICloudStorageHelper.certificate[level.getDesc()] = 0

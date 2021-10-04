@@ -9,6 +9,9 @@ import Foundation
 import SpriteKit
 
 protocol IViewController{
+    
+    var gameCenterHelper:GameCenterHelper!{ get set }
+    
     func loadMenuScene()
     func loadDifficultyScene()
     func loadCreditsScene()

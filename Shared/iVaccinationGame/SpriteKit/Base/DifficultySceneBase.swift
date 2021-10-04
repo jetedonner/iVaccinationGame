@@ -35,16 +35,25 @@ class DifficultySceneBase: BaseSKScene {
     override func touchOrClick(pos: CGPoint, viewController:IViewController) {
         super.touchOrClick(pos: pos, viewController: viewController)
 
+        var difficulty:Difficulty = .easy
         if(self.selNode == lblEasy){
-            viewController.loadMapScene(difficulty: .easy, level: self.initLevel)
+            difficulty = .easy
+//            viewController.loadMapScene(difficulty: .easy, level: self.initLevel)
         }else if(self.selNode == lblMedium){
-            viewController.loadMapScene(difficulty: .medium, level: self.initLevel)
+            difficulty = .medium
+//            viewController.loadMapScene(difficulty: .medium, level: self.initLevel)
         }else if(self.selNode == lblHard){
-            viewController.loadMapScene(difficulty: .hard, level: self.initLevel)
+            difficulty = .hard
+//            viewController.loadMapScene(difficulty: .hard, level: self.initLevel)
         }else if(self.selNode == lblNightmare){
-            viewController.loadMapScene(difficulty: .nightmare, level: self.initLevel)
+            difficulty = .nightmare
+//            viewController.loadMapScene(difficulty: .nightmare, level: self.initLevel)
         }else if(self.selNode == lblBack){
             viewController.loadMenuScene()
+            return
         }
+        ICloudStorageHelper.difficulty = difficulty.rawValue
+        UserDefaultsHelper.difficulty = difficulty
+        viewController.loadMapScene(difficulty: difficulty, level: self.initLevel)
     }
 }

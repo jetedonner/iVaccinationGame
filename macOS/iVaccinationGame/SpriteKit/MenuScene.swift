@@ -35,33 +35,45 @@ class MenuScene: MenuSceneBase {
                 self.lblStartGame?.fontColor = .white
                 self.lblExit?.fontColor = .white
                 self.lblMap?.fontColor = .white
-                self.lblContinue?.fontColor = .white
+                if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
+                    self.lblContinue?.fontColor = .white
+                }
             }else if(self.selNode == self.lblExit){
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblMap?.fontColor = .white
                 self.lblExit?.fontColor = self.lblColor
-                self.lblContinue?.fontColor = .white
+                if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
+                    self.lblContinue?.fontColor = .white
+                }
             }else if(self.selNode == self.lblStartGame){
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = self.lblColor
                 self.lblExit?.fontColor = .white
                 self.lblMap?.fontColor = .white
-                self.lblContinue?.fontColor = .white
+                if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
+                    self.lblContinue?.fontColor = .white
+                }
             }else if(self.selNode == self.lblContinue){
                 self.lblSettings?.fontColor = .white
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblMap?.fontColor = .white
-                self.lblContinue?.fontColor = self.lblColor
+                if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
+                    self.lblContinue?.fontColor = self.lblColor
+                }
             }else if(self.selNode == self.lblMap){
                 self.lblSettings?.fontColor = .white
                 self.lblMap?.fontColor = self.lblColor
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
-                self.lblContinue?.fontColor = .white
+                if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
+                    self.lblContinue?.fontColor = .white
+                }
             }
-            SoundManager.shared.playSound(sound: .menuHighlite)
+            if(Level.NewGame.getDesc() != ICloudStorageHelper.level || (Level.NewGame.getDesc() == ICloudStorageHelper.level && newSelNode != self.lblContinue)){
+                SoundManager.shared.playSound(sound: .menuHighlite)
+            }
         }
     }
     

@@ -23,6 +23,11 @@ class MenuSceneBase: BaseSKScene {
         super.sceneDidLoad()
         self.lblStartGame = self.childNode(withName: "lblStartGame") as? SKLabelNode
         self.lblContinue = self.childNode(withName: "lblContinue") as? SKLabelNode
+        
+        if(Level.NewGame.getDesc() == ICloudStorageHelper.level){
+            self.lblContinue?.fontColor = SKColor.gray
+        }
+        
         self.lblSettings = self.childNode(withName: "lblSettings") as? SKLabelNode
         self.lblExit = self.childNode(withName: "lblExit") as? SKLabelNode
         self.lblMap = self.childNode(withName: "lblMap") as? SKLabelNode
@@ -40,9 +45,23 @@ class MenuSceneBase: BaseSKScene {
         if(node == self.lblMap){
             viewController.loadCreditsScene()
         }else if(node == self.lblStartGame){
-            viewController.loadDifficultyScene()
+            var doStart:Bool = true
+            if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
+                
+                let answer = AlertBox.dialogOKCancel(question: "Restart iVaccination?", text: "Another game was started, do you want to completely restart a new game - from beginning?")
+                if(!answer){
+                    doStart = false
+                }
+            }
+            if(doStart){
+                ICloudStorageHelper.resetAllICloudValues()
+                UserDefaultsHelper.resetUserDefValues()
+                viewController.loadDifficultyScene()
+            }
         }else if(node == self.lblContinue){
-            viewController.loadMapScene()
+            if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
+                viewController.loadMapScene()
+            }
         }
     }
 }

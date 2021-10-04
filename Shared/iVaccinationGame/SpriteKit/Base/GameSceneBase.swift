@@ -43,7 +43,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     
     var medkitPickup:MedKitPickup?
     var syringePickup:SyringePickup?
-//    var certificatePickup:CertificatePickup?
+
     var certificatePickupManager:CertificatePickupManager!
     
     var handInitRot:CGFloat?
@@ -93,7 +93,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var emptyHands:SKTexture = SKTexture(imageNamed: "ThrowingFingersEmpty")
     var fullHands:SKTexture = SKTexture(imageNamed: "ThrowingFingers")
     
-//    var zombieGirl:ZombieGirl!
     var player:Player = Player()
     var thrownSyringeDarts:[SyringeDart] = []
     
@@ -111,11 +110,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             CityNightLevel(),
             ScarryStreetLevel()
         ]
-//        self.currentLevel = self.levels[4]
         
         self.gameStateMachine = GameStateMachine(gameScene: self)
         
-//        self.zombieGirl = ZombieGirl(zombieImageName: self.currentLevel.zombieImageName)
         self.gameDuration = UserDefaultsHelper.roundTime
         self.contentNode = self.childNode(withName: "contentNode")! as SKNode
         self.bg = self.contentNode!.childNode(withName: "BG") as? SKSpriteNode
@@ -164,15 +161,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.syringePickup?.alpha = 0.0
         self.scene?.addChild(self.syringePickup!)
         
-        
-//        self.certificatePickup = CertificatePickup()
-//        self.certificatePickup?.size = CGSize(width: 64, height: 64)
-//        self.certificatePickup?.position = CGPoint(x: 300, y: 300)
-//        self.certificatePickup?.zPosition = 1000
-//        self.scene?.addChild(self.certificatePickup!)
-//        self.certificatePickup?.genNewPos()
-//        self.certificatePickup?.startTimeout()
-        
         self.imgBlood = self.contentNode!.childNode(withName: "imgBlood") as? SKSpriteNode
         self.imgBlood?.isHidden = true
         self.imgRedOut = self.contentNode!.childNode(withName: "redOut") as? SKSpriteNode
@@ -194,6 +182,15 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
         self.setupHandAnimation()
+    }
+    
+    
+    func getViewController()->IViewController{
+        #if os(iOS)
+            return (self.view?.window?.rootViewController as! IViewController)
+        #else
+            return (self.view?.window?.contentViewController as! IViewController)
+        #endif
     }
     
     func setSyringesHUD(){
@@ -440,10 +437,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.lblGameOver?.alpha = 1.0
         self.lblGameOver?.isHidden = false
         
-
-//        self.zombieGirl.isPaused = true
-//        self.zombieGirl.removeAllActions()
-        
         self.currentLevel.endLevel()
         self.explosionEmitterNode?.removeFromParent()
 
@@ -464,28 +457,20 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             self.lblPressAnyKey?.run(SKAction.fadeIn(withDuration: 0.45), completion: {
                 self.waitForAnyKey = true
             })
+            
             let nextLevel:Level = self.currentLevel.level.getNextLevel()
             UserDefaultsHelper.levelID = nextLevel
+            UserDefaultsHelper.highscore += self.player.score
+            
+            ICloudStorageHelper.highscore += self.player.score
+            ICloudStorageHelper.level = nextLevel.getDesc()
+            ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
+            
             if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
-            #if os(iOS)
-                if let viewCtrl = self.view?.window?.rootViewController{
-                    (viewCtrl as! GameViewController).gameCenterHelper.updateScore(with: self.player.highscore)
-                    (viewCtrl as! GameViewController).gameCenterHelper.updateCertificates(with: self.player.certsPickedUp)
-                    ICloudStorageHelper.highscore += self.player.highscore
-                    UserDefaultsHelper.highscore += self.player.highscore
-                    ICloudStorageHelper.level = nextLevel.getDesc()
-                    ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
-                }
-            #else
-                if let viewCtrl = self.view?.window?.contentViewController{
-                    (viewCtrl as! ViewController).gameCenterHelper.updateScore(with: self.player.score)
-                    (viewCtrl as! ViewController).gameCenterHelper.updateCertificates(with: self.player.certsPickedUp)
-                    ICloudStorageHelper.highscore += self.player.score
-                    UserDefaultsHelper.highscore += self.player.score
-                    ICloudStorageHelper.level = nextLevel.getDesc()
-                    ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
-                }
-            #endif
+                let gameCenterHelper = self.getViewController().gameCenterHelper
+                gameCenterHelper!.updateScore(with: self.player.score)
+                gameCenterHelper!.updateCertificates(with: self.player.certsPickedUp)
+
                 if(self.currentLevel.shots > 0 && self.currentLevel.shots == self.currentLevel.hits){
                     GCAchievements.shared.add2perfectThrows()
                 }
@@ -499,15 +484,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     func clickedAtPoint(point:CGPoint){
         if(!self.gameRunning && self.waitForAnyKey){
             ICloudStorageHelper.level = UserDefaultsHelper.levelID.getDesc()
-            #if os(iOS)
-                if let viewCtrl = self.view?.window?.rootViewController{
-                    (viewCtrl as! GameViewController).loadMapScene()
-                }
-            #else
-                if let viewCtrl = self.view?.window?.contentViewController{
-                    (viewCtrl as! ViewController).loadMapScene()
-                }
-            #endif
+            self.getViewController().loadMapScene()
             return
         }
 

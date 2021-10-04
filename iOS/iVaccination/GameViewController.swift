@@ -10,9 +10,14 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController, IViewController {
-
-    var gameCenterHelper:GameCenterHelper!
+    
+    var gameCenterHelper: GameCenterHelper!
+//    var gameCenterHelper:GameCenterHelper!
     var gameSceneObj:GameScene!
+    
+//    init(){
+//        super.init()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

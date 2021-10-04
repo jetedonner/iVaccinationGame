@@ -27,6 +27,9 @@ class MapScene: MapSceneBase {
             }
         }
         
+//        if(node != self.imgBG && node != self){
+//            self.imgBG = self.imgBG
+//        }
         if(node == self.imgBack){
             self.selNode = node
             self.imgBack.texture = self.textBackArrowSel
