@@ -41,7 +41,6 @@ class SyringePickup: BasePickupNode {
 
             gameScene.addScore(score: self.pickupScore)
             
-
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 gameScene.player.vaccineArsenal.addVaccine(accineType: self.vaccineType, ammount: self.pickupType.rawValue)
                 gameScene.setSyringesHUD()
@@ -50,11 +49,11 @@ class SyringePickup: BasePickupNode {
                 gameScene.updateThrowingHandTexture()
                 if(!gameScene.player.hasSyringes){
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        gameScene.syringePickupManager.addPickupToScene()// .addPickupToScene(newPickup: gameScene.syringePickupManager.getPickup()!)
+                        gameScene.syringePickupManager.addPickupToScene()
                     }
                 }else{
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(self.pickupManager.respawnRange.randomElement()!), execute: {
-                        self.pickupManager.addPickupToScene()// .addPickupToScene(newPickup: self.pickupManager.getPickup()!)
+                        self.pickupManager.addPickupToScene()
                     })
                 }
             }

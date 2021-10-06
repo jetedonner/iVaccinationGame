@@ -39,9 +39,9 @@ enum Duration:Int{
 
 enum SpeedFactor:CGFloat{
     case easy = 1.0
-    case medium = 1.5
-    case hard = 2.5
-    case nightmare = 3.5
+    case medium = 1.15
+    case hard = 1.25
+    case nightmare = 1.5
     
     var multiplier:CGFloat{
         get{ return self.rawValue }

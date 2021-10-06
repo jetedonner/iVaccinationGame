@@ -33,7 +33,7 @@ class CertificatePickup: BasePickupNode {
                 gameScene.addScore(score: self.pickupScore)
             }
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certRespawnRange.randomElement()!), execute: {
-                self.pickupManager.addPickupToScene() //.addPickupToScene(newPickup: self.pickupManager.getPickup()!)
+                self.pickupManager.addPickupToScene()
             })
         }
     }

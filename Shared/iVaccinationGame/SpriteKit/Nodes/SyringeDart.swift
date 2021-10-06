@@ -38,14 +38,7 @@ class SyringeDart: SKSpriteNode {
             self.gameScene.syringe2?.isHidden = true
         }else if(!self.gameScene.player.hasSyringes){
             self.gameScene.syringe1?.isHidden = true
-//            if(self.gameScene.syringePickupManager.pickupsOnScene < self.gameScene.syringePickupManager.pickupsAtOnce){
-            self.gameScene.syringePickupManager.addPickupToScene()// .addPickupToScene(newPickup: self.gameScene.syringePickupManager.getPickup()!)
-//            }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-////                self.gameScene.syringePickup?.genNewPos()
-//                self.gameScene.syringePickupManager.addPickupToSceneNG(newPickup: self.gameScene.syringePickupManager.getPickup()!)
-////                self.gameScene.syringePickupManager.addPickupToSceneNG(newPickup: SyringePickup(pickupManager: self.gameScene.syringePickupManager))
-//            }
+            self.gameScene.syringePickupManager.addPickupToScene()
         }
         self.position = CGPoint(x: 0, y: -300)
         
