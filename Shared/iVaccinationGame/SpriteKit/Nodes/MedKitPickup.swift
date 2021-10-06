@@ -15,8 +15,8 @@ class MedKitPickup: BasePickupNode {
         self.pickupScore = 25
     }
     
-    override func pickedUp(){
-        super.pickedUp()
+    override func pickedUp(afterTimeOut:Bool = false){
+        super.pickedUp(afterTimeOut: afterTimeOut)
         if let gameScene = self.scene as? GameScene{
             gameScene.player.pickedUpMedKit(healValue: 25.0)
             gameScene.prgBar.setProgress(gameScene.player.health / 100.0)

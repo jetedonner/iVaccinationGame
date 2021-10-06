@@ -12,6 +12,8 @@ import GameKit
 class BasePickupNode: SKSpriteNode {
     
     var pickupScore:Int = 0
+    var timeOutRunning:Bool = false
+    var pickupManager:PickupManagerBase!
     
     var accumulatedFrameFactor:CGFloat{
         get {
@@ -33,6 +35,20 @@ class BasePickupNode: SKSpriteNode {
         get { return self._upwardEmitterNode! }
     }
     
+    init(pickupManager:PickupManagerBase, imageNamed name: String, emitterFileNamed: String, size:CGSize? = nil) {
+        let texture = SKTexture(imageNamed: name)
+        self.pickupManager = pickupManager
+        super.init(texture: texture, color: SKColor.clear, size: (size ?? texture.size()))
+        self._upwardEmitterNode = SKEmitterNode(fileNamed: emitterFileNamed)
+        self.upwardEmitterNode.setScale(0.15)
+        self.upwardEmitterNode.position.y += 30.0
+        
+        if(UserDefaultsHelper.devMode){
+            self.addDbgBorder()
+        }
+        self.addChild(self.upwardEmitterNode)
+    }
+    
     init(imageNamed name: String, emitterFileNamed: String, size:CGSize? = nil) {
         let texture = SKTexture(imageNamed: name)
         super.init(texture: texture, color: SKColor.clear, size: (size ?? texture.size()))
@@ -46,8 +62,13 @@ class BasePickupNode: SKSpriteNode {
         self.addChild(self.upwardEmitterNode)
     }
     
-    func pickedUp(){
-        
+    func pickedUp(afterTimeOut:Bool = false){
+        if(self.timeOutRunning){
+            self.abortTimeout()
+        }
+        if(self.pickupManager != nil){
+            self.pickupManager.removePickupFromScene(pickup: self)
+        }
     }
     
     func genNewPos(){
@@ -62,7 +83,7 @@ class BasePickupNode: SKSpriteNode {
                 newPoint = CGPoint(x: newX, y: newY)
                 
                 let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
-                print("GKAccessPointCoord: \(accsPntCoord)")
+//                print("GKAccessPointCoord: \(accsPntCoord)")
                 let accessFrame = gameScene.scene?.view?.convert(accsPntCoord, from: nil)
                 let ngPoint = gameScene.scene?.view?.convert(newPoint, from: gameScene.scene!)
                 if(accessFrame != nil){
@@ -80,11 +101,16 @@ class BasePickupNode: SKSpriteNode {
     }
     
     func startTimeout(){
+        self.timeOutRunning = true
 //        if let gameScene = self.scene as? GameScene{
 //            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certLifetimeRange.randomElement()!), execute: {
 //                self.pickedUp()
 //            })
 //        }
+    }
+    
+    func abortTimeout(){
+        self.timeOutRunning = false
     }
 
     override func calculateAccumulatedFrame() -> CGRect {

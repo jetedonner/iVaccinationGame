@@ -32,6 +32,9 @@
 		5561AF7D270A026B007B3F8F /* CertificatePickupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */; };
 		5561AF7F270A083F007B3F8F /* PickupManagerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF7E270A083F007B3F8F /* PickupManagerBase.swift */; };
 		5561AF80270A083F007B3F8F /* PickupManagerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF7E270A083F007B3F8F /* PickupManagerBase.swift */; };
+		5561AF81270CB6C6007B3F8F /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
+		5561AF83270CCEE6007B3F8F /* SyringePickupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF82270CCEE6007B3F8F /* SyringePickupManager.swift */; };
+		5561AF84270CCEE6007B3F8F /* SyringePickupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF82270CCEE6007B3F8F /* SyringePickupManager.swift */; };
 		556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
@@ -257,6 +260,7 @@
 		5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt2.swift; sourceTree = "<group>"; };
 		5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatePickupManager.swift; sourceTree = "<group>"; };
 		5561AF7E270A083F007B3F8F /* PickupManagerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupManagerBase.swift; sourceTree = "<group>"; };
+		5561AF82270CCEE6007B3F8F /* SyringePickupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyringePickupManager.swift; sourceTree = "<group>"; };
 		556FBE7E26F7032B00F8081C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		556FBE8026F77A6C00F8081C /* BasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePath.swift; sourceTree = "<group>"; };
 		556FBE8226F7858D00F8081C /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -502,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */,
+				5561AF82270CCEE6007B3F8F /* SyringePickupManager.swift */,
 				5561AF7E270A083F007B3F8F /* PickupManagerBase.swift */,
 			);
 			path = Manager;
@@ -1099,6 +1104,7 @@
 				55C83F5B26FDDB8B00F42F53 /* PlayingState.swift in Sources */,
 				55EAD46B26FF7A7D00BB8D06 /* MapScene.swift in Sources */,
 				556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */,
+				5561AF83270CCEE6007B3F8F /* SyringePickupManager.swift in Sources */,
 				55C83F5F26FDDB9F00F42F53 /* BaseState.swift in Sources */,
 				55C83EFC26FBB12400F42F53 /* ZombieGirl.swift in Sources */,
 				55A579BD26F4FD950084239D /* BasePickupNode.swift in Sources */,
@@ -1220,6 +1226,8 @@
 				55E59BD726FF8C9D00B75322 /* ICloudStorageHelper.swift in Sources */,
 				55C83F8426FE326500F42F53 /* CityNightLevel.swift in Sources */,
 				55EAD46D26FF7A9200BB8D06 /* MapScene.swift in Sources */,
+				5561AF81270CB6C6007B3F8F /* AlertBox.swift in Sources */,
+				5561AF84270CCEE6007B3F8F /* SyringePickupManager.swift in Sources */,
 				55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55EE3D972705ACD400991D86 /* Player.swift in Sources */,
 				55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */,
@@ -1629,9 +1637,9 @@
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationLandscapeRight;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1665,9 +1673,9 @@
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationLandscapeRight;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

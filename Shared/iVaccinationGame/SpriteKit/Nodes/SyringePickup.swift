@@ -27,16 +27,42 @@ class SyringePickup: BasePickupNode {
         self.pickupScore = 25
     }
     
-    override func pickedUp(){
-        super.pickedUp()
+    func pickedUp(){
+        self.pickedUp(afterTimeOut: false)
+    }
+    
+    override func pickedUp(afterTimeOut:Bool = false){
+        super.pickedUp(afterTimeOut: afterTimeOut)
+//        if let gameScene = self.scene as? GameScene{
+//            self.isHidden = true
+//            if(!afterTimeOut){
+//                SoundManager.shared.playSound(sound: .syringePickup)
+////                gameScene.player.pickedUpCert()
+////                gameScene.addCert()
+//                gameScene.addScore(score: self.pickupScore)
+//                gameScene.showEarnedPoints(score: self.pickupScore, onNode: self)
+//                gameScene.player.vaccineArsenal.addVaccine(accineType: self.vaccineType, ammount: self.pickupType.rawValue)
+//                gameScene.setSyringesHUD()
+//                gameScene.syringe2?.isHidden = false
+//                gameScene.syringe1?.isHidden = false
+//                gameScene.updateThrowingHandTexture()
+//
+//            }
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.syringePickupManager.respawnRange.randomElement()!), execute: {
+//                self.genNewPos()
+//                self.isHidden = false
+//                self.startTimeout()
+//            })
+//        }
+        
         if let gameScene = self.scene as? GameScene{
             self.alpha = 0.0
-            
+
             SoundManager.shared.playSound(sound: .syringePickup)
-            
+
             gameScene.addScore(score: self.pickupScore)
             gameScene.showEarnedPoints(score: self.pickupScore, onNode: self)
-            
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 gameScene.player.vaccineArsenal.addVaccine(accineType: self.vaccineType, ammount: self.pickupType.rawValue)
                 gameScene.setSyringesHUD()

@@ -48,10 +48,21 @@ class MenuSceneBase: BaseSKScene {
             var doStart:Bool = true
             if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
                 
+                #if os(macOS)
                 let answer = AlertBox.dialogOKCancel(question: "Restart iVaccination?", text: "Another game was started, do you want to completely restart a new game - from beginning?")
                 if(!answer){
                     doStart = false
                 }
+                #else
+                    doStart = false
+                AlertBox.alertTheUser(viewController: (self.view?.window?.rootViewController)!, completion: {
+                    if(AlertBox.userWantToChangeSettings){
+                        ICloudStorageHelper.resetAllICloudValues()
+                        UserDefaultsHelper.resetUserDefValues()
+                        viewController.loadDifficultyScene()
+                    }
+                }, question: "Restart iVaccination?", text: "Another game was started, do you want to completely restart a new game - from beginning?")
+                #endif
             }
             if(doStart){
                 ICloudStorageHelper.resetAllICloudValues()

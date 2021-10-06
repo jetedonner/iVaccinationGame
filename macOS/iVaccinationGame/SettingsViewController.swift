@@ -20,6 +20,9 @@ class SettingsViewController: NSViewController {
     @IBOutlet var swtDevMode:NSSwitch?
     @IBOutlet var cmdTestAch:NSButton?
     @IBOutlet var cmdResetAch:NSButton?
+    @IBOutlet var cmdResetICloud:NSButton?
+    @IBOutlet var cmdResetUserDef:NSButton?
+    @IBOutlet var cmdResetALL:NSButton?
     @IBOutlet var lblDevMode:NSTextField?
     
     override func viewDidLoad() {
@@ -42,6 +45,9 @@ class SettingsViewController: NSViewController {
     func showHideAchButtons(hide:Bool){
         self.cmdTestAch?.isHidden = hide
         self.cmdResetAch?.isHidden = hide
+        self.cmdResetUserDef?.isHidden = hide
+        self.cmdResetICloud?.isHidden = hide
+        self.cmdResetALL?.isHidden = hide
     }
     
     @IBAction func resetALL(_ sender:Any){

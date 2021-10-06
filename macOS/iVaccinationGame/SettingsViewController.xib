@@ -8,7 +8,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsViewController" customModule="iVaccinationGame" customModuleProvider="target">
             <connections>
+                <outlet property="cmdResetALL" destination="Odd-fa-AiN" id="Zej-7j-zxm"/>
                 <outlet property="cmdResetAch" destination="e8Y-hQ-9s8" id="PDD-BE-zkI"/>
+                <outlet property="cmdResetICloud" destination="d0I-Dq-wKt" id="jCR-CA-heP"/>
+                <outlet property="cmdResetUserDef" destination="jyh-Io-vHb" id="8As-zH-jDh"/>
                 <outlet property="cmdTestAch" destination="4t9-Xi-B1J" id="d0U-zH-qzJ"/>
                 <outlet property="lblDevMode" destination="kDy-IU-TPn" id="OR8-K2-dBX"/>
                 <outlet property="playBGMusic" destination="tgS-s1-MCd" id="sSA-Qj-1ic"/>

@@ -10,18 +10,18 @@ import SpriteKit
 
 class CertificatePickup: BasePickupNode {
     
-    init(){
-        super.init(imageNamed: "CertificatePickup", emitterFileNamed: "Upward3Particles.sks", size: CGSize(width: 64, height: 64))
+    init(pickupManager:PickupManagerBase){
+        super.init(pickupManager:pickupManager, imageNamed: "CertificatePickup", emitterFileNamed: "Upward3Particles.sks", size: CGSize(width: 64, height: 64))
         self.pickupScore = 50
     }
     
-    override func pickedUp(){
+    func pickedUp(){
         self.pickedUp(afterTimeOut: false)
     }
     
-    func pickedUp(afterTimeOut:Bool = false){
-        super.pickedUp()
+    override func pickedUp(afterTimeOut:Bool = false){
         if let gameScene = self.scene as? GameScene{
+        super.pickedUp(afterTimeOut: afterTimeOut)
             self.isHidden = true
             if(!afterTimeOut){
                 SoundManager.shared.playSound(sound: .certPickup)
@@ -31,19 +31,27 @@ class CertificatePickup: BasePickupNode {
                 gameScene.showEarnedPoints(score: self.pickupScore, onNode: self)
             }
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certRespawnRange.randomElement()!), execute: {
-                self.genNewPos()
-                self.isHidden = false
-                self.startTimeout()
+                self.pickupManager.addPickupToSceneNG(newPickup: self.pickupManager.getPickup()!)
+//                self.genNewPos()
+//                self.isHidden = false
+//                self.startTimeout()
             })
         }
     }
     
     override func startTimeout(){
+        super.startTimeout()
         if let gameScene = self.scene as? GameScene{
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(gameScene.currentLevel.certLifetimeRange.randomElement()!), execute: {
-                self.pickedUp(afterTimeOut: true)
+                if(self.timeOutRunning){
+                    self.pickedUp(afterTimeOut: true)
+                }
             })
         }
+    }
+    
+    override func abortTimeout(){
+        super.abortTimeout()
     }
     
     required init?(coder aDecoder: NSCoder) {

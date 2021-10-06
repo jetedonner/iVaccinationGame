@@ -14,13 +14,35 @@ class CertificatePickupManager:PickupManagerBase{
     
     init(gameScene:GameSceneBase){
         super.init(gameScene: gameScene, removeAfterTimeOut: true)
-        self.removeTimeoutRange = 5...15
-        self.respawnRange = 4...15
+        self.removeTimeoutRange = 7...15
+        self.respawnRange = 4...10
     }
     
-    override func addPickupToScene()->BasePickupNode?{
-        return super.addPickupToScene(newPickup: CertificatePickup())
+    override func getPickup()->BasePickupNode?{
+        return CertificatePickup(pickupManager: self)
     }
+    
+//    override func addPickupToSceneNG(pickupManager:PickupManagerBase)->BasePickupNode?{
+//        
+//        return super.addPickupToSceneNG(newPickup: CertificatePickup(pickupManager: self))
+////        for _ in 0..<self.gameScene.currentLevel.currentLevelConfig.certificatePickupsAtOnce{
+////            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(self.respawnRange.randomElement()!), execute: {
+//////                super.addPickupToScene(newPickup: CertificatePickup())
+////                _ = super.addPickupToScene(newPickup: CertificatePickup())
+////            })
+////        }
+////        return super.addPickupToScene(newPickup: CertificatePickup())
+//    }
+    
+//    override func addPickupToScene()->BasePickupNode?{
+//        for _ in 0..<self.gameScene.currentLevel.currentLevelConfig.certificatePickupsAtOnce{
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(self.respawnRange.randomElement()!), execute: {
+////                super.addPickupToScene(newPickup: CertificatePickup())
+//                _ = super.addPickupToScene(newPickup: CertificatePickup())
+//            })
+//        }
+//        return super.addPickupToScene(newPickup: CertificatePickup())
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

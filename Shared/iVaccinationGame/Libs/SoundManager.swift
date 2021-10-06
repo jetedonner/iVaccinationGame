@@ -30,19 +30,24 @@ enum Sounds:String{
     case youWin = "youWin.mp3"
 }
 
-class SoundManager:NSObject{
+class SoundManager:NSObject, AVAudioPlayerDelegate{
     
     static var shared:SoundManager = SoundManager()
     
     var masterVolume:CGFloat = 0.75
     var player:AVAudioPlayer!
     var songPlayer:AVAudioPlayer?
+    var players:[AVAudioPlayer] = []
     
-    func playSound(sounds: [Sounds], atVolume: CGFloat = CGFloat(UserDefaultsHelper.volume), waitForCompletion: Bool = false){
-        self.playSound(sound: sounds.randomElement()!, atVolume: atVolume, waitForCompletion: waitForCompletion)
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        self.players = self.players.filter({$0 != player})
     }
     
-    func playSound(sound: Sounds, atVolume: CGFloat = CGFloat(UserDefaultsHelper.volume), waitForCompletion: Bool = false){
+    func playSound(sounds: [Sounds], atVolume: CGFloat = CGFloat(UserDefaultsHelper.volume)){
+        self.playSound(sound: sounds.randomElement()!, atVolume: atVolume)
+    }
+    
+    func playSound(sound: Sounds, atVolume: CGFloat = CGFloat(UserDefaultsHelper.volume)){
         
         if(!UserDefaultsHelper.playSounds){
             return
@@ -54,10 +59,12 @@ class SoundManager:NSObject{
         let soundPath:URL = Bundle.main.url(forResource: nameOnly, withExtension: fileExt)!
         
         do{
-            self.player = try AVAudioPlayer(contentsOf: soundPath, fileTypeHint: AVFileType.mp3.rawValue)
-            player.volume = Float(atVolume)
-            player.prepareToPlay()
-            player.play()
+            let newPlayer:AVAudioPlayer = try AVAudioPlayer(contentsOf: soundPath, fileTypeHint: AVFileType.mp3.rawValue)
+            newPlayer.volume = Float(atVolume)
+            newPlayer.prepareToPlay()
+            newPlayer.play()
+            newPlayer.delegate = self
+            self.players.append(newPlayer)
         }catch{
             print("Error while playing music: \(error.localizedDescription)")
         }

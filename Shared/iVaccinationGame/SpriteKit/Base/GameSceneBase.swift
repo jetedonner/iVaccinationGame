@@ -45,6 +45,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var syringePickup:SyringePickup?
 
     var certificatePickupManager:CertificatePickupManager!
+//    var syringePickupManager:SyringePickupManager!
     
     var handInitRot:CGFloat?
     var handInitPos:CGPoint?
@@ -167,7 +168,10 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.imgRedOut?.alpha = 0.0
         
         self.certificatePickupManager = CertificatePickupManager(gameScene: self)
-        self.certificatePickupManager.startPickupManager()
+        
+        
+//        self.syringePickupManager = SyringePickupManager(gameScene: self)
+//        self.syringePickupManager.startPickupManager()
         
         self.prgBar.setProgress(1.0)
         self.prgBar.position = CGPoint(x: (self.frame.width / 2) - 20 , y: (self.frame.height / 2) - 12 - 70)
@@ -178,6 +182,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.scoreLblOrigPos = self.lblScore!.position
         
         self.runLevelConfig(levelID: self.selLevel, difficulty: UserDefaultsHelper.difficulty)
+        
+        self.certificatePickupManager.startPickupManagerNG()
         
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
@@ -494,6 +500,13 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             return
         }
         
+//        for syringeNode in self.syringePickupManager.pickups{
+//            if(self.checkIsNode(node2Check: node, isNode: syringeNode)){
+//                syringeNode.pickedUp(afterTimeOut: false)
+//                return
+//            }
+//        }
+        
         if(self.checkIsNode(node2Check: node, isNode: self.imgArrowDown!)){
             self.gameStateMachine.enter(SettingsState.self)
             return
@@ -501,7 +514,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         
         for certNode in self.certificatePickupManager.pickups{
             if(self.checkIsNode(node2Check: node, isNode: certNode)){
-                certNode.pickedUp()
+                certNode.pickedUp(afterTimeOut: false)
                 return
             }
         }

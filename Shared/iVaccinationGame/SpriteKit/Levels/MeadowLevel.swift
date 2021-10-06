@@ -18,8 +18,8 @@ class MeadowLevel: BaseLevel {
         self.levelConfigs[.easy] = LevelConfig(
             difficulty: .easy,
             zombieCountAtOnce: 1,
-            syringePickupsAtOnce: 1,
-            certificatePickupsAtOnce: 1,
+            syringePickupsAtOnce: 2,
+            certificatePickupsAtOnce: 2,
             duration: .Minutes1
         )
         let exitMove1:SKAction = SKAction.moveBy(x: 60, y: 10, duration: 0.2)
