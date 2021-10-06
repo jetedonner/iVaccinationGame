@@ -87,8 +87,6 @@ class MeadowLevel: BaseLevel {
             duration: .Minutes1
         )
         
-        // TEST
-        
         self.levelConfigs[.hard]?.zombiePaths.append(
             (self.levelConfigs[.easy]?.zombiePaths[0])!
         )
@@ -111,7 +109,5 @@ class MeadowLevel: BaseLevel {
         self.levelConfigs[.nightmare]?.zombiePaths.append(
             (self.levelConfigs[.easy]?.zombiePaths[1])!
         )
-        
-        // KIM ADDED SOME TEXT FOR GIT
     }
 }
