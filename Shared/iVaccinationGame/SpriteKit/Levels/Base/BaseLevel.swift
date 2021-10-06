@@ -76,6 +76,8 @@ class BaseLevel {
         gameScene.bg?.texture = SKTexture(imageNamed: self.backgroundImageName + (UserDefaultsHelper.autoNightMode && self.isNightTime() ? "Night" : ""))
         
         self.gameScene.gameDuration = self.currentLevelConfig.gameDuration
+        self.gameScene.certificatePickupManager.pickupsAtOnce = self.currentLevelConfig.certificatePickupsAtOnce
+        self.gameScene.syringePickupManager.pickupsAtOnce = self.currentLevelConfig.syringePickupsAtOnce
     }
     
     func addNewZombieGirl(){

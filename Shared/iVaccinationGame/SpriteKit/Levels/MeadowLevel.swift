@@ -17,7 +17,7 @@ class MeadowLevel: BaseLevel {
     override func initLevelConfig() {
         self.levelConfigs[.easy] = LevelConfig(
             difficulty: .easy,
-            zombieCountAtOnce: 1,
+            zombieCountAtOnce: 2,
             syringePickupsAtOnce: 2,
             certificatePickupsAtOnce: 2,
             duration: .Minutes1

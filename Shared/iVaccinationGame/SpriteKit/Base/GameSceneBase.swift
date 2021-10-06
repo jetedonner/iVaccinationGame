@@ -42,10 +42,10 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var syringe2:SKSpriteNode?
     
     var medkitPickup:MedKitPickup?
-    var syringePickup:SyringePickup?
+//    var syringePickup:SyringePickup?
 
     var certificatePickupManager:CertificatePickupManager!
-//    var syringePickupManager:SyringePickupManager!
+    var syringePickupManager:SyringePickupManager!
     
     var handInitRot:CGFloat?
     var handInitPos:CGPoint?
@@ -155,12 +155,12 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.medkitPickup?.alpha = 0.0
         self.scene?.addChild(self.medkitPickup!)
         
-        self.syringePickup = SyringePickup()
-        self.syringePickup?.size = CGSize(width: 64, height: 64)
-        self.syringePickup?.position = CGPoint(x: 300, y: -100)
-        self.syringePickup?.zPosition = 1000
-        self.syringePickup?.alpha = 0.0
-        self.scene?.addChild(self.syringePickup!)
+//        self.syringePickup = SyringePickup()
+//        self.syringePickup?.size = CGSize(width: 64, height: 64)
+//        self.syringePickup?.position = CGPoint(x: 300, y: -100)
+//        self.syringePickup?.zPosition = 1000
+//        self.syringePickup?.alpha = 0.0
+//        self.scene?.addChild(self.syringePickup!)
         
         self.imgBlood = self.contentNode!.childNode(withName: "imgBlood") as? SKSpriteNode
         self.imgBlood?.isHidden = true
@@ -170,20 +170,20 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.certificatePickupManager = CertificatePickupManager(gameScene: self)
         
         
-//        self.syringePickupManager = SyringePickupManager(gameScene: self)
-//        self.syringePickupManager.startPickupManager()
+        self.syringePickupManager = SyringePickupManager(gameScene: self)
+
         
         self.prgBar.setProgress(1.0)
         self.prgBar.position = CGPoint(x: (self.frame.width / 2) - 20 , y: (self.frame.height / 2) - 12 - 70)
         self.prgBar.zPosition = 1000
         self.addChild(self.prgBar)
         
-//        self.zombieGirl.physicsBody?.contactTestBitMask = 0b0010
         self.scoreLblOrigPos = self.lblScore!.position
         
         self.runLevelConfig(levelID: self.selLevel, difficulty: UserDefaultsHelper.difficulty)
         
-        self.certificatePickupManager.startPickupManagerNG()
+        self.certificatePickupManager.startPickupManager()
+        self.syringePickupManager.startPickupManager()
         
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
@@ -495,17 +495,17 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         }
 
         let node = self.atPoint(point)
-        if(self.checkIsNode(node2Check: node, isNode: self.syringePickup!)){
-            self.syringePickup?.pickedUp()
-            return
-        }
-        
-//        for syringeNode in self.syringePickupManager.pickups{
-//            if(self.checkIsNode(node2Check: node, isNode: syringeNode)){
-//                syringeNode.pickedUp(afterTimeOut: false)
-//                return
-//            }
+//        if(self.checkIsNode(node2Check: node, isNode: self.syringePickup!)){
+//            self.syringePickup?.pickedUp()
+//            return
 //        }
+        
+        for syringeNode in self.syringePickupManager.pickups{
+            if(self.checkIsNode(node2Check: node, isNode: syringeNode)){
+                syringeNode.pickedUp(afterTimeOut: false)
+                return
+            }
+        }
         
         if(self.checkIsNode(node2Check: node, isNode: self.imgArrowDown!)){
             self.gameStateMachine.enter(SettingsState.self)

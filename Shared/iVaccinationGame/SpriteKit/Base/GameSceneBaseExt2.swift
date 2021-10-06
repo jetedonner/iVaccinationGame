@@ -23,7 +23,6 @@ extension GameSceneBase{
         if(resetTime){
             self.startTime = 0
         }
-        self.restartZombieActions()
         for _ in 0..<self.currentLevel.currentLevelConfig.zombieCountAtOnce{
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(self.currentLevel.currentLevelConfig.zombieRespawnRange.randomElement()!), execute: {
                 self.restartZombieActions()
@@ -31,7 +30,6 @@ extension GameSceneBase{
         }
         
         self.showMessage(msg: "Level: \(self.currentLevel.levelName)")
-//        self.restartAfterHit(resetTime: resetTime)
     }
     
     func resetHUDAfterBiteOrRestart(){
@@ -112,8 +110,13 @@ extension GameSceneBase{
         }
 
         SoundManager.shared.playSound(sounds: [.eat1, .eat2])
+        
+        self.imgBlood?.run(SKAction.sequence([
+            SKAction.wait(forDuration: GameVars.BLOOD_SHOW_TIME),
+            SKAction.fadeOut(withDuration: GameVars.BLOOD_FADEOUT_TIME)
+        ]))
+        
         zombieGirl.run(SKAction.group([SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.moveBy(x: 0, y: -300, duration: 0.55)])]), completion: {
-            self.imgBlood?.isHidden = true
             if(self.player.health >= 75.0){
                 SoundManager.shared.playSound(sound: .pain100)
             }else if(self.player.health >= 50.0){

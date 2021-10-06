@@ -14,8 +14,6 @@ class PickupManagerBase:GKEntity{
     let gameScene:GameSceneBase
     var pickups:[BasePickupNode] = []
     
-//    var pickupType:BasePickupNode.Type = BasePickupNode.self
-    
     var pickupsOnScene:Int = 0
     var pickupsAtOnce:Int = 1
     
@@ -33,56 +31,34 @@ class PickupManagerBase:GKEntity{
         super.init()
     }
     
-    func startPickupManagerNG(){
+    func startPickupManager(){
         for i in 0..<self.pickupsAtOnce{
             self.gameScene.run(SKAction.sequence([
                 SKAction.wait(forDuration: TimeInterval((i > 0 ? self.respawnRange.randomElement()! : 0))),
                 SKAction.run {
-                    self.addPickupToSceneNG(newPickup: self.getPickup()!)
+                    self.addPickupToScene()//s.addPickupToScene(newPickup: self.getPickup()!)
                 }
             ]))
         }
     }
     
-//    func startPickupManager(){
-//        if let newPickup:BasePickupNode = self.addPickupToSceneNG(pickupManager: self){
-//            newPickup.size = CGSize(width: 64, height: 64)
-//            newPickup.zPosition = 1000
-//            newPickup.genNewPos()
-//            self.pickups.append(newPickup)
-//            if(self.removeAfterTimeout){
-//                newPickup.startTimeout()
-//            }
-//        }
-//    }
     
     func getPickup()->BasePickupNode?{
-        return nil
+        preconditionFailure("This method must be overridden") 
     }
     
-    func addPickupToSceneNG(pickupManager:PickupManagerBase)->BasePickupNode?{
-        return nil
+    func addPickupToScene(newPickup:BasePickupNode){
+            self.pickupsOnScene += 1
+            self.pickups.append(newPickup)
+            self.gameScene.addChild(newPickup)
+            newPickup.genNewPos()
+            newPickup.zPosition = 10001
     }
     
-    func addPickupToScene()->BasePickupNode?{
-        return nil
-    }
-    
-    func addPickupToSceneNG(newPickup:BasePickupNode){
-        self.pickupsOnScene += 1
-        self.pickups.append(newPickup)
-        self.gameScene.addChild(newPickup)
-        newPickup.genNewPos()
-        newPickup.zPosition = 10001
-    }
-    
-    func addPickupToScene(newPickup:BasePickupNode)->BasePickupNode{
-        self.pickupsOnScene += 1
-        newPickup.genNewPos()
-        newPickup.zPosition = 10001
-        self.pickups.append(newPickup)
-        self.gameScene.addChild(newPickup)
-        return newPickup
+    func addPickupToScene(){
+        if(self.pickupsOnScene < self.pickupsAtOnce){
+            self.addPickupToScene(newPickup: self.getPickup()!)
+        }
     }
     
     func removePickupFromScene(pickup:BasePickupNode){
