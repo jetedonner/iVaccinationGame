@@ -68,7 +68,7 @@ class MeadowLevel: BaseLevel {
             difficulty: .medium,
             zombieCountAtOnce: 3,
             syringePickupsAtOnce: 2,
-            certificatePickupsAtOnce: 3,
+            certificatePickupsAtOnce: 2,
             duration: .Minutes2
         )
         
@@ -84,7 +84,7 @@ class MeadowLevel: BaseLevel {
             difficulty: .hard,
             zombieCountAtOnce: 3,
             syringePickupsAtOnce: 3,
-            certificatePickupsAtOnce: 3,
+            certificatePickupsAtOnce: 2,
             duration: .Minutes3
         )
         
@@ -100,7 +100,7 @@ class MeadowLevel: BaseLevel {
             difficulty: .nightmare,
             zombieCountAtOnce: 4,
             syringePickupsAtOnce: 4,
-            certificatePickupsAtOnce: 3,
+            certificatePickupsAtOnce: 2,
             duration: .Minutes5
         )
         

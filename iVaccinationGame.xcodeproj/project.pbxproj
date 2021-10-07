@@ -24,8 +24,8 @@
 		5552BFA926F26ABE0034C812 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5552BFA826F26ABE0034C812 /* TimeInterval.swift */; };
 		5561AF722708AF28007B3F8F /* LevelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF712708AF28007B3F8F /* LevelConfig.swift */; };
 		5561AF732708AF28007B3F8F /* LevelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF712708AF28007B3F8F /* LevelConfig.swift */; };
-		5561AF752708B07F007B3F8F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF742708B07F007B3F8F /* Enums.swift */; };
-		5561AF762708B07F007B3F8F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF742708B07F007B3F8F /* Enums.swift */; };
+		5561AF752708B07F007B3F8F /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF742708B07F007B3F8F /* Difficulty.swift */; };
+		5561AF762708B07F007B3F8F /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF742708B07F007B3F8F /* Difficulty.swift */; };
 		5561AF782708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */; };
 		5561AF792708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */; };
 		5561AF7C270A026B007B3F8F /* CertificatePickupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */; };
@@ -39,6 +39,10 @@
 		5561AF88270EE57B007B3F8F /* MapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5561AF86270EE57B007B3F8F /* MapScene.sks */; };
 		5561AF8B270EE6F6007B3F8F /* SKLocationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF8A270EE6F6007B3F8F /* SKLocationNode.swift */; };
 		5561AF8C270EE6F6007B3F8F /* SKLocationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF8A270EE6F6007B3F8F /* SKLocationNode.swift */; };
+		5561AF8F270F6F6D007B3F8F /* SpeedFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF8E270F6F6D007B3F8F /* SpeedFactor.swift */; };
+		5561AF90270F6F6D007B3F8F /* SpeedFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF8E270F6F6D007B3F8F /* SpeedFactor.swift */; };
+		5561AF92270F6F8F007B3F8F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF91270F6F8F007B3F8F /* Duration.swift */; };
+		5561AF93270F6F8F007B3F8F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF91270F6F8F007B3F8F /* Duration.swift */; };
 		556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
@@ -260,13 +264,15 @@
 		5552BFA626F264130034C812 /* MagicParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MagicParticle.sks; sourceTree = "<group>"; };
 		5552BFA826F26ABE0034C812 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		5561AF712708AF28007B3F8F /* LevelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelConfig.swift; sourceTree = "<group>"; };
-		5561AF742708B07F007B3F8F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		5561AF742708B07F007B3F8F /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
 		5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt2.swift; sourceTree = "<group>"; };
 		5561AF7B270A026B007B3F8F /* CertificatePickupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificatePickupManager.swift; sourceTree = "<group>"; };
 		5561AF7E270A083F007B3F8F /* PickupManagerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupManagerBase.swift; sourceTree = "<group>"; };
 		5561AF82270CCEE6007B3F8F /* SyringePickupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyringePickupManager.swift; sourceTree = "<group>"; };
 		5561AF86270EE57B007B3F8F /* MapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapScene.sks; sourceTree = "<group>"; };
 		5561AF8A270EE6F6007B3F8F /* SKLocationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLocationNode.swift; sourceTree = "<group>"; };
+		5561AF8E270F6F6D007B3F8F /* SpeedFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedFactor.swift; sourceTree = "<group>"; };
+		5561AF91270F6F8F007B3F8F /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		556FBE7E26F7032B00F8081C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		556FBE8026F77A6C00F8081C /* BasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePath.swift; sourceTree = "<group>"; };
 		556FBE8226F7858D00F8081C /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -499,11 +505,10 @@
 		5561AF70270782CA007B3F8F /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				5561AF8D270F6F5E007B3F8F /* Enums */,
 				55A579C926F638610084239D /* BaseLevel.swift */,
 				556FBE8026F77A6C00F8081C /* BasePath.swift */,
-				55EAD45626FF60D600BB8D06 /* Level.swift */,
 				5561AF712708AF28007B3F8F /* LevelConfig.swift */,
-				5561AF742708B07F007B3F8F /* Enums.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -536,6 +541,17 @@
 				5561AF8A270EE6F6007B3F8F /* SKLocationNode.swift */,
 			);
 			path = Level;
+			sourceTree = "<group>";
+		};
+		5561AF8D270F6F5E007B3F8F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				55EAD45626FF60D600BB8D06 /* Level.swift */,
+				5561AF742708B07F007B3F8F /* Difficulty.swift */,
+				5561AF8E270F6F6D007B3F8F /* SpeedFactor.swift */,
+				5561AF91270F6F8F007B3F8F /* Duration.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		55A579B926F4F8810084239D /* Nodes */ = {
@@ -1136,6 +1152,7 @@
 				55A579BD26F4FD950084239D /* BasePickupNode.swift in Sources */,
 				55B64A7F26F3A43E00944766 /* GameCenterHelperExt.swift in Sources */,
 				55E59BCE26FF867100B75322 /* DescriptionScene.swift in Sources */,
+				5561AF8F270F6F6D007B3F8F /* SpeedFactor.swift in Sources */,
 				55C83F6326FDDC5500F42F53 /* SettingsState.swift in Sources */,
 				55A579C126F507A10084239D /* SKViewExt.swift in Sources */,
 				55EE3DAD270646D600991D86 /* SkViewExt.swift in Sources */,
@@ -1174,7 +1191,7 @@
 				559442A926FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,
 				55EE3D6A26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55C83F6726FDDC7000F42F53 /* GameOverState.swift in Sources */,
-				5561AF752708B07F007B3F8F /* Enums.swift in Sources */,
+				5561AF752708B07F007B3F8F /* Difficulty.swift in Sources */,
 				55EAD46526FF757500BB8D06 /* BaseSKScene.swift in Sources */,
 				556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */,
 				55EAD46F26FF7C5000BB8D06 /* MenuScene.swift in Sources */,
@@ -1191,6 +1208,7 @@
 				55EE3D7427009A3200991D86 /* BaseMessageNode.swift in Sources */,
 				5561AF722708AF28007B3F8F /* LevelConfig.swift in Sources */,
 				55EE3D772701ECEA00991D86 /* IViewController.swift in Sources */,
+				5561AF92270F6F8F007B3F8F /* Duration.swift in Sources */,
 				55A579C326F507DF0084239D /* SKSpriteNodeExt.swift in Sources */,
 				55E59BCC26FF83CD00B75322 /* DifficultyScene.swift in Sources */,
 				55E59BC926FF80B600B75322 /* BaseSKSceneMacOS.swift in Sources */,
@@ -1238,6 +1256,7 @@
 				55C83F2D26FC819E00F42F53 /* GameCenterHelper.swift in Sources */,
 				55E59BCA26FF837700B75322 /* DifficultySceneBase.swift in Sources */,
 				55C83F2E26FC819E00F42F53 /* GameCenterHelperExt.swift in Sources */,
+				5561AF93270F6F8F007B3F8F /* Duration.swift in Sources */,
 				55C83F2126FC689A00F42F53 /* ZombieGirl.swift in Sources */,
 				55C83F2226FC6A0400F42F53 /* GameVars.swift in Sources */,
 				559442A126FE4F710082DA72 /* SyringeDart.swift in Sources */,
@@ -1255,6 +1274,7 @@
 				55C83F8426FE326500F42F53 /* CityNightLevel.swift in Sources */,
 				55EAD46D26FF7A9200BB8D06 /* MapScene.swift in Sources */,
 				5561AF81270CB6C6007B3F8F /* AlertBox.swift in Sources */,
+				5561AF90270F6F6D007B3F8F /* SpeedFactor.swift in Sources */,
 				5561AF84270CCEE6007B3F8F /* SyringePickupManager.swift in Sources */,
 				55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55EE3D972705ACD400991D86 /* Player.swift in Sources */,
@@ -1274,7 +1294,7 @@
 				55C83F2626FC6B2A00F42F53 /* SyringePickup.swift in Sources */,
 				55EAD46626FF757500BB8D06 /* BaseSKScene.swift in Sources */,
 				559442A426FE50800082DA72 /* GameSceneBaseExt.swift in Sources */,
-				5561AF762708B07F007B3F8F /* Enums.swift in Sources */,
+				5561AF762708B07F007B3F8F /* Difficulty.swift in Sources */,
 				55C83F5126FDD96F00F42F53 /* KeyCode.swift in Sources */,
 				55EE3D8D2705A67800991D86 /* JillAndJasmineVaccine.swift in Sources */,
 				55C83F2426FC6B2500F42F53 /* MedKitPickup.swift in Sources */,

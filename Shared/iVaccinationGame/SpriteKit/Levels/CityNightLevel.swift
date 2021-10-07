@@ -79,5 +79,38 @@ class CityNightLevel: BaseLevel {
                 )
             )
         }
+        
+        // ========= DIFFICULTY: MEDIUM =========
+        self.levelConfigs[.medium] = LevelConfig(
+            difficulty: .medium,
+            zombieCountAtOnce: 3,
+            syringePickupsAtOnce: 2,
+            certificatePickupsAtOnce: 3,
+            duration: .Minutes2
+        )
+        self.levelConfigs[.medium]?.zombiePaths.append(contentsOf: (self.levelConfigs[.easy]!.zombiePaths))
+        self.levelConfigs[.medium]?.zombiePaths.shuffle()
+        
+        // ========= DIFFICULTY: HARD =========
+        self.levelConfigs[.hard] = LevelConfig(
+            difficulty: .hard,
+            zombieCountAtOnce: 3,
+            syringePickupsAtOnce: 3,
+            certificatePickupsAtOnce: 3,
+            duration: .Minutes3
+        )
+        self.levelConfigs[.hard]?.zombiePaths.append(contentsOf: (self.levelConfigs[.easy]!.zombiePaths))
+        self.levelConfigs[.hard]?.zombiePaths.shuffle()
+        
+        // ========= DIFFICULTY: NIGHTMARE =========
+        self.levelConfigs[.nightmare] = LevelConfig(
+            difficulty: .nightmare,
+            zombieCountAtOnce: 4,
+            syringePickupsAtOnce: 4,
+            certificatePickupsAtOnce: 3,
+            duration: .Minutes5
+        )
+        self.levelConfigs[.nightmare]?.zombiePaths.append(contentsOf: (self.levelConfigs[.easy]!.zombiePaths))
+        self.levelConfigs[.nightmare]?.zombiePaths.shuffle()
     }
 }

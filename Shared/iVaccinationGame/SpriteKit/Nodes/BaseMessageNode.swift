@@ -9,17 +9,17 @@ import Foundation
 import SpriteKit
 
 
-enum MessageNodeType:String{
-    case scrore = "Score"
-}
+//enum MessageNodeType:String{
+//    case scrore = "Score"
+//}
 
 class BaseMessageNode: SKLabelNode {
     
-    let messageType:MessageNodeType
+//    let messageType:MessageNodeType
     let fadeOutTime:TimeInterval = 1.5
     
-    init(text:String, node:SKNode, messageType:MessageNodeType = .scrore) {
-        self.messageType = messageType
+    init(text:String, node:SKNode/*, messageType:MessageNodeType = .scrore*/) {
+//        self.messageType = messageType
         super.init()
         self.fontColor = SKColor.init(named: "mainAccent")
         self.fontName = "Helvetica Neue Medium"

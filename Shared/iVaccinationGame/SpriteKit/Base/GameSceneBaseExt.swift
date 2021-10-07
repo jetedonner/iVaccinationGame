@@ -37,11 +37,8 @@ extension GameSceneBase{
     }
     
     func showEarnedPoints(score:Int = 100, onNode:SKNode? = nil){
-        let aboveNode:SKNode? = onNode
-//        if(aboveNode == nil){
-////            aboveNode = self.zombieGirl
-//        }
-        _ = BaseMessageNode(text: "+\(score) Points", node: aboveNode!, messageType: .scrore)
+//        let aboveNode:SKNode? = onNode
+        _ = BaseMessageNode(text: "+\(score) Points", node: onNode!)
     }
     
     func runHandThrowingAnimation(){
