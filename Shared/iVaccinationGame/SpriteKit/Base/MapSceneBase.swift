@@ -16,6 +16,13 @@ class MapSceneBase: BaseSKScene {
     var lblScore:SKLabelNode!
     var lblCertificates:SKLabelNode!
     
+    var imgMeadow:SKLocationNode!
+    var imgCitySkyline:SKLocationNode!
+    var imgCityStreet:SKLocationNode!
+    var imgWallway:SKLocationNode!
+    var imgJapanStreet:SKLocationNode!
+    var imgBackstreet:SKLocationNode!
+    var imgScarryStreet:SKLocationNode!
     
     
     var lblLevel:SKLabelNode!
@@ -35,6 +42,15 @@ class MapSceneBase: BaseSKScene {
     var posJapanStreet:SKShapeNode?
     var posCityNight:SKShapeNode?
     var posScarryStreet:SKShapeNode?
+    
+    var textNG:SKTexture = SKTexture(imageNamed: "MapNG")
+    
+    var textureMeadowBW:SKTexture = SKTexture(imageNamed: "Meadow_BW")
+    var textureMeadowColor:SKTexture = SKTexture(imageNamed: "Meadow_Color")
+    var textureCitySkylineBW:SKTexture = SKTexture(imageNamed: "CitySkyline_BW")
+    var textureCitySkylineColor:SKTexture = SKTexture(imageNamed: "CitySkyline_Color")
+    var textureBackstreetBW:SKTexture = SKTexture(imageNamed: "Backstreet_BW")
+    var textureBackstreetColor:SKTexture = SKTexture(imageNamed: "Backstreet_Color")
     
     var textMeadow:SKTexture = SKTexture(imageNamed: "Map7")
     var textCitySkyline:SKTexture = SKTexture(imageNamed: "Map7a")
@@ -82,7 +98,7 @@ class MapSceneBase: BaseSKScene {
         self.posJapanStreet = self.childNode(withName: "posJapanStreet") as? SKShapeNode
         self.posJapanStreet?.zPosition = 1000
         self.posJapanStreet?.lineWidth = 0.0
-        self.posCityNight = self.childNode(withName: "posBackStreet") as? SKShapeNode
+        self.posCityNight = self.childNode(withName: "posBackstreet") as? SKShapeNode
         self.posCityNight?.zPosition = 1000
         self.posCityNight?.lineWidth = 0.0
         self.posScarryStreet = self.childNode(withName: "posScarryStreet") as? SKShapeNode
@@ -95,9 +111,18 @@ class MapSceneBase: BaseSKScene {
         self.contTooltip?.alpha = 0.0
         
         self.loadMapBGTexture()
-        self.enableLocations()
+        self.imgMeadow = SKLocationNode(imgNode: self.childNode(withName: "imgMeadow") as! SKSpriteNode, showCircle: true)
+        self.imgCitySkyline = SKLocationNode(imgNode: self.childNode(withName: "imgCitySkyline") as! SKSpriteNode)
+        self.imgCityStreet = SKLocationNode(imgNode: self.childNode(withName: "imgCityStreet") as! SKSpriteNode)
+        self.imgWallway = SKLocationNode(imgNode: self.childNode(withName: "imgWallway") as! SKSpriteNode)
+        self.imgJapanStreet = SKLocationNode(imgNode: self.childNode(withName: "imgJapanStreet") as! SKSpriteNode)
+        self.imgBackstreet = SKLocationNode(imgNode: self.childNode(withName: "imgBackstreet") as! SKSpriteNode)
+        self.imgScarryStreet = SKLocationNode(imgNode: self.childNode(withName: "imgScarryStreet") as! SKSpriteNode)
         
-        self.imgBG.zPosition = 100
+        
+//        self.enableLocations()
+        
+        self.imgBG.zPosition = 1
         self.updateScoreFromICloud()
     }
     
@@ -118,12 +143,12 @@ class MapSceneBase: BaseSKScene {
     func loadMapBGTexture(){
 //        ICloudStorageHelper.level
         if(UserDefaultsHelper.levelID == .NewGame){
-            self.imgBG.texture = self.textMeadow
+            self.imgBG.texture = self.textNG// self.textMeadow
         }else if(UserDefaultsHelper.levelID == .Meadow){
-            self.imgBG.texture = self.textMeadow
+            self.imgBG.texture = self.textNG//self.textMeadow
         }else if(UserDefaultsHelper.levelID == .CitySkyline){
             self.imgBG.texture = self.textCitySkyline
-        }else if(UserDefaultsHelper.levelID == .CityStreet){
+        }else if(UserDefaultsHelper.levelID == .CityStreet){ // Backstreet
             self.imgBG.texture = self.textCitySkyline2
         }else if(UserDefaultsHelper.levelID == .Wallway){
             self.imgBG.texture = self.textCitySkyline3
@@ -146,7 +171,6 @@ class MapSceneBase: BaseSKScene {
         let currentLevel:Level = UserDefaultsHelper.levelID
         var start2Disable:Bool = false
         for level in Level.allCases {
-//            print("Enabling Level-Pos: \(level) -> \(start2Disable)")
             if let posNode = self.getPosNode4Level(level: level){
                 posNode.isHidden = start2Disable
             }
@@ -195,6 +219,11 @@ class MapSceneBase: BaseSKScene {
     }
     
     override func touchOrClick(pos: CGPoint, viewController:IViewController) {
+        if(self.selNode == self.posMeadow){
+            self.imgMeadow.imgNode.texture = self.textureMeadowColor
+            return
+        }
+        
         if(self.selNode == self.imgBack){
             viewController.loadMenuScene()
         }else if([

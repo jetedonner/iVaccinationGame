@@ -101,7 +101,7 @@ class SettingsViewController: NSViewController {
         if(self.gameScene != nil){
             let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to abort the current level?")
             if(answer){
-                self.gameScene!.runLevel(levelID: UserDefaultsHelper.levelID)
+                self.gameScene!.runLevelConfig(levelID: UserDefaultsHelper.levelID, difficulty: UserDefaultsHelper.difficulty)
             }else{
                 self.gameScene?.setGamePaused(isPaused: false)
             }

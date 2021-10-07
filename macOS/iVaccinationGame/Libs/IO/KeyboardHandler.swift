@@ -30,9 +30,9 @@ class KeyboardHandler{
         case KeyCode.KEY_G.rawValue: // G
             self.gameScene.showGameOver()
             break
-        case KeyCode.KEY_R.rawValue: // R
-            self.gameScene.restartAfterHit()
-            break
+//        case KeyCode.KEY_R.rawValue: // R
+////            self.gameScene.restartAfterHit()
+//            break
         case KeyCode.KEY_1.rawValue: // 1
 //            self.gameScene.lblVacc?.text = "Vaccine: Moderna"
 //            self.gameScene.lblVacc?.fontColor = self.gameScene.lblTime?.fontColor

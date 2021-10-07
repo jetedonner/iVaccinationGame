@@ -38,10 +38,6 @@ class Player{
         self.medKitsPickedUp = 0
     }
     
-//    func addCert(cerCount:Int = 1){
-//        self.certs += cerCount
-//    }
-    
     func addScore(score:Int){
         self.score += score
     }

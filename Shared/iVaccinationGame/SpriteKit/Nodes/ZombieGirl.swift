@@ -35,6 +35,13 @@ class ZombieGirl: SKSpriteNode {
         set{ self._hits = newValue }
     }
     
+    func hitBySyringe(){
+        self.hits += 1
+        if(self.hits >= 2){
+            self.isHealed = true
+        }
+    }
+    
     private var _health:CGFloat = 0.0
     var health:CGFloat{
         get{ return self._health }
