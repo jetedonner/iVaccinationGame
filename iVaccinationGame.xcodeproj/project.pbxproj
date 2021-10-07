@@ -43,6 +43,8 @@
 		5561AF90270F6F6D007B3F8F /* SpeedFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF8E270F6F6D007B3F8F /* SpeedFactor.swift */; };
 		5561AF92270F6F8F007B3F8F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF91270F6F8F007B3F8F /* Duration.swift */; };
 		5561AF93270F6F8F007B3F8F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF91270F6F8F007B3F8F /* Duration.swift */; };
+		5561AF98270F785F007B3F8F /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 5561AF97270F785F007B3F8F /* Credits.rtfd */; };
+		5561AF99270F785F007B3F8F /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 5561AF97270F785F007B3F8F /* Credits.rtfd */; };
 		556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
@@ -273,6 +275,7 @@
 		5561AF8A270EE6F6007B3F8F /* SKLocationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLocationNode.swift; sourceTree = "<group>"; };
 		5561AF8E270F6F6D007B3F8F /* SpeedFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedFactor.swift; sourceTree = "<group>"; };
 		5561AF91270F6F8F007B3F8F /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
+		5561AF97270F785F007B3F8F /* Credits.rtfd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Credits.rtfd; sourceTree = "<group>"; };
 		556FBE7E26F7032B00F8081C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		556FBE8026F77A6C00F8081C /* BasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePath.swift; sourceTree = "<group>"; };
 		556FBE8226F7858D00F8081C /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -431,6 +434,7 @@
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
+				5561AF97270F785F007B3F8F /* Credits.rtfd */,
 				55EE3D9B27063C2800991D86 /* iVaccination-Info.plist */,
 				55E59BD826FF9A9400B75322 /* iVaccination.entitlements */,
 				55E59BD226FF89C800B75322 /* iVaccinationGame.entitlements */,
@@ -1068,6 +1072,7 @@
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
 				55B64A3126F3467200944766 /* MenuScene.sks in Resources */,
 				55EE3D6E26FFE3D500991D86 /* AppIconMacOS.xcassets in Resources */,
+				5561AF98270F785F007B3F8F /* Credits.rtfd in Resources */,
 				554E534B26EFB34E00371E58 /* CH_first.png in Resources */,
 				55EAD44A26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55C83F3526FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
@@ -1113,6 +1118,7 @@
 				55C83F0B26FC673000F42F53 /* MagicParticle.sks in Resources */,
 				55C83F0226FC666500F42F53 /* MenuScene.sks in Resources */,
 				55EE3D9E27063E1700991D86 /* CreditsScene.sks in Resources */,
+				5561AF99270F785F007B3F8F /* Credits.rtfd in Resources */,
 				55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */,
 				55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */,
 			);
