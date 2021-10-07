@@ -93,15 +93,15 @@ class GCAchievements:NSObject{
         self.add2Achivement(identifier: achivementCompleteAllLevelsID, obj2Add2: &CompleteAllLevels, max2Add2: CompleteAllLevels, point2Add: 100)
     }
     
-    func add2completeAllLevelsPerfestThrow(times2Add:Int = 1){
-        self.add2Achivement(identifier: achivementCompleteAllLevelsPerfectThrowID, obj2Add2: &CompleteAllLevelsPerfectThrows, max2Add2: CompleteAllLevelsPerfectThrows, point2Add: 100)
+    func add2completeAllLevelsPerfectThrow(times2Add:Int = 1){
+        self.add2Achivement(identifier: achivementCompleteAllLevelsPerfectThrowID, obj2Add2: &CompleteAllLevels, max2Add2: CompleteAllLevels, point2Add: 100)
     }
     
-    func add2completeAllLevelsPerfestHealth(times2Add:Int = 1){
+    func add2completeAllLevelsPerfectHealth(times2Add:Int = 1){
         self.add2Achivement(identifier: achivementCompleteAllLevelsPerfectHealthID, obj2Add2: &CompleteAllLevelsPerfectHealth, max2Add2: CompleteAllLevelsPerfectHealth, point2Add: 100)
     }
     
-    func add2completeAllLevelsPerfestCerts(times2Add:Int = 1){
+    func add2completeAllLevelsPerfectCerts(times2Add:Int = 1){
         self.add2Achivement(identifier: achivementCompleteAllLevelsPerfectCertsID, obj2Add2: &CompleteAllLevelsPerfectCerts, max2Add2: CompleteAllLevelsPerfectCerts, point2Add: 100)
     }
 
