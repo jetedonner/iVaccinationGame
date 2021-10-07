@@ -18,13 +18,15 @@ extension GameSceneBase{
         self.effectNode.isHidden = true
         self.lblScore?.position = self.scoreLblOrigPos
         self.lblScore?.setScale(1.0)
+        self.lblCerts?.position = self.certsLblOrigPos
+        self.lblCerts?.setScale(1.0)
         self.player.resetPlayer()
         self.gameRunning = true
         if(resetTime){
             self.startTime = 0
         }
-        for _ in 0..<self.currentLevel.currentLevelConfig.zombieCountAtOnce{
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(self.currentLevel.currentLevelConfig.zombieRespawnRange.randomElement()!), execute: {
+        for i in 0..<self.currentLevel.currentLevelConfig.zombieCountAtOnce{
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  (i == 0 ? 0.0 : Double(self.currentLevel.currentLevelConfig.zombieRespawnRange.randomElement()!)), execute: {
                 self.restartZombieActions()
             })
         }

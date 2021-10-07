@@ -24,6 +24,7 @@ class Player{
     var score:Int = 0
 //    var certs:Int = 0
     
+    var zombiesCured:Int = 0
     var certsPickedUp:Int = 0
     var medKitsPickedUp:Int = 0
     
@@ -34,8 +35,14 @@ class Player{
     func resetPlayer(){
         self.bites = 0
         self.health = 100.0
+        self.zombiesCured = 0
         self.certsPickedUp = 0
         self.medKitsPickedUp = 0
+    }
+    
+    
+    func curedZombie(){
+        self.zombiesCured += 1
     }
     
     func addScore(score:Int){

@@ -47,6 +47,7 @@ class BasePickupNode: SKSpriteNode {
             self.addDbgBorder()
         }
         self.addChild(self.upwardEmitterNode)
+        self.zPosition = 10000
     }
     
     init(imageNamed name: String, emitterFileNamed: String, size:CGSize? = nil) {
@@ -60,6 +61,7 @@ class BasePickupNode: SKSpriteNode {
             self.addDbgBorder()
         }
         self.addChild(self.upwardEmitterNode)
+        self.zPosition = 10000
     }
     
     func pickedUp(afterTimeOut:Bool = false){
@@ -82,19 +84,33 @@ class BasePickupNode: SKSpriteNode {
                 let newY:CGFloat = CGFloat(Double.random(in: gameScene.currentLevel.syringeRespawnYRange))
                 newPoint = CGPoint(x: newX, y: newY)
                 
-                let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
-//                print("GKAccessPointCoord: \(accsPntCoord)")
-                let accessFrame = gameScene.scene?.view?.convert(accsPntCoord, from: nil)
-                let ngPoint = gameScene.scene?.view?.convert(newPoint, from: gameScene.scene!)
-                if(accessFrame != nil){
-                    isBehindGKAccessPoint = accessFrame!.contains(ngPoint!)
-                    isBehindHand = gameScene.imgThrowingHand!.frame.contains(newPoint)
-                }else{
-                    isBehindGKAccessPoint = false
-                    isBehindHand = false
+                let newRect:CGRect = CGRect(x: newX, y: newY, width: self.frame.width, height: self.frame.height)
+                
+//                var isBehind:Bool = false
+//                let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
+                let fictRect:CGRect = CGRect(x: -495, y: -360, width: 128, height: 128)
+//                let newRect = accsPntCoord.offsetBy(dx: (self.scene?.frame.width)! / -2, dy: (self.scene?.frame.height)! / -2)
+                isBehindGKAccessPoint = fictRect.intersects(newRect)
+                isBehindHand = gameScene.imgThrowingHand!.frame.intersects(newRect)
+                
+                if(isBehindHand || isBehindGKAccessPoint){
+                    print("newRect BEHIND: \(newRect)")
                 }
                 
+//                let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
+//////                print("GKAccessPointCoord: \(accsPntCoord)")
+//                let accessFrame = gameScene.scene?.view?.convert(accsPntCoord, from: nil)
+////                let ngPoint = gameScene.scene?.view?.convert(newPoint, from: gameScene.scene!)
+//                if(accessFrame != nil){
+//                    isBehindGKAccessPoint = self.checkNodeBehindHand(node1Rect: accessFrame!, point: newPoint) //accessFrame!.contains(ngPoint!)
+////                    isBehindHand = self.checkNodeBehindHand(node1: gameScene.imgThrowingHand!, point: newPoint)// gameScene.imgThrowingHand!.frame.contains(newPoint)
+//                }else{
+//                    isBehindGKAccessPoint = false
+//                     //isBehindHand = false
+//                }
+//                isBehindHand = self.checkNodeBehindHand(node1: gameScene.imgThrowingHand!, point: newPoint)
             }while(isBehindHand || isBehindGKAccessPoint)
+//            self.pickupManager.gameScene.showMessage(msg: "NewPos: X: \(newPoint.x), Y: \(newPoint.y)")
             self.position = newPoint
             self.alpha = 1.0
         }
@@ -113,6 +129,27 @@ class BasePickupNode: SKSpriteNode {
         self.timeOutRunning = false
     }
 
+    func checkNodeBehindHand(node1:SKSpriteNode, node2:SKSpriteNode)->Bool{
+        
+        let isbehind:Bool = node1.frame.contains(node2.frame)// !.frame.contains(self.imgTESET!.frame)
+        print("TESTZE is behind: \(isbehind)")
+        return isbehind
+    }
+    
+    func checkNodeBehindHand(node1:SKSpriteNode, point:CGPoint)->Bool{
+        
+        let isbehind:Bool = node1.frame.contains(point)// !.frame.contains(self.imgTESET!.frame)
+        print("TESTZE is behind: \(isbehind)")
+        return isbehind
+    }
+    
+    func checkNodeBehindHand(node1Rect:CGRect, point:CGPoint)->Bool{
+        
+        let isbehind:Bool = node1Rect.contains(point)// !.frame.contains(self.imgTESET!.frame)
+        print("TESTZE is behind: \(isbehind)")
+        return isbehind
+    }
+    
     override func calculateAccumulatedFrame() -> CGRect {
         let frm = self.frame
         let newSize:CGSize = CGSize(width: frm.size.width * self.accumulatedFrameFactor, height: frm.size.height * self.accumulatedFrameFactor)

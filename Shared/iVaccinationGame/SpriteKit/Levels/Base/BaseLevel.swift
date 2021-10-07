@@ -30,8 +30,6 @@ class BaseLevel {
     
     var zombieImageName:String = "ZombieGirl2"
     var zombieCuredImageName:String = "ZombieGirl2Un"
-//    self.zombieImageName = "ZombieGirl2"
-//    self.zombieCuredImageName = "ZombieGirl2Un"
     var zombieCount:Int = 1
     var zombieDamage:CGFloat = 25.0
     var zombieGirls:[ZombieGirl] = []
@@ -54,12 +52,9 @@ class BaseLevel {
     }
     
     func initLevelConfig() {
-    
+        self.gameScene.certificatePickupManager.paused = false
+        self.gameScene.syringePickupManager.paused = false
     }
-    
-//    func initLevel(){
-//        
-//    }
     
     func endLevel(){
         for zombieGirl in zombieGirls {
@@ -68,6 +63,8 @@ class BaseLevel {
             zombieGirl.removeFromParent()
         }
         zombieGirls.removeAll()
+        self.gameScene.certificatePickupManager.paused = true
+        self.gameScene.syringePickupManager.paused = true
     }
     
     func setupLevelConfig(gameScene:GameSceneBase, difficulty:Difficulty){
@@ -75,9 +72,11 @@ class BaseLevel {
         self.difficulty = difficulty
         gameScene.bg?.texture = SKTexture(imageNamed: self.backgroundImageName + (UserDefaultsHelper.autoNightMode && self.isNightTime() ? "Night" : ""))
         
-        self.gameScene.gameDuration = self.currentLevelConfig.gameDuration
+        self.gameScene.gameDuration = (UserDefaultsHelper.devMode ? GameVars.DEV_ROUND_TIME : self.currentLevelConfig.gameDuration)
         self.gameScene.certificatePickupManager.pickupsAtOnce = self.currentLevelConfig.certificatePickupsAtOnce
+        self.gameScene.certificatePickupManager.paused = false
         self.gameScene.syringePickupManager.pickupsAtOnce = self.currentLevelConfig.syringePickupsAtOnce
+        self.gameScene.syringePickupManager.paused = false
     }
     
     func addNewZombieGirl(){
@@ -92,12 +91,15 @@ class BaseLevel {
         newZombieGirl.setScale(path.initScale)
         newZombieGirl.speed = self.currentLevelConfig.speedFactor.multiplier
         newZombieGirl.addPhysicBody()
-        newZombieGirl.zPosition = 101
+        newZombieGirl.zPosition = 1001
         if(UserDefaultsHelper.devMode){
             newZombieGirl.addDbgBorder()
         }
         if(path.hideOnStart){
             newZombieGirl.xScale = 0.0
+        }
+        if(self.zombieGirls.count > 0){
+            newZombieGirl.zPosition = self.zombieGirls.last!.zPosition - 1
         }
         self.zombieGirls.append(newZombieGirl)
         gameScene.sceneNode.addChild(newZombieGirl)
@@ -107,26 +109,12 @@ class BaseLevel {
     }
     
     func removeZombieGirl(zombieGirl:ZombieGirl){
-        
         self.zombieGirls = self.zombieGirls.filter { $0 != zombieGirl }
         zombieGirl.removeFromParent()
-//        for zombie in self.zombieGirls{
-//            if(zombie == zombieGirl){
-//                zombsieGirl.removeFromParent()
-//                self.zombieGirls.remove
-//            }
-//        }
     }
     
     func setupLevel(gameScene:GameSceneBase){
         gameScene.bg?.texture = SKTexture(imageNamed: self.backgroundImageName + (UserDefaultsHelper.autoNightMode && self.isNightTime() ? "Night" : ""))
-//        gameScene.zombieGirl.texture = SKTexture(imageNamed: self.zombieImageName)
-//        let path = self.zombiePaths[.easy]!.getRandom()
-//        gameScene.zombieGirl.position = path.initPos
-//        gameScene.zombieGirl.setScale(path.initScale)
-//        if(path.hideOnStart){
-//            gameScene.zombieGirl.xScale = 0.0
-//        }
     }
     
     func isNightTime()->Bool{

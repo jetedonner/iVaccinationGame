@@ -8,10 +8,8 @@
 import Foundation
 
 extension Array{
-    
     func getRandom()->Element{
         var g = SystemRandomNumberGenerator()
-        return self.randomElement(using: &g)!
+        return self.shuffled().randomElement(using: &g)!
     }
-    
 }

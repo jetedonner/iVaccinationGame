@@ -18,7 +18,7 @@ class MeadowLevel: BaseLevel {
         self.levelConfigs[.easy] = LevelConfig(
             difficulty: .easy,
             zombieCountAtOnce: 2,
-            syringePickupsAtOnce: 1,
+            syringePickupsAtOnce: 2,
             certificatePickupsAtOnce: 2,
             duration: .Minutes1
         )
@@ -61,6 +61,7 @@ class MeadowLevel: BaseLevel {
                 ])
             )
         )
+        self.levelConfigs[.easy]?.zombiePaths.shuffle()
         
         // ========= DIFFICULTY: MEDIUM =========
         self.levelConfigs[.medium] = LevelConfig(
@@ -68,7 +69,7 @@ class MeadowLevel: BaseLevel {
             zombieCountAtOnce: 3,
             syringePickupsAtOnce: 2,
             certificatePickupsAtOnce: 3,
-            duration: .Minutes1
+            duration: .Minutes2
         )
         
         self.levelConfigs[.medium]?.zombiePaths.append(
@@ -84,7 +85,7 @@ class MeadowLevel: BaseLevel {
             zombieCountAtOnce: 3,
             syringePickupsAtOnce: 3,
             certificatePickupsAtOnce: 3,
-            duration: .Minutes1
+            duration: .Minutes3
         )
         
         self.levelConfigs[.hard]?.zombiePaths.append(
@@ -100,7 +101,7 @@ class MeadowLevel: BaseLevel {
             zombieCountAtOnce: 4,
             syringePickupsAtOnce: 4,
             certificatePickupsAtOnce: 3,
-            duration: .Minutes1
+            duration: .Minutes5
         )
         
         self.levelConfigs[.nightmare]?.zombiePaths.append(

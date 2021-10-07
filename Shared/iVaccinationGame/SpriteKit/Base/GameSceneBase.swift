@@ -51,8 +51,11 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     
     var imgBlood:SKSpriteNode?
     var imgRedOut:SKSpriteNode?
-    var imgThrowingHand:SKSpriteNode?
+    var imgThrowingHand:SKSpriteNode!
     var imgArrowDown:SKSpriteNode?
+    
+    var imgTESET:SKSpriteNode!
+    
     
     var contentNode:SKNode?
     var bg:SKSpriteNode?
@@ -87,6 +90,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var levels:[BaseLevel] = []
     var currentLevel:BaseLevel = CitySkylineLevel()
     var scoreLblOrigPos:CGPoint = CGPoint()
+    var certsLblOrigPos:CGPoint = CGPoint()
     let earnedPointLblTime:TimeInterval = 1.5
     
     var chIOS:SKSpriteNode!
@@ -154,6 +158,11 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.medkitPickup?.alpha = 0.0
         self.scene?.addChild(self.medkitPickup!)
         
+        
+        
+        
+        self.imgTESET = self.contentNode!.childNode(withName: "imgTESET") as? SKSpriteNode
+        
         self.imgBlood = self.contentNode!.childNode(withName: "imgBlood") as? SKSpriteNode
         self.imgBlood?.isHidden = true
         self.imgRedOut = self.contentNode!.childNode(withName: "redOut") as? SKSpriteNode
@@ -168,6 +177,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.addChild(self.prgBar)
         
         self.scoreLblOrigPos = self.lblScore!.position
+        self.certsLblOrigPos = self.lblCerts!.position
         
         self.runLevelConfig(levelID: self.selLevel, difficulty: UserDefaultsHelper.difficulty)
         
@@ -177,8 +187,25 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
         self.setupHandAnimation()
+//        self.checkNodeBehindHand(node1: self.imgThrowingHand!, node2: self.imgTESET!)
+//        self.checkNodeBehindGKAccessPoint(node: self.imgTESET)
     }
     
+//    func checkNodeBehindHand(node1:SKSpriteNode, node2:SKSpriteNode)->Bool{
+//        let isbehind:Bool = node1.frame.contains(node2.frame)// !.frame.contains(self.imgTESET!.frame)
+//        print("TESTZE is behind: \(isbehind)")
+//        return isbehind
+//    }
+//
+//    func checkNodeBehindGKAccessPoint(node:SKSpriteNode)->Bool{
+//        var isBehind:Bool = false
+//        let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
+//        let fictRect:CGRect = CGRect(x: -495, y: -360, width: 128, height: 128)
+//        let newRect = accsPntCoord.offsetBy(dx: (self.scene?.frame.width)! / -2, dy: (self.scene?.frame.height)! / -2)
+//        isBehind = fictRect.intersects(node.frame)
+//        print("TESTZE123 is behind: \(isBehind)")
+//        return isBehind
+//    }
     
     func getViewController()->IViewController{
         #if os(iOS)
@@ -247,7 +274,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                     }
     
                     SoundManager.shared.playSound(sound: .unzombiefiedSound)
-    
+                    
+                    self.player.curedZombie()
+                    
                     zombieGirl.run(SKAction.wait(forDuration: 0.45), completion: {
                         zombieGirl.texture = SKTexture(imageNamed: self.currentLevel.zombieCuredImageName)
                         self.explosionEmitterNode?.removeFromParent()
@@ -320,12 +349,13 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.gameRunning = false
         SoundManager.shared.stopBGSound()
         self.scoreLblOrigPos = self.lblScore!.position
+        self.certsLblOrigPos = self.lblCerts!.position
         self.lblScore?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 180), duration: 0.45), SKAction.scale(to: 2.5, duration: 0.45)]))
+        self.lblCerts?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 100), duration: 0.45), SKAction.scale(to: 1.75, duration: 0.45)]))
         ICloudStorageHelper.score[self.currentLevel.level.getDesc()] = self.player.score
         ICloudStorageHelper.certificate[self.currentLevel.level.getDesc()] = self.player.certsPickedUp
         ICloudStorageHelper.certificates += self.player.certsPickedUp
-        self.lblGameOver?.alpha = 1.0
-        self.lblGameOver?.isHidden = false
+        ICloudStorageHelper.vaccinations += self.player.zombiesCured
         
         self.currentLevel.endLevel()
         self.explosionEmitterNode?.removeFromParent()
@@ -340,6 +370,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         
         self.updateEffectNode()
         self.effectNode.isHidden = false
+        
+        self.lblGameOver?.alpha = 1.0
+        self.lblGameOver?.isHidden = false
 
         self.lblGameOver?.run(SKAction.sequence([SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.scale(to: 1.0, duration: self.gameOverFlashTimeStep), SKAction.scale(to: self.gameOverFlashScaleTo, duration: self.gameOverFlashTimeStep), SKAction.group([SKAction.scale(to: 0.85, duration: self.gameOverFlashTimeStep)])]), completion: {
             self.lblPressAnyKey?.alpha = 0.0
@@ -360,7 +393,11 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                 let gameCenterHelper = self.getViewController().gameCenterHelper
                 gameCenterHelper!.updateScore(with: self.player.score)
                 gameCenterHelper!.updateCertificates(with: self.player.certsPickedUp)
-
+                gameCenterHelper!.updateVaccinations(with: self.player.zombiesCured)
+                
+                if(nextLevel == .MissionAccomplished){
+                    GCAchievements.shared.add2completeAllLevels()
+                }
                 if(self.currentLevel.shots > 0 && self.currentLevel.shots == self.currentLevel.hits){
                     GCAchievements.shared.add2perfectThrows()
                 }

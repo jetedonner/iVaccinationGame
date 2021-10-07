@@ -21,6 +21,11 @@ class PickupManagerBase:GKEntity{
     var removeTimeoutRange = 5...15
     
     var respawnRange = 4...12
+    var _paused:Bool = false
+    var paused:Bool{
+        get{ return self._paused }
+        set{ self._paused = newValue }
+    }
     
     convenience init(gameScene:GameSceneBase){
         self.init(gameScene: gameScene, removeAfterTimeOut: false)
@@ -52,11 +57,11 @@ class PickupManagerBase:GKEntity{
             self.pickups.append(newPickup)
             self.gameScene.addChild(newPickup)
             newPickup.genNewPos()
-            newPickup.zPosition = 10001
+            newPickup.zPosition = 10000
     }
     
     func addPickupToScene(){
-        if(self.pickupsOnScene < self.pickupsAtOnce){
+        if(self.pickupsOnScene < self.pickupsAtOnce && !self.paused){
             self.addPickupToScene(newPickup: self.getPickup()!)
         }
     }

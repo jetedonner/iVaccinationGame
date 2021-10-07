@@ -13,6 +13,7 @@ class ICloudStorageHelper{
     static let levelKey = "level"
     static let difficultyKey = "difficulty"
     static let scoreKey = "score"
+    static let vaccinationsKey = "vaccinations"
     static let certificateKey = "certificate"
     static let certificatesKey = "certificates"
     
@@ -24,6 +25,11 @@ class ICloudStorageHelper{
     static var certificates:Int{
         get{ return Int(NSUbiquitousKeyValueStore.default.longLong(forKey: self.certificatesKey)) }
         set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.certificatesKey) }
+    }
+    
+    static var vaccinations:Int{
+        get{ return Int(NSUbiquitousKeyValueStore.default.longLong(forKey: self.vaccinationsKey)) }
+        set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.vaccinationsKey) }
     }
     
     static var level:String{
@@ -53,6 +59,7 @@ class ICloudStorageHelper{
     static func resetAllICloudValues(){
         ICloudStorageHelper.certificates = 0
         ICloudStorageHelper.highscore = 0
+        ICloudStorageHelper.vaccinations = 0
         ICloudStorageHelper.difficulty = Difficulty.easy.rawValue
         ICloudStorageHelper.level = Level.NewGame.getDesc()
         
