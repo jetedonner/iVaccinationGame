@@ -9,6 +9,7 @@ import Foundation
 import SpriteKit
 
 enum UserDefaultsName:String{
+    case firstStart = "firstStart"
     case roundTime = "roundTime"
     case difficulty = "difficulty"
     case level = "level"
@@ -247,6 +248,19 @@ class UserDefaultsHelper{
                 self.defaults.set(false, forKey: UserDefaultsName.devMode.rawValue)
             }
             return self.defaults.bool(forKey: UserDefaultsName.devMode.rawValue)
+        }
+    }
+    
+    static var firstStart:Bool{
+        get{
+//            if(self.defaults.value(forKey: UserDefaultsName.firstStart.rawValue) == nil){
+//                self.defaults.set(true, forKey: UserDefaultsName.firstStart.rawValue)
+//            }
+//            return self.defaults.bool(forKey: UserDefaultsName.firstStart.rawValue)
+            return true
+        }
+        set{
+            self.defaults.set(newValue, forKey: UserDefaultsName.firstStart.rawValue)
         }
     }
 }

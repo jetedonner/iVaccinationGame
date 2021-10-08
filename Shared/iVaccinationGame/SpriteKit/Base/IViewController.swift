@@ -12,6 +12,7 @@ protocol IViewController{
     
     var gameCenterHelper:GameCenterHelper!{ get set }
     
+    func loadWelcomeScene()
     func loadMenuScene()
     func loadDifficultyScene()
     func loadCreditsScene()

@@ -30,6 +30,17 @@ class GameViewController: UIViewController, IViewController {
         self.loadMenuScene()
     }
     
+    func loadWelcomeScene(){
+        if let scene = GKScene(fileNamed: "WelcomeScene") {
+            if let sceneNode = scene.rootNode as! WelcomeScene? {
+                sceneNode.scaleMode = .aspectFill
+                if let view = self.view as! SKView? {
+                    view.presentSceneNG(sceneNode)
+                }
+            }
+        }
+    }
+    
     func loadCreditsScene(){
         if let scene = GKScene(fileNamed: "CreditsScene") {
             if let sceneNode = scene.rootNode as! CreditsScene? {

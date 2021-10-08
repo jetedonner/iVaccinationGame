@@ -27,7 +27,6 @@ class SKLocationNode{
         set{
             self._levelDone = newValue
             self.imgColor = newValue
-//            self.showCircle = !newValue
             self.checkNode.isHidden = !newValue
         }
     }
@@ -110,8 +109,8 @@ class SKLocationNode{
     }
     
     func addCircle(){
-        self.circle = SKShapeNode(ellipseOf: CGSize(width: 130, height: 80)) // Create circle
-        circle.position = CGPoint(x: 0, y: 0)  // Center (given scene anchor point is 0.5 for x&y)
+        self.circle = SKShapeNode(ellipseOf: CGSize(width: 130, height: 80))
+        circle.position = CGPoint(x: 0, y: 0)
         circle.strokeColor = SKColor.black
         circle.glowWidth = 1.0
         let bgColor:SKColor = SKColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 0.45)
@@ -121,6 +120,19 @@ class SKLocationNode{
     }
     
     func addPulsingAction2Circle(){
-        circle.run(SKAction.repeatForever(SKAction.sequence([SKAction.group([SKAction.scale(to: 1.2, duration: 0.75), SKAction.fadeAlpha(to: 0.05, duration: 0.75)]), SKAction.group([SKAction.scale(to: 1.0, duration: 0.0), SKAction.fadeAlpha(to: 1.0, duration: 0.0)])])))
+        circle.run(
+            SKAction.repeatForever(
+                SKAction.sequence([
+                    SKAction.group([
+                        SKAction.scale(to: 1.2, duration: 1.0),
+                        SKAction.fadeAlpha(to: 0.05, duration: 1.0)
+                    ]),
+                    SKAction.group([
+                        SKAction.scale(to: 1.0, duration: 0.0),
+                        SKAction.fadeAlpha(to: 1.0, duration: 0.0)
+                    ])
+                ])
+            )
+        )
     }
 }

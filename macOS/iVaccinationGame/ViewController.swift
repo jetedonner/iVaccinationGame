@@ -28,7 +28,23 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
             self.gameCenterHelper = GameCenterHelper(vc: self)
             self.gameCenterHelper.loadGameCenter()
         }
-        self.loadMenuScene()
+        if(UserDefaultsHelper.firstStart){
+            UserDefaultsHelper.firstStart = false
+            self.loadWelcomeScene()
+        }else{
+            self.loadMenuScene()
+        }
+    }
+
+    func loadWelcomeScene(){
+        if let scene = GKScene(fileNamed: "WelcomeScene") {
+            if let sceneNode = scene.rootNode as! WelcomeScene? {
+                sceneNode.scaleMode = .aspectFill
+                if let view = self.view as! SKView? {
+                    view.presentSceneNG(sceneNode)
+                }
+            }
+        }
     }
     
     func loadCreditsScene(){
