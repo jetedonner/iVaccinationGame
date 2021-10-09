@@ -26,6 +26,7 @@ enum UserDefaultsName:String{
     case score = "score"
     case certificates = "certificates"
     case certificate = "certificate"
+    case vaccinations = "vaccinations"
 }
 
 class UserDefaultsHelper{
@@ -84,50 +85,13 @@ class UserDefaultsHelper{
         set{ defaults.set(newValue.rawValue, forKey: UserDefaultsName.difficulty.rawValue) }
     }
     
-//    static var roundTime:Duration{
-//        get{
-//            return Duration(rawValue: defaults.integer(forKey: UserDefaultsName.roundTime.rawValue))!
-//        }
-//        set{
-//            defaults.set(newValue.rawValue, forKey: UserDefaultsName.roundTime.rawValue)
-//        }
-//    }
-//
-//    static var difficulty:Difficulty{
-//        get{
-//            return Difficulty(rawValue: defaults.string(forKey: UserDefaultsName.difficulty.rawValue)!)!
-//        }
-//        set{ defaults.set(newValue.rawValue, forKey: UserDefaultsName.difficulty.rawValue) }
-//    }
-    
     static var levelID:Level{
         set{ self.defaults.set(newValue.getDesc(), forKey: UserDefaultsName.levelID.rawValue) }
         get{
             if(self.defaults.value(forKey: UserDefaultsName.levelID.rawValue) == nil){
                 self.defaults.set(Level.Meadow.getDesc(), forKey: UserDefaultsName.levelID.rawValue)
             }
-//            let levelIDString = defaults.string(forKey: UserDefaultsName.levelID.rawValue)!
             return Level(levelIDString: defaults.string(forKey: UserDefaultsName.levelID.rawValue)!)!
-//            switch levelIDString {
-//            case Level.Meadow.getDesc():
-//                return .Meadow
-//            case Level.CitySkyline.getDesc():
-//                return .CitySkyline
-//            case Level.CityStreet.getDesc():
-//                return .CityStreet
-//            case Level.CityNight.getDesc():
-//                return .CityNight
-//            case Level.CityJapan.getDesc():
-//                return .CityJapan
-//            case Level.Wallway.getDesc():
-//                return .Wallway
-//            case Level.ScarryStreet.getDesc():
-//                return .ScarryStreet
-//            case Level.MissionAccomplished.getDesc():
-//                return .MissionAccomplished
-//            default:
-//                return .Meadow
-//            }
         }
     }
     
@@ -150,6 +114,13 @@ class UserDefaultsHelper{
         set{ self.defaults.set(newValue, forKey: UserDefaultsName.certificates.rawValue) }
     }
     
+    static var vaccinations:Int{
+        get{
+            return self.defaults.integer(forKey: UserDefaultsName.vaccinations.rawValue)
+        }
+        set{ self.defaults.set(newValue, forKey: UserDefaultsName.vaccinations.rawValue) }
+    }
+    
     static var highscore:Int{
         get{
             return self.defaults.integer(forKey: UserDefaultsName.highscore.rawValue)
@@ -169,10 +140,6 @@ class UserDefaultsHelper{
             return (self.defaults.dictionary(forKey: UserDefaultsName.certificate.rawValue) != nil ? self.defaults.dictionary(forKey: UserDefaultsName.certificate.rawValue) as! [String:Int] : [Level.Meadow.getDesc(): 0])
         }
         set{ self.defaults.set(newValue, forKey: UserDefaultsName.certificate.rawValue) }
-//        get{
-//            return (NSUbiquitousKeyValueStore.default.dictionary(forKey: self.certificateKey) != nil ? NSUbiquitousKeyValueStore.default.dictionary(forKey: self.certificateKey) as! [String:Int] : ["Meadow": 0])
-//        }
-//        set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.certificateKey) }
     }
     
     static var level:String{

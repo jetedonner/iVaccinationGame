@@ -158,9 +158,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.medkitPickup?.alpha = 0.0
         self.scene?.addChild(self.medkitPickup!)
         
-        
-        
-        
         self.imgTESET = self.contentNode!.childNode(withName: "imgTESET") as? SKSpriteNode
         
         self.imgBlood = self.contentNode!.childNode(withName: "imgBlood") as? SKSpriteNode
@@ -352,6 +349,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.certsLblOrigPos = self.lblCerts!.position
         self.lblScore?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 180), duration: 0.45), SKAction.scale(to: 2.5, duration: 0.45)]))
         self.lblCerts?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 100), duration: 0.45), SKAction.scale(to: 1.75, duration: 0.45)]))
+        
         ICloudStorageHelper.score[self.currentLevel.level.getDesc()] = self.player.score
         ICloudStorageHelper.certificate[self.currentLevel.level.getDesc()] = self.player.certsPickedUp
         ICloudStorageHelper.certificates += self.player.certsPickedUp
@@ -384,16 +382,18 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             let nextLevel:Level = self.currentLevel.level.getNextLevel()
             UserDefaultsHelper.levelID = nextLevel
             UserDefaultsHelper.highscore += self.player.score
+            UserDefaultsHelper.certificates += self.player.certsPickedUp
+            UserDefaultsHelper.vaccinations += self.player.zombiesCured
             
-            ICloudStorageHelper.highscore += self.player.score
             ICloudStorageHelper.level = nextLevel.getDesc()
+            ICloudStorageHelper.highscore += self.player.score
             ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
             
             if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
                 let gameCenterHelper = self.getViewController().gameCenterHelper
-                gameCenterHelper!.updateScore(with: self.player.score)
-                gameCenterHelper!.updateCertificates(with: self.player.certsPickedUp)
-                gameCenterHelper!.updateVaccinations(with: self.player.zombiesCured)
+                gameCenterHelper!.updateScore(with: UserDefaultsHelper.highscore)
+                gameCenterHelper!.updateCertificates(with: UserDefaultsHelper.certificates)
+                gameCenterHelper!.updateVaccinations(with: UserDefaultsHelper.vaccinations)
                 
                 if(nextLevel == .MissionAccomplished){
                     GCAchievements.shared.add2completeAllLevels()

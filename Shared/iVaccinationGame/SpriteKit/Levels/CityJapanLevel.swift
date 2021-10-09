@@ -118,7 +118,7 @@ class CityJapanLevel: BaseLevel {
             difficulty: .medium,
             zombieCountAtOnce: 3,
             syringePickupsAtOnce: 2,
-            certificatePickupsAtOnce: 3,
+            certificatePickupsAtOnce: 2,
             duration: .Minutes2
         )
         self.levelConfigs[.medium]?.zombiePaths.append(contentsOf: (self.levelConfigs[.easy]!.zombiePaths))

@@ -11,22 +11,18 @@ import SpriteKit
 extension SKView {
     
     open override func mouseDown(with event: NSEvent) {
-        if let menuScene = (self.scene as? MenuScene){
-            menuScene.mouseDown(with: event)
+        if let scene = (self.scene as? MenuScene) ??
+            (self.scene as? WelcomeScene) ??
+            (self.scene as? DifficultyScene) ??
+            (self.scene as? DescriptionScene) ??
+            (self.scene as? MapScene) ??
+            (self.scene as? CreditsScene){
+            
+            scene.mouseDown(with: event)
             return
-        }else if let menuDifScene = (self.scene as? DifficultyScene){
-            menuDifScene.mouseDown(with: event)
-            return
-        }else if let descScene = (self.scene as? DescriptionScene){
-            descScene.mouseDown(with: event)
-            return
-        }else if let mapScene = (self.scene as? MapScene){
-            mapScene.mouseDown(with: event)
-            return
-        }else if let creditsScene = (self.scene as? CreditsScene){
-            creditsScene.mouseDown(with: event)
-            return
-        }else if let gameScene = (self.scene as? GameScene){
+        }
+        
+        if let gameScene = (self.scene as? GameScene){
             super.mouseDown(with: event)
             let location = event.location(in: gameScene.bg!)
             gameScene.clickedAtPoint(point: location)
