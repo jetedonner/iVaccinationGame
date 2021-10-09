@@ -18,5 +18,4 @@ iVaccinationGame is a fun game which lets you vaccinate zombies to save the worl
 * [GIMP](https://www.gimp.org/downloads/)
 
 ## Sounds
-* [Sound from Zapsplat.com](https://www.zapsplat.com)   
-<a
+* [Sound from Zapsplat.com](https://www.zapsplat.com)
