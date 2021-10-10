@@ -28,6 +28,7 @@ enum Sounds:String{
     case eat2 = "eat_crunch_2.mp3"
     case certPickup = "paperturn_boosted.mp3"
     case youWin = "youWin.mp3"
+    case applause = "auditorium-moderate-applause-and-cheering.mp3"
 }
 
 class SoundManager:NSObject, AVAudioPlayerDelegate{

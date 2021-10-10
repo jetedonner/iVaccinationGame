@@ -19,7 +19,7 @@ class CityJapanLevel: BaseLevel {
             difficulty: .easy,
             zombieCountAtOnce: 2,
             syringePickupsAtOnce: 2,
-            certificatePickupsAtOnce: 2,
+            certificatePickupsAtOnce: 1,
             duration: .Minutes1
         )
         let exitWay1:SKAction = SKAction.moveBy(x: 60, y: 10, duration: 0.2)
@@ -127,9 +127,9 @@ class CityJapanLevel: BaseLevel {
         // ========= DIFFICULTY: HARD =========
         self.levelConfigs[.hard] = LevelConfig(
             difficulty: .hard,
-            zombieCountAtOnce: 3,
+            zombieCountAtOnce: 4,
             syringePickupsAtOnce: 3,
-            certificatePickupsAtOnce: 3,
+            certificatePickupsAtOnce: 2,
             duration: .Minutes3
         )
         self.levelConfigs[.hard]?.zombiePaths.append(contentsOf: (self.levelConfigs[.easy]!.zombiePaths))
@@ -138,9 +138,9 @@ class CityJapanLevel: BaseLevel {
         // ========= DIFFICULTY: NIGHTMARE =========
         self.levelConfigs[.nightmare] = LevelConfig(
             difficulty: .nightmare,
-            zombieCountAtOnce: 4,
+            zombieCountAtOnce: 5,
             syringePickupsAtOnce: 4,
-            certificatePickupsAtOnce: 3,
+            certificatePickupsAtOnce: 2,
             duration: .Minutes5
         )
         self.levelConfigs[.nightmare]?.zombiePaths.append(contentsOf: (self.levelConfigs[.easy]!.zombiePaths))

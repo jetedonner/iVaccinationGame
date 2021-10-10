@@ -12,7 +12,7 @@ class LevelConfig{
     
     var difficulty:Difficulty = .easy
     var zombieCountAtOnce:Int = 1
-    var zombieRespawnTimeRange:CountableClosedRange<Int> = 2...4
+    var zombieRespawnTimeRange:CountableClosedRange<Int> = 3...6
     
     var syringePickupsAtOnce:Int = 1
     

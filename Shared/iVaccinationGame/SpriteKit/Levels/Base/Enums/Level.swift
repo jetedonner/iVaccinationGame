@@ -46,9 +46,7 @@ enum Level:Int, CaseIterable{
     func getDesc(currentLevel:Level? = nil)->String{
         let dCurLevel:Level = (currentLevel ?? self)
         switch dCurLevel {
-        case .NewGame:
-            return "New game"
-        case .Meadow:
+        case .NewGame, .Meadow:
             return "Meadow"
         case .CitySkyline:
             return "City Skyline"

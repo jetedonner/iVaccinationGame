@@ -11,6 +11,7 @@
                 <outlet property="cmbDifficulty" destination="ScB-9t-DNP" id="TA8-fr-BEU"/>
                 <outlet property="cmbLevel" destination="fgf-WO-KhH" id="KBM-VA-5Cu"/>
                 <outlet property="cmbTime" destination="1va-cG-UqW" id="xaD-1U-IeI"/>
+                <outlet property="cmdAbortGame" destination="Sv5-0e-oVN" id="PYL-nz-5TK"/>
                 <outlet property="cmdResetALL" destination="Odd-fa-AiN" id="Zej-7j-zxm"/>
                 <outlet property="cmdResetAch" destination="e8Y-hQ-9s8" id="PDD-BE-zkI"/>
                 <outlet property="cmdResetICloud" destination="d0I-Dq-wKt" id="jCR-CA-heP"/>

@@ -72,7 +72,7 @@ class BaseLevel {
         self.difficulty = difficulty
         gameScene.bg?.texture = SKTexture(imageNamed: self.backgroundImageName + (UserDefaultsHelper.autoNightMode && self.isNightTime() ? "Night" : ""))
         
-        self.gameScene.gameDuration = (UserDefaultsHelper.devMode ? GameVars.DEV_ROUND_TIME : self.currentLevelConfig.gameDuration)
+        self.gameScene.gameDuration = (UserDefaultsHelper.devMode ? UserDefaultsHelper.roundTime /*GameVars.DEV_ROUND_TIME*/ : self.currentLevelConfig.gameDuration)
         self.gameScene.certificatePickupManager.pickupsAtOnce = self.currentLevelConfig.certificatePickupsAtOnce
         self.gameScene.certificatePickupManager.paused = false
         self.gameScene.syringePickupManager.pickupsAtOnce = self.currentLevelConfig.syringePickupsAtOnce
@@ -91,7 +91,7 @@ class BaseLevel {
         newZombieGirl.setScale(path.initScale)
         newZombieGirl.speed = self.currentLevelConfig.speedFactor.multiplier
         newZombieGirl.addPhysicBody()
-        newZombieGirl.zPosition = 1001
+        newZombieGirl.zPosition = 1000
         if(UserDefaultsHelper.devMode){
             newZombieGirl.addDbgBorder()
         }

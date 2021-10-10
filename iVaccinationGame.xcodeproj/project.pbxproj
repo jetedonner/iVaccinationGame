@@ -237,6 +237,10 @@
 		55EE3DAB270643E500991D86 /* CreditsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DAA270643E500991D86 /* CreditsScene.swift */; };
 		55EE3DAD270646D600991D86 /* SkViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DAC270646D600991D86 /* SkViewExt.swift */; };
 		55EE3DAE270646F700991D86 /* SkViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3DAC270646D600991D86 /* SkViewExt.swift */; };
+		55F67A64271349AA003C60B2 /* SKColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F67A63271349AA003C60B2 /* SKColor.swift */; };
+		55F67A65271349AA003C60B2 /* SKColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F67A63271349AA003C60B2 /* SKColor.swift */; };
+		55F67A6727134DE4003C60B2 /* GameScene_Last.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55F67A6627134DE4003C60B2 /* GameScene_Last.sks */; };
+		55F67A6827134DE4003C60B2 /* GameScene_Last.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55F67A6627134DE4003C60B2 /* GameScene_Last.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -417,6 +421,8 @@
 		55EE3DA82706436E00991D86 /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
 		55EE3DAA270643E500991D86 /* CreditsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsScene.swift; sourceTree = "<group>"; };
 		55EE3DAC270646D600991D86 /* SkViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkViewExt.swift; sourceTree = "<group>"; };
+		55F67A63271349AA003C60B2 /* SKColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKColor.swift; sourceTree = "<group>"; };
+		55F67A6627134DE4003C60B2 /* GameScene_Last.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene_Last.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -725,6 +731,7 @@
 				5561AF89270EE6DC007B3F8F /* Level */,
 				55EE3D832705A2C200991D86 /* Actions */,
 				554E531C26EFAD4300371E58 /* GameScene.sks */,
+				55F67A6627134DE4003C60B2 /* GameScene_Last.sks */,
 				554E531E26EFAD4300371E58 /* Actions.sks */,
 				55B64A3026F3467200944766 /* MenuScene.sks */,
 				55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */,
@@ -870,6 +877,7 @@
 				55B64A3A26F3602C00944766 /* GameVars.swift */,
 				55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */,
 				55EE3D7D270377FC00991D86 /* VersionHelper.swift */,
+				55F67A63271349AA003C60B2 /* SKColor.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -1164,6 +1172,7 @@
 				55EE3D8127058F1000991D86 /* MapSceneOrig.sks in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
+				55F67A6727134DE4003C60B2 /* GameScene_Last.sks in Resources */,
 				55EE3D9D27063E1700991D86 /* CreditsScene.sks in Resources */,
 				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
 				55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */,
@@ -1208,6 +1217,7 @@
 			files = (
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				5561AFC02712F7CE007B3F8F /* English.lproj.helpindex in Resources */,
+				55F67A6827134DE4003C60B2 /* GameScene_Last.sks in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				55EE3D8227058F1000991D86 /* MapSceneOrig.sks in Resources */,
 				55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */,
@@ -1307,6 +1317,7 @@
 				556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */,
 				55EE3D852705A58F00991D86 /* VaccineBase.swift in Sources */,
 				55C83F6A26FDDF1F00F42F53 /* GameCenterState.swift in Sources */,
+				55F67A64271349AA003C60B2 /* SKColor.swift in Sources */,
 				554E532126EFAD4300371E58 /* GameScene.swift in Sources */,
 				55C83F3826FCE5BC00F42F53 /* DifficultySceneBase.swift in Sources */,
 				55A579D326F64D1B0084239D /* CGFloatValueTransformer.swift in Sources */,
@@ -1440,6 +1451,7 @@
 				55EE3DA92706436E00991D86 /* CreditsScene.swift in Sources */,
 				55EAD47126FF7D0800BB8D06 /* MenuScene.swift in Sources */,
 				55EAD46826FF773A00BB8D06 /* BaseSKSceneIOS.swift in Sources */,
+				55F67A65271349AA003C60B2 /* SKColor.swift in Sources */,
 				559442AA26FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,
 				5561AF80270A083F007B3F8F /* PickupManagerBase.swift in Sources */,
 			);

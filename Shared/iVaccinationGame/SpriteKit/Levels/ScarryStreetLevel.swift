@@ -19,7 +19,7 @@ class ScarryStreetLevel: BaseLevel {
             difficulty: .easy,
             zombieCountAtOnce: 2,
             syringePickupsAtOnce: 2,
-            certificatePickupsAtOnce: 2,
+            certificatePickupsAtOnce: 1,
             duration: .Minutes1
         )
         let exitMove1:SKAction = SKAction.moveBy(x: 60, y: 10, duration: 0.2)
@@ -29,16 +29,24 @@ class ScarryStreetLevel: BaseLevel {
             self.zombiePaths[.easy] = [BasePath]()
             self.levelConfigs[.easy]?.zombiePaths.append(
                 BasePath(
-                    initPos: CGPoint(x: 72, y: -83),
-                    initScale: 0.3,
+                    initPos: CGPoint(x: 14, y: 48),
+                    initScale: 0.18,
                     path: SKAction.sequence([
                         SKAction.group([
-                            SKAction.scaleX(to: 0.3, duration: 0.55),
+                            SKAction.scaleX(to: 0.18, duration: 0.55),
                             SKAction.move(by: CGVector(dx: -10, dy: 0), duration: 0.55),
                         ]),
                         SKAction.group([
-                            SKAction.move(by: CGVector(dx: -100, dy: -250), duration: 5.5 - Double(idx) * 1.5),
-                            SKAction.scale(to: 3.5, duration: (5.5 - Double(idx) * 1.5))
+                            SKAction.move(by: CGVector(dx: -50, dy: -90), duration: 2.5 - Double(idx) * 1.15),
+                            SKAction.scale(to: 0.5, duration: (2.5 - Double(idx) * 1.15))
+                        ]),
+                        SKAction.group([
+                            SKAction.move(by: CGVector(dx: 50, dy: -200), duration: 2.5 - Double(idx) * 1.15),
+                            SKAction.scale(to: 1.0, duration: (2.5 - Double(idx) * 1.15))
+                        ]),
+                        SKAction.group([
+                            SKAction.move(by: CGVector(dx: -250, dy: -90), duration: 2.5 - Double(idx) * 1.15),
+                            SKAction.scale(to: 2.5, duration: (2.5 - Double(idx) * 1.15))
                         ])
                     ]),
                     exitPath: SKAction.sequence([
@@ -118,7 +126,7 @@ class ScarryStreetLevel: BaseLevel {
             difficulty: .medium,
             zombieCountAtOnce: 3,
             syringePickupsAtOnce: 2,
-            certificatePickupsAtOnce: 3,
+            certificatePickupsAtOnce: 2,
             duration: .Minutes2
         )
         self.levelConfigs[.medium]?.zombiePaths.append(contentsOf: (self.levelConfigs[.easy]!.zombiePaths))
@@ -127,9 +135,9 @@ class ScarryStreetLevel: BaseLevel {
         // ========= DIFFICULTY: HARD =========
         self.levelConfigs[.hard] = LevelConfig(
             difficulty: .hard,
-            zombieCountAtOnce: 3,
+            zombieCountAtOnce: 4,
             syringePickupsAtOnce: 3,
-            certificatePickupsAtOnce: 3,
+            certificatePickupsAtOnce: 2,
             duration: .Minutes3
         )
         self.levelConfigs[.hard]?.zombiePaths.append(contentsOf: (self.levelConfigs[.easy]!.zombiePaths))
@@ -138,9 +146,9 @@ class ScarryStreetLevel: BaseLevel {
         // ========= DIFFICULTY: NIGHTMARE =========
         self.levelConfigs[.nightmare] = LevelConfig(
             difficulty: .nightmare,
-            zombieCountAtOnce: 4,
+            zombieCountAtOnce: 5,
             syringePickupsAtOnce: 4,
-            certificatePickupsAtOnce: 3,
+            certificatePickupsAtOnce: 2,
             duration: .Minutes5
         )
         self.levelConfigs[.nightmare]?.zombiePaths.append(contentsOf: (self.levelConfigs[.easy]!.zombiePaths))

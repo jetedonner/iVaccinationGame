@@ -49,7 +49,7 @@ extension GameSceneBase{
                 self.imgRedOut?.alpha = 0.0
                 self.imgBlood?.isHidden = true
                 self.player.health = 0.0
-                self.showGameOver()
+                self.showGameOver(gameLost: true)
                 self.player.resetPlayer()
                 self.prgBar.setProgress(1.0)
             })

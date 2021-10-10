@@ -82,7 +82,7 @@ class MeadowLevel: BaseLevel {
         // ========= DIFFICULTY: HARD =========
         self.levelConfigs[.hard] = LevelConfig(
             difficulty: .hard,
-            zombieCountAtOnce: 3,
+            zombieCountAtOnce: 4,
             syringePickupsAtOnce: 3,
             certificatePickupsAtOnce: 2,
             duration: .Minutes3
@@ -98,7 +98,7 @@ class MeadowLevel: BaseLevel {
         // ========= DIFFICULTY: NIGHTMARE =========
         self.levelConfigs[.nightmare] = LevelConfig(
             difficulty: .nightmare,
-            zombieCountAtOnce: 4,
+            zombieCountAtOnce: 5,
             syringePickupsAtOnce: 4,
             certificatePickupsAtOnce: 2,
             duration: .Minutes5

@@ -11,10 +11,12 @@ import GameKit
 
 class CreditsSceneBase: BaseSKScene {
     
+    var bg:SKSpriteNode?
     var lblContinue:SKLabelNode?
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        self.bg = self.childNode(withName: "BG") as? SKSpriteNode
         self.lblContinue = self.childNode(withName: "lblContinue") as? SKLabelNode
     }
     
@@ -22,6 +24,8 @@ class CreditsSceneBase: BaseSKScene {
         super.touchOrClick(pos: pos, viewController: viewController)
         if(self.selNode == lblContinue){
             viewController.loadMenuScene()
+        }else{
+            
         }
     }
 }

@@ -166,7 +166,8 @@ class MapSceneBase: BaseSKScene {
             self.posMeadow?.isHidden = false
         }else{
             self.imgMeadow.currentLocation = true
-            self.posMeadow?.isHidden = true
+            self.posMeadow?.isHidden = false
+//            self.posMeadow?.isHidden = true
             return
         }
         if(UserDefaultsHelper.levelID.rawValue > Level.Meadow.rawValue){
@@ -230,6 +231,7 @@ class MapSceneBase: BaseSKScene {
             self.imgBackstreet.imgNode.isHidden = true
             self.imgScarryStreet.imgNode.isHidden = true
             self.lblTask.isHidden = true
+            SoundManager.shared.playSound(sound: .applause)
             return
         }else{
             self.imgScarryStreet.currentLocation = true
@@ -311,6 +313,11 @@ class MapSceneBase: BaseSKScene {
             if(daLevel.rawValue >= Level.NewGame.rawValue){//} UserDefaultsHelper.levelID.rawValue){
                 viewController.loadGameScene(difficulty: UserDefaultsHelper.difficulty, level: daLevel)
             }
+        }else if(UserDefaultsHelper.levelID.rawValue > Level.ScarryStreet.rawValue){
+            ICloudStorageHelper.resetAllICloudValues()
+            UserDefaultsHelper.resetUserDefValues(resetFirstStart: false)
+            viewController.loadDifficultyScene()
+            return
         }
     }
     

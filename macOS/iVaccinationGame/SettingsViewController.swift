@@ -23,6 +23,7 @@ class SettingsViewController: NSViewController {
     @IBOutlet var cmbDifficulty:NSPopUpButton?
     @IBOutlet var cmbLevel:NSPopUpButton?
     
+    @IBOutlet var cmdAbortGame:NSButton?
     @IBOutlet var cmdTestAch:NSButton?
     @IBOutlet var cmdResetAch:NSButton?
     @IBOutlet var cmdResetICloud:NSButton?
@@ -41,6 +42,9 @@ class SettingsViewController: NSViewController {
             self.lblDevMode?.isHidden = true
             self.swtDevMode?.state = .off
             self.showHideAchButtons(hide: true)
+        }
+        if(self.gameScene == nil || (self.gameScene != nil && (!self.gameScene!.gameRunning))){
+            self.cmdAbortGame?.isHidden = true
         }
     }
     

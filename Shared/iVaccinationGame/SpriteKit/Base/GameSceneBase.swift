@@ -240,7 +240,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     }
     
     func loadLevelConfig(levelID:Level, difficulty:Difficulty){
-        let level = self.levels.filter({ $0.level == levelID })[0]
+        let level = self.levels.filter({ $0.level == (levelID == .NewGame ? .Meadow : levelID) })[0]
         self.currentLevel = level
         self.currentLevel.setupLevelConfig(gameScene: self, difficulty: difficulty)
     }
@@ -353,7 +353,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         SoundManager.shared.stopBGSound()
     }
     
-    func showGameOver(){
+    func showGameOver(gameLost:Bool = false){
         self.endGame()
         self.scoreLblOrigPos = self.lblScore!.position
         self.certsLblOrigPos = self.lblCerts!.position
@@ -398,7 +398,10 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                 self.waitForAnyKey = true
             })
             
-            let nextLevel:Level = self.currentLevel.level.getNextLevel()
+            var nextLevel:Level = self.currentLevel.level //
+            if(!gameLost){
+                nextLevel = self.currentLevel.level.getNextLevel()
+            }
 //            if(nextLevel.rawValue >= UserDefaultsHelper.levelProgress.rawValue){
 //                UserDefaultsHelper.levelProgress = nextLevel
 //            }
