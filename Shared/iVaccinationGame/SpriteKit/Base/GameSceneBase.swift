@@ -123,7 +123,10 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         
         self.imgArrowDown = self.contentNode!.childNode(withName: "imgArrowDown") as? SKSpriteNode
         self.imgArrowDown?.zPosition = 100100
-        self.imgArrowDown?.addDbgBorder()
+        
+        if(UserDefaultsHelper.devMode && UserDefaultsHelper.dbgBorders){
+            self.imgArrowDown?.addDbgBorder()
+        }
         
         #if os(macOS)
         self.imgArrowDown?.isHidden = true

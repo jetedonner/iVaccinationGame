@@ -54,6 +54,10 @@ class SettingsViewController: NSViewController {
         self.dismiss(sender)
     }
     
+    @IBAction func switchDbgBorders(_ sender:Any){
+//        self.showHideAchButtons(hide: (self.swtDevMode?.state == .off))
+    }
+    
     @IBAction func switchDevMode(_ sender:Any){
         self.showHideAchButtons(hide: (self.swtDevMode?.state == .off))
     }

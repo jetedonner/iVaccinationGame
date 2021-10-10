@@ -21,6 +21,8 @@ enum UserDefaultsName:String{
     case uploadHighscore = "uploadHighscore"
     case autoNightMode = "autoNightMode"
     case devMode = "devMode"
+    case dbgBorders = "dbgBorders"
+    
     
     case levelID = "levelID"
     case highscore = "highscore"
@@ -239,6 +241,15 @@ class UserDefaultsHelper{
                 self.defaults.set(false, forKey: UserDefaultsName.devMode.rawValue)
             }
             return self.defaults.bool(forKey: UserDefaultsName.devMode.rawValue)
+        }
+    }
+    
+    static var dbgBorders:Bool{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.dbgBorders.rawValue) == nil){
+                self.defaults.set(false, forKey: UserDefaultsName.dbgBorders.rawValue)
+            }
+            return self.defaults.bool(forKey: UserDefaultsName.dbgBorders.rawValue)
         }
     }
     
