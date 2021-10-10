@@ -58,7 +58,7 @@ class MenuSceneBase: BaseSKScene {
                 AlertBox.alertTheUser(viewController: (self.view?.window?.rootViewController)!, completion: {
                     if(AlertBox.userWantToChangeSettings){
                         ICloudStorageHelper.resetAllICloudValues()
-                        UserDefaultsHelper.resetUserDefValues()
+                        UserDefaultsHelper.resetUserDefValues(resetFirstStart: false)
                         viewController.loadDifficultyScene()
                     }
                 }, question: "Restart iVaccination?", text: "Another game was started, do you want to completely restart a new game - from beginning?")
@@ -66,7 +66,7 @@ class MenuSceneBase: BaseSKScene {
             }
             if(doStart){
                 ICloudStorageHelper.resetAllICloudValues()
-                UserDefaultsHelper.resetUserDefValues()
+                UserDefaultsHelper.resetUserDefValues(resetFirstStart: false)
                 viewController.loadDifficultyScene()
             }
         }else if(node == self.lblContinue){

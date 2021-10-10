@@ -18,6 +18,11 @@ class SettingsViewController: NSViewController {
     @IBOutlet var sharedUserDefaultsController:NSUserDefaultsController?
     
     @IBOutlet var swtDevMode:NSSwitch?
+    
+    @IBOutlet var cmbTime:NSPopUpButton?
+    @IBOutlet var cmbDifficulty:NSPopUpButton?
+    @IBOutlet var cmbLevel:NSPopUpButton?
+    
     @IBOutlet var cmdTestAch:NSButton?
     @IBOutlet var cmdResetAch:NSButton?
     @IBOutlet var cmdResetICloud:NSButton?
@@ -34,8 +39,15 @@ class SettingsViewController: NSViewController {
         }else{
             self.swtDevMode?.isHidden = true
             self.lblDevMode?.isHidden = true
+            self.swtDevMode?.state = .off
             self.showHideAchButtons(hide: true)
         }
+    }
+    
+    @IBAction func abortGame(_ sender:Any){
+        self.gameScene?.endGame()
+        self.gameScene?.getViewController().loadMenuScene()
+        self.dismiss(sender)
     }
     
     @IBAction func switchDevMode(_ sender:Any){

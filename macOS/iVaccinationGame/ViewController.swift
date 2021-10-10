@@ -29,7 +29,7 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
             self.gameCenterHelper.loadGameCenter()
         }
         if(UserDefaultsHelper.firstStart){
-            UserDefaultsHelper.firstStart = false
+//            UserDefaultsHelper.firstStart = false
             self.loadWelcomeScene()
         }else{
             self.loadMenuScene()

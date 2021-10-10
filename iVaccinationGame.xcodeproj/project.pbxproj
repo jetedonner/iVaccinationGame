@@ -51,6 +51,24 @@
 		5561AF9F2710AA56007B3F8F /* WelcomeSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF9D2710AA56007B3F8F /* WelcomeSceneBase.swift */; };
 		5561AFA12710AB05007B3F8F /* WelcomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AFA02710AB05007B3F8F /* WelcomeScene.swift */; };
 		5561AFA32710AB30007B3F8F /* WelcomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AFA22710AB30007B3F8F /* WelcomeScene.swift */; };
+		5561AFA52711812E007B3F8F /* SyringePickupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AFA42711812E007B3F8F /* SyringePickupType.swift */; };
+		5561AFA62711812E007B3F8F /* SyringePickupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AFA42711812E007B3F8F /* SyringePickupType.swift */; };
+		5561AFB72712F7CE007B3F8F /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFAC2712F7CE007B3F8F /* style.css */; };
+		5561AFB82712F7CE007B3F8F /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFAC2712F7CE007B3F8F /* style.css */; };
+		5561AFB92712F7CE007B3F8F /* task_style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFAD2712F7CE007B3F8F /* task_style.css */; };
+		5561AFBA2712F7CE007B3F8F /* task_style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFAD2712F7CE007B3F8F /* task_style.css */; };
+		5561AFBB2712F7CE007B3F8F /* Suake3DIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFAF2712F7CE007B3F8F /* Suake3DIcon.png */; };
+		5561AFBC2712F7CE007B3F8F /* Suake3DIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFAF2712F7CE007B3F8F /* Suake3DIcon.png */; };
+		5561AFBD2712F7CE007B3F8F /* Suake3DBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFB02712F7CE007B3F8F /* Suake3DBG.png */; };
+		5561AFBE2712F7CE007B3F8F /* Suake3DBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFB02712F7CE007B3F8F /* Suake3DBG.png */; };
+		5561AFBF2712F7CE007B3F8F /* English.lproj.helpindex in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFB12712F7CE007B3F8F /* English.lproj.helpindex */; };
+		5561AFC02712F7CE007B3F8F /* English.lproj.helpindex in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFB12712F7CE007B3F8F /* English.lproj.helpindex */; };
+		5561AFC12712F7CE007B3F8F /* iVaccination.html in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFB32712F7CE007B3F8F /* iVaccination.html */; };
+		5561AFC22712F7CE007B3F8F /* iVaccination.html in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFB32712F7CE007B3F8F /* iVaccination.html */; };
+		5561AFC32712F7CE007B3F8F /* Contents.helpindex in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFB52712F7CE007B3F8F /* Contents.helpindex */; };
+		5561AFC42712F7CE007B3F8F /* Contents.helpindex in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFB52712F7CE007B3F8F /* Contents.helpindex */; };
+		5561AFC52712F7CE007B3F8F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFB62712F7CE007B3F8F /* Info.plist */; };
+		5561AFC62712F7CE007B3F8F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5561AFB62712F7CE007B3F8F /* Info.plist */; };
 		556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
@@ -286,6 +304,15 @@
 		5561AF9D2710AA56007B3F8F /* WelcomeSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeSceneBase.swift; sourceTree = "<group>"; };
 		5561AFA02710AB05007B3F8F /* WelcomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeScene.swift; sourceTree = "<group>"; };
 		5561AFA22710AB30007B3F8F /* WelcomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeScene.swift; sourceTree = "<group>"; };
+		5561AFA42711812E007B3F8F /* SyringePickupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringePickupType.swift; sourceTree = "<group>"; };
+		5561AFAC2712F7CE007B3F8F /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		5561AFAD2712F7CE007B3F8F /* task_style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = task_style.css; sourceTree = "<group>"; };
+		5561AFAF2712F7CE007B3F8F /* Suake3DIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Suake3DIcon.png; sourceTree = "<group>"; };
+		5561AFB02712F7CE007B3F8F /* Suake3DBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Suake3DBG.png; sourceTree = "<group>"; };
+		5561AFB22712F7CE007B3F8F /* English */ = {isa = PBXFileReference; lastKnownFileType = file; name = English; path = English.lproj/English.lproj.helpindex; sourceTree = "<group>"; };
+		5561AFB42712F7CE007B3F8F /* English */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = English; path = English.lproj/iVaccination.html; sourceTree = "<group>"; };
+		5561AFB52712F7CE007B3F8F /* Contents.helpindex */ = {isa = PBXFileReference; lastKnownFileType = file; path = Contents.helpindex; sourceTree = "<group>"; };
+		5561AFB62712F7CE007B3F8F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		556FBE7E26F7032B00F8081C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		556FBE8026F77A6C00F8081C /* BasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePath.swift; sourceTree = "<group>"; };
 		556FBE8226F7858D00F8081C /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
@@ -545,6 +572,7 @@
 				55A579BA26F4F89D0084239D /* MedKitPickup.swift */,
 				55EAD44C26FE990200BB8D06 /* CertificatePickup.swift */,
 				55A579BE26F4FEFF0084239D /* SyringePickup.swift */,
+				5561AFA42711812E007B3F8F /* SyringePickupType.swift */,
 			);
 			path = Pickups;
 			sourceTree = "<group>";
@@ -568,11 +596,65 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		5561AFA72712F7CE007B3F8F /* iVaccination.help */ = {
+			isa = PBXGroup;
+			children = (
+				5561AFA82712F7CE007B3F8F /* Contents */,
+			);
+			path = iVaccination.help;
+			sourceTree = "<group>";
+		};
+		5561AFA82712F7CE007B3F8F /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				5561AFA92712F7CE007B3F8F /* Resources */,
+				5561AFB52712F7CE007B3F8F /* Contents.helpindex */,
+				5561AFB62712F7CE007B3F8F /* Info.plist */,
+			);
+			path = Contents;
+			sourceTree = "<group>";
+		};
+		5561AFA92712F7CE007B3F8F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5561AFAA2712F7CE007B3F8F /* res */,
+				5561AFB12712F7CE007B3F8F /* English.lproj.helpindex */,
+				5561AFB32712F7CE007B3F8F /* iVaccination.html */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5561AFAA2712F7CE007B3F8F /* res */ = {
+			isa = PBXGroup;
+			children = (
+				5561AFAB2712F7CE007B3F8F /* css */,
+				5561AFAE2712F7CE007B3F8F /* img */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		5561AFAB2712F7CE007B3F8F /* css */ = {
+			isa = PBXGroup;
+			children = (
+				5561AFAC2712F7CE007B3F8F /* style.css */,
+				5561AFAD2712F7CE007B3F8F /* task_style.css */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		5561AFAE2712F7CE007B3F8F /* img */ = {
+			isa = PBXGroup;
+			children = (
+				5561AFAF2712F7CE007B3F8F /* Suake3DIcon.png */,
+				5561AFB02712F7CE007B3F8F /* Suake3DBG.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
 		55A579B926F4F8810084239D /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
 				5561AF85270E0A48007B3F8F /* Pickups */,
-				55EE3D872705A60900991D86 /* Vaccines */,
 				55C83EFB26FBB12400F42F53 /* ZombieGirl.swift */,
 				5594429F26FE4F710082DA72 /* SyringeDart.swift */,
 				55EE3D7327009A3200991D86 /* BaseMessageNode.swift */,
@@ -744,6 +826,7 @@
 				55C83F2326FC6A0F00F42F53 /* Libs */,
 				55B64A7B26F3A37F00944766 /* Apple */,
 				55C83EFF26FC664C00F42F53 /* SpriteKit */,
+				5561AFA72712F7CE007B3F8F /* iVaccination.help */,
 			);
 			path = iVaccinationGame;
 			sourceTree = "<group>";
@@ -891,6 +974,7 @@
 		55EE3D942705ACC800991D86 /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				55EE3D872705A60900991D86 /* Vaccines */,
 				55EE3D952705ACD400991D86 /* Player.swift */,
 			);
 			path = Player;
@@ -1046,6 +1130,7 @@
 			knownRegions = (
 				en,
 				Base,
+				English,
 			);
 			mainGroup = 554E530E26EFAD4300371E58;
 			productRefGroup = 554E531826EFAD4300371E58 /* Products */;
@@ -1070,9 +1155,12 @@
 				55A579B826F4D1800084239D /* Upward2Particles.sks in Resources */,
 				5552BFA726F264130034C812 /* MagicParticle.sks in Resources */,
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
+				5561AFBB2712F7CE007B3F8F /* Suake3DIcon.png in Resources */,
 				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
+				5561AFB92712F7CE007B3F8F /* task_style.css in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
 				55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */,
+				5561AFC52712F7CE007B3F8F /* Info.plist in Resources */,
 				55EE3D8127058F1000991D86 /* MapSceneOrig.sks in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
@@ -1080,8 +1168,11 @@
 				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
 				55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */,
 				55B64A7926F3831D00944766 /* UpwardParticles.sks in Resources */,
+				5561AFC32712F7CE007B3F8F /* Contents.helpindex in Resources */,
+				5561AFC12712F7CE007B3F8F /* iVaccination.html in Resources */,
 				55B64A3526F3577D00944766 /* SettingsViewController.xib in Resources */,
 				554E535226EFB60600371E58 /* Media.scnassets in Resources */,
+				5561AFBD2712F7CE007B3F8F /* Suake3DBG.png in Resources */,
 				5561AF87270EE57B007B3F8F /* MapScene.sks in Resources */,
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
 				55B64A3126F3467200944766 /* MenuScene.sks in Resources */,
@@ -1090,8 +1181,10 @@
 				5561AF9B2710AA46007B3F8F /* WelcomeScene.sks in Resources */,
 				554E534B26EFB34E00371E58 /* CH_first.png in Resources */,
 				55EAD44A26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
+				5561AFB72712F7CE007B3F8F /* style.css in Resources */,
 				55C83F3526FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
 				55C83F7626FDFD8A00F42F53 /* DescriptionScene.sks in Resources */,
+				5561AFBF2712F7CE007B3F8F /* English.lproj.helpindex in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1114,6 +1207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
+				5561AFC02712F7CE007B3F8F /* English.lproj.helpindex in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				55EE3D8227058F1000991D86 /* MapSceneOrig.sks in Resources */,
 				55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */,
@@ -1125,14 +1219,21 @@
 				5561AF9C2710AA46007B3F8F /* WelcomeScene.sks in Resources */,
 				55C83F0626FC666500F42F53 /* MeadowLeftActions.sks in Resources */,
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
+				5561AFB82712F7CE007B3F8F /* style.css in Resources */,
+				5561AFBE2712F7CE007B3F8F /* Suake3DBG.png in Resources */,
+				5561AFC22712F7CE007B3F8F /* iVaccination.html in Resources */,
+				5561AFC62712F7CE007B3F8F /* Info.plist in Resources */,
 				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
+				5561AFBA2712F7CE007B3F8F /* task_style.css in Resources */,
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,
 				55C83F3E26FCFC0400F42F53 /* LICENSE in Resources */,
+				5561AFC42712F7CE007B3F8F /* Contents.helpindex in Resources */,
 				5561AF88270EE57B007B3F8F /* MapScene.sks in Resources */,
 				55C83F0726FC666500F42F53 /* GameScene.sks in Resources */,
 				55C83F0D26FC673000F42F53 /* UpwardParticles.sks in Resources */,
 				55C83F0B26FC673000F42F53 /* MagicParticle.sks in Resources */,
 				55C83F0226FC666500F42F53 /* MenuScene.sks in Resources */,
+				5561AFBC2712F7CE007B3F8F /* Suake3DIcon.png in Resources */,
 				55EE3D9E27063E1700991D86 /* CreditsScene.sks in Resources */,
 				5561AF99270F785F007B3F8F /* Credits.rtfd in Resources */,
 				55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */,
@@ -1238,6 +1339,7 @@
 				55E59BC926FF80B600B75322 /* BaseSKSceneMacOS.swift in Sources */,
 				55EE3D892705A63500991D86 /* PerofixaVaccine.swift in Sources */,
 				559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */,
+				5561AFA52711812E007B3F8F /* SyringePickupType.swift in Sources */,
 				559442A626FE51350082DA72 /* GameState.swift in Sources */,
 				55B64A3B26F3602C00944766 /* GameVars.swift in Sources */,
 				55A579BB26F4F89D0084239D /* MedKitPickup.swift in Sources */,
@@ -1303,6 +1405,7 @@
 				5561AF84270CCEE6007B3F8F /* SyringePickupManager.swift in Sources */,
 				55EE3D6B26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55EE3D972705ACD400991D86 /* Player.swift in Sources */,
+				5561AFA62711812E007B3F8F /* SyringePickupType.swift in Sources */,
 				55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */,
 				5561AF7D270A026B007B3F8F /* CertificatePickupManager.swift in Sources */,
 				5561AF732708AF28007B3F8F /* LevelConfig.swift in Sources */,
@@ -1391,6 +1494,22 @@
 				554E532726EFAD4400371E58 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5561AFB12712F7CE007B3F8F /* English.lproj.helpindex */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5561AFB22712F7CE007B3F8F /* English */,
+			);
+			name = English.lproj.helpindex;
+			sourceTree = "<group>";
+		};
+		5561AFB32712F7CE007B3F8F /* iVaccination.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5561AFB42712F7CE007B3F8F /* English */,
+			);
+			name = iVaccination.html;
 			sourceTree = "<group>";
 		};
 		55B64A4E26F37FD400944766 /* Main.storyboard */ = {

@@ -26,7 +26,7 @@ extension GameSceneBase{
             self.startTime = 0
         }
         for i in 0..<self.currentLevel.currentLevelConfig.zombieCountAtOnce{
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  (i == 0 ? 0.0 : Double(self.currentLevel.currentLevelConfig.zombieRespawnRange.randomElement()!)), execute: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  (i == 0 ? 0.0 : Double(self.currentLevel.currentLevelConfig.zombieRespawnTimeRange.randomElement()!)), execute: {
                 self.restartZombieActions()
             })
         }

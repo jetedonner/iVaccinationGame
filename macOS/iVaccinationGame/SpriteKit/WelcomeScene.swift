@@ -14,10 +14,12 @@ class WelcomeScene: WelcomeSceneBase {
         super.mouseMoved(with: event)
         let location = event.location(in: self.sceneNode)
         let node = self.scene!.atPoint(location)
-        var newSelNode:SKLabelNode?
+        var newSelNode:SKNode?
 
         if(node == self.lblContinue){
             newSelNode = self.lblContinue
+        }else if(node == self.chkDontShow){
+            newSelNode = self.chkDontShow
         }else{
             return
         }

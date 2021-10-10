@@ -10,6 +10,7 @@ import SpriteKit
 
 extension SKSpriteNode{
     func addDbgBorder(){
+        return
         let boundingBoxNode = SKShapeNode(rectOf: self.calculateAccumulatedFrame().size)
         boundingBoxNode.lineWidth = 3
         boundingBoxNode.strokeColor = .red

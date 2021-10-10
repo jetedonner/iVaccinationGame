@@ -73,27 +73,35 @@ class BasePickupNode: SKSpriteNode {
         }
     }
     
-    func genNewPos(){
+    
+    func genNewPos(overridePos:CGPoint? = nil){
         var isBehindGKAccessPoint:Bool = true
-        var isBehindHand:Bool = true
+//        var isBehindHand:Bool = true
+        var isBehindHandovic:Bool = false
         var newPoint:CGPoint = CGPoint(x: 0, y: 0)
         
         if let gameScene = self.scene as? GameScene{
             repeat{
                 let newX:CGFloat = CGFloat.random(in: ((gameScene.frame.width / -2) + 20) ... ((gameScene.frame.width / 2) - 20))
                 let newY:CGFloat = CGFloat(Double.random(in: gameScene.currentLevel.syringeRespawnYRange))
-                newPoint = CGPoint(x: newX, y: newY)
-                
-                let newRect:CGRect = CGRect(x: newX, y: newY, width: self.frame.width, height: self.frame.height)
-                
+                if(overridePos != nil){
+                    newPoint = overridePos!
+                }else{
+                    newPoint = CGPoint(x: newX, y: newY)
+                }
+                //frame: (-151.7169952392578, -449.0, 280.0, 280.0)
+                let newRect:CGRect = CGRect(origin: newPoint, size: CGSize(width: self.frame.width, height: self.frame.height))// CGRect(x: newX, y: newY, width: self.frame.width, height: self.frame.height)
+                print("newRect IS LIKE: \(newRect)")
+//                isBehindHandovic = self.isNodeBehindHand(rect: newRect)
+                print("newRect IS LIKE isBehindHandovic: \(isBehindHandovic)")
 //                var isBehind:Bool = false
 //                let accsPntCoord:CGRect = GKAccessPoint.shared.frameInScreenCoordinates
                 let fictRect:CGRect = CGRect(x: -495, y: -360, width: 128, height: 128)
 //                let newRect = accsPntCoord.offsetBy(dx: (self.scene?.frame.width)! / -2, dy: (self.scene?.frame.height)! / -2)
                 isBehindGKAccessPoint = fictRect.intersects(newRect)
-                isBehindHand = gameScene.imgThrowingHand!.frame.intersects(newRect)
+//                isBehindHand = gameScene.imgThrowingHand!.frame.intersects(newRect)
                 
-                if(isBehindHand || isBehindGKAccessPoint){
+                if(isBehindHandovic || isBehindGKAccessPoint){
                     print("newRect BEHIND: \(newRect)")
                 }
                 
@@ -109,7 +117,7 @@ class BasePickupNode: SKSpriteNode {
 //                     //isBehindHand = false
 //                }
 //                isBehindHand = self.checkNodeBehindHand(node1: gameScene.imgThrowingHand!, point: newPoint)
-            }while(isBehindHand || isBehindGKAccessPoint)
+            }while(isBehindHandovic || isBehindGKAccessPoint)
 //            self.pickupManager.gameScene.showMessage(msg: "NewPos: X: \(newPoint.x), Y: \(newPoint.y)")
             self.position = newPoint
             self.alpha = 1.0
@@ -128,6 +136,18 @@ class BasePickupNode: SKSpriteNode {
     func abortTimeout(){
         self.timeOutRunning = false
     }
+    
+    func isNodeBehindHand(rect:CGRect)->Bool{
+        var bRet:Bool = false
+        if let gameScene = self.scene as? GameScene{
+            let handFrame:CGRect = gameScene.imgThrowingHand.calculateAccumulatedFrame()
+            if(handFrame.intersects(rect)){
+                bRet = true
+            }
+        }
+        return bRet
+    }
+    
 
     func checkNodeBehindHand(node1:SKSpriteNode, node2:SKSpriteNode)->Bool{
         

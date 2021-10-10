@@ -14,6 +14,7 @@ class ICloudStorageHelper{
     static let difficultyKey = "difficulty"
     static let scoreKey = "score"
     static let vaccinationsKey = "vaccinations"
+    static let vaccinationKey = "vaccination"
     static let certificateKey = "certificate"
     static let certificatesKey = "certificates"
     
@@ -33,7 +34,9 @@ class ICloudStorageHelper{
     }
     
     static var level:String{
-        get{ return (NSUbiquitousKeyValueStore.default.string(forKey: self.levelKey) != nil ? NSUbiquitousKeyValueStore.default.string(forKey: self.levelKey)! : "New Game") }
+        get{
+            return (NSUbiquitousKeyValueStore.default.string(forKey: self.levelKey) != nil ? NSUbiquitousKeyValueStore.default.string(forKey: self.levelKey)! : "New Game")
+        }
         set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.levelKey) }
     }
     
@@ -51,23 +54,30 @@ class ICloudStorageHelper{
         set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.certificateKey) }
     }
     
+    static var vaccination:[String:Int]{
+        get{
+            return (NSUbiquitousKeyValueStore.default.dictionary(forKey: self.vaccinationKey) != nil ? NSUbiquitousKeyValueStore.default.dictionary(forKey: self.vaccinationKey) as! [String:Int] : ["Meadow": 0])
+        }
+        set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.vaccinationKey) }
+    }
+    
     static var difficulty:String{
-        get{ return (NSUbiquitousKeyValueStore.default.string(forKey: self.difficultyKey) != nil ? NSUbiquitousKeyValueStore.default.string(forKey: self.difficultyKey)! : "Easy") }
+        get{
+            return (NSUbiquitousKeyValueStore.default.string(forKey: self.difficultyKey) != nil ? NSUbiquitousKeyValueStore.default.string(forKey: self.difficultyKey)! : "Easy")
+        }
         set{ NSUbiquitousKeyValueStore.default.set(newValue, forKey: self.difficultyKey) }
     }
     
     static func resetAllICloudValues(){
-        ICloudStorageHelper.certificates = 0
         ICloudStorageHelper.highscore = 0
+        ICloudStorageHelper.certificates = 0
         ICloudStorageHelper.vaccinations = 0
         ICloudStorageHelper.difficulty = Difficulty.easy.rawValue
         ICloudStorageHelper.level = Level.NewGame.getDesc()
-        
         for level in Level.allCases{
+            ICloudStorageHelper.vaccination[level.getDesc()] = 0
             ICloudStorageHelper.certificate[level.getDesc()] = 0
             ICloudStorageHelper.score[level.getDesc()] = 0
         }
-        
-        
     }
 }

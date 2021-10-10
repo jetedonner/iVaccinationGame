@@ -53,11 +53,11 @@ class PickupManagerBase:GKEntity{
     }
     
     func addPickupToScene(newPickup:BasePickupNode){
-            self.pickupsOnScene += 1
-            self.pickups.append(newPickup)
-            self.gameScene.addChild(newPickup)
-            newPickup.genNewPos()
-            newPickup.zPosition = 10000
+        self.pickupsOnScene += 1
+        self.pickups.append(newPickup)
+        self.gameScene.addChild(newPickup)
+        newPickup.genNewPos()
+        newPickup.zPosition = 10001
     }
     
     func addPickupToScene(){

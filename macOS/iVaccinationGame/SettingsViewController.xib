@@ -8,6 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsViewController" customModule="iVaccinationGame" customModuleProvider="target">
             <connections>
+                <outlet property="cmbDifficulty" destination="ScB-9t-DNP" id="TA8-fr-BEU"/>
+                <outlet property="cmbLevel" destination="fgf-WO-KhH" id="KBM-VA-5Cu"/>
+                <outlet property="cmbTime" destination="1va-cG-UqW" id="xaD-1U-IeI"/>
                 <outlet property="cmdResetALL" destination="Odd-fa-AiN" id="Zej-7j-zxm"/>
                 <outlet property="cmdResetAch" destination="e8Y-hQ-9s8" id="PDD-BE-zkI"/>
                 <outlet property="cmdResetICloud" destination="d0I-Dq-wKt" id="jCR-CA-heP"/>
@@ -45,6 +48,11 @@
                         </menu>
                     </popUpButtonCell>
                     <connections>
+                        <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.devMode" id="j2J-JO-1VD">
+                            <dictionary key="options">
+                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                            </dictionary>
+                        </binding>
                         <binding destination="l72-UK-3kJ" name="selectedValue" keyPath="values.roundTime" id="L3r-Kf-LSj">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
@@ -68,6 +76,11 @@
                         </menu>
                     </popUpButtonCell>
                     <connections>
+                        <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.devMode" id="rPx-U2-ZTy">
+                            <dictionary key="options">
+                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                            </dictionary>
+                        </binding>
                         <binding destination="l72-UK-3kJ" name="selectedValue" keyPath="values.difficulty" id="CUq-6x-iDG">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
@@ -102,6 +115,11 @@
                         </menu>
                     </popUpButtonCell>
                     <connections>
+                        <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.devMode" id="zRo-Tr-0gN">
+                            <dictionary key="options">
+                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                            </dictionary>
+                        </binding>
                         <binding destination="l72-UK-3kJ" name="selectedValue" keyPath="values.level" id="oq6-NX-Co0">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
@@ -300,6 +318,17 @@
                         <action selector="resetICloud:" target="-2" id="bxq-UP-xHr"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Odd-fa-AiN">
+                    <rect key="frame" x="359" y="83" width="108" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Reset ALL!!!" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7hF-bh-VXS">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="resetALL:" target="-2" id="Hmc-at-Cv2"/>
+                    </connections>
+                </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yIT-o7-wsS">
                     <rect key="frame" x="391" y="49" width="76" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -391,15 +420,15 @@ Gw
                         <action selector="resetUserDef:" target="-2" id="ZzH-wN-I9s"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Odd-fa-AiN">
-                    <rect key="frame" x="359" y="83" width="108" height="32"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sv5-0e-oVN">
+                    <rect key="frame" x="224" y="49" width="107" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Reset ALL!!!" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7hF-bh-VXS">
+                    <buttonCell key="cell" type="push" title="Abort Game" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QlK-9f-I2s">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="resetALL:" target="-2" id="Hmc-at-Cv2"/>
+                        <action selector="abortGame:" target="-2" id="QNH-gB-jU2"/>
                     </connections>
                 </button>
             </subviews>

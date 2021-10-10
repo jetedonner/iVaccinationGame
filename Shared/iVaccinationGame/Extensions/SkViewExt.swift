@@ -17,7 +17,7 @@ extension SKView {
         if(UserDefaultsHelper.devMode){
             self.showsFPS = true
             self.showsNodeCount = true
-            self.showsPhysics = true
+//            self.showsPhysics = true
         }
     }
 }

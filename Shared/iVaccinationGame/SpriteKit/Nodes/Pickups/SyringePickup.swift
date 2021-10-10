@@ -8,22 +8,26 @@
 import Foundation
 import SpriteKit
 
-enum SyringePickupType:Int{
-    case one = 1
-    case two = 2
-    case four = 4
-    case six = 6
-}
-
 class SyringePickup: BasePickupNode {
     
     let pickupType:SyringePickupType
     let vaccineType:VaccineType
     
-    init(pickupManager:PickupManagerBase, pickupType:SyringePickupType = .two, vaccineType:VaccineType = .Perofixa){
+    init(pickupManager:PickupManagerBase, pickupType:SyringePickupType = .one, vaccineType:VaccineType = .Perofixa){
         self.pickupType = pickupType
         self.vaccineType = vaccineType
-        super.init(pickupManager:pickupManager, imageNamed: (self.vaccineType == .JnJ ? "SyringeGreen" : "SyringeYellow"), emitterFileNamed: "UpwardParticles.sks", size: CGSize(width: 76.8, height: 76.8))
+        var textureImage:String = "Syringe"
+        switch pickupType {
+        case .one:
+            textureImage = "Syringe"
+        case .two:
+            textureImage = "SyringeX2"
+        case .three:
+            textureImage = "SyringeX3"
+//        default:
+//            textureImage = "Syringe"
+        }
+        super.init(pickupManager:pickupManager, imageNamed: (self.vaccineType == .JnJ ? "SyringeGreen" : textureImage/* "SyringeYellow"*/), emitterFileNamed: "UpwardParticles.sks", size: CGSize(width: 76.8, height: 76.8))
         self.pickupScore = 50
     }
     
@@ -42,7 +46,7 @@ class SyringePickup: BasePickupNode {
             gameScene.addScore(score: self.pickupScore)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                gameScene.player.vaccineArsenal.addVaccine(accineType: self.vaccineType, ammount: self.pickupType.rawValue)
+                gameScene.player.vaccineArsenal.addVaccine(accineType: self.vaccineType, ammount: self.pickupType.rawValue * self.vaccineType.pickupMultiplyer)
                 gameScene.setSyringesHUD()
                 gameScene.syringe2?.isHidden = false
                 gameScene.syringe1?.isHidden = false

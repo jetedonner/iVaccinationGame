@@ -18,8 +18,16 @@ class SyringePickupManager:PickupManagerBase{
         self.respawnRange = 4...10
     }
     
+    override func addPickupToScene(){
+        super.addPickupToScene()
+//        if(self.pickupsOnScene < self.pickupsAtOnce && !self.paused){
+//            self.addPickupToScene(newPickup: self.getPickup()!)
+//        }
+    }
+    
     override func getPickup()->BasePickupNode?{
-        return SyringePickup(pickupManager: self)
+        let pickupType:SyringePickupType = SyringePickupType.allCases.getRandom()
+        return SyringePickup(pickupManager: self, pickupType: pickupType, vaccineType: .Perofixa)
     }
     
     required init?(coder: NSCoder) {

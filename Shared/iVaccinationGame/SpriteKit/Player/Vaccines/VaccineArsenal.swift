@@ -11,9 +11,15 @@ import SpriteKit
 class VaccineArsenal{
     
     var vaccinesInArsenal:[VaccineType:Int] = [:]
-
+    var _currentVaccine:VaccineType = .Perofixa
+    var currentVaccine:VaccineType{
+        get{ return self._currentVaccine }
+        set{ self._currentVaccine = newValue }
+    }
+    
     init(){
         self.vaccinesInArsenal[.Perofixa] = 2
+        self.currentVaccine = self.vaccinesInArsenal.first!.key
     }
 
     func addVaccine(accineType:VaccineType, ammount:Int){

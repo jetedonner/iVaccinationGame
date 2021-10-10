@@ -133,6 +133,10 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.chIOS = self.contentNode!.childNode(withName: "chIOS") as? SKSpriteNode
         self.chIOS.alpha = 0.0
         
+        print("frame: \(self.imgThrowingHand.frame)")
+        print("accessibilityFrame: \(self.imgThrowingHand.accessibilityFrame)")
+        print("calculateAccumulatedFrame(): \(self.imgThrowingHand.calculateAccumulatedFrame())")
+        
         self.lblGameOver = self.contentNode!.childNode(withName: "lblGameOver") as? SKLabelNode
         self.lblGameOver?.isHidden = true
         
@@ -180,6 +184,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         
         self.certificatePickupManager.startPickupManager()
         self.syringePickupManager.startPickupManager()
+        
+        self.lblVacc?.text = "Vaccine: " + self.player.vaccineArsenal.currentVaccine.rawValue
         
         self.handInitRot = self.imgThrowingHand?.zRotation
         self.handInitPos = self.imgThrowingHand?.position
@@ -342,9 +348,13 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         }
     }
     
-    func showGameOver(){
+    func endGame(){
         self.gameRunning = false
         SoundManager.shared.stopBGSound()
+    }
+    
+    func showGameOver(){
+        self.endGame()
         self.scoreLblOrigPos = self.lblScore!.position
         self.certsLblOrigPos = self.lblCerts!.position
         self.lblScore?.run(SKAction.group([SKAction.move(to: CGPoint(x: 0, y: 180), duration: 0.45), SKAction.scale(to: 2.5, duration: 0.45)]))
@@ -352,8 +362,17 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         
         ICloudStorageHelper.score[self.currentLevel.level.getDesc()] = self.player.score
         ICloudStorageHelper.certificate[self.currentLevel.level.getDesc()] = self.player.certsPickedUp
+        ICloudStorageHelper.vaccination[self.currentLevel.level.getDesc()] = self.player.zombiesCured
+        ICloudStorageHelper.highscore += self.player.score
         ICloudStorageHelper.certificates += self.player.certsPickedUp
         ICloudStorageHelper.vaccinations += self.player.zombiesCured
+        
+        UserDefaultsHelper.score[self.currentLevel.level.getDesc()] = self.player.score
+        UserDefaultsHelper.certificate[self.currentLevel.level.getDesc()] = self.player.certsPickedUp
+        UserDefaultsHelper.vaccination[self.currentLevel.level.getDesc()] = self.player.zombiesCured
+        UserDefaultsHelper.highscore += self.player.score
+        UserDefaultsHelper.certificates += self.player.certsPickedUp
+        UserDefaultsHelper.vaccinations += self.player.zombiesCured
         
         self.currentLevel.endLevel()
         self.explosionEmitterNode?.removeFromParent()
@@ -380,13 +399,16 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             })
             
             let nextLevel:Level = self.currentLevel.level.getNextLevel()
+//            if(nextLevel.rawValue >= UserDefaultsHelper.levelProgress.rawValue){
+//                UserDefaultsHelper.levelProgress = nextLevel
+//            }
             UserDefaultsHelper.levelID = nextLevel
-            UserDefaultsHelper.highscore += self.player.score
-            UserDefaultsHelper.certificates += self.player.certsPickedUp
-            UserDefaultsHelper.vaccinations += self.player.zombiesCured
+//            UserDefaultsHelper.highscore += self.player.score
+//            UserDefaultsHelper.certificates += self.player.certsPickedUp
+//            UserDefaultsHelper.vaccinations += self.player.zombiesCured
             
             ICloudStorageHelper.level = nextLevel.getDesc()
-            ICloudStorageHelper.highscore += self.player.score
+//            ICloudStorageHelper.highscore += self.player.score
             ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
             
             if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){

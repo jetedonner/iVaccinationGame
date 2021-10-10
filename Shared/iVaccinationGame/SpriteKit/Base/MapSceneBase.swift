@@ -171,6 +171,7 @@ class MapSceneBase: BaseSKScene {
         }
         if(UserDefaultsHelper.levelID.rawValue > Level.Meadow.rawValue){
             self.imgMeadow.levelDone = true
+            self.posMeadow?.isUserInteractionEnabled = false
             self.posCitySkyline?.isHidden = false
         }else{
             self.imgMeadow.currentLocation = true
@@ -306,7 +307,10 @@ class MapSceneBase: BaseSKScene {
             self.posCityNight,
             self.posScarryStreet
         ].contains(self.selNode)/* && UserDefaultsHelper.levelID != .MissionAccomplished*/){
-            viewController.loadGameScene(difficulty: UserDefaultsHelper.difficulty, level: self.getLevelForPosNode(posNode: self.selNode as! SKShapeNode))
+            let daLevel:Level = self.getLevelForPosNode(posNode: self.selNode as! SKShapeNode)
+            if(daLevel.rawValue >= Level.NewGame.rawValue){//} UserDefaultsHelper.levelID.rawValue){
+                viewController.loadGameScene(difficulty: UserDefaultsHelper.difficulty, level: daLevel)
+            }
         }
     }
     

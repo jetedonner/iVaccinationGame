@@ -50,7 +50,8 @@ class AlertBox{
         alert.addButton(withTitle: "OK")
         alert.addButton(withTitle: "Cancel")
         alert.window.setFrameOrigin(CGPoint(x: 200, y: 200))// = newFrame
-        return alert.runModal() == .alertFirstButtonReturn
+        let retVal = alert.runModal()
+        return retVal == .alertFirstButtonReturn
     }
     
     

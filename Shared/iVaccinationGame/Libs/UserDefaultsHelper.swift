@@ -13,6 +13,7 @@ enum UserDefaultsName:String{
     case roundTime = "roundTime"
     case difficulty = "difficulty"
     case level = "level"
+    case levelProgress = "levelProgree"
     case playSounds = "playSounds"
     case playBGMusic = "playBGMusic"
     case volume = "volume"
@@ -27,6 +28,7 @@ enum UserDefaultsName:String{
     case certificates = "certificates"
     case certificate = "certificate"
     case vaccinations = "vaccinations"
+    case vaccination = "vaccination"
 }
 
 class UserDefaultsHelper{
@@ -95,14 +97,29 @@ class UserDefaultsHelper{
         }
     }
     
-    static func resetUserDefValues(){
+    static var levelProgress:Level{
+        set{ self.defaults.set(newValue.getDesc(), forKey: UserDefaultsName.levelProgress.rawValue) }
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.levelProgress.rawValue) == nil){
+                self.defaults.set(Level.Meadow.getDesc(), forKey: UserDefaultsName.levelProgress.rawValue)
+            }
+            return Level(levelIDString: defaults.string(forKey: UserDefaultsName.levelProgress.rawValue)!)!
+        }
+    }
+    
+    static func resetUserDefValues(resetFirstStart:Bool = true){
         UserDefaultsHelper.highscore = 0
         UserDefaultsHelper.certificates = 0
+        UserDefaultsHelper.vaccinations = 0
         UserDefaultsHelper.level = Level.NewGame.getDesc()
         UserDefaultsHelper.difficulty = .easy
+        if(resetFirstStart){
+            UserDefaultsHelper.firstStart = true
+        }
         for level in Level.allCases{
-            UserDefaultsHelper.certificate[level.getDesc()] = 0
             UserDefaultsHelper.score[level.getDesc()] = 0
+            UserDefaultsHelper.certificate[level.getDesc()] = 0
+            UserDefaultsHelper.vaccination[level.getDesc()] = 0
         }
         
     }
@@ -140,6 +157,13 @@ class UserDefaultsHelper{
             return (self.defaults.dictionary(forKey: UserDefaultsName.certificate.rawValue) != nil ? self.defaults.dictionary(forKey: UserDefaultsName.certificate.rawValue) as! [String:Int] : [Level.Meadow.getDesc(): 0])
         }
         set{ self.defaults.set(newValue, forKey: UserDefaultsName.certificate.rawValue) }
+    }
+    
+    static var vaccination:[String:Int]{
+        get{
+            return (self.defaults.dictionary(forKey: UserDefaultsName.vaccination.rawValue) != nil ? self.defaults.dictionary(forKey: UserDefaultsName.vaccination.rawValue) as! [String:Int] : [Level.Meadow.getDesc(): 0])
+        }
+        set{ self.defaults.set(newValue, forKey: UserDefaultsName.vaccination.rawValue) }
     }
     
     static var level:String{
@@ -220,11 +244,11 @@ class UserDefaultsHelper{
     
     static var firstStart:Bool{
         get{
-//            if(self.defaults.value(forKey: UserDefaultsName.firstStart.rawValue) == nil){
-//                self.defaults.set(true, forKey: UserDefaultsName.firstStart.rawValue)
-//            }
-//            return self.defaults.bool(forKey: UserDefaultsName.firstStart.rawValue)
-            return true
+//            self.defaults.set(true, forKey: UserDefaultsName.firstStart.rawValue)
+            if(self.defaults.value(forKey: UserDefaultsName.firstStart.rawValue) == nil){
+                self.defaults.set(true, forKey: UserDefaultsName.firstStart.rawValue)
+            }
+            return self.defaults.bool(forKey: UserDefaultsName.firstStart.rawValue)
         }
         set{
             self.defaults.set(newValue, forKey: UserDefaultsName.firstStart.rawValue)
