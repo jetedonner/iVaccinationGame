@@ -48,6 +48,7 @@ class CityJapanLevel: BaseLevel {
                         exitWay1, exitWay2,
                         exitWay1, exitWay2,
                         exitWay1, exitWay2,
+                        exitWay1, exitWay2,
                         exitWay1, exitWay2
                     ]),
                     hideOnStart: true
@@ -78,6 +79,7 @@ class CityJapanLevel: BaseLevel {
                         exitWay1, exitWay2,
                         exitWay1, exitWay2,
                         exitWay1, exitWay2,
+                        exitWay1, exitWay2,
                         exitWay1, exitWay2
                     ])
                 )
@@ -101,6 +103,7 @@ class CityJapanLevel: BaseLevel {
                             ])
                         ]),
                     exitPath: SKAction.sequence([
+                        exitWay1, exitWay2,
                         exitWay1, exitWay2,
                         exitWay1, exitWay2,
                         exitWay1, exitWay2,

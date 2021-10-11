@@ -35,6 +35,24 @@ class GCAchievements:NSObject{
     public var achivementCompleteAllLevelsPerfectCertsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfectcertificates"
     public var achivementCompleteAllLevelsPerfectCerts:GKAchievement?
     
+    
+    
+    public var achivementCompleteAllLevelsEasyID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelseasy"
+    public var achivementCompleteAllLevelsEasy:GKAchievement?
+    
+    public var achivementCompleteAllLevelsMediumID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelsmedium"
+    public var achivementCompleteAllLevelsMedium:GKAchievement?
+    
+    public var achivementCompleteAllLevelsHardID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelshard"
+    public var achivementCompleteAllLevelsHard:GKAchievement?
+    
+    public var achivementCompleteAllLevelsNightmareID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelsnightmare"
+    public var achivementCompleteAllLevelsNightmare:GKAchievement?
+    
+    
+    
+    
+    
     private var _perfectThrows:Int = 0
     public var PerfectThrows:Int{
         get{ return self._perfectThrows }
@@ -57,6 +75,30 @@ class GCAchievements:NSObject{
     public var CompleteAllLevels:Int{
         get{ return self._completeAllLevels }
         set{ self._completeAllLevels = newValue }
+    }
+    
+    private var _completeAllLevelsEasy:Int = 0
+    public var CompleteAllLevelsEasy:Int{
+        get{ return self._completeAllLevelsEasy }
+        set{ self._completeAllLevelsEasy = newValue }
+    }
+    
+    private var _completeAllLevelsMedium:Int = 0
+    public var CompleteAllLevelsMedium:Int{
+        get{ return self._completeAllLevelsMedium }
+        set{ self._completeAllLevelsMedium = newValue }
+    }
+    
+    private var _completeAllLevelsHard:Int = 0
+    public var CompleteAllLevelsHard:Int{
+        get{ return self._completeAllLevelsHard }
+        set{ self._completeAllLevelsHard = newValue }
+    }
+    
+    private var _completeAllLevelsNightmare:Int = 0
+    public var CompleteAllLevelsNightmare:Int{
+        get{ return self._completeAllLevelsNightmare }
+        set{ self._completeAllLevelsNightmare = newValue }
     }
     
     private var _completeAllLevelsPerfectThrows:Int = 0
@@ -91,6 +133,22 @@ class GCAchievements:NSObject{
     
     func add2completeAllLevels(times2Add:Int = 1){
         self.add2Achivement(identifier: achivementCompleteAllLevelsID, obj2Add2: &CompleteAllLevels, max2Add2: CompleteAllLevels, point2Add: 100)
+    }
+    
+    func add2completeAllLevelsEasy(times2Add:Int = 1){
+        self.add2Achivement(identifier: achivementCompleteAllLevelsEasyID, obj2Add2: &CompleteAllLevelsEasy, max2Add2: CompleteAllLevelsEasy, point2Add: 100)
+    }
+    
+    func add2completeAllLevelsMedium(times2Add:Int = 1){
+        self.add2Achivement(identifier: achivementCompleteAllLevelsMediumID, obj2Add2: &CompleteAllLevelsMedium, max2Add2: CompleteAllLevelsMedium, point2Add: 100)
+    }
+    
+    func add2completeAllLevelsHard(times2Add:Int = 1){
+        self.add2Achivement(identifier: achivementCompleteAllLevelsHardID, obj2Add2: &CompleteAllLevelsHard, max2Add2: CompleteAllLevelsHard, point2Add: 100)
+    }
+    
+    func add2completeAllLevelsNightmare(times2Add:Int = 1){
+        self.add2Achivement(identifier: achivementCompleteAllLevelsNightmareID, obj2Add2: &CompleteAllLevelsNightmare, max2Add2: CompleteAllLevelsNightmare, point2Add: 100)
     }
     
     func add2completeAllLevelsPerfectThrow(times2Add:Int = 1){

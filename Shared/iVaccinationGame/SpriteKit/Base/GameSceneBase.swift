@@ -401,35 +401,40 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                 self.waitForAnyKey = true
             })
             
-            var nextLevel:Level = self.currentLevel.level //
+            var nextLevel:Level = self.currentLevel.level
             if(!gameLost){
                 nextLevel = self.currentLevel.level.getNextLevel()
             }
-//            if(nextLevel.rawValue >= UserDefaultsHelper.levelProgress.rawValue){
-//                UserDefaultsHelper.levelProgress = nextLevel
-//            }
-            UserDefaultsHelper.levelID = nextLevel
-//            UserDefaultsHelper.highscore += self.player.score
-//            UserDefaultsHelper.certificates += self.player.certsPickedUp
-//            UserDefaultsHelper.vaccinations += self.player.zombiesCured
             
+            UserDefaultsHelper.levelID = nextLevel
             ICloudStorageHelper.level = nextLevel.getDesc()
-//            ICloudStorageHelper.highscore += self.player.score
             ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
             
             if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
-                let gameCenterHelper = self.getViewController().gameCenterHelper
-                gameCenterHelper!.updateScore(with: UserDefaultsHelper.highscore)
-                gameCenterHelper!.updateCertificates(with: UserDefaultsHelper.certificates)
-                gameCenterHelper!.updateVaccinations(with: UserDefaultsHelper.vaccinations)
+                guard let gameCenterHelper = self.getViewController().gameCenterHelper else { return }
+                gameCenterHelper.updateScore(with: UserDefaultsHelper.highscore)
+                gameCenterHelper.updateCertificates(with: UserDefaultsHelper.certificates)
+                gameCenterHelper.updateVaccinations(with: UserDefaultsHelper.vaccinations)
                 
                 if(nextLevel == .MissionAccomplished){
                     GCAchievements.shared.add2completeAllLevels()
+                    switch self.currentLevel.difficulty {
+                    case .easy:
+                        GCAchievements.shared.add2completeAllLevelsEasy()
+                    case .medium:
+                        GCAchievements.shared.add2completeAllLevelsMedium()
+                    case .hard:
+                        GCAchievements.shared.add2completeAllLevelsHard()
+                    case .nightmare:
+                        GCAchievements.shared.add2completeAllLevelsNightmare()
+                    }
                 }
-                if(self.currentLevel.shots > 0 && self.currentLevel.shots == self.currentLevel.hits){
+                
+                if((!gameLost) && self.currentLevel.shots > 0 && self.currentLevel.shots == self.currentLevel.hits){
                     GCAchievements.shared.add2perfectThrows()
                 }
-                if(self.player.bites == 0){
+                
+                if((!gameLost) && self.player.bites == 0){
                     GCAchievements.shared.add2stayHealthy()
                 }
             }

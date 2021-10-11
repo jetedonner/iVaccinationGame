@@ -162,7 +162,7 @@ class MapSceneBase: BaseSKScene {
     func loadMapBGTexture(){
         self.imgBG.texture = self.textNG
         
-        if(UserDefaultsHelper.levelID.rawValue > Level.NewGame.rawValue){
+        if(UserDefaultsHelper.levelID.rawValue > Level.NewGame.rawValue || UserDefaultsHelper.devMode){
             self.posMeadow?.isHidden = false
         }else{
             self.imgMeadow.currentLocation = true
@@ -170,7 +170,7 @@ class MapSceneBase: BaseSKScene {
 //            self.posMeadow?.isHidden = true
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.Meadow.rawValue){
+        if(UserDefaultsHelper.levelID.rawValue > Level.Meadow.rawValue || UserDefaultsHelper.devMode){
             self.imgMeadow.levelDone = true
             self.posMeadow?.isUserInteractionEnabled = false
             self.posCitySkyline?.isHidden = false
@@ -179,7 +179,7 @@ class MapSceneBase: BaseSKScene {
             self.posCitySkyline?.isHidden = true
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.CitySkyline.rawValue){
+        if(UserDefaultsHelper.levelID.rawValue > Level.CitySkyline.rawValue || UserDefaultsHelper.devMode){
             self.imgCitySkyline.levelDone = true
             self.posCityStreet?.isHidden = false
         }else{
@@ -187,7 +187,7 @@ class MapSceneBase: BaseSKScene {
             self.posCityStreet?.isHidden = true
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.CityStreet.rawValue){
+        if(UserDefaultsHelper.levelID.rawValue > Level.CityStreet.rawValue || UserDefaultsHelper.devMode){
             self.imgCityStreet.levelDone = true
             self.posWallway?.isHidden = false
         }else{
@@ -195,7 +195,7 @@ class MapSceneBase: BaseSKScene {
             self.posWallway?.isHidden = true
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.Wallway.rawValue){
+        if(UserDefaultsHelper.levelID.rawValue > Level.Wallway.rawValue || UserDefaultsHelper.devMode){
             self.imgWallway.levelDone = true
             self.posJapanStreet?.isHidden = false
         }else{
@@ -203,7 +203,7 @@ class MapSceneBase: BaseSKScene {
             self.posJapanStreet?.isHidden = true
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.CityJapan.rawValue){
+        if(UserDefaultsHelper.levelID.rawValue > Level.CityJapan.rawValue || UserDefaultsHelper.devMode){
             self.imgJapanStreet.levelDone = true
             self.posCityNight?.isHidden = false
         }else{
@@ -211,7 +211,7 @@ class MapSceneBase: BaseSKScene {
             self.posCityNight?.isHidden = true
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.CityNight.rawValue){
+        if(UserDefaultsHelper.levelID.rawValue > Level.CityNight.rawValue || UserDefaultsHelper.devMode){
             self.imgBackstreet.levelDone = true
             self.posScarryStreet?.isHidden = false
         }else{
@@ -310,7 +310,7 @@ class MapSceneBase: BaseSKScene {
             self.posScarryStreet
         ].contains(self.selNode)/* && UserDefaultsHelper.levelID != .MissionAccomplished*/){
             let daLevel:Level = self.getLevelForPosNode(posNode: self.selNode as! SKShapeNode)
-            if(daLevel.rawValue >= Level.NewGame.rawValue){//} UserDefaultsHelper.levelID.rawValue){
+            if(daLevel.rawValue >= Level.NewGame.rawValue || UserDefaultsHelper.devMode){//} UserDefaultsHelper.levelID.rawValue){
                 viewController.loadGameScene(difficulty: UserDefaultsHelper.difficulty, level: daLevel)
             }
         }else if(UserDefaultsHelper.levelID.rawValue > Level.ScarryStreet.rawValue){

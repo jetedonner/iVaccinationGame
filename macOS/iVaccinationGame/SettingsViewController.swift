@@ -119,12 +119,13 @@ class SettingsViewController: NSViewController {
         }
         self.dismiss(sender)
         if(self.gameScene != nil){
-            let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to abort the current level?")
-            if(answer){
-                self.gameScene!.runLevelConfig(levelID: UserDefaultsHelper.levelID, difficulty: UserDefaultsHelper.difficulty)
-            }else{
-                self.gameScene?.setGamePaused(isPaused: false)
-            }
+            self.gameScene?.setGamePaused(isPaused: false)
+//            let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to abort the current level?")
+//            if(answer){
+//                self.gameScene!.runLevelConfig(levelID: UserDefaultsHelper.levelID, difficulty: UserDefaultsHelper.difficulty)
+//            }else{
+//                self.gameScene?.setGamePaused(isPaused: false)
+//            }
         }
     }
 }

@@ -8,6 +8,6 @@
 import Foundation
 import SpriteKit
 
-extension SKColor.Name{
-    static let mainAccent = SKColor.init(named: "mainAccent")
-}
+//extension SKColor.Name{
+//    static let mainAccent = SKColor.init(named: "mainAccent")
+//}

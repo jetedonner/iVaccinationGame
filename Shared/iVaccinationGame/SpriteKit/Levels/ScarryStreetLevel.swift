@@ -41,12 +41,12 @@ class ScarryStreetLevel: BaseLevel {
                             SKAction.scale(to: 0.5, duration: (2.5 - Double(idx) * 1.15))
                         ]),
                         SKAction.group([
-                            SKAction.move(by: CGVector(dx: 50, dy: -200), duration: 2.5 - Double(idx) * 1.15),
-                            SKAction.scale(to: 1.0, duration: (2.5 - Double(idx) * 1.15))
+                            SKAction.move(by: CGVector(dx: 50, dy: -210), duration: 2.25 - Double(idx) * 1.05),
+                            SKAction.scale(to: 1.75, duration: (2.25 - Double(idx) * 1.05))
                         ]),
                         SKAction.group([
-                            SKAction.move(by: CGVector(dx: -250, dy: -90), duration: 2.5 - Double(idx) * 1.15),
-                            SKAction.scale(to: 2.5, duration: (2.5 - Double(idx) * 1.15))
+                            SKAction.move(by: CGVector(dx: -250, dy: -140), duration: (2.35 - Double(idx) * 1)),
+                            SKAction.scale(to: 2.5, duration: (2.35 - Double(idx) * 1))
                         ])
                     ]),
                     exitPath: SKAction.sequence([
