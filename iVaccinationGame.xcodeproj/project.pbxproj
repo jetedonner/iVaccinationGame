@@ -65,6 +65,17 @@
 		557933F4271833FD00013BA9 /* HighscoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557933F3271833FD00013BA9 /* HighscoreViewController.xib */; };
 		557933F6271836AE00013BA9 /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F5271836AE00013BA9 /* HighscoreViewController.swift */; };
 		557933F82718884B00013BA9 /* OnlineHighscoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */; };
+		557933FF2718993300013BA9 /* FloaterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933FA2718993300013BA9 /* FloaterViewDelegate.swift */; };
+		557934002718993300013BA9 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933FB2718993300013BA9 /* UIImageViewExtension.swift */; };
+		557934012718993300013BA9 /* FloaterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933FD2718993300013BA9 /* FloaterItemView.swift */; };
+		5579340527189F7700013BA9 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579340327189F7700013BA9 /* CollectionViewItem.xib */; };
+		5579340627189F7700013BA9 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340427189F7700013BA9 /* CollectionViewItem.swift */; };
+		557934072718A09800013BA9 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579340327189F7700013BA9 /* CollectionViewItem.xib */; };
+		557934082718A0F100013BA9 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340427189F7700013BA9 /* CollectionViewItem.swift */; };
+		5579340B2718A14300013BA9 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557934092718A14300013BA9 /* HeaderView.xib */; };
+		5579340C2718A14300013BA9 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557934092718A14300013BA9 /* HeaderView.xib */; };
+		5579340D2718A14300013BA9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340A2718A14300013BA9 /* HeaderView.swift */; };
+		5579340E2718A14300013BA9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340A2718A14300013BA9 /* HeaderView.swift */; };
 		559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A126FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A226FE50800082DA72 /* GameSceneBaseExt.swift */; };
@@ -313,6 +324,14 @@
 		557933F3271833FD00013BA9 /* HighscoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighscoreViewController.xib; sourceTree = "<group>"; };
 		557933F5271836AE00013BA9 /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineHighscoreHelper.swift; sourceTree = "<group>"; };
+		557933FA2718993300013BA9 /* FloaterViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloaterViewDelegate.swift; sourceTree = "<group>"; };
+		557933FB2718993300013BA9 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		557933FC2718993300013BA9 /* FloatingButtonPOP_swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloatingButtonPOP_swift.h; sourceTree = "<group>"; };
+		557933FD2718993300013BA9 /* FloaterItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloaterItemView.swift; sourceTree = "<group>"; };
+		5579340327189F7700013BA9 /* CollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
+		5579340427189F7700013BA9 /* CollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
+		557934092718A14300013BA9 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		5579340A2718A14300013BA9 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		5594429F26FE4F710082DA72 /* SyringeDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringeDart.swift; sourceTree = "<group>"; };
 		559442A226FE50800082DA72 /* GameSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt.swift; sourceTree = "<group>"; };
 		559442A526FE51350082DA72 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -513,6 +532,10 @@
 				55B64A3626F3579600944766 /* SettingsViewController.swift */,
 				557933F5271836AE00013BA9 /* HighscoreViewController.swift */,
 				557933F3271833FD00013BA9 /* HighscoreViewController.xib */,
+				5579340427189F7700013BA9 /* CollectionViewItem.swift */,
+				5579340327189F7700013BA9 /* CollectionViewItem.xib */,
+				5579340A2718A14300013BA9 /* HeaderView.swift */,
+				557934092718A14300013BA9 /* HeaderView.xib */,
 			);
 			path = iVaccinationGame;
 			sourceTree = "<group>";
@@ -595,6 +618,17 @@
 				5561AF91270F6F8F007B3F8F /* Duration.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		557933F92718993300013BA9 /* FloatingButtonPOP-swift */ = {
+			isa = PBXGroup;
+			children = (
+				557933FA2718993300013BA9 /* FloaterViewDelegate.swift */,
+				557933FB2718993300013BA9 /* UIImageViewExtension.swift */,
+				557933FC2718993300013BA9 /* FloatingButtonPOP_swift.h */,
+				557933FD2718993300013BA9 /* FloaterItemView.swift */,
+			);
+			path = "FloatingButtonPOP-swift";
 			sourceTree = "<group>";
 		};
 		55A579B926F4F8810084239D /* Nodes */ = {
@@ -700,6 +734,7 @@
 		55B64A4326F37FD300944766 /* iVaccination */ = {
 			isa = PBXGroup;
 			children = (
+				557933F92718993300013BA9 /* FloatingButtonPOP-swift */,
 				55E59BD126FF876900B75322 /* SpriteKit */,
 				55B64A4426F37FD400944766 /* AppDelegate.swift */,
 				55B64A4C26F37FD400944766 /* GameViewController.swift */,
@@ -1106,6 +1141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55A579B826F4D1800084239D /* Upward2Particles.sks in Resources */,
+				557934072718A09800013BA9 /* CollectionViewItem.xib in Resources */,
 				5552BFA726F264130034C812 /* MagicParticle.sks in Resources */,
 				557933F4271833FD00013BA9 /* HighscoreViewController.xib in Resources */,
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
@@ -1125,6 +1161,7 @@
 				554E535226EFB60600371E58 /* Media.scnassets in Resources */,
 				5561AF87270EE57B007B3F8F /* MapScene.sks in Resources */,
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
+				5579340B2718A14300013BA9 /* HeaderView.xib in Resources */,
 				55B64A3126F3467200944766 /* MenuScene.sks in Resources */,
 				55EE3D6E26FFE3D500991D86 /* AppIconMacOS.xcassets in Resources */,
 				5561AF98270F785F007B3F8F /* Credits.rtfd in Resources */,
@@ -1156,6 +1193,7 @@
 			files = (
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55F67A6827134DE4003C60B2 /* GameScene_Last.sks in Resources */,
+				5579340527189F7700013BA9 /* CollectionViewItem.xib in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				557933EE27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
 				55EE3D8227058F1000991D86 /* MapSceneOrig.sks in Resources */,
@@ -1180,6 +1218,7 @@
 				5561AF99270F785F007B3F8F /* Credits.rtfd in Resources */,
 				55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */,
 				55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */,
+				5579340C2718A14300013BA9 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1253,6 +1292,7 @@
 				55C83F6A26FDDF1F00F42F53 /* GameCenterState.swift in Sources */,
 				55F67A64271349AA003C60B2 /* SKColor.swift in Sources */,
 				554E532126EFAD4300371E58 /* GameScene.swift in Sources */,
+				5579340D2718A14300013BA9 /* HeaderView.swift in Sources */,
 				55C83F3826FCE5BC00F42F53 /* DifficultySceneBase.swift in Sources */,
 				55A579D326F64D1B0084239D /* CGFloatValueTransformer.swift in Sources */,
 				554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */,
@@ -1273,6 +1313,7 @@
 				55C83F8126FE323800F42F53 /* CityJapanLevel.swift in Sources */,
 				55A579C826F5C5EC0084239D /* CitySkylineLevel.swift in Sources */,
 				557933F027182B5000013BA9 /* HighscoreScene.swift in Sources */,
+				557934082718A0F100013BA9 /* CollectionViewItem.swift in Sources */,
 				55A579CA26F638610084239D /* BaseLevel.swift in Sources */,
 				55A579BF26F4FEFF0084239D /* SyringePickup.swift in Sources */,
 				55C83F5A26FDDB8B00F42F53 /* GameStateMachine.swift in Sources */,
@@ -1320,6 +1361,7 @@
 				5561AF792708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */,
 				55EE3D782701ECEA00991D86 /* IViewController.swift in Sources */,
 				5561AF8C270EE6F6007B3F8F /* SKLocationNode.swift in Sources */,
+				557933FF2718993300013BA9 /* FloaterViewDelegate.swift in Sources */,
 				55C83F2C26FC75E600F42F53 /* GameSceneBase.swift in Sources */,
 				55C83F1226FC673D00F42F53 /* BaseLevel.swift in Sources */,
 				55B64A4D26F37FD400944766 /* GameViewController.swift in Sources */,
@@ -1344,6 +1386,7 @@
 				55EE3D862705A58F00991D86 /* VaccineBase.swift in Sources */,
 				55EE3D902705A7E200991D86 /* VaccineArsenal.swift in Sources */,
 				55C83F6126FDDC4100F42F53 /* MenuState.swift in Sources */,
+				557934002718993300013BA9 /* UIImageViewExtension.swift in Sources */,
 				55E59BD726FF8C9D00B75322 /* ICloudStorageHelper.swift in Sources */,
 				55C83F8426FE326500F42F53 /* CityNightLevel.swift in Sources */,
 				55EAD46D26FF7A9200BB8D06 /* MapScene.swift in Sources */,
@@ -1366,6 +1409,7 @@
 				55C83F2726FC6BB500F42F53 /* CustomProgressBar.swift in Sources */,
 				55C83F1426FC673D00F42F53 /* BasePath.swift in Sources */,
 				55EE3D8A2705A63500991D86 /* PerofixaVaccine.swift in Sources */,
+				5579340E2718A14300013BA9 /* HeaderView.swift in Sources */,
 				55C83F2026FC680C00F42F53 /* GameScene.swift in Sources */,
 				55C83F2626FC6B2A00F42F53 /* SyringePickup.swift in Sources */,
 				55EAD46626FF757500BB8D06 /* BaseSKScene.swift in Sources */,
@@ -1376,6 +1420,7 @@
 				55C83F2426FC6B2500F42F53 /* MedKitPickup.swift in Sources */,
 				55C83F6826FDDC7000F42F53 /* GameOverState.swift in Sources */,
 				55EAD45926FF6F2700BB8D06 /* MenuSceneBase.swift in Sources */,
+				5579340627189F7700013BA9 /* CollectionViewItem.swift in Sources */,
 				55EE3D932705AB6B00991D86 /* VaccineType.swift in Sources */,
 				5561AFA32710AB30007B3F8F /* WelcomeScene.swift in Sources */,
 				557933F227182B5E00013BA9 /* HighscoreScene.swift in Sources */,
@@ -1386,6 +1431,7 @@
 				55EE3D7527009A3200991D86 /* BaseMessageNode.swift in Sources */,
 				55C83F1326FC673D00F42F53 /* CitySkylineLevel.swift in Sources */,
 				55E59BD026FF873000B75322 /* DifficultyScene.swift in Sources */,
+				557934012718993300013BA9 /* FloaterItemView.swift in Sources */,
 				55EE3DA92706436E00991D86 /* CreditsScene.swift in Sources */,
 				55EAD47126FF7D0800BB8D06 /* MenuScene.swift in Sources */,
 				55EAD46826FF773A00BB8D06 /* BaseSKSceneIOS.swift in Sources */,

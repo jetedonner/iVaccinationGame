@@ -16,6 +16,8 @@ class MenuSceneBase: BaseSKScene {
     var lblSettings:SKLabelNode?
     var lblExit:SKLabelNode?
     var lblMap:SKLabelNode?
+    var lblHighscore:SKLabelNode?
+    
     var lblVersion:SKLabelNode?
     var lblColor:SKColor?
     
@@ -31,6 +33,7 @@ class MenuSceneBase: BaseSKScene {
         self.lblSettings = self.childNode(withName: "lblSettings") as? SKLabelNode
         self.lblExit = self.childNode(withName: "lblExit") as? SKLabelNode
         self.lblMap = self.childNode(withName: "lblMap") as? SKLabelNode
+        self.lblHighscore = self.childNode(withName: "lblHighscore") as? SKLabelNode
 //        self.lblMap?.isHidden = !VersionHelper.getDevMode()
 
         self.lblVersion = self.childNode(withName: "lblVersion") as? SKLabelNode

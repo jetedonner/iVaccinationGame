@@ -9,7 +9,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController, IViewController {
+class GameViewController: UIViewController, IViewController, FloaterViewDelegate {
     
     var gameCenterHelper: GameCenterHelper!
 //    var gameCenterHelper:GameCenterHelper!
@@ -28,7 +28,17 @@ class GameViewController: UIViewController, IViewController {
             self.gameCenterHelper.loadGameCenter()
         }
         self.loadMenuScene()
+        
+        addFloaterMenu(with: [("Facebook", UIImage(named: "AppIcon")),("Instagram", UIImage(named: "AppIcon"))], mainItem: ("", UIImage(named: "AppIcon")), dropShadow: true)
     }
+    
+    // Delegate method to capture name and index on the respective button tapped.
+    func userDidTapOnItem(at index: Int, with model: String) {
+                   print(model)
+                   print(index)
+    }
+    
+    
     
     
 //    func didMoveToView(view:SKView!) {

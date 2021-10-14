@@ -21,7 +21,8 @@ class MenuScene: MenuSceneBase {
             self.lblExit,
             self.lblStartGame,
             self.lblContinue,
-            self.lblMap
+            self.lblMap,
+            self.lblHighscore
         ].contains(node)){
             newSelNode = node as? SKLabelNode
         }else{
@@ -35,6 +36,7 @@ class MenuScene: MenuSceneBase {
                 self.lblStartGame?.fontColor = .white
                 self.lblExit?.fontColor = .white
                 self.lblMap?.fontColor = .white
+                self.lblHighscore?.fontColor = .white
                 if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
                     self.lblContinue?.fontColor = .white
                 }
@@ -42,6 +44,7 @@ class MenuScene: MenuSceneBase {
                 self.lblSettings?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblMap?.fontColor = .white
+                self.lblHighscore?.fontColor = .white
                 self.lblExit?.fontColor = self.lblColor
                 if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
                     self.lblContinue?.fontColor = .white
@@ -51,6 +54,7 @@ class MenuScene: MenuSceneBase {
                 self.lblStartGame?.fontColor = self.lblColor
                 self.lblExit?.fontColor = .white
                 self.lblMap?.fontColor = .white
+                self.lblHighscore?.fontColor = .white
                 if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
                     self.lblContinue?.fontColor = .white
                 }
@@ -59,12 +63,23 @@ class MenuScene: MenuSceneBase {
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 self.lblMap?.fontColor = .white
+                self.lblHighscore?.fontColor = .white
                 if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
                     self.lblContinue?.fontColor = self.lblColor
                 }
             }else if(self.selNode == self.lblMap){
                 self.lblSettings?.fontColor = .white
                 self.lblMap?.fontColor = self.lblColor
+                self.lblHighscore?.fontColor = .white
+                self.lblExit?.fontColor = .white
+                self.lblStartGame?.fontColor = .white
+                if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
+                    self.lblContinue?.fontColor = .white
+                }
+            }else if(self.selNode == self.lblHighscore){
+                self.lblSettings?.fontColor = .white
+                self.lblMap?.fontColor = .white
+                self.lblHighscore?.fontColor = self.lblColor
                 self.lblExit?.fontColor = .white
                 self.lblStartGame?.fontColor = .white
                 if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
@@ -87,6 +102,10 @@ class MenuScene: MenuSceneBase {
                 (viewCtrl as! ViewController).loadSettingsDialog(nil)
             }
         }else if(self.selNode == lblMap){
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadCreditsScene()
+            }
+        }else if(self.selNode == lblHighscore){
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadHighscoreDialog(nil)
             }

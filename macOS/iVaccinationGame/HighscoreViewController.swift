@@ -17,18 +17,32 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         static let PlayerCell = "PlayerCell"
         static let ScoreCell = "ScoreCell"
         static let DifficultyCell = "DifficultyCell"
+    
+        static let VaccinationsCell = "VaccinationsCell"
+        static let CertificatesCell = "CertificatesCell"
     }
     
     @IBOutlet var tblHighscore:NSTableView!
+    @IBOutlet var tblCertificates:NSTableView!
+    @IBOutlet var tblVaccinations:NSTableView!
+    @IBOutlet weak var collectionView: NSCollectionView!
+    
     @IBOutlet var prgLoading:NSProgressIndicator!
     
     var highscore:Any!
+    var vaccinations:Any!
+    var certificates:Any!
     
     let onlineHelper:OnlineHighscoreHelper = OnlineHighscoreHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.testInsertHS(nil)
+        
+        self.configureCollectionView()
+        self.collectionView.dataSource = self
+//        self.collectionView.delegate = self
+        self.collectionView.reloadData()
     }
     
     
@@ -36,12 +50,37 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         
         var tmpArr:Array<Dictionary<String, Any>> = []
         tmpArr.removeAll()
-        tmpArr = self.highscore as! Array<Dictionary<String, Any>>
+        
+        var text: String = ""
+        var cellIdentifier: String = ""
+        let textColor:NSColor = NSColor.white
+        let newRow:Int = row
+        
+        var scoreColumnTitle:String = "Score"
+        var scoreColumnValue:String = ""
+        if(tableView == self.tblHighscore){
+            tmpArr = self.highscore as! Array<Dictionary<String, Any>>
+            if(row > 0){
+                scoreColumnValue = tmpArr[row-1]["score"] as! String
+            }
+            cellIdentifier = CellIdentifiers.ScoreCell
+        }else if(tableView == self.tblVaccinations){
+            tmpArr = self.vaccinations as! Array<Dictionary<String, Any>>
+            scoreColumnTitle = "Vaccinations"
+            if(row > 0){
+                scoreColumnValue = tmpArr[row-1]["vaccinations"] as! String
+            }
+            cellIdentifier = CellIdentifiers.VaccinationsCell
+        }else if(tableView == self.tblCertificates){
+            tmpArr = self.certificates as! Array<Dictionary<String, Any>>
+            scoreColumnTitle = "Certificates"
+            if(row > 0){
+                scoreColumnValue = tmpArr[row-1]["certificates"] as! String
+            }
+            cellIdentifier = CellIdentifiers.CertificatesCell
+        }
 
-            var text: String = ""
-            var cellIdentifier: String = ""
-            var textColor:NSColor = NSColor.white
-            let newRow:Int = row
+            
 
             if tableColumn == tableView.tableColumns[0] {
                 if(row == 0){
@@ -59,11 +98,11 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
                 cellIdentifier = CellIdentifiers.PlayerCell
             } else if tableColumn == tableView.tableColumns[2] {
                 if(newRow <= 0){
-                    text = "Score"
+                    text = scoreColumnTitle
                 }else{
-                    text = tmpArr[newRow-1]["score"] as! String
+                    text = scoreColumnValue //tmpArr[newRow-1]["score"] as! String
                 }
-                cellIdentifier = CellIdentifiers.ScoreCell
+                
             }else if tableColumn == tableView.tableColumns[3] {
                 if(newRow <= 0){
                     text = "Difficulty"
@@ -92,16 +131,19 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         
-        if let msgng = self.highscore as? Array<Dictionary<String, Any>>{
-            return msgng.count + 1
+        if(tableView == self.tblHighscore){
+            if let highscore = self.highscore as? Array<Dictionary<String, Any>>{
+                return highscore.count + 1
+            }
+        }else if(tableView == self.tblVaccinations){
+            if let vaccination = self.vaccinations as? Array<Dictionary<String, Any>>{
+                return vaccination.count + 1
+            }
+        }else if(tableView == self.tblCertificates){
+            if let certificate = self.certificates as? Array<Dictionary<String, Any>>{
+                return certificate.count + 1
+            }
         }
-//        for itm in msgng as! Array<Dictionary<String, Any>>{
-//            print("RANK: \(itm["rank"])")
-//            print("SCORE: \(itm["score"])")
-//            print("DIFFICULTY: \(itm["difficulty"])")
-//            print("PLAYER: \(itm["player"])")
-//        }
-        
         return 0
     }
     
@@ -112,6 +154,18 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
     //ivaccination.kimhauser.ch/webservice.php?action=gethighscore
+    
+    private func configureCollectionView() {
+      // 1
+      let flowLayout = NSCollectionViewFlowLayout()
+      flowLayout.itemSize = NSSize(width: 160.0, height: 290.0)
+      flowLayout.sectionInset = NSEdgeInsets(top: 30.0, left: 20.0, bottom: 30.0, right: 20.0)
+      flowLayout.minimumInteritemSpacing = 20.0
+      flowLayout.minimumLineSpacing = 20.0
+      collectionView.collectionViewLayout = flowLayout
+       view.wantsLayer = true
+      collectionView.layer?.backgroundColor = NSColor.black.cgColor
+    }
     
     @IBAction func testInsertHS2(_ sender:Any){
         var request:NSMutableURLRequest = NSMutableURLRequest(url: URL(string: "http://ivaccination.kimhauser.ch/highscore.php")!)
@@ -172,88 +226,29 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
                 self.tblHighscore.delegate = self
                 self.tblHighscore.dataSource = self
                 self.tblHighscore.reloadData()
-                self.prgLoading.stopAnimation(sender)
-                self.prgLoading.isHidden = true
+                
+                self.onlineHelper.loadVaccinations(completion: { loadedVaccinations in
+                    DispatchQueue.main.async {
+                        self.vaccinations = loadedVaccinations
+                        self.tblVaccinations.delegate = self
+                        self.tblVaccinations.dataSource = self
+                        self.tblVaccinations.reloadData()
+                        
+                        self.onlineHelper.loadCertificates(completion: { loadedCertificates in
+                            DispatchQueue.main.async {
+                                self.certificates = loadedCertificates
+                                self.tblCertificates.delegate = self
+                                self.tblCertificates.dataSource = self
+                                self.tblCertificates.reloadData()
+                                self.prgLoading.stopAnimation(sender)
+                                self.prgLoading.isHidden = true
+                            }
+                        })
+                    }
+                })
             }
         })
         
-////        let getParameter = "action=gethighscore"
-////        request.url?.parameterString = getParameter
-//
-//        var url = URLComponents(string: "http://ivaccination.kimhauser.ch/webservice.php")!
-//
-//        url.queryItems = [
-//            URLQueryItem(name:"action", value:"gethighscore")
-//        ]
-//
-//        let request:NSMutableURLRequest = NSMutableURLRequest(url: url.url!)// URL(string: "http://ivaccination.kimhauser.ch/webservice.php")!)
-//        request.httpMethod = "GET"
-//        //getting values from text fields
-////        let player = "FromMacOS"//textFieldName.text
-////        let score = 123//textFieldMember.text
-////        let difficulty = "Easy"//textFieldMember.text
-////
-////        //creating the post parameter by concatenating the keys and values from text field
-////        let postParameters = "player=" + player + "&score=" + score.description + "&difficulty=" + difficulty;
-//
-//
-//        //adding the parameters to request body
-////        request.httpBody = postParameters.data(using: String.Encoding.utf8)
-//
-//        //creating a task to send the post request
-//        let task = URLSession.shared.dataTask(with: request as URLRequest){
-//            data, response, error in
-//
-//            if error != nil{
-//                print("error is \(error)")
-//                return;
-//            }
-//
-//            //parsing the response
-//            do {
-//                //converting resonse to NSDictionary
-//                let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-//
-//                //parsing the json
-//                if let parseJSON = myJSON {
-//
-//                    //creating a string
-//                    var msg : Dictionary<String, String>!
-//
-//                    //getting the json response
-////                    msg = parseJSON["highscore"] as! Dictionary?
-//                    let msgng = parseJSON["highscore"]
-//                    //printing the response
-//
-//
-//
-//                    DispatchQueue.main.async {
-//                        self.highscore = msgng
-//                        self.tblHighscore.delegate = self
-//                        self.tblHighscore.dataSource = self
-//                        self.tblHighscore.reloadData()
-//                    }
-//
-//
-////                    for itm in msgng as! Array<Dictionary<String, Any>>{
-////                        print("RANK: \(itm["rank"])")
-////                        print("SCORE: \(itm["score"])")
-////                        print("DIFFICULTY: \(itm["difficulty"])")
-////                        print("PLAYER: \(itm["player"])")
-////                    }
-////                    print(msgng)
-//
-//                }
-//            } catch {
-//                print(error)
-//            }
-//
-//        }
-//        //executing the task
-//        task.resume()
-////        self.gameScene?.endGame()
-////        self.gameScene?.getViewController().loadMenuScene()
-////        self.dismiss(sender)
     }
     
 //
@@ -333,3 +328,85 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
 //    }
 }
 
+
+extension HighscoreViewController: NSCollectionViewDataSource{
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath)// .makeItemWithIdentifier("CollectionViewItem", forIndexPath: indexPath)
+        guard let collectionViewItem = item as? CollectionViewItem else {return item}
+        collectionViewItem.textField?.stringValue = "Stay healthy"
+        collectionViewItem.lblDesc?.stringValue = "Try to stay healthy - to complete this task you must avoid to be bitten by the zombies"
+        collectionViewItem.view.frame = CGRect(origin: collectionViewItem.view.frame.origin, size: CGSize(width: 160, height: 290))
+        if(indexPath.item == 1){
+            collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
+            collectionViewItem.textField?.stringValue = "Perfect shot"
+            collectionViewItem.lblDesc?.stringValue = "Try to hit the zombies with every single syringe you shoot at them"
+        }else if(indexPath.item == 2){
+            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "All certificates"
+            collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in the current level before they disapear"
+        }
+//        let imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
+//        collectionViewItem.imageFile = imageFile
+        
+//        if let selectedIndexPath = collectionView.selectionIndexPaths.first where selectedIndexPath == indexPath {
+//          collectionViewItem.setHighlight(true)
+//        } else {
+//          collectionViewItem.setHighlight(false)
+//        }
+        
+//        let currentCGImage = collectionViewItem.imageView?.image?.cgImage //else { return nil }
+//        let currentCIImage = CIImage(cgImage: currentCGImage as! CGImage)
+//
+//        let filter = CIFilter(name: "CIColorMonochrome")
+//        filter?.setValue(currentCIImage, forKey: "inputImage")
+//
+//        // set a gray value for the tint color
+//        filter?.setValue(CIColor(red: 0.7, green: 0.7, blue: 0.7), forKey: "inputColor")
+//
+//        filter?.setValue(1.0, forKey: "inputIntensity")
+//        let outputImage = filter?.outputImage
+//
+//        let context = CIContext()
+//
+//        let cgimg = context.createCGImage(outputImage!, from: outputImage!.extent)
+////            let processedImage = UIImage(cgImage: cgimg)
+////            print(processedImage.size)
+//        collectionViewItem.imageView?.image = NSImage(cgImage: cgimg!, size: CGSize(width: 128, height: 128))
+//        }
+        
+        return item
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: NSCollectionView) -> Int {
+      return 6 //imageDirectoryLoader.numberOfSections
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+      return 6// imageDirectoryLoader.numberOfItemsInSection(section)
+    }
+    
+//    func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath) -> NSCollectionViewItem {
+//
+//      let item = collectionView.makeItemWithIdentifier("CollectionViewItem", forIndexPath: indexPath)
+//      guard let collectionViewItem = item as? CollectionViewItem else {return item}
+//
+//      let imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
+//      collectionViewItem.imageFile = imageFile
+//
+//      if let selectedIndexPath = collectionView.selectionIndexPaths.first where selectedIndexPath == indexPath {
+//        collectionViewItem.setHighlight(true)
+//      } else {
+//        collectionViewItem.setHighlight(false)
+//      }
+//
+//      return item
+//    }
+    
+    func collectionView(collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> NSView {
+        let view = collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind("SectionHeader"), withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderView"), for: indexPath as IndexPath)// .makeSupplementaryViewOfKind(NSCollectionElementKindSectionHeader, withIdentifier: "HeaderView", forIndexPath: indexPath) as! HeaderView
+//        view.tit .sectionTitle.stringValue = "Section \(indexPath.section)"
+//      let numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
+//      view.imageCount.stringValue = "\(numberOfItemsInSection) image files"
+      return view
+    }
+}
