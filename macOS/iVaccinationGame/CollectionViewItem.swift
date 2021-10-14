@@ -11,6 +11,7 @@ import Cocoa
 class CollectionViewItem: NSCollectionViewItem {
   
     @IBOutlet var lblDesc:NSTextField!
+    @IBOutlet var lblDate:NSTextField!
   // 1
 //  var imageFile: ImageFile? {
 //    didSet {

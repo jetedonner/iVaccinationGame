@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="CollectionViewItem" customModule="iVaccinationGame" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="FSe-ep-RM0" id="fCL-h0-ClX"/>
+                <outlet property="lblDate" destination="UxA-jW-Vdx" id="EaJ-e3-CBu"/>
                 <outlet property="lblDesc" destination="xfh-tl-vYv" id="10m-nC-njQ"/>
                 <outlet property="textField" destination="HhR-2S-1Qc" id="qmv-BS-MjW"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -29,6 +30,11 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FSe-ep-RM0">
+                    <rect key="frame" x="16" y="142" width="128" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StayHealthyBW" id="3vS-2J-sw2"/>
+                </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HhR-2S-1Qc">
                     <rect key="frame" x="10" y="104" width="140" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -46,11 +52,15 @@
                     <rect key="frame" x="12" y="93" width="132" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FSe-ep-RM0">
-                    <rect key="frame" x="16" y="142" width="128" height="128"/>
+                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-jW-Vdx">
+                    <rect key="frame" x="10" y="142" width="140" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StayHealthyBW" id="3vS-2J-sw2"/>
-                </imageView>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="DATE" id="QUo-SS-0E1">
+                        <font key="font" metaFont="systemMedium" size="18"/>
+                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <point key="canvasLocation" x="8" y="20"/>
         </customView>

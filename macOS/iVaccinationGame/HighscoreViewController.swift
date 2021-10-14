@@ -22,6 +22,21 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         static let CertificatesCell = "CertificatesCell"
     }
     
+    
+    fileprivate enum AchievementIDs {
+        static let achivementPerfectThrowsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows"
+        static let achivementStayHealthyID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.stayhealthy"
+        static let achivementCollectAllCertsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.collectallcertificates"
+        static let achivementCompleteAllLevelsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevels"
+        static let achivementCompleteAllLevelsPerfectThrowID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfectthrows"
+        static let achivementCompleteAllLevelsPerfectHealthID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfecthealth"
+        static let achivementCompleteAllLevelsPerfectCertsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfectcertificates"
+        static let achivementCompleteAllLevelsEasyID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelseasy"
+        static let achivementCompleteAllLevelsMediumID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelsmedium"
+        static let achivementCompleteAllLevelsHardID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelshard"
+        static let achivementCompleteAllLevelsNightmareID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelsnightmare"
+    }
+
     @IBOutlet var tblHighscore:NSTableView!
     @IBOutlet var tblCertificates:NSTableView!
     @IBOutlet var tblVaccinations:NSTableView!
@@ -358,17 +373,31 @@ extension HighscoreViewController: NSCollectionViewDataSource{
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath)// .makeItemWithIdentifier("CollectionViewItem", forIndexPath: indexPath)
         guard let collectionViewItem = item as? CollectionViewItem else {return item}
-        collectionViewItem.textField?.stringValue = "Stay healthy"
-        collectionViewItem.lblDesc?.stringValue = "Try to stay healthy - to complete this task you must avoid to be bitten by the zombies"
-        if(self.checkAchievement(achievement: "grp.ch.kimhauser.swift.ivaccinationgame.achivements.stayhealthy")){
-            collectionViewItem.imageView?.image = NSImage(named: "StayHealthy")
-        }else{
-            collectionViewItem.imageView?.image = NSImage(named: "StayHealthyBW")
-        }
+        
         collectionViewItem.view.frame = CGRect(origin: collectionViewItem.view.frame.origin, size: CGSize(width: 160, height: 290))
-        if(indexPath.item == 1){
-            if(self.checkAchievement(achievement: "grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows")){
+        if(indexPath.item == 0){
+            collectionViewItem.textField?.stringValue = "Stay healthy"
+            collectionViewItem.lblDesc?.stringValue = "Try to stay healthy - to complete this task you must avoid to be bitten by the zombies"
+            if(self.checkAchievement(achievement: AchievementIDs.achivementStayHealthyID /*"grp.ch.kimhauser.swift.ivaccinationgame.achivements.stayhealthy"*/)){
+                collectionViewItem.imageView?.image = NSImage(named: "StayHealthy")
+                collectionViewItem.lblDate.stringValue = "2021-10-14"
+                collectionViewItem.lblDate.isHidden = false
+                collectionViewItem.lblDate.drawsBackground = true
+                collectionViewItem.lblDate.backgroundColor = NSColor(calibratedWhite: 0.75, alpha:0.35)
+                collectionViewItem.lblDate.wantsLayer = true
+                collectionViewItem.lblDate.layer?.cornerRadius = 10.0
+            }else{
+                collectionViewItem.imageView?.image = NSImage(named: "StayHealthyBW")
+            }
+        }else if(indexPath.item == 1){
+            if(self.checkAchievement(achievement: AchievementIDs.achivementPerfectThrowsID /*"grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows"*/)){
                 collectionViewItem.imageView?.image = NSImage(named: "PerfectShot")
+                collectionViewItem.lblDate.stringValue = "2021-10-14"
+                collectionViewItem.lblDate.isHidden = false
+                collectionViewItem.lblDate.drawsBackground = true
+                collectionViewItem.lblDate.backgroundColor = NSColor(calibratedWhite: 0.75, alpha:0.35)
+                collectionViewItem.lblDate.wantsLayer = true
+                collectionViewItem.lblDate.layer?.cornerRadius = 10.0
             }else{
                 collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
             }
