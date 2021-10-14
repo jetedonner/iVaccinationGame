@@ -112,4 +112,42 @@ class OnlineHighscoreHelper{
         }
         task.resume()
     }
+    
+    
+    
+    func loadAchievements(completion:@escaping(_:Array<Dictionary<String, Any>>)->Void){
+        var url = URLComponents(string: self.baseURL + self.webserviceName)!
+
+        url.queryItems = [
+            URLQueryItem(name:"action", value:"getachievements")
+        ]
+        
+        let request:NSMutableURLRequest = NSMutableURLRequest(url: url.url!)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest){
+            data, response, error in
+            
+            if error != nil{
+                print("error is \(String(describing: error))")
+                return;
+            }
+        
+            do {
+                let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                if let parseJSON = myJSON {
+                    let newHighscore = parseJSON["achievements"]
+                    
+                    completion(newHighscore as! Array<Dictionary<String, Any>>)
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
+        task.resume()
+    }
+    
+//    getachievements
+    
 }

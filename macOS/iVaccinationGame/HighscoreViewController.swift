@@ -32,6 +32,7 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     var highscore:Any!
     var vaccinations:Any!
     var certificates:Any!
+    var achievements:Any!
     
     let onlineHelper:OnlineHighscoreHelper = OnlineHighscoreHelper()
 
@@ -240,8 +241,22 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
                                 self.tblCertificates.delegate = self
                                 self.tblCertificates.dataSource = self
                                 self.tblCertificates.reloadData()
-                                self.prgLoading.stopAnimation(sender)
-                                self.prgLoading.isHidden = true
+                                
+                                self.onlineHelper.loadAchievements(completion: { loadedAchievements in
+                                    DispatchQueue.main.async {
+                                        self.achievements = loadedAchievements
+//                                        self.collectionView.delegate = self
+                                        self.collectionView.dataSource = self
+                                        self.collectionView.reloadData()
+//                                        self.tblCertificates.delegate = self
+//                                        self.tblCertificates.dataSource = self
+//                                        self.tblCertificates.reloadData()
+                                        self.prgLoading.stopAnimation(sender)
+                                        self.prgLoading.isHidden = true
+                                    }
+                                })
+//                                self.prgLoading.stopAnimation(sender)
+//                                self.prgLoading.isHidden = true
                             }
                         })
                     }
@@ -330,17 +345,61 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
 
 
 extension HighscoreViewController: NSCollectionViewDataSource{
+    
+    func checkAchievement(achievement:String)->Bool{
+        for ach in self.achievements as! Array<Dictionary<String, Any>>{
+            if(ach["achievement"] as! String == achievement){
+                return true
+            }
+        }
+        return false
+    }
+    
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath)// .makeItemWithIdentifier("CollectionViewItem", forIndexPath: indexPath)
         guard let collectionViewItem = item as? CollectionViewItem else {return item}
         collectionViewItem.textField?.stringValue = "Stay healthy"
         collectionViewItem.lblDesc?.stringValue = "Try to stay healthy - to complete this task you must avoid to be bitten by the zombies"
+        if(self.checkAchievement(achievement: "grp.ch.kimhauser.swift.ivaccinationgame.achivements.stayhealthy")){
+            collectionViewItem.imageView?.image = NSImage(named: "StayHealthy")
+        }else{
+            collectionViewItem.imageView?.image = NSImage(named: "StayHealthyBW")
+        }
         collectionViewItem.view.frame = CGRect(origin: collectionViewItem.view.frame.origin, size: CGSize(width: 160, height: 290))
         if(indexPath.item == 1){
-            collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
+            if(self.checkAchievement(achievement: "grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows")){
+                collectionViewItem.imageView?.image = NSImage(named: "PerfectShot")
+            }else{
+                collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
+            }
+            
             collectionViewItem.textField?.stringValue = "Perfect shot"
             collectionViewItem.lblDesc?.stringValue = "Try to hit the zombies with every single syringe you shoot at them"
         }else if(indexPath.item == 2){
+            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "All certificates"
+            collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in the current level before they disapear"
+        }else if(indexPath.item == 3){
+            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "All levels"
+            collectionViewItem.lblDesc?.stringValue = "Try to complete all levels for the current difficulty"
+        }else if(indexPath.item == 4){
+            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "All certificates (levels)"
+            collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in all levels before they disapear"
+        }else if(indexPath.item == 5){
+            collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
+            collectionViewItem.textField?.stringValue = "Perfect shot (levels)"
+            collectionViewItem.lblDesc?.stringValue = "Try to hit the zombies with every single shot in all levels"
+        }else if(indexPath.item == 6){
+            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "All certificates"
+            collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in the current level before they disapear"
+        }else if(indexPath.item == 7){
+            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "All levels"
+            collectionViewItem.lblDesc?.stringValue = "Try to complete all levels for the current difficulty"
+        }else if(indexPath.item == 8){
             collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
             collectionViewItem.textField?.stringValue = "All certificates"
             collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in the current level before they disapear"
@@ -378,11 +437,11 @@ extension HighscoreViewController: NSCollectionViewDataSource{
     }
     
     func numberOfSectionsInCollectionView(collectionView: NSCollectionView) -> Int {
-      return 6 //imageDirectoryLoader.numberOfSections
+      return 9 //imageDirectoryLoader.numberOfSections
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-      return 6// imageDirectoryLoader.numberOfItemsInSection(section)
+      return 9// imageDirectoryLoader.numberOfItemsInSection(section)
     }
     
 //    func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath) -> NSCollectionViewItem {
