@@ -47,6 +47,17 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
         }
     }
     
+    func loadHighscoreScene(){
+        if let scene = GKScene(fileNamed: "HighscoreScene") {
+            if let sceneNode = scene.rootNode as! HighscoreScene? {
+                sceneNode.scaleMode = .aspectFill
+                if let view = self.view as! SKView? {
+                    view.presentSceneNG(sceneNode)
+                }
+            }
+        }
+    }
+    
     func loadCreditsScene(){
         if let scene = GKScene(fileNamed: "CreditsScene") {
             if let sceneNode = scene.rootNode as! CreditsScene? {
@@ -61,6 +72,12 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
     @IBAction func loadSettingsDialog(_ sender:Any?){
         let vcSettings:SettingsViewController = SettingsViewController()
         vcSettings.gameScene = nil
+        self.presentAsSheet(vcSettings)
+    }
+    
+    @IBAction func loadHighscoreDialog(_ sender:Any?){
+        let vcSettings:HighscoreViewController = HighscoreViewController()
+//        vcSettings.gameScene = nil
         self.presentAsSheet(vcSettings)
     }
     

@@ -86,6 +86,10 @@ class MenuScene: MenuSceneBase {
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadSettingsDialog(nil)
             }
+        }else if(self.selNode == lblMap){
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadHighscoreDialog(nil)
+            }
         }
     }
 }

@@ -237,15 +237,15 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <connections>
                         <action selector="switchDevMode:" target="-2" id="GAY-91-avP"/>
+                        <binding destination="l72-UK-3kJ" name="value" keyPath="values.dbgBorders" id="NLZ-nJ-1ji">
+                            <dictionary key="options">
+                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                            </dictionary>
+                        </binding>
                         <binding destination="l72-UK-3kJ" name="hidden" keyPath="values.devMode" id="awl-WV-udC">
                             <dictionary key="options">
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
-                            </dictionary>
-                        </binding>
-                        <binding destination="l72-UK-3kJ" name="value" keyPath="values.dbgBorders" id="NLZ-nJ-1ji">
-                            <dictionary key="options">
-                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                             </dictionary>
                         </binding>
                     </connections>

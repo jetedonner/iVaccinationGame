@@ -43,7 +43,8 @@ class MenuSceneBase: BaseSKScene {
         super.touchOrClick(pos: pos, viewController: viewController)
         let node = self.atPoint(pos)
         if(node == self.lblMap){
-            viewController.loadCreditsScene()
+//            viewController.loadCreditsScene()
+//            viewController.loadHighscoreScene()
         }else if(node == self.lblStartGame){
             var doStart:Bool = true
             if(Level.NewGame.getDesc() != ICloudStorageHelper.level){

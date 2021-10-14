@@ -30,12 +30,36 @@ class GameViewController: UIViewController, IViewController {
         self.loadMenuScene()
     }
     
+    
+//    func didMoveToView(view:SKView!) {
+//
+//        _scrollingNode.enableScrollingOnView(view)
+//        _scrollingNode.scrollToTop()
+//
+//    }
+//
+//    func willMoveFromView(view:SKView!) {
+//        _scrollingNode.disableScrollingOnView(view)
+//    }
+    
     func loadWelcomeScene(){
         if let scene = GKScene(fileNamed: "WelcomeScene") {
             if let sceneNode = scene.rootNode as! WelcomeScene? {
                 sceneNode.scaleMode = .aspectFill
                 if let view = self.view as! SKView? {
                     view.presentSceneNG(sceneNode)
+                }
+            }
+        }
+    }
+    
+    func loadHighscoreScene(){
+        if let scene = GKScene(fileNamed: "HighscoreScene") {
+            if let sceneNode = scene.rootNode as! HighscoreScene? {
+                sceneNode.scaleMode = .aspectFill
+                if let view = self.view as! SKView? {
+                    view.presentSceneNG(sceneNode)
+                    sceneNode.enableScrollingList(view: view)
                 }
             }
         }

@@ -16,6 +16,7 @@ protocol IViewController{
     func loadMenuScene()
     func loadDifficultyScene()
     func loadCreditsScene()
+    func loadHighscoreScene()
     func loadMapScene()
     func loadMapScene(difficulty:Difficulty, level:Level)
     func loadGameScene(difficulty:Difficulty, level:Level)

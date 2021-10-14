@@ -56,6 +56,14 @@
 		556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE7E26F7032B00F8081C /* AlertBox.swift */; };
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
+		557933E82718289F00013BA9 /* ScrollableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933E62718289F00013BA9 /* ScrollableNode.swift */; };
+		557933EB27182B1B00013BA9 /* HighscoreSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933E927182B1B00013BA9 /* HighscoreSceneBase.swift */; };
+		557933ED27182B2E00013BA9 /* HighscoreScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 557933EC27182B2E00013BA9 /* HighscoreScene.sks */; };
+		557933EE27182B2E00013BA9 /* HighscoreScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 557933EC27182B2E00013BA9 /* HighscoreScene.sks */; };
+		557933F027182B5000013BA9 /* HighscoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933EF27182B5000013BA9 /* HighscoreScene.swift */; };
+		557933F227182B5E00013BA9 /* HighscoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F127182B5E00013BA9 /* HighscoreScene.swift */; };
+		557933F4271833FD00013BA9 /* HighscoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557933F3271833FD00013BA9 /* HighscoreViewController.xib */; };
+		557933F6271836AE00013BA9 /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F5271836AE00013BA9 /* HighscoreViewController.swift */; };
 		559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A126FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A226FE50800082DA72 /* GameSceneBaseExt.swift */; };
@@ -296,6 +304,13 @@
 		556FBE7E26F7032B00F8081C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		556FBE8026F77A6C00F8081C /* BasePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePath.swift; sourceTree = "<group>"; };
 		556FBE8226F7858D00F8081C /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		557933E62718289F00013BA9 /* ScrollableNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableNode.swift; sourceTree = "<group>"; };
+		557933E927182B1B00013BA9 /* HighscoreSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreSceneBase.swift; sourceTree = "<group>"; };
+		557933EC27182B2E00013BA9 /* HighscoreScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HighscoreScene.sks; sourceTree = "<group>"; };
+		557933EF27182B5000013BA9 /* HighscoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreScene.swift; sourceTree = "<group>"; };
+		557933F127182B5E00013BA9 /* HighscoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreScene.swift; sourceTree = "<group>"; };
+		557933F3271833FD00013BA9 /* HighscoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighscoreViewController.xib; sourceTree = "<group>"; };
+		557933F5271836AE00013BA9 /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		5594429F26FE4F710082DA72 /* SyringeDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringeDart.swift; sourceTree = "<group>"; };
 		559442A226FE50800082DA72 /* GameSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt.swift; sourceTree = "<group>"; };
 		559442A526FE51350082DA72 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -494,6 +509,8 @@
 				554E532626EFAD4400371E58 /* Main.storyboard */,
 				55B64A3426F3577D00944766 /* SettingsViewController.xib */,
 				55B64A3626F3579600944766 /* SettingsViewController.swift */,
+				557933F5271836AE00013BA9 /* HighscoreViewController.swift */,
+				557933F3271833FD00013BA9 /* HighscoreViewController.xib */,
 			);
 			path = iVaccinationGame;
 			sourceTree = "<group>";
@@ -608,6 +625,7 @@
 				55E59BCD26FF867100B75322 /* DescriptionScene.swift */,
 				5561AFA02710AB05007B3F8F /* WelcomeScene.swift */,
 				55EE3DAA270643E500991D86 /* CreditsScene.swift */,
+				557933EF27182B5000013BA9 /* HighscoreScene.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -659,6 +677,7 @@
 				55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */,
 				5561AF9A2710AA46007B3F8F /* WelcomeScene.sks */,
 				55EE3D9C27063E1700991D86 /* CreditsScene.sks */,
+				557933EC27182B2E00013BA9 /* HighscoreScene.sks */,
 				55EE3D8027058F1000991D86 /* MapSceneOrig.sks */,
 				5561AF86270EE57B007B3F8F /* MapScene.sks */,
 			);
@@ -777,6 +796,7 @@
 				55C83F7826FDFF4F00F42F53 /* DescriptionSceneBase.swift */,
 				5561AF9D2710AA56007B3F8F /* WelcomeSceneBase.swift */,
 				55EE3D9F27063E2300991D86 /* CreditsSceneBase.swift */,
+				557933E927182B1B00013BA9 /* HighscoreSceneBase.swift */,
 				55C83F3726FCE5BC00F42F53 /* DifficultySceneBase.swift */,
 				55EAD45026FF559C00BB8D06 /* MapSceneBase.swift */,
 				55B64A3226F3474900944766 /* MenuSceneBase.swift */,
@@ -798,6 +818,7 @@
 				55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */,
 				55EE3D7D270377FC00991D86 /* VersionHelper.swift */,
 				55F67A63271349AA003C60B2 /* SKColor.swift */,
+				557933E62718289F00013BA9 /* ScrollableNode.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -855,6 +876,7 @@
 				55EAD47026FF7D0800BB8D06 /* MenuScene.swift */,
 				55E59BCF26FF873000B75322 /* DifficultyScene.swift */,
 				55EE3DA82706436E00991D86 /* CreditsScene.swift */,
+				557933F127182B5E00013BA9 /* HighscoreScene.swift */,
 				5561AFA22710AB30007B3F8F /* WelcomeScene.swift */,
 			);
 			path = SpriteKit;
@@ -1082,12 +1104,14 @@
 			files = (
 				55A579B826F4D1800084239D /* Upward2Particles.sks in Resources */,
 				5552BFA726F264130034C812 /* MagicParticle.sks in Resources */,
+				557933F4271833FD00013BA9 /* HighscoreViewController.xib in Resources */,
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
 				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
 				55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */,
 				55EE3D8127058F1000991D86 /* MapSceneOrig.sks in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
+				557933ED27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
 				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
 				55F67A6727134DE4003C60B2 /* GameScene_Last.sks in Resources */,
 				55EE3D9D27063E1700991D86 /* CreditsScene.sks in Resources */,
@@ -1130,6 +1154,7 @@
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55F67A6827134DE4003C60B2 /* GameScene_Last.sks in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
+				557933EE27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
 				55EE3D8227058F1000991D86 /* MapSceneOrig.sks in Resources */,
 				55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */,
 				55C83F7C26FE116B00F42F53 /* Settings.bundle in Resources */,
@@ -1203,6 +1228,7 @@
 				55B64A3326F3474900944766 /* MenuSceneBase.swift in Sources */,
 				55C83EF226FB250E00F42F53 /* MeadowLevel.swift in Sources */,
 				55EAD45726FF60D600BB8D06 /* Level.swift in Sources */,
+				557933F6271836AE00013BA9 /* HighscoreViewController.swift in Sources */,
 				55EE3D922705AB6B00991D86 /* VaccineType.swift in Sources */,
 				55C83F4926FD268A00F42F53 /* KeyCode.swift in Sources */,
 				5561AF782708B935007B3F8F /* GameSceneBaseExt2.swift in Sources */,
@@ -1242,6 +1268,7 @@
 				55EE3D7E270377FC00991D86 /* VersionHelper.swift in Sources */,
 				55C83F8126FE323800F42F53 /* CityJapanLevel.swift in Sources */,
 				55A579C826F5C5EC0084239D /* CitySkylineLevel.swift in Sources */,
+				557933F027182B5000013BA9 /* HighscoreScene.swift in Sources */,
 				55A579CA26F638610084239D /* BaseLevel.swift in Sources */,
 				55A579BF26F4FEFF0084239D /* SyringePickup.swift in Sources */,
 				55C83F5A26FDDB8B00F42F53 /* GameStateMachine.swift in Sources */,
@@ -1308,6 +1335,7 @@
 				55C83F8026FE31EB00F42F53 /* CityJapanLevel.swift in Sources */,
 				55EAD45E26FF72AD00BB8D06 /* MapSceneBase.swift in Sources */,
 				55EE3DAE270646F700991D86 /* SkViewExt.swift in Sources */,
+				557933E82718289F00013BA9 /* ScrollableNode.swift in Sources */,
 				55EAD44E26FE990200BB8D06 /* CertificatePickup.swift in Sources */,
 				55EE3D862705A58F00991D86 /* VaccineBase.swift in Sources */,
 				55EE3D902705A7E200991D86 /* VaccineArsenal.swift in Sources */,
@@ -1323,6 +1351,7 @@
 				5561AFA62711812E007B3F8F /* SyringePickupType.swift in Sources */,
 				55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */,
 				5561AF7D270A026B007B3F8F /* CertificatePickupManager.swift in Sources */,
+				557933EB27182B1B00013BA9 /* HighscoreSceneBase.swift in Sources */,
 				5561AF732708AF28007B3F8F /* LevelConfig.swift in Sources */,
 				55C83F2526FC6B2800F42F53 /* BasePickupNode.swift in Sources */,
 				55EE3DA127063E2300991D86 /* CreditsSceneBase.swift in Sources */,
@@ -1345,6 +1374,7 @@
 				55EAD45926FF6F2700BB8D06 /* MenuSceneBase.swift in Sources */,
 				55EE3D932705AB6B00991D86 /* VaccineType.swift in Sources */,
 				5561AFA32710AB30007B3F8F /* WelcomeScene.swift in Sources */,
+				557933F227182B5E00013BA9 /* HighscoreScene.swift in Sources */,
 				55C83F5726FDDB4100F42F53 /* PauseState.swift in Sources */,
 				55EAD45826FF60D600BB8D06 /* Level.swift in Sources */,
 				55C83F6E26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */,
