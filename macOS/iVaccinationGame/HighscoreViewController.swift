@@ -20,59 +20,24 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
     @IBOutlet var tblHighscore:NSTableView!
+    @IBOutlet var prgLoading:NSProgressIndicator!
     
-//    var gameScene:GameSceneBase?
-//
-//    @IBOutlet var volume:NSSlider?
-//    @IBOutlet var playBGMusic:NSSwitch?
-//    @IBOutlet var playSounds:NSSwitch?
-//    @IBOutlet var sharedUserDefaultsController:NSUserDefaultsController?
-//
-//    @IBOutlet var swtDevMode:NSSwitch?
-//
-//    @IBOutlet var cmbTime:NSPopUpButton?
-//    @IBOutlet var cmbDifficulty:NSPopUpButton?
-//    @IBOutlet var cmbLevel:NSPopUpButton?
-//
-//    @IBOutlet var cmdAbortGame:NSButton?
-//    @IBOutlet var cmdTestAch:NSButton?
-//    @IBOutlet var cmdResetAch:NSButton?
-//    @IBOutlet var cmdResetICloud:NSButton?
-//    @IBOutlet var cmdResetUserDef:NSButton?
-//    @IBOutlet var cmdResetALL:NSButton?
-//    @IBOutlet var lblDevMode:NSTextField?
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        if(VersionHelper.getDevMode()){
-//            self.swtDevMode?.isHidden = false
-//            self.lblDevMode?.isHidden = false
-//            self.showHideAchButtons(hide: (self.swtDevMode?.state == .off))
-//        }else{
-//            self.swtDevMode?.isHidden = true
-//            self.lblDevMode?.isHidden = true
-//            self.swtDevMode?.state = .off
-//            self.showHideAchButtons(hide: true)
-//        }
-//        if(self.gameScene == nil || (self.gameScene != nil && (!self.gameScene!.gameRunning))){
-//            self.cmdAbortGame?.isHidden = true
-//        }
-//    }
-//
+    var highscore:Any!
+    
+    let onlineHelper:OnlineHighscoreHelper = OnlineHighscoreHelper()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.testInsertHS(nil)
+    }
+    
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         var tmpArr:Array<Dictionary<String, Any>> = []
         tmpArr.removeAll()
         tmpArr = self.highscore as! Array<Dictionary<String, Any>>
-//            msgng.removeFirst()
-    //            return msgng.count
-    //        }
-    //        for itm in msgng as! Array<Dictionary<String, Any>>{
-    //            print("RANK: \(itm["rank"])")
-    //            print("SCORE: \(itm["score"])")
-    //            print("DIFFICULTY: \(itm["difficulty"])")
-    //            print("PLAYER: \(itm["player"])")
-    //        }
+
             var text: String = ""
             var cellIdentifier: String = ""
             var textColor:NSColor = NSColor.white
@@ -82,45 +47,43 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
                 if(row == 0){
                     text = "Rank"
                 }else{
-                    text = (tmpArr[newRow-1]["rank"] as! NSNumber).stringValue //SuakeStatsType.allCases[newRow - 1].rawValue
+                    text = (tmpArr[newRow-1]["rank"] as! NSNumber).stringValue
                 }
                 cellIdentifier = CellIdentifiers.RankCell
-    //            textColor = NSColor.suake3DTextColor
             } else if tableColumn == tableView.tableColumns[1] {
                 if(newRow <= 0){
                     text = "Player"
                 }else{
-                    text = tmpArr[newRow-1]["player"] as! String //self.game.playerEntityManager.ownPlayerEntity.statsComponent.suakeStats.getStatsValue(suakeStatsType: SuakeStatsType.allCases[newRow - 1]).description
+                    text = tmpArr[newRow-1]["player"] as! String
                 }
                 cellIdentifier = CellIdentifiers.PlayerCell
-    //            textColor = NSColor.suake3DRed
             } else if tableColumn == tableView.tableColumns[2] {
                 if(newRow <= 0){
                     text = "Score"
                 }else{
-                    text = tmpArr[newRow-1]["score"] as! String //self.game.playerEntityManager.oppPlayerEntity.statsComponent.suakeStats.getStatsValue(suakeStatsType: SuakeStatsType.allCases[newRow - 1]).description // "T3S3T" //""
+                    text = tmpArr[newRow-1]["score"] as! String
                 }
-    //            textColor = NSColor.suake3DOppBlue// NSColor(named: "Suake3DOpponentBlue")!
                 cellIdentifier = CellIdentifiers.ScoreCell
             }else if tableColumn == tableView.tableColumns[3] {
                 if(newRow <= 0){
                     text = "Difficulty"
                 }else{
-                    text = tmpArr[newRow-1]["difficulty"] as! String //self.game.playerEntityManager.oppPlayerEntity.statsComponent.suakeStats.getStatsValue(suakeStatsType: SuakeStatsType.allCases[newRow - 1]).description // "T3S3T" //""
+                    text = tmpArr[newRow-1]["difficulty"] as! String
                 }
-    //            textColor = NSColor.suake3DOppBlue// NSColor(named: "Suake3DOpponentBlue")!
                 cellIdentifier = CellIdentifiers.DifficultyCell
             }
             
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
                 cell.textField?.stringValue = text
     //            cell.textField?.font = NSFont(name: SuakeVars.defaultFontName, size: 24.0)
-                cell.textField?.sizeToFit()
-                cell.setFrameSize((cell.textField?.frame.size)!)
-                cell.textField?.setFrameOrigin(NSZeroPoint)
-                cell.textField?.backgroundColor = NSColor.gray
+//                cell.textField?.sizeToFit()
+//                cell.setFrameSize((cell.textField?.frame.size)!)
+//                cell.textField?.setFrameOrigin(NSZeroPoint)
+//                cell.textField?.backgroundColor = NSColor.gray
                 cell.textField?.textColor = textColor
-                tableView.rowHeight = (cell.textField?.frame.height)! + 2
+                cell.frame = CGRect(origin: cell.frame.origin, size: CGSize(width: cell.frame.width, height: 15))
+//                tableView.rowHeight = 60
+//                tableView.rowHeight = (cell.textField?.frame.height)! + 2
                 return cell
             }
 //        }
@@ -200,88 +163,99 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         task.resume()
     }
     
-    @IBAction func testInsertHS(_ sender:Any){
+    @IBAction func testInsertHS(_ sender:Any?){
+        self.prgLoading.isHidden = false
+        self.prgLoading.startAnimation(sender)
+        self.onlineHelper.loadHighscore(completion: { loadedHighscore in
+            DispatchQueue.main.async {
+                self.highscore = loadedHighscore
+                self.tblHighscore.delegate = self
+                self.tblHighscore.dataSource = self
+                self.tblHighscore.reloadData()
+                self.prgLoading.stopAnimation(sender)
+                self.prgLoading.isHidden = true
+            }
+        })
         
-//        let getParameter = "action=gethighscore"
-//        request.url?.parameterString = getParameter
-        
-        var url = URLComponents(string: "http://ivaccination.kimhauser.ch/webservice.php")!
-
-        url.queryItems = [
-            URLQueryItem(name:"action", value:"gethighscore")
-        ]
-        
-        let request:NSMutableURLRequest = NSMutableURLRequest(url: url.url!)// URL(string: "http://ivaccination.kimhauser.ch/webservice.php")!)
-        request.httpMethod = "GET"
-        //getting values from text fields
-//        let player = "FromMacOS"//textFieldName.text
-//        let score = 123//textFieldMember.text
-//        let difficulty = "Easy"//textFieldMember.text
+////        let getParameter = "action=gethighscore"
+////        request.url?.parameterString = getParameter
 //
-//        //creating the post parameter by concatenating the keys and values from text field
-//        let postParameters = "player=" + player + "&score=" + score.description + "&difficulty=" + difficulty;
-        
-        
-        //adding the parameters to request body
-//        request.httpBody = postParameters.data(using: String.Encoding.utf8)
-        
-        //creating a task to send the post request
-        let task = URLSession.shared.dataTask(with: request as URLRequest){
-            data, response, error in
-            
-            if error != nil{
-                print("error is \(error)")
-                return;
-            }
-        
-            //parsing the response
-            do {
-                //converting resonse to NSDictionary
-                let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                
-                //parsing the json
-                if let parseJSON = myJSON {
-                    
-                    //creating a string
-                    var msg : Dictionary<String, String>!
-                    
-                    //getting the json response
-//                    msg = parseJSON["highscore"] as! Dictionary?
-                    let msgng = parseJSON["highscore"]
-                    //printing the response
-                    
-                    
-                    
-                    DispatchQueue.main.async {
-                        self.highscore = msgng
-                        self.tblHighscore.delegate = self
-                        self.tblHighscore.dataSource = self
-                        self.tblHighscore.reloadData()
-                    }
-                    
-                    
-//                    for itm in msgng as! Array<Dictionary<String, Any>>{
-//                        print("RANK: \(itm["rank"])")
-//                        print("SCORE: \(itm["score"])")
-//                        print("DIFFICULTY: \(itm["difficulty"])")
-//                        print("PLAYER: \(itm["player"])")
+//        var url = URLComponents(string: "http://ivaccination.kimhauser.ch/webservice.php")!
+//
+//        url.queryItems = [
+//            URLQueryItem(name:"action", value:"gethighscore")
+//        ]
+//
+//        let request:NSMutableURLRequest = NSMutableURLRequest(url: url.url!)// URL(string: "http://ivaccination.kimhauser.ch/webservice.php")!)
+//        request.httpMethod = "GET"
+//        //getting values from text fields
+////        let player = "FromMacOS"//textFieldName.text
+////        let score = 123//textFieldMember.text
+////        let difficulty = "Easy"//textFieldMember.text
+////
+////        //creating the post parameter by concatenating the keys and values from text field
+////        let postParameters = "player=" + player + "&score=" + score.description + "&difficulty=" + difficulty;
+//
+//
+//        //adding the parameters to request body
+////        request.httpBody = postParameters.data(using: String.Encoding.utf8)
+//
+//        //creating a task to send the post request
+//        let task = URLSession.shared.dataTask(with: request as URLRequest){
+//            data, response, error in
+//
+//            if error != nil{
+//                print("error is \(error)")
+//                return;
+//            }
+//
+//            //parsing the response
+//            do {
+//                //converting resonse to NSDictionary
+//                let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+//
+//                //parsing the json
+//                if let parseJSON = myJSON {
+//
+//                    //creating a string
+//                    var msg : Dictionary<String, String>!
+//
+//                    //getting the json response
+////                    msg = parseJSON["highscore"] as! Dictionary?
+//                    let msgng = parseJSON["highscore"]
+//                    //printing the response
+//
+//
+//
+//                    DispatchQueue.main.async {
+//                        self.highscore = msgng
+//                        self.tblHighscore.delegate = self
+//                        self.tblHighscore.dataSource = self
+//                        self.tblHighscore.reloadData()
 //                    }
-//                    print(msgng)
-                    
-                }
-            } catch {
-                print(error)
-            }
-            
-        }
-        //executing the task
-        task.resume()
-//        self.gameScene?.endGame()
-//        self.gameScene?.getViewController().loadMenuScene()
-//        self.dismiss(sender)
+//
+//
+////                    for itm in msgng as! Array<Dictionary<String, Any>>{
+////                        print("RANK: \(itm["rank"])")
+////                        print("SCORE: \(itm["score"])")
+////                        print("DIFFICULTY: \(itm["difficulty"])")
+////                        print("PLAYER: \(itm["player"])")
+////                    }
+////                    print(msgng)
+//
+//                }
+//            } catch {
+//                print(error)
+//            }
+//
+//        }
+//        //executing the task
+//        task.resume()
+////        self.gameScene?.endGame()
+////        self.gameScene?.getViewController().loadMenuScene()
+////        self.dismiss(sender)
     }
     
-    var highscore:Any!
 //
 //    @IBAction func switchDbgBorders(_ sender:Any){
 ////        self.showHideAchButtons(hide: (self.swtDevMode?.state == .off))

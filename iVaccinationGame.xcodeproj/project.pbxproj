@@ -64,6 +64,7 @@
 		557933F227182B5E00013BA9 /* HighscoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F127182B5E00013BA9 /* HighscoreScene.swift */; };
 		557933F4271833FD00013BA9 /* HighscoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557933F3271833FD00013BA9 /* HighscoreViewController.xib */; };
 		557933F6271836AE00013BA9 /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F5271836AE00013BA9 /* HighscoreViewController.swift */; };
+		557933F82718884B00013BA9 /* OnlineHighscoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */; };
 		559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A126FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A226FE50800082DA72 /* GameSceneBaseExt.swift */; };
@@ -311,6 +312,7 @@
 		557933F127182B5E00013BA9 /* HighscoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreScene.swift; sourceTree = "<group>"; };
 		557933F3271833FD00013BA9 /* HighscoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighscoreViewController.xib; sourceTree = "<group>"; };
 		557933F5271836AE00013BA9 /* HighscoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
+		557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineHighscoreHelper.swift; sourceTree = "<group>"; };
 		5594429F26FE4F710082DA72 /* SyringeDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringeDart.swift; sourceTree = "<group>"; };
 		559442A226FE50800082DA72 /* GameSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt.swift; sourceTree = "<group>"; };
 		559442A526FE51350082DA72 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -819,6 +821,7 @@
 				55EE3D7D270377FC00991D86 /* VersionHelper.swift */,
 				55F67A63271349AA003C60B2 /* SKColor.swift */,
 				557933E62718289F00013BA9 /* ScrollableNode.swift */,
+				557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -1241,6 +1244,7 @@
 				5561AF9E2710AA56007B3F8F /* WelcomeSceneBase.swift in Sources */,
 				55C83F2B26FC75E600F42F53 /* GameSceneBase.swift in Sources */,
 				55EE3DAB270643E500991D86 /* CreditsScene.swift in Sources */,
+				557933F82718884B00013BA9 /* OnlineHighscoreHelper.swift in Sources */,
 				55E59BC626FF7FA400B75322 /* UserDefaultsHelper.swift in Sources */,
 				55EAD45126FF559C00BB8D06 /* MapSceneBase.swift in Sources */,
 				55C83F7926FDFF4F00F42F53 /* DescriptionSceneBase.swift in Sources */,
