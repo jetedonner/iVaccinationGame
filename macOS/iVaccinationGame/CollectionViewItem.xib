@@ -33,7 +33,7 @@
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FSe-ep-RM0">
                     <rect key="frame" x="16" y="142" width="128" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StayHealthyBW" id="3vS-2J-sw2"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="LockedBW" id="3vS-2J-sw2"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HhR-2S-1Qc">
                     <rect key="frame" x="10" y="104" width="140" height="21"/>
@@ -67,6 +67,6 @@
         <collectionViewItem id="c2X-bD-ueb" customClass="CollectionViewItem" customModule="iVaccinationGame" customModuleProvider="target"/>
     </objects>
     <resources>
-        <image name="StayHealthyBW" width="512" height="512"/>
+        <image name="LockedBW" width="512" height="512"/>
     </resources>
 </document>

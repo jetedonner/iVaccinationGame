@@ -100,9 +100,14 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var player:Player = Player()
     var thrownSyringeDarts:[SyringeDart] = []
     
+    var achievementManager:IVAchievementManager!
+    let onlineHelper:OnlineHighscoreHelper = OnlineHighscoreHelper()
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         self.physicsWorld.contactDelegate = self
+        
+        self.achievementManager = IVAchievementManager(gameScene: self)
         
         self.selLevel = UserDefaultsHelper.levelID
         self.levels = [
@@ -428,6 +433,10 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                     case .nightmare:
                         GCAchievements.shared.add2completeAllLevelsNightmare()
                     }
+                }
+                
+                if(self.achievementManager.checkAchievementAccomplished(achievementId: .achivementPerfectThrowsID)){
+                    self.onlineHelper.achievementAccomplished(achievementId: .achivementPerfectThrowsID)
                 }
                 
                 if((!gameLost) && self.currentLevel.shots > 0 && self.currentLevel.shots == self.currentLevel.hits){

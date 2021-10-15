@@ -22,20 +22,6 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         static let CertificatesCell = "CertificatesCell"
     }
     
-    
-    fileprivate enum AchievementIDs {
-        static let achivementPerfectThrowsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows"
-        static let achivementStayHealthyID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.stayhealthy"
-        static let achivementCollectAllCertsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.collectallcertificates"
-        static let achivementCompleteAllLevelsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevels"
-        static let achivementCompleteAllLevelsPerfectThrowID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfectthrows"
-        static let achivementCompleteAllLevelsPerfectHealthID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfecthealth"
-        static let achivementCompleteAllLevelsPerfectCertsID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfectcertificates"
-        static let achivementCompleteAllLevelsEasyID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelseasy"
-        static let achivementCompleteAllLevelsMediumID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelsmedium"
-        static let achivementCompleteAllLevelsHardID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelshard"
-        static let achivementCompleteAllLevelsNightmareID:String = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevelsnightmare"
-    }
 
     @IBOutlet var tblHighscore:NSTableView!
     @IBOutlet var tblCertificates:NSTableView!
@@ -57,6 +43,8 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         
         self.configureCollectionView()
         self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        
 //        self.collectionView.delegate = self
         self.collectionView.reloadData()
     }
@@ -76,55 +64,59 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         var scoreColumnValue:String = ""
         if(tableView == self.tblHighscore){
             tmpArr = self.highscore as! Array<Dictionary<String, Any>>
-            if(row > 0){
-                scoreColumnValue = tmpArr[row-1]["score"] as! String
-            }
+//            if(row > 0){
+                scoreColumnValue = tmpArr[row]["score"] as! String
+//            }
             cellIdentifier = CellIdentifiers.ScoreCell
         }else if(tableView == self.tblVaccinations){
             tmpArr = self.vaccinations as! Array<Dictionary<String, Any>>
             scoreColumnTitle = "Vaccinations"
-            if(row > 0){
-                scoreColumnValue = tmpArr[row-1]["vaccinations"] as! String
-            }
+//            if(row > 0){
+                scoreColumnValue = tmpArr[row]["vaccinations"] as! String
+//            }
             cellIdentifier = CellIdentifiers.VaccinationsCell
         }else if(tableView == self.tblCertificates){
             tmpArr = self.certificates as! Array<Dictionary<String, Any>>
             scoreColumnTitle = "Certificates"
-            if(row > 0){
-                scoreColumnValue = tmpArr[row-1]["certificates"] as! String
-            }
+//            if(row > 0){
+                scoreColumnValue = tmpArr[row]["certificates"] as! String
+//            }
             cellIdentifier = CellIdentifiers.CertificatesCell
         }
 
             
 
             if tableColumn == tableView.tableColumns[0] {
-                if(row == 0){
-                    text = "Rank"
-                }else{
-                    text = (tmpArr[newRow-1]["rank"] as! NSNumber).stringValue
-                }
+//                if(row == 0){
+//                    text = "Rank"
+//                }else{
+//                    text = (tmpArr[newRow-1]["rank"] as! NSNumber).stringValue
+//                }
+                text = (tmpArr[newRow]["rank"] as! NSNumber).stringValue
                 cellIdentifier = CellIdentifiers.RankCell
             } else if tableColumn == tableView.tableColumns[1] {
-                if(newRow <= 0){
-                    text = "Player"
-                }else{
-                    text = tmpArr[newRow-1]["player"] as! String
-                }
+//                if(newRow <= 0){
+//                    text = "Player"
+//                }else{
+//                    text = tmpArr[newRow-1]["player"] as! String
+//                }
+                text = tmpArr[newRow]["player"] as! String
                 cellIdentifier = CellIdentifiers.PlayerCell
             } else if tableColumn == tableView.tableColumns[2] {
-                if(newRow <= 0){
-                    text = scoreColumnTitle
-                }else{
-                    text = scoreColumnValue //tmpArr[newRow-1]["score"] as! String
-                }
-                
+//                if(newRow <= 0){
+//                    text = scoreColumnTitle
+//                }else{
+//                    text = scoreColumnValue //tmpArr[newRow-1]["score"] as! String
+//                }
+                tableColumn?.title = scoreColumnTitle
+                text = scoreColumnValue
             }else if tableColumn == tableView.tableColumns[3] {
-                if(newRow <= 0){
-                    text = "Difficulty"
-                }else{
-                    text = tmpArr[newRow-1]["difficulty"] as! String
-                }
+//                if(newRow <= 0){
+//                    text = "Difficulty"
+//                }else{
+//                    text = tmpArr[newRow-1]["difficulty"] as! String
+//                }
+                text = tmpArr[newRow]["difficulty"] as! String
                 cellIdentifier = CellIdentifiers.DifficultyCell
             }
             
@@ -149,15 +141,15 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         
         if(tableView == self.tblHighscore){
             if let highscore = self.highscore as? Array<Dictionary<String, Any>>{
-                return highscore.count + 1
+                return highscore.count
             }
         }else if(tableView == self.tblVaccinations){
             if let vaccination = self.vaccinations as? Array<Dictionary<String, Any>>{
-                return vaccination.count + 1
+                return vaccination.count
             }
         }else if(tableView == self.tblCertificates){
             if let certificate = self.certificates as? Array<Dictionary<String, Any>>{
-                return certificate.count + 1
+                return certificate.count
             }
         }
         return 0
@@ -175,12 +167,18 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
       // 1
       let flowLayout = NSCollectionViewFlowLayout()
       flowLayout.itemSize = NSSize(width: 160.0, height: 290.0)
-      flowLayout.sectionInset = NSEdgeInsets(top: 30.0, left: 20.0, bottom: 30.0, right: 20.0)
+      flowLayout.sectionInset = NSEdgeInsets(top: 0.0, left: 20.0, bottom: 30.0, right: 20.0)
       flowLayout.minimumInteritemSpacing = 20.0
-      flowLayout.minimumLineSpacing = 20.0
+        flowLayout.minimumLineSpacing = 20.0
       collectionView.collectionViewLayout = flowLayout
-       view.wantsLayer = true
+    flowLayout.headerReferenceSize = CGSize(width: 1000, height: 40)
+//        flowLayout.sectionHeadersPinToVisibleBounds = true
+        view.wantsLayer = true
       collectionView.layer?.backgroundColor = NSColor.black.cgColor
+    }
+    
+    @IBAction func testInsertAch(_ sender:Any){
+        self.onlineHelper.achievementAccomplished(achievementId: .achivementPerfectThrowsID)
     }
     
     @IBAction func testInsertHS2(_ sender:Any){
@@ -260,7 +258,7 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
                                 self.onlineHelper.loadAchievements(completion: { loadedAchievements in
                                     DispatchQueue.main.async {
                                         self.achievements = loadedAchievements
-//                                        self.collectionView.delegate = self
+                                        self.collectionView.delegate = self
                                         self.collectionView.dataSource = self
                                         self.collectionView.reloadData()
 //                                        self.tblCertificates.delegate = self
@@ -270,8 +268,6 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
                                         self.prgLoading.isHidden = true
                                     }
                                 })
-//                                self.prgLoading.stopAnimation(sender)
-//                                self.prgLoading.isHidden = true
                             }
                         })
                     }
@@ -280,94 +276,30 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         })
         
     }
-    
-//
-//    @IBAction func switchDbgBorders(_ sender:Any){
-////        self.showHideAchButtons(hide: (self.swtDevMode?.state == .off))
-//    }
-//
-//    @IBAction func switchDevMode(_ sender:Any){
-//        self.showHideAchButtons(hide: (self.swtDevMode?.state == .off))
-//    }
-//
-//    func showHideAchButtons(hide:Bool){
-//        self.cmdTestAch?.isHidden = hide
-//        self.cmdResetAch?.isHidden = hide
-//        self.cmdResetUserDef?.isHidden = hide
-//        self.cmdResetICloud?.isHidden = hide
-//        self.cmdResetALL?.isHidden = hide
-//    }
-//
-//    @IBAction func resetALL(_ sender:Any){
-//        ICloudStorageHelper.resetAllICloudValues()
-//        UserDefaultsHelper.resetUserDefValues()
-//        GCAchievements.shared.resetAllCompletedAchivements()
-//        _ = AlertBox.dialogOK(message: "All values reset", text: "All values and achievements reset ok!")
-//    }
-//
-//    @IBAction func resetICloud(_ sender:Any){
-//        ICloudStorageHelper.resetAllICloudValues()
-//        _ = AlertBox.dialogOK(message: "iCloud values reset", text: "All iCloud values reset ok!")
-//    }
-//
-//    @IBAction func resetUserDef(_ sender:Any){
-//        UserDefaultsHelper.resetUserDefValues()
-//        _ = AlertBox.dialogOK(message: "UserDefault values reset", text: "All UserDefault values reset ok!")
-//    }
-//
-//    @IBAction func resetGCAchivements(_ sender:Any){
-//        GCAchievements.shared.resetAllCompletedAchivements()
-//        _ = AlertBox.dialogOK(message: "All achievements reset", text: "All achievements reset ok!")
-//    }
-//
-//    @IBAction func testGCAchivements(_ sender:Any){
-//        GCAchievements.shared.add2perfectThrows()
-//        GCAchievements.shared.add2stayHealthy()
-//        GCAchievements.shared.add2completeAllLevels()
-//    }
-//
-//    @IBAction func closeAndDiscardChanges(_ sender:Any){
-//        self.sharedUserDefaultsController?.revert(nil)
-//        if(gameScene != nil){
-//            self.gameScene?.setGamePaused(isPaused: false)
-//        }
-//        self.dismiss(sender)
-//    }
-//
-//    @IBAction func closeAndResume(_ sender:Any){
-//        if(gameScene != nil){
-//            if(self.playBGMusic!.state == .on){
-//                SoundManager.shared.playBGSound()
-//            }else{
-//                SoundManager.shared.stopBGSound()
-//            }
-//            SoundManager.shared.songPlayer?.volume = self.volume!.floatValue
-//            SoundManager.shared.masterVolume = CGFloat(self.volume!.floatValue)
-//            UserDefaultsHelper.volume = self.volume!.floatValue
-//        }
-//        self.dismiss(sender)
-//        if(self.gameScene != nil){
-//            self.gameScene?.setGamePaused(isPaused: false)
-////            let answer = AlertBox.dialogOKCancel(question: "Ok?", text: "Settings changed! Do you want to abort the current level?")
-////            if(answer){
-////                self.gameScene!.runLevelConfig(levelID: UserDefaultsHelper.levelID, difficulty: UserDefaultsHelper.difficulty)
-////            }else{
-////                self.gameScene?.setGamePaused(isPaused: false)
-////            }
-//        }
-//    }
 }
 
-
-extension HighscoreViewController: NSCollectionViewDataSource{
+extension HighscoreViewController: NSCollectionViewDelegateFlowLayout {
     
-    func checkAchievement(achievement:String)->Bool{
+    
+//    func collectionView(collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
+//      return NSSize(width: 1000, height: 40)
+//    }
+
+    
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
+        return NSSize(width: 1000, height: 40)
+    }
+}
+  
+extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewDelegate{
+    
+    func checkAchievement(achievementId:AchievementId)->String{
         for ach in self.achievements as! Array<Dictionary<String, Any>>{
-            if(ach["achievement"] as! String == achievement){
-                return true
+            if(ach["achievement"] as! String == achievementId.rawValue){
+                return ach["dt_create"] as! String
             }
         }
-        return false
+        return ""
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
@@ -375,22 +307,23 @@ extension HighscoreViewController: NSCollectionViewDataSource{
         guard let collectionViewItem = item as? CollectionViewItem else {return item}
         
         collectionViewItem.view.frame = CGRect(origin: collectionViewItem.view.frame.origin, size: CGSize(width: 160, height: 290))
-        if(indexPath.item == 0){
+        if(indexPath.section == 0 && indexPath.item == 0){
             collectionViewItem.textField?.stringValue = "Stay healthy"
             collectionViewItem.lblDesc?.stringValue = "Try to stay healthy - to complete this task you must avoid to be bitten by the zombies"
-            if(self.checkAchievement(achievement: AchievementIDs.achivementStayHealthyID /*"grp.ch.kimhauser.swift.ivaccinationgame.achivements.stayhealthy"*/)){
+            let check = self.checkAchievement(achievementId: AchievementId.achivementStayHealthyID)
+            if(check != ""){
                 collectionViewItem.imageView?.image = NSImage(named: "StayHealthy")
-                collectionViewItem.lblDate.stringValue = "2021-10-14"
+                collectionViewItem.lblDate.stringValue = check
                 collectionViewItem.lblDate.isHidden = false
                 collectionViewItem.lblDate.drawsBackground = true
                 collectionViewItem.lblDate.backgroundColor = NSColor(calibratedWhite: 0.75, alpha:0.35)
                 collectionViewItem.lblDate.wantsLayer = true
                 collectionViewItem.lblDate.layer?.cornerRadius = 10.0
             }else{
-                collectionViewItem.imageView?.image = NSImage(named: "StayHealthyBW")
+//                collectionViewItem.imageView?.image = NSImage(named: "LockedBW")
             }
-        }else if(indexPath.item == 1){
-            if(self.checkAchievement(achievement: AchievementIDs.achivementPerfectThrowsID /*"grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows"*/)){
+        }else if(indexPath.section == 0 && indexPath.item == 1){
+            if(self.checkAchievement(achievementId: AchievementId.achivementPerfectThrowsID /*"grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows"*/) != ""){
                 collectionViewItem.imageView?.image = NSImage(named: "PerfectShot")
                 collectionViewItem.lblDate.stringValue = "2021-10-14"
                 collectionViewItem.lblDate.isHidden = false
@@ -398,79 +331,88 @@ extension HighscoreViewController: NSCollectionViewDataSource{
                 collectionViewItem.lblDate.backgroundColor = NSColor(calibratedWhite: 0.75, alpha:0.35)
                 collectionViewItem.lblDate.wantsLayer = true
                 collectionViewItem.lblDate.layer?.cornerRadius = 10.0
+                collectionViewItem.setHighlight(selected: true)
             }else{
                 collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
             }
             
             collectionViewItem.textField?.stringValue = "Perfect shot"
             collectionViewItem.lblDesc?.stringValue = "Try to hit the zombies with every single syringe you shoot at them"
-        }else if(indexPath.item == 2){
-            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+        }else if(indexPath.section == 0 && indexPath.item == 2){
+//            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
             collectionViewItem.textField?.stringValue = "All certificates"
             collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in the current level before they disapear"
-        }else if(indexPath.item == 3){
-            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            
+            
+        }else if(indexPath.section == 1 && indexPath.item == 0){
+//            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
             collectionViewItem.textField?.stringValue = "All levels"
             collectionViewItem.lblDesc?.stringValue = "Try to complete all levels for the current difficulty"
-        }else if(indexPath.item == 4){
-            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
-            collectionViewItem.textField?.stringValue = "All certificates (levels)"
-            collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in all levels before they disapear"
-        }else if(indexPath.item == 5){
-            collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
+        }else if(indexPath.section == 1 && indexPath.item == 1){
+//            collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
             collectionViewItem.textField?.stringValue = "Perfect shot (levels)"
             collectionViewItem.lblDesc?.stringValue = "Try to hit the zombies with every single shot in all levels"
-        }else if(indexPath.item == 6){
-            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
-            collectionViewItem.textField?.stringValue = "All certificates"
-            collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in the current level before they disapear"
-        }else if(indexPath.item == 7){
-            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
-            collectionViewItem.textField?.stringValue = "All levels"
-            collectionViewItem.lblDesc?.stringValue = "Try to complete all levels for the current difficulty"
-        }else if(indexPath.item == 8){
-            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
-            collectionViewItem.textField?.stringValue = "All certificates"
-            collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in the current level before they disapear"
+        }else if(indexPath.section == 1 && indexPath.item == 2){
+//            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "All health (levels)"
+            collectionViewItem.lblDesc?.stringValue = "Try to stay healthy in all levels - not a single bite by zombies"
+        }else if(indexPath.section == 1 && indexPath.item == 3){
+//            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "All certificates (levels)"
+            collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in all levels before they disapear"
+        }else if(indexPath.section == 1 && indexPath.item == 4){
+//            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "Complete easy levels"
+            collectionViewItem.lblDesc?.stringValue = "Complete all easy levels"
+        }else if(indexPath.section == 1 && indexPath.item == 5){
+//            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "Complete medium levels"
+            collectionViewItem.lblDesc?.stringValue = "Complete all medium levels"
+        }else if(indexPath.section == 1 && indexPath.item == 6){
+//            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "Complete hard levels"
+            collectionViewItem.lblDesc?.stringValue = "Complete all hard levels"
+        }else if(indexPath.section == 1 && indexPath.item == 7){
+            //            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "Complete nightmare levels"
+            collectionViewItem.lblDesc?.stringValue = "Complete all nightmare levels"
+        }else if(indexPath.section == 2 && indexPath.item == 0){
+            //            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "Complete the game"
+            collectionViewItem.lblDesc?.stringValue = "Complete all levels with all difficulties"
+        }else if(indexPath.section == 2 && indexPath.item == 1){
+            //            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            collectionViewItem.textField?.stringValue = "All achievements"
+            collectionViewItem.lblDesc?.stringValue = "Complete all achievements"
         }
 //        let imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
 //        collectionViewItem.imageFile = imageFile
         
+//        let selectedIndexPath = collectionView.selectionIndexPaths.first where selectedIndexPath == indexPath
 //        if let selectedIndexPath = collectionView.selectionIndexPaths.first where selectedIndexPath == indexPath {
 //          collectionViewItem.setHighlight(true)
 //        } else {
 //          collectionViewItem.setHighlight(false)
 //        }
-        
-//        let currentCGImage = collectionViewItem.imageView?.image?.cgImage //else { return nil }
-//        let currentCIImage = CIImage(cgImage: currentCGImage as! CGImage)
-//
-//        let filter = CIFilter(name: "CIColorMonochrome")
-//        filter?.setValue(currentCIImage, forKey: "inputImage")
-//
-//        // set a gray value for the tint color
-//        filter?.setValue(CIColor(red: 0.7, green: 0.7, blue: 0.7), forKey: "inputColor")
-//
-//        filter?.setValue(1.0, forKey: "inputIntensity")
-//        let outputImage = filter?.outputImage
-//
-//        let context = CIContext()
-//
-//        let cgimg = context.createCGImage(outputImage!, from: outputImage!.extent)
-////            let processedImage = UIImage(cgImage: cgimg)
-////            print(processedImage.size)
-//        collectionViewItem.imageView?.image = NSImage(cgImage: cgimg!, size: CGSize(width: 128, height: 128))
-//        }
-        
         return item
     }
     
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return 3
+    }
+    
     func numberOfSectionsInCollectionView(collectionView: NSCollectionView) -> Int {
-      return 9 //imageDirectoryLoader.numberOfSections
+        return 3 //imageDirectoryLoader.numberOfSections
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-      return 9// imageDirectoryLoader.numberOfItemsInSection(section)
+        if(section == 0){
+            return 3
+        }else if(section == 1){
+            return 8
+        }else{
+            return 2
+        }
     }
     
 //    func collectionView(collectionView: NSCollectionView, itemForRepresentedObjectAtIndexPath indexPath: NSIndexPath) -> NSCollectionViewItem {
@@ -490,11 +432,30 @@ extension HighscoreViewController: NSCollectionViewDataSource{
 //      return item
 //    }
     
-    func collectionView(collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> NSView {
-        let view = collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind("SectionHeader"), withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderView"), for: indexPath as IndexPath)// .makeSupplementaryViewOfKind(NSCollectionElementKindSectionHeader, withIdentifier: "HeaderView", forIndexPath: indexPath) as! HeaderView
-//        view.tit .sectionTitle.stringValue = "Section \(indexPath.section)"
-//      let numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
-//      view.imageCount.stringValue = "\(numberOfItemsInSection) image files"
-      return view
+//    func collectionView(collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> NSView {
+//        let view = collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind("SectionHeader"), withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderView"), for: indexPath as IndexPath)// .makeSupplementaryViewOfKind(NSCollectionElementKindSectionHeader, withIdentifier: "HeaderView", forIndexPath: indexPath) as! HeaderView
+////        view.tit .sectionTitle.stringValue = "Section \(indexPath.section)"
+////      let numberOfItemsInSection = imageDirectoryLoader.numberOfItemsInSection(indexPath.section)
+////      view.imageCount.stringValue = "\(numberOfItemsInSection) image files"
+//      return view
+//    }
+    
+    
+    func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
+        if(kind == NSCollectionView.SupplementaryElementKind("UICollectionElementKindSectionHeader")){
+            let view = collectionView.makeSupplementaryView(ofKind: NSCollectionView.SupplementaryElementKind("UICollectionElementKindSectionHeader"), withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "HeaderView"), for: indexPath) as! HeaderView
+            if(indexPath.section == 0){
+                view.sectionTitle.stringValue = "Current level: 'Meadow'"
+            }else if(indexPath.section == 1){
+                view.sectionTitle.stringValue = "All levels: 'Easy'"
+            }else{
+                view.sectionTitle.stringValue = "Complete game"
+            }
+            
+    //        (collectionView.collectionViewLayout as? NSCollectionViewFlowLayout)!.headerReferenceSize = CGSize(width: 1000, height: 40)
+            return view
+        }else{
+            return NSView()
+        }
     }
 }

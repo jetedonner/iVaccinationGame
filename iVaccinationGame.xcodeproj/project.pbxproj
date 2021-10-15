@@ -76,6 +76,10 @@
 		5579340C2718A14300013BA9 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557934092718A14300013BA9 /* HeaderView.xib */; };
 		5579340D2718A14300013BA9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340A2718A14300013BA9 /* HeaderView.swift */; };
 		5579340E2718A14300013BA9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340A2718A14300013BA9 /* HeaderView.swift */; };
+		5579341027198FA100013BA9 /* IVAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340F27198FA100013BA9 /* IVAchievement.swift */; };
+		5579341127198FA100013BA9 /* IVAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340F27198FA100013BA9 /* IVAchievement.swift */; };
+		557934132719901600013BA9 /* IVAchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557934122719901600013BA9 /* IVAchievementManager.swift */; };
+		557934142719901600013BA9 /* IVAchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557934122719901600013BA9 /* IVAchievementManager.swift */; };
 		559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A126FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A226FE50800082DA72 /* GameSceneBaseExt.swift */; };
@@ -332,6 +336,8 @@
 		5579340427189F7700013BA9 /* CollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewItem.swift; sourceTree = "<group>"; };
 		557934092718A14300013BA9 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		5579340A2718A14300013BA9 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		5579340F27198FA100013BA9 /* IVAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVAchievement.swift; sourceTree = "<group>"; };
+		557934122719901600013BA9 /* IVAchievementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVAchievementManager.swift; sourceTree = "<group>"; };
 		5594429F26FE4F710082DA72 /* SyringeDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringeDart.swift; sourceTree = "<group>"; };
 		559442A226FE50800082DA72 /* GameSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt.swift; sourceTree = "<group>"; };
 		559442A526FE51350082DA72 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -857,6 +863,8 @@
 				55F67A63271349AA003C60B2 /* SKColor.swift */,
 				557933E62718289F00013BA9 /* ScrollableNode.swift */,
 				557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */,
+				5579340F27198FA100013BA9 /* IVAchievement.swift */,
+				557934122719901600013BA9 /* IVAchievementManager.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -1249,6 +1257,7 @@
 				55EE3D992705BD7900991D86 /* ArrayExt.swift in Sources */,
 				55C83F5B26FDDB8B00F42F53 /* PlayingState.swift in Sources */,
 				55EAD46B26FF7A7D00BB8D06 /* MapScene.swift in Sources */,
+				5579341027198FA100013BA9 /* IVAchievement.swift in Sources */,
 				556FBE7F26F7032B00F8081C /* AlertBox.swift in Sources */,
 				5561AFA12710AB05007B3F8F /* WelcomeScene.swift in Sources */,
 				5561AF83270CCEE6007B3F8F /* SyringePickupManager.swift in Sources */,
@@ -1308,6 +1317,7 @@
 				55C83F3226FCA9A200F42F53 /* GCAchievements.swift in Sources */,
 				559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */,
 				55B64A3726F3579600944766 /* SettingsViewController.swift in Sources */,
+				557934132719901600013BA9 /* IVAchievementManager.swift in Sources */,
 				55EE3D8F2705A7E200991D86 /* VaccineArsenal.swift in Sources */,
 				55EE3D7E270377FC00991D86 /* VersionHelper.swift in Sources */,
 				55C83F8126FE323800F42F53 /* CityJapanLevel.swift in Sources */,
@@ -1382,6 +1392,7 @@
 				55EAD45E26FF72AD00BB8D06 /* MapSceneBase.swift in Sources */,
 				55EE3DAE270646F700991D86 /* SkViewExt.swift in Sources */,
 				557933E82718289F00013BA9 /* ScrollableNode.swift in Sources */,
+				557934142719901600013BA9 /* IVAchievementManager.swift in Sources */,
 				55EAD44E26FE990200BB8D06 /* CertificatePickup.swift in Sources */,
 				55EE3D862705A58F00991D86 /* VaccineBase.swift in Sources */,
 				55EE3D902705A7E200991D86 /* VaccineArsenal.swift in Sources */,
@@ -1418,6 +1429,7 @@
 				55C83F5126FDD96F00F42F53 /* KeyCode.swift in Sources */,
 				55EE3D8D2705A67800991D86 /* JillAndJasmineVaccine.swift in Sources */,
 				55C83F2426FC6B2500F42F53 /* MedKitPickup.swift in Sources */,
+				5579341127198FA100013BA9 /* IVAchievement.swift in Sources */,
 				55C83F6826FDDC7000F42F53 /* GameOverState.swift in Sources */,
 				55EAD45926FF6F2700BB8D06 /* MenuSceneBase.swift in Sources */,
 				5579340627189F7700013BA9 /* CollectionViewItem.swift in Sources */,
@@ -1716,7 +1728,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.iVaccinationGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1742,7 +1754,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.iVaccinationGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

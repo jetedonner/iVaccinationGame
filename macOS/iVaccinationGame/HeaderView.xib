@@ -13,33 +13,25 @@
             <rect key="frame" x="0.0" y="0.0" width="500" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1zW-zn-ALA">
-                    <rect key="frame" x="18" y="12" width="130" height="17"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="17" id="HOg-Pn-gbg"/>
-                        <constraint firstAttribute="width" constant="126" id="jhq-Of-d45"/>
-                    </constraints>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1zW-zn-ALA">
+                    <rect key="frame" x="18" y="12" width="372" height="17"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Section Number" id="et1-4I-FSS">
                         <font key="font" metaFont="system" size="16"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1QJ-Ea-2Gk">
+                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1QJ-Ea-2Gk">
                     <rect key="frame" x="394" y="11" width="88" height="16"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Images Count" id="2yG-4M-g15">
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" placeholderString="Images Count" id="2yG-4M-g15">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="1QJ-Ea-2Gk" secondAttribute="trailing" constant="20" symbolic="YES" id="6q4-9S-ji3"/>
-                <constraint firstItem="1QJ-Ea-2Gk" firstAttribute="baseline" secondItem="1zW-zn-ALA" secondAttribute="firstBaseline" id="7hy-6q-8nc"/>
-                <constraint firstItem="1zW-zn-ALA" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="BPN-Kt-HNh"/>
-                <constraint firstItem="1zW-zn-ALA" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="kBz-58-NDL"/>
-            </constraints>
             <connections>
                 <outlet property="imageCount" destination="1QJ-Ea-2Gk" id="SOc-UE-R2s"/>
                 <outlet property="sectionTitle" destination="1zW-zn-ALA" id="eTW-ZU-uN6"/>
