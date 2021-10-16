@@ -34,7 +34,7 @@ extension SKView {
     
     override open func resetCursorRects() {
         if let gameScene = (self.scene as? GameScene){
-            gameScene.imgCH = self.resize(image: NSImage(named:NSImage.Name("CH_first_red.png"))!, w: 64, h: 64)
+            gameScene.imgCH = self.resize(image: NSImage(named: "Crosshair")! /*NSImage(named:NSImage.Name("CH_first_red.png"))!*/, w: 64, h: 64)
             let image = gameScene.imgCH
             let spot = NSPoint(x: 32, y: 32)
             let customCursor = NSCursor(image: image!, hotSpot: spot)

@@ -37,6 +37,7 @@ enum UserDefaultsName:String{
     case vaccinations = "vaccinations"
     case vaccination = "vaccination"
 
+    case playerName = "playerName"
     case useScoreboard = "useScoreboard"
     case useAchievements = "useAchievements"
     
@@ -192,6 +193,19 @@ class UserDefaultsHelper{
             self.defaults.set(newValue, forKey: UserDefaultsName.level.rawValue)
         }
     }
+    
+    static var playerName:String{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.playerName.rawValue) == nil){
+                self.defaults.set(NSFullUserName(), forKey: UserDefaultsName.playerName.rawValue)
+            }
+            return defaults.string(forKey: UserDefaultsName.playerName.rawValue)!
+        }
+        set{
+            self.defaults.set(newValue, forKey: UserDefaultsName.playerName.rawValue)
+        }
+    }
+    
     
     static var onlineCompetitionWebserver:String{
         get{
@@ -356,5 +370,6 @@ class UserDefaultsHelper{
                 contentsOf: Bundle.main.url(forResource: "Defaults", withExtension: "plist")!
             )! as! [String : Any]
         )
+        self.playerName = NSFullUserName()
     }
 }

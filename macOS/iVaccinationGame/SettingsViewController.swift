@@ -31,11 +31,18 @@ class SettingsViewController: NSViewController {
     @IBOutlet var cmdResetALL:NSButton?
     @IBOutlet var lblDevMode:NSTextField?
     
+    @IBOutlet var txtPlayerName:NSTextField?
+    
     @IBOutlet var tabMain:NSTabView?
     @IBOutlet var tabDev:NSTabViewItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let userName = NSUserName()
+//        let fullUserName = NSFullUserName()
+        self.txtPlayerName?.stringValue = NSFullUserName()
+        
         if(VersionHelper.getDevMode()){
 //            self.tabDev?.view?.isHidden = false
             self.swtDevMode?.isHidden = false
