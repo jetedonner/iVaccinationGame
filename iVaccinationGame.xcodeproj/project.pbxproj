@@ -80,6 +80,10 @@
 		5579341127198FA100013BA9 /* IVAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340F27198FA100013BA9 /* IVAchievement.swift */; };
 		557934132719901600013BA9 /* IVAchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557934122719901600013BA9 /* IVAchievementManager.swift */; };
 		557934142719901600013BA9 /* IVAchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557934122719901600013BA9 /* IVAchievementManager.swift */; };
+		55793416271AF8F100013BA9 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55793415271AF8F100013BA9 /* SettingsViewController.xib */; };
+		55793417271AF8F100013BA9 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55793415271AF8F100013BA9 /* SettingsViewController.xib */; };
+		55793419271B06F900013BA9 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55793418271B06F900013BA9 /* Defaults.plist */; };
+		5579341A271B06F900013BA9 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55793418271B06F900013BA9 /* Defaults.plist */; };
 		559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A126FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A226FE50800082DA72 /* GameSceneBaseExt.swift */; };
@@ -100,7 +104,7 @@
 		55A579D326F64D1B0084239D /* CGFloatValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579D226F64D1B0084239D /* CGFloatValueTransformer.swift */; };
 		55B64A3126F3467200944766 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A3026F3467200944766 /* MenuScene.sks */; };
 		55B64A3326F3474900944766 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3226F3474900944766 /* MenuSceneBase.swift */; };
-		55B64A3526F3577D00944766 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A3426F3577D00944766 /* SettingsViewController.xib */; };
+		55B64A3526F3577D00944766 /* SettingsViewControllerOrig.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A3426F3577D00944766 /* SettingsViewControllerOrig.xib */; };
 		55B64A3726F3579600944766 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3626F3579600944766 /* SettingsViewController.swift */; };
 		55B64A3B26F3602C00944766 /* GameVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3A26F3602C00944766 /* GameVars.swift */; };
 		55B64A3D26F3716000944766 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3C26F3716000944766 /* CustomProgressBar.swift */; };
@@ -338,6 +342,8 @@
 		5579340A2718A14300013BA9 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		5579340F27198FA100013BA9 /* IVAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVAchievement.swift; sourceTree = "<group>"; };
 		557934122719901600013BA9 /* IVAchievementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVAchievementManager.swift; sourceTree = "<group>"; };
+		55793415271AF8F100013BA9 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		55793418271B06F900013BA9 /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		5594429F26FE4F710082DA72 /* SyringeDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringeDart.swift; sourceTree = "<group>"; };
 		559442A226FE50800082DA72 /* GameSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt.swift; sourceTree = "<group>"; };
 		559442A526FE51350082DA72 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -354,7 +360,7 @@
 		55A579D226F64D1B0084239D /* CGFloatValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatValueTransformer.swift; sourceTree = "<group>"; };
 		55B64A3026F3467200944766 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		55B64A3226F3474900944766 /* MenuSceneBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSceneBase.swift; sourceTree = "<group>"; };
-		55B64A3426F3577D00944766 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		55B64A3426F3577D00944766 /* SettingsViewControllerOrig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewControllerOrig.xib; sourceTree = "<group>"; };
 		55B64A3626F3579600944766 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		55B64A3A26F3602C00944766 /* GameVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVars.swift; sourceTree = "<group>"; };
 		55B64A3C26F3716000944766 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
@@ -495,6 +501,7 @@
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
+				55793418271B06F900013BA9 /* Defaults.plist */,
 				5561AF97270F785F007B3F8F /* Credits.rtfd */,
 				55EE3D9B27063C2800991D86 /* iVaccination-Info.plist */,
 				55E59BD826FF9A9400B75322 /* iVaccination.entitlements */,
@@ -534,7 +541,8 @@
 				554E531A26EFAD4300371E58 /* AppDelegate.swift */,
 				554E532226EFAD4300371E58 /* ViewController.swift */,
 				554E532626EFAD4400371E58 /* Main.storyboard */,
-				55B64A3426F3577D00944766 /* SettingsViewController.xib */,
+				55B64A3426F3577D00944766 /* SettingsViewControllerOrig.xib */,
+				55793415271AF8F100013BA9 /* SettingsViewController.xib */,
 				55B64A3626F3579600944766 /* SettingsViewController.swift */,
 				557933F5271836AE00013BA9 /* HighscoreViewController.swift */,
 				557933F3271833FD00013BA9 /* HighscoreViewController.xib */,
@@ -1148,12 +1156,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55793419271B06F900013BA9 /* Defaults.plist in Resources */,
 				55A579B826F4D1800084239D /* Upward2Particles.sks in Resources */,
 				557934072718A09800013BA9 /* CollectionViewItem.xib in Resources */,
 				5552BFA726F264130034C812 /* MagicParticle.sks in Resources */,
 				557933F4271833FD00013BA9 /* HighscoreViewController.xib in Resources */,
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
 				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
+				55793416271AF8F100013BA9 /* SettingsViewController.xib in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
 				55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */,
 				55EE3D8127058F1000991D86 /* MapSceneOrig.sks in Resources */,
@@ -1165,7 +1175,7 @@
 				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
 				55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */,
 				55B64A7926F3831D00944766 /* UpwardParticles.sks in Resources */,
-				55B64A3526F3577D00944766 /* SettingsViewController.xib in Resources */,
+				55B64A3526F3577D00944766 /* SettingsViewControllerOrig.xib in Resources */,
 				554E535226EFB60600371E58 /* Media.scnassets in Resources */,
 				5561AF87270EE57B007B3F8F /* MapScene.sks in Resources */,
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
@@ -1201,6 +1211,7 @@
 			files = (
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55F67A6827134DE4003C60B2 /* GameScene_Last.sks in Resources */,
+				5579341A271B06F900013BA9 /* Defaults.plist in Resources */,
 				5579340527189F7700013BA9 /* CollectionViewItem.xib in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				557933EE27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
@@ -1227,6 +1238,7 @@
 				55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */,
 				55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */,
 				5579340C2718A14300013BA9 /* HeaderView.xib in Resources */,
+				55793417271AF8F100013BA9 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

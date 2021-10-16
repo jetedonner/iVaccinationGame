@@ -21,6 +21,10 @@ extension CGFloat {
 
 class CGFloatValueTransformer: ValueTransformer {
     override func transformedValue(_ value: Any?) -> Any? {
-        return (value as! CGFloat).rounded(toPlaces:2)
+        if(value == nil){
+            return 0.0
+        }else{
+            return (value as! CGFloat).rounded(toPlaces:2)
+        }
     }
 }

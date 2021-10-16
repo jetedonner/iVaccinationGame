@@ -84,7 +84,13 @@ class SettingsViewController: NSViewController {
     
     @IBAction func resetUserDef(_ sender:Any){
         UserDefaultsHelper.resetUserDefValues()
-        _ = AlertBox.dialogOK(message: "UserDefault values reset", text: "All UserDefault values reset ok!")
+        _ = AlertBox.dialogOK(message: "UserDefault game values reset", text: "All GAME UserDefault values reset ok!")
+    }
+    
+    @IBAction func resetUserDefComplete(_ sender:Any){
+        UserDefaultsHelper.resetAllUserDefaults()
+        UserDefaultsHelper.loadStandardValues()
+        _ = AlertBox.dialogOK(message: "UserDefault values COMPLETELY reset", text: "REALLY ALL UserDefault values reset ok!")
     }
     
     @IBAction func resetGCAchivements(_ sender:Any){

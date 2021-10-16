@@ -13,14 +13,19 @@ enum UserDefaultsName:String{
     case roundTime = "roundTime"
     case difficulty = "difficulty"
     case level = "level"
-    case levelProgress = "levelProgree"
+//    case levelProgress = "levelProgrees"
     case playSounds = "playSounds"
     case playBGMusic = "playBGMusic"
+    case playSoundEffects = "playSoundEffects"
+    
+    
     case volume = "volume"
     case useGameCenter = "useGameCenter"
     case uploadHighscore = "uploadHighscore"
     case autoNightMode = "autoNightMode"
     case devMode = "devMode"
+    case devLevel = "devLevel"
+    
     case dbgBorders = "dbgBorders"
     
     
@@ -31,6 +36,14 @@ enum UserDefaultsName:String{
     case certificate = "certificate"
     case vaccinations = "vaccinations"
     case vaccination = "vaccination"
+
+    case useScoreboard = "useScoreboard"
+    case useAchievements = "useAchievements"
+    
+    case onlineCompetitionWebserver = "onlineCompetitionWebserver"
+    case onlineCompetitionWebservice = "onlineCompetitionWebservice"
+    
+    
 }
 
 class UserDefaultsHelper{
@@ -99,15 +112,15 @@ class UserDefaultsHelper{
         }
     }
     
-    static var levelProgress:Level{
-        set{ self.defaults.set(newValue.getDesc(), forKey: UserDefaultsName.levelProgress.rawValue) }
-        get{
-            if(self.defaults.value(forKey: UserDefaultsName.levelProgress.rawValue) == nil){
-                self.defaults.set(Level.Meadow.getDesc(), forKey: UserDefaultsName.levelProgress.rawValue)
-            }
-            return Level(levelIDString: defaults.string(forKey: UserDefaultsName.levelProgress.rawValue)!)!
-        }
-    }
+//    static var levelProgress:Level{
+//        set{ self.defaults.set(newValue.getDesc(), forKey: UserDefaultsName.levelProgress.rawValue) }
+//        get{
+//            if(self.defaults.value(forKey: UserDefaultsName.levelProgress.rawValue) == nil){
+//                self.defaults.set(Level.Meadow.getDesc(), forKey: UserDefaultsName.levelProgress.rawValue)
+//            }
+//            return Level(levelIDString: defaults.string(forKey: UserDefaultsName.levelProgress.rawValue)!)!
+//        }
+//    }
     
     static func resetUserDefValues(resetFirstStart:Bool = true){
         UserDefaultsHelper.highscore = 0
@@ -180,6 +193,30 @@ class UserDefaultsHelper{
         }
     }
     
+    static var onlineCompetitionWebserver:String{
+        get{
+            if(self.defaults.string(forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue) == nil){
+                self.defaults.set(GameVars.ONLINE_COMPETITION_WEBSERVER, forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue)
+            }
+            return defaults.string(forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue)!
+        }
+        set{
+            self.defaults.set(newValue, forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue)
+        }
+    }
+    
+    static var onlineCompetitionWebservice:String{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue) == nil){
+                self.defaults.set(GameVars.ONLINE_COMPETITION_WEBSERVER, forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue)
+            }
+            return defaults.string(forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue)!
+        }
+        set{
+            self.defaults.set(newValue, forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue)
+        }
+    }
+    
     static var autoNightMode:Bool{
         get{
             if(self.defaults.value(forKey: UserDefaultsName.autoNightMode.rawValue) == nil){
@@ -195,6 +232,25 @@ class UserDefaultsHelper{
                 self.defaults.set(true, forKey: UserDefaultsName.useGameCenter.rawValue)
             }
             return self.defaults.bool(forKey: UserDefaultsName.useGameCenter.rawValue)
+        }
+    }
+    
+    
+    static var useScoreboard:Bool{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.useScoreboard.rawValue) == nil){
+                self.defaults.set(true, forKey: UserDefaultsName.useScoreboard.rawValue)
+            }
+            return self.defaults.bool(forKey: UserDefaultsName.useScoreboard.rawValue)
+        }
+    }
+    
+    static var useAchievements:Bool{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.useAchievements.rawValue) == nil){
+                self.defaults.set(true, forKey: UserDefaultsName.useAchievements.rawValue)
+            }
+            return self.defaults.bool(forKey: UserDefaultsName.useAchievements.rawValue)
         }
     }
     
@@ -225,6 +281,15 @@ class UserDefaultsHelper{
         }
     }
     
+    static var playSoundEffects:Bool{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.playSoundEffects.rawValue) == nil){
+                self.defaults.set(true, forKey: UserDefaultsName.playSoundEffects.rawValue)
+            }
+            return self.defaults.bool(forKey: UserDefaultsName.playSoundEffects.rawValue)
+        }
+    }
+    
     static var volume:Float{
         get{
             if(self.defaults.value(forKey: UserDefaultsName.volume.rawValue) == nil){
@@ -241,6 +306,15 @@ class UserDefaultsHelper{
                 self.defaults.set(false, forKey: UserDefaultsName.devMode.rawValue)
             }
             return self.defaults.bool(forKey: UserDefaultsName.devMode.rawValue)
+        }
+    }
+    
+    static var devLevel:Bool{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.devLevel.rawValue) == nil){
+                self.defaults.set(false, forKey: UserDefaultsName.devLevel.rawValue)
+            }
+            return self.defaults.bool(forKey: UserDefaultsName.devLevel.rawValue)
         }
     }
     
@@ -264,5 +338,21 @@ class UserDefaultsHelper{
         set{
             self.defaults.set(newValue, forKey: UserDefaultsName.firstStart.rawValue)
         }
+    }
+    
+    static func resetAllUserDefaults(){
+        let domain = Bundle.main.bundleIdentifier!
+        self.defaults.removePersistentDomain(forName: domain)
+        self.loadStandardValues()
+//        self.defaults.synchronize()
+//        print(Array(self.defaults.dictionaryRepresentation().keys).count)
+    }
+    
+    static func loadStandardValues(){
+        self.defaults.register(
+            defaults: NSDictionary(
+                contentsOf: Bundle.main.url(forResource: "Defaults", withExtension: "plist")!
+            )! as! [String : Any]
+        )
     }
 }

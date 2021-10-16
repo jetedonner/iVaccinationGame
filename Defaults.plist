@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>onlineCompetitionWebserver</key>
+	<string>ivaccination.kimhauser.ch</string>
+	<key>onlineCompetitionWebservice</key>
+	<string>webservice.php</string>
+	<key>devMode</key>
+	<false/>
+	<key>useScoreboard</key>
+	<true/>
+	<key>useAchievements</key>
+	<true/>
+	<key>firstStart</key>
+	<true/>
+	<key>devLevel</key>
+	<false/>
+	<key>roundTime</key>
+	<string>1 Minute</string>
+	<key>difficulty</key>
+	<string>Easy</string>
+	<key>level</key>
+	<string>Meadow</string>
+	<key>autoNightMode</key>
+	<true/>
+	<key>playSounds</key>
+	<true/>
+	<key>playBGMusic</key>
+	<true/>
+	<key>playSoundEffects</key>
+	<true/>
+	<key>volume</key>
+	<real>0.5</real>
+	<key>uploadHighscore</key>
+	<false/>
+	<key>useGameCenter</key>
+	<false/>
+</dict>
+</plist>
