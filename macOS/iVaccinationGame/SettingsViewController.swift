@@ -31,13 +31,19 @@ class SettingsViewController: NSViewController {
     @IBOutlet var cmdResetALL:NSButton?
     @IBOutlet var lblDevMode:NSTextField?
     
+    @IBOutlet var tabMain:NSTabView?
+    @IBOutlet var tabDev:NSTabViewItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if(VersionHelper.getDevMode()){
+//            self.tabDev?.view?.isHidden = false
             self.swtDevMode?.isHidden = false
             self.lblDevMode?.isHidden = false
             self.showHideAchButtons(hide: (self.swtDevMode?.state == .off))
         }else{
+            self.tabMain?.removeTabViewItem(self.tabDev!)
+//            self.tabDev?.view?.isHidden = true
             self.swtDevMode?.isHidden = true
             self.lblDevMode?.isHidden = true
             self.swtDevMode?.state = .off
@@ -89,7 +95,6 @@ class SettingsViewController: NSViewController {
     
     @IBAction func resetUserDefComplete(_ sender:Any){
         UserDefaultsHelper.resetAllUserDefaults()
-//        UserDefaultsHelper.loadStandardValues()
         self.sharedUserDefaultsController?.defaults.synchronize()
         _ = AlertBox.dialogOK(message: "UserDefault values COMPLETELY reset", text: "REALLY ALL UserDefault values reset ok!")
     }

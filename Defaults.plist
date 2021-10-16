@@ -36,5 +36,7 @@
 	<false/>
 	<key>useGameCenter</key>
 	<false/>
+	<key>dbgBorders</key>
+	<false/>
 </dict>
 </plist>

@@ -104,7 +104,6 @@
 		55A579D326F64D1B0084239D /* CGFloatValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A579D226F64D1B0084239D /* CGFloatValueTransformer.swift */; };
 		55B64A3126F3467200944766 /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A3026F3467200944766 /* MenuScene.sks */; };
 		55B64A3326F3474900944766 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3226F3474900944766 /* MenuSceneBase.swift */; };
-		55B64A3526F3577D00944766 /* SettingsViewControllerOrig.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55B64A3426F3577D00944766 /* SettingsViewControllerOrig.xib */; };
 		55B64A3726F3579600944766 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3626F3579600944766 /* SettingsViewController.swift */; };
 		55B64A3B26F3602C00944766 /* GameVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3A26F3602C00944766 /* GameVars.swift */; };
 		55B64A3D26F3716000944766 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B64A3C26F3716000944766 /* CustomProgressBar.swift */; };
@@ -360,7 +359,6 @@
 		55A579D226F64D1B0084239D /* CGFloatValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatValueTransformer.swift; sourceTree = "<group>"; };
 		55B64A3026F3467200944766 /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		55B64A3226F3474900944766 /* MenuSceneBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSceneBase.swift; sourceTree = "<group>"; };
-		55B64A3426F3577D00944766 /* SettingsViewControllerOrig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewControllerOrig.xib; sourceTree = "<group>"; };
 		55B64A3626F3579600944766 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		55B64A3A26F3602C00944766 /* GameVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVars.swift; sourceTree = "<group>"; };
 		55B64A3C26F3716000944766 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
@@ -541,7 +539,6 @@
 				554E531A26EFAD4300371E58 /* AppDelegate.swift */,
 				554E532226EFAD4300371E58 /* ViewController.swift */,
 				554E532626EFAD4400371E58 /* Main.storyboard */,
-				55B64A3426F3577D00944766 /* SettingsViewControllerOrig.xib */,
 				55793415271AF8F100013BA9 /* SettingsViewController.xib */,
 				55B64A3626F3579600944766 /* SettingsViewController.swift */,
 				557933F5271836AE00013BA9 /* HighscoreViewController.swift */,
@@ -1175,7 +1172,6 @@
 				554E531F26EFAD4300371E58 /* Actions.sks in Resources */,
 				55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */,
 				55B64A7926F3831D00944766 /* UpwardParticles.sks in Resources */,
-				55B64A3526F3577D00944766 /* SettingsViewControllerOrig.xib in Resources */,
 				554E535226EFB60600371E58 /* Media.scnassets in Resources */,
 				5561AF87270EE57B007B3F8F /* MapScene.sks in Resources */,
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,

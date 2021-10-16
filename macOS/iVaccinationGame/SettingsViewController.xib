@@ -15,6 +15,8 @@
                 <outlet property="cmdResetUserDef" destination="jyh-Io-vHb" id="8As-zH-jDh"/>
                 <outlet property="cmdTestAch" destination="4t9-Xi-B1J" id="d0U-zH-qzJ"/>
                 <outlet property="sharedUserDefaultsController" destination="l72-UK-3kJ" id="f9f-Yq-KfE"/>
+                <outlet property="tabDev" destination="RGz-Vn-9wX" id="ZVM-jE-mkv"/>
+                <outlet property="tabMain" destination="Bo6-qP-8wS" id="iay-aT-mxY"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Gdp-jN-azl"/>
             </connections>
         </customObject>
@@ -353,7 +355,7 @@
                                 </subviews>
                             </view>
                         </tabViewItem>
-                        <tabViewItem label="Developer" identifier="" id="RGz-Vn-9wX">
+                        <tabViewItem label="Developer" identifier="tabDev" id="RGz-Vn-9wX">
                             <view key="view" id="yIo-WK-uaB">
                                 <rect key="frame" x="10" y="33" width="488" height="395"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -507,6 +509,11 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <action selector="switchDevMode:" target="-2" id="WUQ-dP-Zoz"/>
+                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.devMode" id="zwM-Zb-gtX">
+                                                <dictionary key="options">
+                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                </dictionary>
+                                            </binding>
                                             <binding destination="l72-UK-3kJ" name="value" keyPath="values.dbgBorders" id="AoZ-pn-7RK">
                                                 <dictionary key="options">
                                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
@@ -539,6 +546,11 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <action selector="switchDevMode:" target="-2" id="NIu-98-5RK"/>
+                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.devMode" id="bn6-RE-9Ci">
+                                                <dictionary key="options">
+                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                </dictionary>
+                                            </binding>
                                             <binding destination="l72-UK-3kJ" name="value" keyPath="values.devLevel" id="bzk-PM-TTn">
                                                 <dictionary key="options">
                                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
@@ -563,14 +575,6 @@
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
-                                        <connections>
-                                            <binding destination="l72-UK-3kJ" name="hidden" keyPath="values.devMode" id="rrU-d6-FYk">
-                                                <dictionary key="options">
-                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                </dictionary>
-                                            </binding>
-                                        </connections>
                                     </textField>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4t9-Xi-B1J">
                                         <rect key="frame" x="104" y="92" width="90" height="32"/>
