@@ -344,6 +344,8 @@ class UserDefaultsHelper{
         let domain = Bundle.main.bundleIdentifier!
         self.defaults.removePersistentDomain(forName: domain)
         self.loadStandardValues()
+        self.defaults.synchronize()
+        self.defaults.setPersistentDomain(self.defaults.dictionaryRepresentation(), forName: domain)
 //        self.defaults.synchronize()
 //        print(Array(self.defaults.dictionaryRepresentation().keys).count)
     }

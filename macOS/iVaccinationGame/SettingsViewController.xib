@@ -507,12 +507,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <connections>
                                             <action selector="switchDevMode:" target="-2" id="WUQ-dP-Zoz"/>
-                                            <binding destination="l72-UK-3kJ" name="hidden" keyPath="values.devMode" id="oMf-yc-hma">
-                                                <dictionary key="options">
-                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
-                                                </dictionary>
-                                            </binding>
                                             <binding destination="l72-UK-3kJ" name="value" keyPath="values.dbgBorders" id="AoZ-pn-7RK">
                                                 <dictionary key="options">
                                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>

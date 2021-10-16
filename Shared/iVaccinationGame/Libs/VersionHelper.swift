@@ -18,6 +18,10 @@ class VersionHelper{
     }
     
     static func getDevMode()->Bool{
-        return (Bundle.main.infoDictionary?["DevMode"] as? Bool)!
+        if(Bundle.main.infoDictionary?["DevMode"] == nil){
+            return false
+        }else{
+            return (Bundle.main.infoDictionary?["DevMode"] as? Bool)!
+        }
     }
 }

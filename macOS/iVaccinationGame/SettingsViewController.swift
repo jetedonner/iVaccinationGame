@@ -89,7 +89,8 @@ class SettingsViewController: NSViewController {
     
     @IBAction func resetUserDefComplete(_ sender:Any){
         UserDefaultsHelper.resetAllUserDefaults()
-        UserDefaultsHelper.loadStandardValues()
+//        UserDefaultsHelper.loadStandardValues()
+        self.sharedUserDefaultsController?.defaults.synchronize()
         _ = AlertBox.dialogOK(message: "UserDefault values COMPLETELY reset", text: "REALLY ALL UserDefault values reset ok!")
     }
     
