@@ -20,6 +20,7 @@ class GameVars{
     
     static let BLOOD_SHOW_TIME:TimeInterval = 0.35
     static let BLOOD_FADEOUT_TIME:TimeInterval = 0.45
+    static let MSGBOX_TIME:TimeInterval = 3.0
     
     static let ONLINE_COMPETITION_WEBSERVER:String = "http://ivaccination.kimhauser.ch/"
     static let ONLINE_COMPETITION_WEBSERVICE:String = "webservice.php"

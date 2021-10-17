@@ -102,9 +102,13 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     
     var achievementManager:IVAchievementManager!
     let onlineHelper:OnlineHighscoreHelper = OnlineHighscoreHelper()
+    var teset:SkMessageBoxNode!
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        
+        self.teset = SkMessageBoxNode(size: CGSize(width: self.frame.width - 200, height: 100))
+        self.addChild(self.teset)
         self.physicsWorld.contactDelegate = self
         
         self.achievementManager = IVAchievementManager(gameScene: self)

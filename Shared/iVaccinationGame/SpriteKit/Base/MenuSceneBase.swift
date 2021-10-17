@@ -21,8 +21,11 @@ class MenuSceneBase: BaseSKScene {
     var lblVersion:SKLabelNode?
     var lblColor:SKColor?
     
+    var teset:SkMessageBoxNode!
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        self.teset = SkMessageBoxNode(size: CGSize(width: self.frame.width - 200, height: 100))
         self.lblStartGame = self.childNode(withName: "lblStartGame") as? SKLabelNode
         self.lblContinue = self.childNode(withName: "lblContinue") as? SKLabelNode
         
@@ -40,6 +43,9 @@ class MenuSceneBase: BaseSKScene {
         self.lblVersion?.text = "Version: \(VersionHelper.getAppVersion()) - Build: \(VersionHelper.getAppBuild())"
         self.lblColor = self.lblStartGame?.fontColor
         self.selNode = self.lblStartGame
+        self.addChild(self.teset)
+//        self.teset.showMessage(title: "HELLO MESSAGE BOX", msg: "Some detailed message to show")
+        self.teset.showMessage(title: "Collect all certificates", msg: "GREAT! You've collected all certificates in this level!\r\nYou earned +100 Points")
     }
     
     override func touchOrClick(pos: CGPoint, viewController:IViewController)->SKNode {

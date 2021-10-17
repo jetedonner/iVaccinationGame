@@ -84,6 +84,12 @@
 		55793417271AF8F100013BA9 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55793415271AF8F100013BA9 /* SettingsViewController.xib */; };
 		55793419271B06F900013BA9 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55793418271B06F900013BA9 /* Defaults.plist */; };
 		5579341A271B06F900013BA9 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55793418271B06F900013BA9 /* Defaults.plist */; };
+		5579341C271C957800013BA9 /* MessageBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579341B271C957800013BA9 /* MessageBox.xib */; };
+		5579341D271C957800013BA9 /* MessageBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579341B271C957800013BA9 /* MessageBox.xib */; };
+		5579341F271C95A400013BA9 /* MessageBox.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5579341E271C95A400013BA9 /* MessageBox.sks */; };
+		55793420271C95A400013BA9 /* MessageBox.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5579341E271C95A400013BA9 /* MessageBox.sks */; };
+		55793422271C95CC00013BA9 /* SkMessageBoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */; };
+		55793423271C95CC00013BA9 /* SkMessageBoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */; };
 		559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A126FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A226FE50800082DA72 /* GameSceneBaseExt.swift */; };
@@ -343,6 +349,9 @@
 		557934122719901600013BA9 /* IVAchievementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVAchievementManager.swift; sourceTree = "<group>"; };
 		55793415271AF8F100013BA9 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		55793418271B06F900013BA9 /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
+		5579341B271C957800013BA9 /* MessageBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageBox.xib; sourceTree = "<group>"; };
+		5579341E271C95A400013BA9 /* MessageBox.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MessageBox.sks; sourceTree = "<group>"; };
+		55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkMessageBoxNode.swift; sourceTree = "<group>"; };
 		5594429F26FE4F710082DA72 /* SyringeDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringeDart.swift; sourceTree = "<group>"; };
 		559442A226FE50800082DA72 /* GameSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt.swift; sourceTree = "<group>"; };
 		559442A526FE51350082DA72 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -834,6 +843,8 @@
 				55C83F0926FC66CD00F42F53 /* Base */,
 				55A579B926F4F8810084239D /* Nodes */,
 				55B64A2E26F3462E00944766 /* Scenes */,
+				5579341B271C957800013BA9 /* MessageBox.xib */,
+				5579341E271C95A400013BA9 /* MessageBox.sks */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -853,6 +864,7 @@
 				5561AF772708B935007B3F8F /* GameSceneBaseExt2.swift */,
 				55EAD46426FF757500BB8D06 /* BaseSKScene.swift */,
 				55EE3D762701ECEA00991D86 /* IViewController.swift */,
+				55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1159,6 +1171,7 @@
 				5552BFA726F264130034C812 /* MagicParticle.sks in Resources */,
 				557933F4271833FD00013BA9 /* HighscoreViewController.xib in Resources */,
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
+				5579341F271C95A400013BA9 /* MessageBox.sks in Resources */,
 				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
 				55793416271AF8F100013BA9 /* SettingsViewController.xib in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
@@ -1166,6 +1179,7 @@
 				55EE3D8127058F1000991D86 /* MapSceneOrig.sks in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				557933ED27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
+				5579341C271C957800013BA9 /* MessageBox.xib in Resources */,
 				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
 				55F67A6727134DE4003C60B2 /* GameScene_Last.sks in Resources */,
 				55EE3D9D27063E1700991D86 /* CreditsScene.sks in Resources */,
@@ -1219,6 +1233,7 @@
 				55C83F7726FDFD8A00F42F53 /* DescriptionScene.sks in Resources */,
 				55C83F2926FC719300F42F53 /* Media.scnassets in Resources */,
 				5561AF9C2710AA46007B3F8F /* WelcomeScene.sks in Resources */,
+				5579341D271C957800013BA9 /* MessageBox.xib in Resources */,
 				55C83F0626FC666500F42F53 /* MeadowLeftActions.sks in Resources */,
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
 				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
@@ -1231,6 +1246,7 @@
 				55C83F0226FC666500F42F53 /* MenuScene.sks in Resources */,
 				55EE3D9E27063E1700991D86 /* CreditsScene.sks in Resources */,
 				5561AF99270F785F007B3F8F /* Credits.rtfd in Resources */,
+				55793420271C95A400013BA9 /* MessageBox.sks in Resources */,
 				55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */,
 				55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */,
 				5579340C2718A14300013BA9 /* HeaderView.xib in Resources */,
@@ -1346,6 +1362,7 @@
 				559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */,
 				5561AFA52711812E007B3F8F /* SyringePickupType.swift in Sources */,
 				559442A626FE51350082DA72 /* GameState.swift in Sources */,
+				55793422271C95CC00013BA9 /* SkMessageBoxNode.swift in Sources */,
 				55B64A3B26F3602C00944766 /* GameVars.swift in Sources */,
 				55A579BB26F4F89D0084239D /* MedKitPickup.swift in Sources */,
 			);
@@ -1372,6 +1389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55793423271C95CC00013BA9 /* SkMessageBoxNode.swift in Sources */,
 				55C83F3326FCA9A200F42F53 /* GCAchievements.swift in Sources */,
 				55C83F5426FDDAF000F42F53 /* GameStateMachine.swift in Sources */,
 				55C83F5926FDDB8500F42F53 /* PlayingState.swift in Sources */,

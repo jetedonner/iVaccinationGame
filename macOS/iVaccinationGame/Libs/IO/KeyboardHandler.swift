@@ -53,7 +53,8 @@ class KeyboardHandler{
             self.gameScene.setGamePaused(isPaused: true)
             break
         case KeyCode.KEY_W.rawValue: // S
-            SoundManager.shared.playSound(sound: .shot)
+//            SoundManager.shared.playSound(sound: .shot)
+            self.gameScene.teset.showMessage(title: "Perfect shot", msg: "GREAT! You didn't miss a single shot and hit every zombie!\r\nYou earned +100 Points")
             break
         case KeyCode.KEY_P.rawValue: // P
             if(self.gameScene.gameStateMachine.currentState is PlayingState){
