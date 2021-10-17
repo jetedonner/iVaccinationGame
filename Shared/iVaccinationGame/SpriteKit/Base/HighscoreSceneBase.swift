@@ -30,7 +30,7 @@ class HighscoreSceneBase: BaseSKScene {
     
     override func touchOrClick(pos: CGPoint, viewController:IViewController) {
         super.touchOrClick(pos: pos, viewController: viewController)
-        if(self.selNode == lblContinue){
+        if(node == lblContinue){
             viewController.loadMenuScene()
         }else{
             

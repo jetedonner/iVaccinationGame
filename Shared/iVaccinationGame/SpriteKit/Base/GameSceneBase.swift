@@ -415,6 +415,15 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             ICloudStorageHelper.level = nextLevel.getDesc()
             ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
             
+            
+            if(UserDefaultsHelper.useScoreboard){
+                self.onlineHelper.uploadHighscore(score: UserDefaultsHelper.highscore, playerName: UserDefaultsHelper.playerName, difficulty: UserDefaultsHelper.difficulty.rawValue)
+                
+                self.onlineHelper.uploadHighscore(score: UserDefaultsHelper.certificates, playerName: UserDefaultsHelper.playerName, difficulty: UserDefaultsHelper.difficulty.rawValue, type: HighscoreType.certificates)
+                
+                self.onlineHelper.uploadHighscore(score: UserDefaultsHelper.vaccinations, playerName: UserDefaultsHelper.playerName, difficulty: UserDefaultsHelper.difficulty.rawValue, type: HighscoreType.vaccinations)
+            }
+            
             if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
                 guard let gameCenterHelper = self.getViewController().gameCenterHelper else { return }
                 gameCenterHelper.updateScore(with: UserDefaultsHelper.highscore)

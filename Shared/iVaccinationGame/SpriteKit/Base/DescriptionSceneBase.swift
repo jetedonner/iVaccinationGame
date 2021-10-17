@@ -18,10 +18,11 @@ class DescriptionSceneBase: BaseSKScene {
         self.lblContinue = self.childNode(withName: "lblContinue") as? SKLabelNode
     }
     
-    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
-        super.touchOrClick(pos: pos, viewController: viewController)
-        if(self.selNode == lblContinue){
+    override func touchOrClick(pos: CGPoint, viewController:IViewController)->SKNode {
+        let node = super.touchOrClick(pos: pos, viewController: viewController)
+        if(node == lblContinue){
             viewController.loadGameScene(difficulty: .easy, level: .Meadow)
         }
+        return node
     }
 }

@@ -21,8 +21,8 @@ class BaseSKScene: SKScene {
         self.sceneNode = self.scene
     }
     
-    func touchOrClick(pos:CGPoint, viewController:IViewController){
-        
+    func touchOrClick(pos:CGPoint, viewController:IViewController)->SKNode{
+        return self.atPoint(pos)
     }
     
     required init?(coder aDecoder: NSCoder) {

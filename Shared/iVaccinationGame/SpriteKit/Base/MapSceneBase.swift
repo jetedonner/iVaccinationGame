@@ -292,13 +292,14 @@ class MapSceneBase: BaseSKScene {
         }
     }
     
-    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
-//        if(self.selNode == self.posMeadow){
+    override func touchOrClick(pos: CGPoint, viewController:IViewController)->SKNode {
+//        if(node == self.posMeadow){
 //            self.imgMeadow.imgNode.texture = self.textureMeadowColor
 //            return
 //        }
+        let node = super.touchOrClick(pos: pos, viewController: viewController)
         
-        if(self.selNode == self.imgBack){
+        if(node == self.imgBack){
             viewController.loadMenuScene()
         }else if([
             self.posMeadow,
@@ -308,8 +309,8 @@ class MapSceneBase: BaseSKScene {
             self.posJapanStreet,
             self.posCityNight,
             self.posScarryStreet
-        ].contains(self.selNode)/* && UserDefaultsHelper.levelID != .MissionAccomplished*/){
-            let daLevel:Level = self.getLevelForPosNode(posNode: self.selNode as! SKShapeNode)
+        ].contains(node)/* && UserDefaultsHelper.levelID != .MissionAccomplished*/){
+            let daLevel:Level = self.getLevelForPosNode(posNode: node as! SKShapeNode)
             if(daLevel.rawValue >= Level.NewGame.rawValue || UserDefaultsHelper.devMode){//} UserDefaultsHelper.levelID.rawValue){
                 viewController.loadGameScene(difficulty: UserDefaultsHelper.difficulty, level: daLevel)
             }
@@ -317,8 +318,9 @@ class MapSceneBase: BaseSKScene {
             ICloudStorageHelper.resetAllICloudValues()
             UserDefaultsHelper.resetUserDefValues(resetFirstStart: false)
             viewController.loadDifficultyScene()
-            return
+//            return node
         }
+        return node
     }
     
     func getLevelForPosNode(posNode:SKShapeNode)->Level{

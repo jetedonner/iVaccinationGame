@@ -335,7 +335,7 @@
                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8vE-DR-mBr">
                                         <rect key="frame" x="169" y="144" width="288" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="ivaccination.kimhauser.ch/highscore/" placeholderString="Enter server address" drawsBackground="YES" id="FpA-Oe-KF8">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="http://ivaccination.kimhauser.ch/highscore/" placeholderString="Enter server address" drawsBackground="YES" id="FpA-Oe-KF8">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -692,6 +692,17 @@
                                         </buttonCell>
                                         <connections>
                                             <action selector="resetUserDefComplete:" target="-2" id="ahl-3z-4UX"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dSe-ZH-12D">
+                                        <rect key="frame" x="104" y="51" width="156" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Test Own Highscore" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="U3L-Bj-vCe">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="testOwnUploadHighscore:" target="-2" id="7un-ZQ-y2N"/>
                                         </connections>
                                     </button>
                                 </subviews>

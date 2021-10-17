@@ -92,23 +92,24 @@ class MenuScene: MenuSceneBase {
         }
     }
     
-    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
-        super.touchOrClick(pos: pos, viewController: viewController)
+    override func touchOrClick(pos: CGPoint, viewController:IViewController)->SKNode {
+        let node = super.touchOrClick(pos: pos, viewController: viewController)
         
-        if(self.selNode == lblExit){
+        if(node == lblExit){
             NSApp.terminate(nil)
-        }else if(self.selNode == lblSettings){
+        }else if(node == lblSettings){
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadSettingsDialog(nil)
             }
-        }else if(self.selNode == lblMap){
+        }else if(node == lblMap){
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadCreditsScene()
             }
-        }else if(self.selNode == lblHighscore){
+        }else if(node == lblHighscore){
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadHighscoreDialog(nil)
             }
         }
+        return node
     }
 }

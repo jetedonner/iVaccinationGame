@@ -207,6 +207,10 @@ class UserDefaultsHelper{
     }
     
     
+    static var onlineCompetitionURL:String{
+        get{ return self.onlineCompetitionWebserver + (self.onlineCompetitionWebserver.last == "/" ? "" : "/" ) + self.onlineCompetitionWebservice }
+    }
+    
     static var onlineCompetitionWebserver:String{
         get{
             if(self.defaults.string(forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue) == nil){

@@ -220,9 +220,11 @@ extension HighscoreViewController: NSCollectionViewDelegateFlowLayout {
 extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewDelegate{
     
     func checkAchievement(achievementId:AchievementId)->String{
-        for ach in self.achievements as! Array<Dictionary<String, Any>>{
-            if(ach["achievement"] as! String == achievementId.rawValue){
-                return ach["dt_create"] as! String
+        if let achievements = self.achievements {
+            for ach in achievements as! Array<Dictionary<String, Any>>{
+                if(ach["achievement"] as! String == achievementId.rawValue){
+                    return ach["dt_create"] as! String
+                }
             }
         }
         return ""
@@ -259,7 +261,7 @@ extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewD
                 collectionViewItem.lblDate.layer?.cornerRadius = 10.0
                 collectionViewItem.setHighlight(selected: true)
             }else{
-                collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
+//                collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
             }
             
             collectionViewItem.textField?.stringValue = "Perfect shot"

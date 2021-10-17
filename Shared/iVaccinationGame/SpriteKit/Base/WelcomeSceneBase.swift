@@ -20,11 +20,11 @@ class WelcomeSceneBase: BaseSKScene {
         self.chkDontShow = self.childNode(withName: "chkDontShow") as? SKShapeNode
     }
     
-    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
-        super.touchOrClick(pos: pos, viewController: viewController)
-        if(self.selNode == lblContinue){
+    override func touchOrClick(pos: CGPoint, viewController:IViewController)->SKNode{
+        let node = super.touchOrClick(pos: pos, viewController: viewController)
+        if(node == lblContinue){
             viewController.loadMenuScene()
-        }else if(self.selNode == self.chkDontShow){
+        }else if(node == self.chkDontShow){
             if(self.chkDontShow?.fillColor != self.chkDontShow?.strokeColor){
                 self.chkDontShow?.fillColor = self.chkDontShow!.strokeColor
                 UserDefaultsHelper.firstStart = false
@@ -33,5 +33,6 @@ class WelcomeSceneBase: BaseSKScene {
                 UserDefaultsHelper.firstStart = true
             }
         }
+        return node
     }
 }

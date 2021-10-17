@@ -13,7 +13,7 @@ extension BaseSKScene{
     func touchDown(atPoint pos : CGPoint) {
         print("touchDown")
         if let viewCtrl = self.view?.window?.rootViewController{
-            self.selNode = self.atPoint(pos)
+            node = self.atPoint(pos)
             self.touchOrClick(pos: pos, viewController: (viewCtrl as! GameViewController))
         }
     }

@@ -36,12 +36,14 @@ class SettingsViewController: NSViewController {
     @IBOutlet var tabMain:NSTabView?
     @IBOutlet var tabDev:NSTabViewItem?
     
+    let onlineHelper:OnlineHighscoreHelper = OnlineHighscoreHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        let userName = NSUserName()
-//        let fullUserName = NSFullUserName()
-        self.txtPlayerName?.stringValue = NSFullUserName()
+
+        if(self.txtPlayerName?.stringValue == ""){
+            self.txtPlayerName?.stringValue = NSFullUserName()
+        }
         
         if(VersionHelper.getDevMode()){
 //            self.tabDev?.view?.isHidden = false
@@ -115,6 +117,14 @@ class SettingsViewController: NSViewController {
         GCAchievements.shared.add2perfectThrows()
         GCAchievements.shared.add2stayHealthy()
         GCAchievements.shared.add2completeAllLevels()
+    }
+    
+    @IBAction func testOwnUploadHighscore(_ sender:Any){
+        self.onlineHelper.uploadHighscore(score: UserDefaultsHelper.highscore, playerName: UserDefaultsHelper.playerName, difficulty: UserDefaultsHelper.difficulty.rawValue)
+        
+        self.onlineHelper.uploadHighscore(score: UserDefaultsHelper.certificates, playerName: UserDefaultsHelper.playerName, difficulty: UserDefaultsHelper.difficulty.rawValue, type: HighscoreType.certificates)
+        
+        self.onlineHelper.uploadHighscore(score: UserDefaultsHelper.vaccinations, playerName: UserDefaultsHelper.playerName, difficulty: UserDefaultsHelper.difficulty.rawValue, type: HighscoreType.vaccinations)
     }
     
     @IBAction func closeAndDiscardChanges(_ sender:Any){

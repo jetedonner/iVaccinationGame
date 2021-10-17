@@ -42,9 +42,9 @@ class MenuSceneBase: BaseSKScene {
         self.selNode = self.lblStartGame
     }
     
-    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
-        super.touchOrClick(pos: pos, viewController: viewController)
-        let node = self.atPoint(pos)
+    override func touchOrClick(pos: CGPoint, viewController:IViewController)->SKNode {
+        let node = super.touchOrClick(pos: pos, viewController: viewController)
+//        self.atPoint(pos)
         if(node == self.lblMap){
 //            viewController.loadCreditsScene()
 //            viewController.loadHighscoreScene()
@@ -78,5 +78,6 @@ class MenuSceneBase: BaseSKScene {
                 viewController.loadMapScene()
             }
         }
+        return node
     }
 }
