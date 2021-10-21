@@ -25,6 +25,10 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
 
     @IBOutlet var cmbDifficulty:NSPopUpButton!
     
+    @IBOutlet var cmdTestHS:NSButton!
+    @IBOutlet var cmdTestAch:NSButton!
+    @IBOutlet var cmdResetAch:NSButton!
+    
     @IBOutlet var tblHighscore:NSTableView!
     @IBOutlet var tblCertificates:NSTableView!
     @IBOutlet var tblVaccinations:NSTableView!
@@ -37,28 +41,25 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     var certificates:Any!
     var achievements:Any!
     
-    var teset:SkMessageBoxNode!
+    var msgBox:SkMessageBoxNode!
     var onlineHelper:OnlineHighscoreHelper!
     var selDifficulty:String = "All"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.teset = SkMessageBoxNode(size: CGSize(width: self.view.frame.width - 200, height: 100))
-        self.onlineHelper = OnlineHighscoreHelper(msgBox: self.teset)
-//        self.testInsertHS(nil)
+        self.msgBox = SkMessageBoxNode(size: CGSize(width: self.view.frame.width - 200, height: 100))
+        self.onlineHelper = OnlineHighscoreHelper(msgBox: self.msgBox)
         
         self.configureCollectionView()
-//        self.collectionView.dataSource = self
-//        self.collectionView.delegate = self
-//        self.collectionView.reloadData()
         self.reloadScoresAndAchievements(nil)
     }
     
+    @IBAction func cmdResetAchAction(_ sender:Any?){
+//        self.onlineHelper.
+    }
+    
     @IBAction func cmbDifficultyChange(_ sender:Any?){
-//        if(self.cmbDifficulty.selectedItem?.title == "All"){
-//
-//        }
         selDifficulty = self.cmbDifficulty.selectedItem!.title
         switch self.cmbDifficulty.selectedItem?.title {
         case "All":
@@ -160,6 +161,7 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         flowLayout.headerReferenceSize = CGSize(width: 1000, height: 50)
         view.wantsLayer = true
         collectionView.layer?.backgroundColor = NSColor.black.cgColor
+        collectionView.register(CollectionViewItem.self, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"))
     }
     
     @IBAction func testInsertAch(_ sender:Any){
@@ -253,7 +255,17 @@ extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewD
         if let achievements = self.achievements {
             for ach in achievements as! Array<Dictionary<String, Any>>{
                 if(ach["achievement"] as! String == achievementId.rawValue){
-                    return ach["dt_create"] as! String
+                    
+                    let dateFormatterGet = DateFormatter()
+                    dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
+
+                    let dateFormatterPrint = DateFormatter()
+                    dateFormatterPrint.dateFormat = "dd.MM.yyyy"
+
+                    let date:Date = dateFormatterGet.date(from: ach["created"] as! String)!
+//                    print(dateFormatterPrint.stringFromDate(date!))
+                    
+                    return dateFormatterPrint.string(from: date)
                 }
             }
         }
@@ -261,10 +273,30 @@ extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewD
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
-        let item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath)// .makeItemWithIdentifier("CollectionViewItem", forIndexPath: indexPath)
-        guard let collectionViewItem = item as? CollectionViewItem else {return item}
-        
+        var item:CollectionViewItem!
+        if let daItem = collectionView.item(at: indexPath) as? CollectionViewItem{
+//            item = daItem as? CollectionViewItem
+            return (daItem as? CollectionViewItem)!
+        }else{
+            item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath) as? CollectionViewItem
+        }
+//        guard item = collectionView.item(at: indexPath) as? CollectionViewItem else {
+//
+//        }
+//        guard let collectionViewItem = collectionViewItem as? CollectionViewItem else { return collectionViewItem }
+//
+        let collectionViewItem:CollectionViewItem = item!
         collectionViewItem.view.frame = CGRect(origin: collectionViewItem.view.frame.origin, size: CGSize(width: 160, height: 290))
+        
+        collectionViewItem.imageView?.image = NSImage(named: "LockedBW")
+        collectionViewItem.lblDate.stringValue = ""
+        collectionViewItem.lblDate.isHidden = true
+        collectionViewItem.lblDate.drawsBackground = false
+//        collectionViewItem.lblDate.backgroundColor = NSColor(calibratedWhite: 0.75, alpha:0.35)
+//        collectionViewItem.lblDate.wantsLayer = true
+        collectionViewItem.lblDate.layer?.cornerRadius = 10.0
+        collectionViewItem.setHighlight(selected: false)
+        
         if(indexPath.section == 0 && indexPath.item == 0){
             collectionViewItem.textField?.stringValue = "Stay healthy"
             collectionViewItem.lblDesc?.stringValue = "Try to stay healthy - to complete this task you must avoid to be bitten by the zombies"
@@ -277,13 +309,15 @@ extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewD
                 collectionViewItem.lblDate.backgroundColor = NSColor(calibratedWhite: 0.75, alpha:0.35)
                 collectionViewItem.lblDate.wantsLayer = true
                 collectionViewItem.lblDate.layer?.cornerRadius = 10.0
+                collectionViewItem.setHighlight(selected: true)
             }else{
 //                collectionViewItem.imageView?.image = NSImage(named: "LockedBW")
             }
         }else if(indexPath.section == 0 && indexPath.item == 1){
-            if(self.checkAchievement(achievementId: AchievementId.achivementPerfectThrowsID /*"grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows"*/) != ""){
+            let check = self.checkAchievement(achievementId: AchievementId.achivementPerfectThrowsID)
+            if(check != ""){ //if(self.checkAchievement(achievementId: AchievementId.achivementPerfectThrowsID /*"grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows"*/) != ""){
                 collectionViewItem.imageView?.image = NSImage(named: "PerfectShot")
-                collectionViewItem.lblDate.stringValue = "2021-10-14"
+                collectionViewItem.lblDate.stringValue = check
                 collectionViewItem.lblDate.isHidden = false
                 collectionViewItem.lblDate.drawsBackground = true
                 collectionViewItem.lblDate.backgroundColor = NSColor(calibratedWhite: 0.75, alpha:0.35)
@@ -293,11 +327,22 @@ extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewD
             }else{
 //                collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
             }
-            
             collectionViewItem.textField?.stringValue = "Perfect shot"
             collectionViewItem.lblDesc?.stringValue = "Try to hit the zombies with every single syringe you shoot at them"
         }else if(indexPath.section == 0 && indexPath.item == 2){
-//            collectionViewItem.imageView?.image = NSImage(named: "CertificatesBW")
+            let check = self.checkAchievement(achievementId: AchievementId.achivementCollectAllCertsID)
+            if(check != ""){
+                collectionViewItem.imageView?.image = NSImage(named: "Certificates")
+                collectionViewItem.lblDate.stringValue = check
+                collectionViewItem.lblDate.isHidden = false
+                collectionViewItem.lblDate.drawsBackground = true
+                collectionViewItem.lblDate.backgroundColor = NSColor(calibratedWhite: 0.75, alpha:0.35)
+                collectionViewItem.lblDate.wantsLayer = true
+                collectionViewItem.lblDate.layer?.cornerRadius = 10.0
+                collectionViewItem.setHighlight(selected: true)
+            }else{
+//                collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
+            }
             collectionViewItem.textField?.stringValue = "All certificates"
             collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in the current level before they disapear"
         }else if(indexPath.section == 1 && indexPath.item == 0){
@@ -331,15 +376,6 @@ extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewD
             collectionViewItem.textField?.stringValue = "All achievements"
             collectionViewItem.lblDesc?.stringValue = "Complete all achievements"
         }
-//        let imageFile = imageDirectoryLoader.imageFileForIndexPath(indexPath)
-//        collectionViewItem.imageFile = imageFile
-        
-//        let selectedIndexPath = collectionView.selectionIndexPaths.first where selectedIndexPath == indexPath
-//        if let selectedIndexPath = collectionView.selectionIndexPaths.first where selectedIndexPath == indexPath {
-//          collectionViewItem.setHighlight(true)
-//        } else {
-//          collectionViewItem.setHighlight(false)
-//        }
         return item
     }
     

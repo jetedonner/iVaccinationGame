@@ -65,6 +65,7 @@ class IVAchievementManager:IVAchievementDelegate{
             if let achievement = self.achievements.filter({$0.achievementId == achievementId}).first{
                 if(self.checkAchievementAccomplished(achievementId: achievementId)){
                     accomplishedAchievements.append(achievement)
+                    self.gameScene.onlineHelper.achievementAccomplished(gameScene: self.gameScene, achievementId: achievementId, player: UserDefaultsHelper.playerName)
                 }
             }
         }
@@ -94,22 +95,7 @@ class IVAchievementManager:IVAchievementDelegate{
         }
         return false
     }
-    
-//    func showAchievementsAccomplishedMsgs(achievementIds:[AchievementId], idx:Int = 0){
-//        if(idx < achievementIds.count){
-//            self.showAchievementAccomplishedMsg(achievementId: achievementIds[idx], completion: {
-//                self.showAchievementsAccomplishedMsgs(achievementIds: achievementIds, idx: idx + 1)
-//            })
-//        }
-//    }
-//    
-//    func showAchievementAccomplishedMsg(achievementId:AchievementId, completion:(() -> Void)? = nil){
-//        if let achievement = self.achievements.filter({ $0.achievementId == achievementId }).first {
-//            self.gameScene.msgBox.showMessage(title: achievement.achievementTitle, msg: achievement.achievementDesc, completion: completion)
-//        }
-//    }
-    
-    
+        
     func showAchievementsAccomplishedMsgsNG(achievements:[IVAchievement], idx:Int = 0){
         if(idx < achievements.count){
             self.showAchievementAccomplishedMsgNG(achievement: achievements[idx], completion: {

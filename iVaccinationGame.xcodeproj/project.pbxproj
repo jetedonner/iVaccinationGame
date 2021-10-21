@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		55357295271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */; };
 		55357296271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */; };
+		5535729A272162CE00C080C0 /* HighscoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55357299272162CE00C080C0 /* HighscoreViewController.xib */; };
 		554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E531A26EFAD4300371E58 /* AppDelegate.swift */; };
 		554E531D26EFAD4300371E58 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531C26EFAD4300371E58 /* GameScene.sks */; };
 		554E531F26EFAD4300371E58 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531E26EFAD4300371E58 /* Actions.sks */; };
@@ -295,6 +296,7 @@
 
 /* Begin PBXFileReference section */
 		55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVBaseAchievement.swift; sourceTree = "<group>"; };
+		55357299272162CE00C080C0 /* HighscoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighscoreViewController.xib; sourceTree = "<group>"; };
 		554E531726EFAD4300371E58 /* iVaccinationGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccinationGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554E531A26EFAD4300371E58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554E531C26EFAD4300371E58 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -783,6 +785,7 @@
 				55B64A5326F37FD500944766 /* LaunchScreen.storyboard */,
 				55C83F7B26FE116B00F42F53 /* Settings.bundle */,
 				55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */,
+				55357299272162CE00C080C0 /* HighscoreViewController.xib */,
 			);
 			path = iVaccination;
 			sourceTree = "<group>";
@@ -1270,6 +1273,7 @@
 				55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */,
 				55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */,
 				5579340C2718A14300013BA9 /* HeaderView.xib in Resources */,
+				5535729A272162CE00C080C0 /* HighscoreViewController.xib in Resources */,
 				55793417271AF8F100013BA9 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

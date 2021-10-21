@@ -20,11 +20,16 @@ class CollectionViewItem: NSCollectionViewItem {
         view.layer?.borderWidth = 2.0
         view.layer?.borderColor = NSColor.lightGray.cgColor
         view.layer?.cornerRadius = 10.0
+        self.identifier = NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem")
     }
 
     func setHighlight(selected: Bool) {
 //        view.layer?.borderWidth = selected ? 5.0 : 0.0
-        let highlightColor:NSColor = NSColor.cyan
-        view.layer?.backgroundColor = highlightColor.withAlphaComponent(0.25).cgColor
+        if(selected){
+            let highlightColor:NSColor = NSColor.cyan
+            view.layer?.backgroundColor = highlightColor.withAlphaComponent(0.25).cgColor
+        }else{
+            view.layer?.backgroundColor = NSColor.darkGray.cgColor
+        }
     }
 }

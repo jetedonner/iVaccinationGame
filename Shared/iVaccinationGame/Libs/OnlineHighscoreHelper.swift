@@ -154,11 +154,11 @@ class OnlineHighscoreHelper{
         let score = 100
         let difficulty = difficulty.rawValue
         let achievement = achievementId.rawValue
-        if let gameScene = gameScene{
-            if let achievement = gameScene.achievementManager.achievements.filter({ $0.achievementId == achievementId }).first {
-                msgBox.showMessage(title: achievement.achievementTitle, msg: achievement.achievementDesc)
-            }
-        }
+//        if let gameScene = gameScene{
+//            if let achievement = gameScene.achievementManager.achievements.filter({ $0.achievementId == achievementId }).first {
+//                msgBox.showMessage(title: achievement.achievementTitle, msg: achievement.achievementDesc)
+//            }
+//        }
         let postParameters = self.createPostParameters (
             params: [
                 "action": GameVars.ONLINE_COMPETITION_POST_ACHIEVEMENT_ACCOMPLISHED,
