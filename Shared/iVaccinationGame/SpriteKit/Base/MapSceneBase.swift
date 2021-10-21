@@ -61,8 +61,8 @@ class MapSceneBase: BaseSKScene {
     var textureWallwayColor:SKTexture = SKTexture(imageNamed: "Wallway_Color")
     var textureJapanStreetBW:SKTexture = SKTexture(imageNamed: "JapanStreet_BW")
     var textureJapanStreetColor:SKTexture = SKTexture(imageNamed: "JapanStreet_Color")
-    var textureScarryStreetBW:SKTexture = SKTexture(imageNamed: "ScarryStreet_BW")
-    var textureScarryStreetColor:SKTexture = SKTexture(imageNamed: "ScarryStreet_Color")
+    var textureScarryStreetBW:SKTexture = SKTexture(imageNamed: "Scarrystreet_BW")
+    var textureScarryStreetColor:SKTexture = SKTexture(imageNamed: "Scarrystreet_Color")
     
     var textMeadow:SKTexture = SKTexture(imageNamed: "Map7")
     var textCitySkyline:SKTexture = SKTexture(imageNamed: "Map7a")
