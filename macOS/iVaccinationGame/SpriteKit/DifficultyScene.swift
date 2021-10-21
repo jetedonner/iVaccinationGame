@@ -65,4 +65,33 @@ class DifficultyScene: DifficultySceneBase {
             SoundManager.shared.playSound(sound: .menuHighlite)
         }
     }
+    
+    override func touchOrClick(pos: CGPoint, viewController:IViewController)->SKNode {
+        let node = self.atPoint(pos) //super.touchOrClick(pos: pos, viewController: viewController)
+
+        var difficulty:Difficulty = .easy
+        if(node == lblEasy){
+            difficulty = .easy
+//            viewController.loadMapScene(difficulty: .easy, level: self.initLevel)
+        }else if(node == lblMedium){
+            difficulty = .medium
+//            viewController.loadMapScene(difficulty: .medium, level: self.initLevel)
+        }else if(node == lblHard){
+            difficulty = .hard
+//            viewController.loadMapScene(difficulty: .hard, level: self.initLevel)
+        }else if(node == lblNightmare){
+            difficulty = .nightmare
+//            viewController.loadMapScene(difficulty: .nightmare, level: self.initLevel)
+        }else if(node == lblBack){
+            viewController.loadMenuScene()
+            return node
+        }else{
+            return node
+        }
+        ICloudStorageHelper.difficulty = difficulty.rawValue
+        UserDefaultsHelper.difficulty = difficulty
+        UserDefaultsHelper.oldLevelID = self.initLevel
+        viewController.loadMapScene(difficulty: difficulty, level: self.initLevel)
+        return node
+    }
 }

@@ -30,6 +30,7 @@ enum UserDefaultsName:String{
     
     
     case levelID = "levelID"
+    case oldLevelID = "oldLevelID"
     case highscore = "highscore"
     case score = "score"
     case certificates = "certificates"
@@ -45,12 +46,25 @@ enum UserDefaultsName:String{
     case onlineCompetitionWebserver = "onlineCompetitionWebserver"
     case onlineCompetitionWebservice = "onlineCompetitionWebservice"
     
-    
+    case doctorPos = "doctorPos"
 }
 
 class UserDefaultsHelper{
     
     static let defaults = UserDefaults.standard
+    
+    
+//    var doctorPos:CGPoint = CGPoint(x: 0, y: 0)
+//    static var doctorPos:CGPoint{
+//        set{ self.defaults.set(newValue, forKey: UserDefaultsName.doctorPos.rawValue) }
+//        get{
+//            if(self.defaults.value(forKey: UserDefaultsName.doctorPos.rawValue) == nil){
+//                self.defaults.set(CGPoint(x: 0, y: 0), forKey: UserDefaultsName.doctorPos.rawValue)
+//            }
+////            CGPoint.
+//            return CGPoint(from: defaults.value(forKey: UserDefaultsName.doctorPos.rawValue) as! CGPoint)!
+//        }
+//    }
     
     static var roundTime:TimeInterval{
         get{
@@ -102,6 +116,17 @@ class UserDefaultsHelper{
             return retDiff
         }
         set{ defaults.set(newValue.rawValue, forKey: UserDefaultsName.difficulty.rawValue) }
+    }
+    
+    
+    static var oldLevelID:Level{
+        set{ self.defaults.set(newValue.getDesc(), forKey: UserDefaultsName.oldLevelID.rawValue) }
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.oldLevelID.rawValue) == nil){
+                self.defaults.set(Level.Meadow.getDesc(), forKey: UserDefaultsName.oldLevelID.rawValue)
+            }
+            return Level(levelIDString: defaults.string(forKey: UserDefaultsName.oldLevelID.rawValue)!)!
+        }
     }
     
     static var levelID:Level{

@@ -110,6 +110,8 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
             var doctorGraph = scene.graphs
             if let sceneNode = scene.rootNode as! MapScene? {
                 sceneNode.scaleMode = .aspectFill
+                sceneNode.loadDoctorGraph(doctorGraph: doctorGraph)
+                sceneNode.posDoctorNode(level: UserDefaultsHelper.oldLevelID)
                 if let view = self.view as! SKView? {
                     view.presentSceneNG(sceneNode)
                 }
@@ -117,13 +119,19 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
         }
     }
     
-    func loadMapScene(){
+    func loadMapScene(moveDoctor:Bool = false){
         if let scene = GKScene(fileNamed: "MapScene") {
             var doctorGraph = scene.graphs
             if let sceneNode = scene.rootNode as! MapScene? {
                 sceneNode.scaleMode = .aspectFill
 //                sceneNode.doctorGraph = doctorGraph
                 sceneNode.loadDoctorGraph(doctorGraph: doctorGraph)
+                if(moveDoctor){
+                    sceneNode.posDoctorNode(level: UserDefaultsHelper.oldLevelID)
+                    sceneNode.moveDoctorNodeToNextLevel()
+                }else{
+                    sceneNode.posDoctorNode(level: UserDefaultsHelper.levelID)
+                }
                 if let view = self.view as! SKView? {
                     view.presentSceneNG(sceneNode)
                 }

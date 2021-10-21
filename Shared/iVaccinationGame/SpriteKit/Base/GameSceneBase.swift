@@ -367,7 +367,9 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         SoundManager.shared.stopBGSound()
     }
     
+    var gameLost:Bool = false
     func showGameOver(gameLost:Bool = false){
+        self.gameLost = gameLost
         self.endGame()
         self.scoreLblOrigPos = self.lblScore!.position
         self.certsLblOrigPos = self.lblCerts!.position
@@ -414,6 +416,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             
             var nextLevel:Level = self.currentLevel.level
             if(!gameLost){
+                UserDefaultsHelper.oldLevelID = nextLevel
                 nextLevel = self.currentLevel.level.getNextLevel()
             }
             
@@ -471,7 +474,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     func clickedAtPoint(point:CGPoint){
         if(!self.gameRunning && self.waitForAnyKey){
             ICloudStorageHelper.level = UserDefaultsHelper.levelID.getDesc()
-            self.getViewController().loadMapScene()
+            self.getViewController().loadMapScene(moveDoctor: !self.gameLost)
             return
         }
         

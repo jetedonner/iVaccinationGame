@@ -33,6 +33,7 @@ class BaseLevel {
     var zombieCount:Int = 1
     var zombieDamage:CGFloat = 25.0
     var zombieGirls:[ZombieGirl] = []
+    var zombiesSpawned:Int = 0
     
     var shots:Int = 0
     var hits:Int = 0
@@ -85,6 +86,7 @@ class BaseLevel {
     }
     
     func addZombieGirl(gameScene:GameSceneBase, path:BasePath){
+        self.zombiesSpawned += 1
         let newZombieGirl:ZombieGirl = ZombieGirl(zombieImageName: self.zombieImageName)
         newZombieGirl.currentPath = path
         newZombieGirl.position = path.initPos

@@ -54,6 +54,7 @@ class DifficultySceneBase: BaseSKScene {
         }
         ICloudStorageHelper.difficulty = difficulty.rawValue
         UserDefaultsHelper.difficulty = difficulty
+        UserDefaultsHelper.oldLevelID = self.initLevel
         viewController.loadMapScene(difficulty: difficulty, level: self.initLevel)
         return node
     }

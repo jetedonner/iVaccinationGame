@@ -87,9 +87,9 @@ class IVAchievementManager:IVAchievementDelegate{
     
     func checkAchievementAccomplished(gameScene: GameSceneBase, achievement:IVAchievement) -> Bool {
         if(achievement.achievementId == AchievementId.achivementPerfectThrowsID){
-            return gameScene.currentLevel.shots == gameScene.currentLevel.hits
+            return (gameScene.currentLevel.zombiesSpawned == gameScene.player.zombiesCured) && (gameScene.currentLevel.shots > 0) && gameScene.currentLevel.shots == gameScene.currentLevel.hits
         }else if(achievement.achievementId == AchievementId.achivementStayHealthyID){
-            return gameScene.player.bites == 0
+            return (!gameScene.gameLost) && gameScene.player.bites == 0
         }else if(achievement.achievementId == AchievementId.achivementCollectAllCertsID){
             return gameScene.player.certsPickedUp == gameScene.certificatePickupManager.generatedPickups
         }

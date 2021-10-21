@@ -81,7 +81,7 @@ class MenuSceneBase: BaseSKScene {
             }
         }else if(node == self.lblContinue){
             if(Level.NewGame.getDesc() != ICloudStorageHelper.level){
-                viewController.loadMapScene()
+                viewController.loadMapScene(moveDoctor: false)
             }
         }
         return node

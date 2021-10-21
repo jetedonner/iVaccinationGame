@@ -21,7 +21,7 @@ class KeyboardHandler{
         print("KeyPressed: %d", event.keyCode)
         if(self.gameScene.waitForAnyKey){
             if let viewCtrl = self.gameScene.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadMapScene()
+                (viewCtrl as! ViewController).loadMapScene(moveDoctor: !self.gameScene.gameLost)
             }
             return
         }

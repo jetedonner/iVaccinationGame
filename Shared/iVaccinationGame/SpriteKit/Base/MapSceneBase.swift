@@ -130,7 +130,7 @@ class MapSceneBase: BaseSKScene {
         self.posScarryStreet?.isHidden = true
         
         self.contTooltip = self.childNode(withName: "contTooltip") as? SKShapeNode
-        self.contTooltip?.zPosition = 1001
+        self.contTooltip?.zPosition = 4
         self.lblTooltip = self.contTooltip!.childNode(withName: "lblTooltip") as? SKLabelNode
         self.contTooltip?.alpha = 0.0
         
@@ -145,44 +145,36 @@ class MapSceneBase: BaseSKScene {
         
         self.loadMapBGTexture()
         
-        self.doctor.size = CGSize(width: 128, height: 128)
-        self.doctor.zPosition = 1000001
-        self.doctor.position = self.imgMeadow.imgNode.position
+        self.doctor.size = CGSize(width: 72, height: 72)
+        self.doctor.zPosition = 3
+        self.doctor.position = doctorPos
         self.addChild(self.doctor)
         
         
         let hoppingAction:SKAction = SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 0, y: 15, duration: 0.25), SKAction.moveBy(x: 0, y: -15, duration: 0.25)]))
         self.doctor.run(hoppingAction)
         
-       
 //        self.enableLocations()
-        
-//        let path: [GKGraphNode] = self.doctorGraph.first!.value.findPath(from: (self.doctorGraph.first!.value.nodes?.first)!, to: (self.doctorGraph[0].value.nodes?.last)!)
-//        guard path.count > 0 else { moving = false; return }
-//
-//        var actions = [SKAction]()
-//
-//        for node: GKGraphNode in path {
-//            if let point2d = node as? GKGraphNode2D {
-//                let point = CGPoint(x: CGFloat(point2d.position.x), y: CGFloat(point2d.position.y))
-//                let action = SKAction.move(to: point, duration: 1.0)
-//                actions.append(action)
-//            }
-//        }
-        
         self.imgBG.zPosition = 1
         self.updateScoreFromICloud()
     }
     
+    var doctorPos:CGPoint = CGPoint(x: 0, y: 0)
+//    var doctorPos:CGPoint = CGPoint(x: 0, y: 0)
     var doctorPathAction = [Level:[SKAction]]()
-    
     var currentLevelForDoctor:Level = .Meadow
     
     func moveDoctorNodeToNextLevel(){
+        if(currentLevelForDoctor == .NewGame){
+            currentLevelForDoctor = .Meadow
+        }
         self.moveDoctorNodeToLevel(level: currentLevelForDoctor.getNextLevel())
     }
     
     func moveDoctorNodeToLevel(level:Level){
+        if(level == .MissionAccomplished){
+            return
+        }
         self.doctor.run(SKAction.sequence(doctorPathAction[level]!), completion: {
             self.currentLevelForDoctor = level
         })
@@ -202,7 +194,6 @@ class MapSceneBase: BaseSKScene {
                 if let point2d = theNode as? GKGraphNode2D {
                     let point = CGPoint(x: CGFloat(point2d.position.x), y: CGFloat(point2d.position.y))
                     let action = SKAction.move(to: point, duration: 0.25)
-//                    action.speed = 2.0
                     if(doctorPathAction[currentLevel] == nil){
                         doctorPathAction[currentLevel] = [SKAction]()
                     }
@@ -213,20 +204,6 @@ class MapSceneBase: BaseSKScene {
                 }
                 idx += 1
             }
-//            self.doctor.removeAllActions()
-//            self.doctor.run(SKAction.sequence(doctorPathAction))
-            
-//            let path: [GKGraphNode] = daGraph.findPath(from: (daGraph.nodes?.first)!, to: (daGraph.nodes?.last)!)
-////            guard path.count > 0 else { moving = false; return }
-//            if(path.count > 0){
-//                for node: GKGraphNode in path {
-//                    if let point2d = node as? GKGraphNode2D {
-//                        let point = CGPoint(x: CGFloat(point2d.position.x), y: CGFloat(point2d.position.y))
-//                        let action = SKAction.move(to: point, duration: 1.0)
-//                        actions.append(action)
-//                    }
-//                }
-//            }
         }
     }
     
@@ -244,64 +221,100 @@ class MapSceneBase: BaseSKScene {
         self.contTooltip?.run(SKAction.sequence([SKAction.wait(forDuration: 3.0), SKAction.fadeAlpha(to: 0.0, duration: 0.5)]))
     }
     
+    func posDoctorNode(level:Level){
+        if(level == .NewGame){
+            self.doctorPos = self.imgMeadow.imgNode.position
+        }else if(level == .Meadow){
+            self.doctorPos = self.imgMeadow.imgNode.position
+        }else if(level == .CitySkyline){
+            self.doctorPos = self.imgCitySkyline.imgNode.position
+        }else if(level == .CityStreet){
+            self.doctorPos = self.imgCityStreet.imgNode.position
+        }else if(level == .Wallway){
+            self.doctorPos = self.imgWallway.imgNode.position
+        }else if(level == .CityJapan){
+            self.doctorPos = self.imgJapanStreet.imgNode.position
+        }else if(level == .CityNight){
+            self.doctorPos = self.imgBackstreet.imgNode.position
+        }else if(level == .ScarryStreet){
+            self.doctorPos = self.imgScarryStreet.imgNode.position
+        }
+        self.doctor.position = self.doctorPos
+        self.currentLevelForDoctor = level
+    }
+    
+    
     func loadMapBGTexture(){
         self.imgBG.texture = self.textNG
         
-        if(UserDefaultsHelper.levelID.rawValue > Level.NewGame.rawValue || UserDefaultsHelper.devMode){
+        if(UserDefaultsHelper.levelID.rawValue > Level.NewGame.rawValue){// || UserDefaultsHelper.devMode){
             self.posMeadow?.isHidden = false
         }else{
             self.imgMeadow.currentLocation = true
             self.posMeadow?.isHidden = false
-//            self.posMeadow?.isHidden = true
+//            self.doctorPos = self.imgMeadow.imgNode.position
+//            self.currentLevelForDoctor = .Meadow
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.Meadow.rawValue || UserDefaultsHelper.devMode){
+        if(UserDefaultsHelper.levelID.rawValue > Level.Meadow.rawValue){// || UserDefaultsHelper.devMode){
             self.imgMeadow.levelDone = true
             self.posMeadow?.isUserInteractionEnabled = false
             self.posCitySkyline?.isHidden = false
         }else{
             self.imgMeadow.currentLocation = true
             self.posCitySkyline?.isHidden = true
+//            self.doctorPos = self.imgMeadow.imgNode.position
+//            self.currentLevelForDoctor = .Meadow
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.CitySkyline.rawValue || UserDefaultsHelper.devMode){
+        if(UserDefaultsHelper.levelID.rawValue > Level.CitySkyline.rawValue){// || UserDefaultsHelper.devMode){
             self.imgCitySkyline.levelDone = true
             self.posCityStreet?.isHidden = false
         }else{
             self.imgCitySkyline.currentLocation = true
             self.posCityStreet?.isHidden = true
+//            self.doctorPos = self.imgCitySkyline.imgNode.position
+//            self.currentLevelForDoctor = .CitySkyline
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.CityStreet.rawValue || UserDefaultsHelper.devMode){
+        if(UserDefaultsHelper.levelID.rawValue > Level.CityStreet.rawValue){// || UserDefaultsHelper.devMode){
             self.imgCityStreet.levelDone = true
             self.posWallway?.isHidden = false
         }else{
             self.imgCityStreet.currentLocation = true
             self.posWallway?.isHidden = true
+//            self.doctorPos = self.imgCityStreet.imgNode.position
+//            self.currentLevelForDoctor = .CityStreet
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.Wallway.rawValue || UserDefaultsHelper.devMode){
+        if(UserDefaultsHelper.levelID.rawValue > Level.Wallway.rawValue){// || UserDefaultsHelper.devMode){
             self.imgWallway.levelDone = true
             self.posJapanStreet?.isHidden = false
         }else{
             self.imgWallway.currentLocation = true
             self.posJapanStreet?.isHidden = true
+//            self.doctorPos = self.imgWallway.imgNode.position
+//            self.currentLevelForDoctor = .Wallway
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.CityJapan.rawValue || UserDefaultsHelper.devMode){
+        if(UserDefaultsHelper.levelID.rawValue > Level.CityJapan.rawValue){// || UserDefaultsHelper.devMode){
             self.imgJapanStreet.levelDone = true
             self.posCityNight?.isHidden = false
         }else{
             self.imgJapanStreet.currentLocation = true
             self.posCityNight?.isHidden = true
+//            self.doctorPos = self.imgJapanStreet.imgNode.position
+//            self.currentLevelForDoctor = .CityJapan
             return
         }
-        if(UserDefaultsHelper.levelID.rawValue > Level.CityNight.rawValue || UserDefaultsHelper.devMode){
+        if(UserDefaultsHelper.levelID.rawValue > Level.CityNight.rawValue){// || UserDefaultsHelper.devMode){
             self.imgBackstreet.levelDone = true
             self.posScarryStreet?.isHidden = false
         }else{
             self.imgBackstreet.currentLocation = true
             self.posScarryStreet?.isHidden = true
+//            self.doctorPos = self.imgBackstreet.imgNode.position
+//            self.currentLevelForDoctor = .CityNight
             return
         }
         if(UserDefaultsHelper.levelID.rawValue > Level.ScarryStreet.rawValue){
