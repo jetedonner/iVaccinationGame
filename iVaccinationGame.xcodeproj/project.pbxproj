@@ -10,6 +10,7 @@
 		55357295271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */; };
 		55357296271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */; };
 		5535729A272162CE00C080C0 /* HighscoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55357299272162CE00C080C0 /* HighscoreViewController.xib */; };
+		5535729D272172B900C080C0 /* DB-Procedures.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5535729C272172B900C080C0 /* DB-Procedures.txt */; };
 		554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E531A26EFAD4300371E58 /* AppDelegate.swift */; };
 		554E531D26EFAD4300371E58 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531C26EFAD4300371E58 /* GameScene.sks */; };
 		554E531F26EFAD4300371E58 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531E26EFAD4300371E58 /* Actions.sks */; };
@@ -297,6 +298,7 @@
 /* Begin PBXFileReference section */
 		55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVBaseAchievement.swift; sourceTree = "<group>"; };
 		55357299272162CE00C080C0 /* HighscoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighscoreViewController.xib; sourceTree = "<group>"; };
+		5535729C272172B900C080C0 /* DB-Procedures.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "DB-Procedures.txt"; sourceTree = "<group>"; };
 		554E531726EFAD4300371E58 /* iVaccinationGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccinationGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554E531A26EFAD4300371E58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554E531C26EFAD4300371E58 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -528,9 +530,18 @@
 			path = Achievements;
 			sourceTree = "<group>";
 		};
+		5535729B272172A200C080C0 /* _res */ = {
+			isa = PBXGroup;
+			children = (
+				5535729C272172B900C080C0 /* DB-Procedures.txt */,
+			);
+			path = _res;
+			sourceTree = "<group>";
+		};
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
+				5535729B272172A200C080C0 /* _res */,
 				55793418271B06F900013BA9 /* Defaults.plist */,
 				5561AF97270F785F007B3F8F /* Credits.rtfd */,
 				55EE3D9B27063C2800991D86 /* iVaccination-Info.plist */,
@@ -1262,6 +1273,7 @@
 				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,
 				55C83F3E26FCFC0400F42F53 /* LICENSE in Resources */,
+				5535729D272172B900C080C0 /* DB-Procedures.txt in Resources */,
 				5561AF88270EE57B007B3F8F /* MapScene.sks in Resources */,
 				55C83F0726FC666500F42F53 /* GameScene.sks in Resources */,
 				55C83F0D26FC673000F42F53 /* UpwardParticles.sks in Resources */,

@@ -1,0 +1,37 @@
+Due to an error in phpMyAdmin interface where a saved Procedure cannot be reopened and / or edited here is a backup of the create script for a sample procedure to insert or update new highscore from the webservice
+
+
+IF EXISTS(SELECT 1 FROM highscore WHERE playerId = playerIn) THEN
+        BEGIN
+            UPDATE highscore
+               SET score = scoreIn
+             WHERE playerId = playerIn
+               AND difficulty = difficultyIn
+               AND score < scoreIn;
+        END;
+ELSE
+    BEGIN
+        INSERT INTO highscore (playerId, score, difficulty)
+                     VALUES (playerIn, scoreIn, difficultyIn);
+    END;
+END IF
+
+
+SET @p0='DaVe'; SET @p1='300'; SET @p2='Easy'; CALL `UPLOAD_HIGHSCORE`(@p0, @p1, @p2);
+
+
+
+
+IF EXISTS(SELECT 1 FROM vaccinations WHERE playerId = playerIn) THEN    BEGIN
+        UPDATE vaccinations
+            SET vaccinations = scoreIn,
+            dt_update = CURRENT_TIMESTAMP()
+        WHERE playerId = playerIn
+        AND difficulty = difficultyIn
+        AND vaccinations < scoreIn;
+    END;
+ELSE
+    BEGIN
+        INSERT INTO vaccinations (playerId, vaccinations, difficulty) VALUES (playerIn, scoreIn, difficultyIn);
+    END;
+END IF
