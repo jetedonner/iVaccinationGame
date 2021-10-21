@@ -169,7 +169,7 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
     @IBAction func testInsertHS2(_ sender:Any){
-        let request:NSMutableURLRequest = NSMutableURLRequest(url: URL(string: "http://ivaccination.kimhauser.ch/highscore.php")!)
+        let request:NSMutableURLRequest = NSMutableURLRequest(url: URL(string: GameVars.ONLINE_COMPETITION_WEBSERVER + GameVars.ONLINE_COMPETITION_WEBSERVICE)!)
         request.httpMethod = "POST"
         let player = "FromMacOS"
         let score = 123

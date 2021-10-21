@@ -474,9 +474,12 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             self.getViewController().loadMapScene()
             return
         }
-
-        let node = self.atPoint(point)
         
+        if(!self.gameRunning){
+            return
+        }
+        
+        let node = self.atPoint(point)
         for syringeNode in self.syringePickupManager.pickups{
             if(self.checkIsNode(node2Check: node, isNode: syringeNode)){
                 syringeNode.pickedUp(afterTimeOut: false)

@@ -13,6 +13,13 @@ class MapScene: MapSceneBase {
     var tooltipScore:Int = 0
     let dict = ICloudStorageHelper.score
     
+    override func keyDown(with event: NSEvent) {
+//        self.keyboardHandler.keyDown(with: event)
+        if(event.keyCode == KeyCode.KEY_M.rawValue){
+            self.moveDoctorNodeToNextLevel()
+        }
+    }
+    
     override func mouseMoved(with event: NSEvent) {
         super.mouseMoved(with: event)
         let location = event.location(in: self.sceneNode)

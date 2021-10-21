@@ -12,7 +12,7 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>http://ivaccination.kimhauser.ch</key>
+			<key>http://ivaccination.kimhauser.ch/ws</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>

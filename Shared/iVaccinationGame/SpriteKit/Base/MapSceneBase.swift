@@ -26,6 +26,8 @@ class MapSceneBase: BaseSKScene {
     var imgBackstreet:SKLocationNode!
     var imgScarryStreet:SKLocationNode!
     
+    var doctor:SKSpriteNode = SKSpriteNode(imageNamed: "Doctor")
+    var doctorGraph:[String:GKGraph]!
     
     var lblLevel:SKLabelNode!
     var lblDifficulty:SKLabelNode!
@@ -76,11 +78,15 @@ class MapSceneBase: BaseSKScene {
     var textBackArrowSel:SKTexture = SKTexture(imageNamed: "BackArrowSel")
     var textBackArrow:SKTexture = SKTexture(imageNamed: "BackArrow")
     
+    
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
         self.imgBG = self.childNode(withName: "BG") as? SKSpriteNode
         self.imgBack = self.childNode(withName: "imgBack") as? SKSpriteNode
         self.currentContainer = self.childNode(withName: "currentContainer") as? SKShapeNode
+        
+//        var doctorGraph = (self as! GKScene).graphs.first
         
         self.lblScore = self.currentContainer.childNode(withName: "lblScore") as? SKLabelNode
         self.lblCertificates = self.currentContainer.childNode(withName: "lblCertificates") as? SKLabelNode
@@ -139,10 +145,89 @@ class MapSceneBase: BaseSKScene {
         
         self.loadMapBGTexture()
         
+        self.doctor.size = CGSize(width: 128, height: 128)
+        self.doctor.zPosition = 1000001
+        self.doctor.position = self.imgMeadow.imgNode.position
+        self.addChild(self.doctor)
+        
+        
+        let hoppingAction:SKAction = SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 0, y: 15, duration: 0.25), SKAction.moveBy(x: 0, y: -15, duration: 0.25)]))
+        self.doctor.run(hoppingAction)
+        
+       
 //        self.enableLocations()
+        
+//        let path: [GKGraphNode] = self.doctorGraph.first!.value.findPath(from: (self.doctorGraph.first!.value.nodes?.first)!, to: (self.doctorGraph[0].value.nodes?.last)!)
+//        guard path.count > 0 else { moving = false; return }
+//
+//        var actions = [SKAction]()
+//
+//        for node: GKGraphNode in path {
+//            if let point2d = node as? GKGraphNode2D {
+//                let point = CGPoint(x: CGFloat(point2d.position.x), y: CGFloat(point2d.position.y))
+//                let action = SKAction.move(to: point, duration: 1.0)
+//                actions.append(action)
+//            }
+//        }
         
         self.imgBG.zPosition = 1
         self.updateScoreFromICloud()
+    }
+    
+    var doctorPathAction = [Level:[SKAction]]()
+    
+    var currentLevelForDoctor:Level = .Meadow
+    
+    func moveDoctorNodeToNextLevel(){
+        self.moveDoctorNodeToLevel(level: currentLevelForDoctor.getNextLevel())
+    }
+    
+    func moveDoctorNodeToLevel(level:Level){
+        self.doctor.run(SKAction.sequence(doctorPathAction[level]!), completion: {
+            self.currentLevelForDoctor = level
+        })
+    }
+    
+    func loadDoctorGraph(doctorGraph:[String:GKGraph]){
+        self.doctorGraph = doctorGraph
+        var currentLevel:Level = .CitySkyline
+        if let daGraph = self.doctorGraph.first?.value{
+            var idx:Int = 0
+            
+            for theNode in daGraph.nodes! {
+                if(idx == 0){
+                    idx += 1
+                    continue
+                }
+                if let point2d = theNode as? GKGraphNode2D {
+                    let point = CGPoint(x: CGFloat(point2d.position.x), y: CGFloat(point2d.position.y))
+                    let action = SKAction.move(to: point, duration: 0.25)
+//                    action.speed = 2.0
+                    if(doctorPathAction[currentLevel] == nil){
+                        doctorPathAction[currentLevel] = [SKAction]()
+                    }
+                    doctorPathAction[currentLevel]!.append(action)
+                }
+                if(idx % 5 == 0){
+                    currentLevel = currentLevel.getNextLevel()
+                }
+                idx += 1
+            }
+//            self.doctor.removeAllActions()
+//            self.doctor.run(SKAction.sequence(doctorPathAction))
+            
+//            let path: [GKGraphNode] = daGraph.findPath(from: (daGraph.nodes?.first)!, to: (daGraph.nodes?.last)!)
+////            guard path.count > 0 else { moving = false; return }
+//            if(path.count > 0){
+//                for node: GKGraphNode in path {
+//                    if let point2d = node as? GKGraphNode2D {
+//                        let point = CGPoint(x: CGFloat(point2d.position.x), y: CGFloat(point2d.position.y))
+//                        let action = SKAction.move(to: point, duration: 1.0)
+//                        actions.append(action)
+//                    }
+//                }
+//            }
+        }
     }
     
     var oldSelNode:SKNode?

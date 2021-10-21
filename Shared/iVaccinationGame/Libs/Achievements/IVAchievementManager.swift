@@ -70,7 +70,7 @@ class IVAchievementManager:IVAchievementDelegate{
             }
         }
         if(accomplishedAchievements.count > 0){
-            self.showAchievementsAccomplishedMsgsNG(achievements: accomplishedAchievements, idx: 0)
+            self.showAchievementsAccomplishedMsgs(achievements: accomplishedAchievements, idx: 0)
         }
     }
     
@@ -96,15 +96,21 @@ class IVAchievementManager:IVAchievementDelegate{
         return false
     }
         
-    func showAchievementsAccomplishedMsgsNG(achievements:[IVAchievement], idx:Int = 0){
+    func showAchievementsAccomplishedMsgs(achievements:[IVAchievement], idx:Int = 0){
         if(idx < achievements.count){
-            self.showAchievementAccomplishedMsgNG(achievement: achievements[idx], completion: {
-                self.showAchievementsAccomplishedMsgsNG(achievements: achievements, idx: idx + 1)
+            self.showAchievementAccomplishedMsg(achievement: achievements[idx], completion: {
+                self.showAchievementsAccomplishedMsgs(achievements: achievements, idx: idx + 1)
             })
-        }
+        }/*else{
+            if(!self.gameScene.gameRunning){
+                var tmp = -1
+                tmp /= -1
+                self.gameScene.waitForAnyKey = true
+            }
+        }*/
     }
     
-    func showAchievementAccomplishedMsgNG(achievement:IVAchievement, completion:(() -> Void)? = nil){
+    func showAchievementAccomplishedMsg(achievement:IVAchievement, completion:(() -> Void)? = nil){
         self.gameScene.msgBox.showMessage(title: achievement.achievementTitle, msg: achievement.achievementDesc, imgNamed: achievement.achievementImage, timeout: GameVars.MSGBOX_TIME, completion: completion)
     }
 }

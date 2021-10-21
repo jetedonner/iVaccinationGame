@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>onlineCompetitionWebserver</key>
-	<string>http://ivaccination.kimhauser.ch/</string>
+	<string>http://ivaccination.kimhauser.ch/ws/</string>
 	<key>onlineCompetitionWebservice</key>
 	<string>webservice.php</string>
 	<key>devMode</key>

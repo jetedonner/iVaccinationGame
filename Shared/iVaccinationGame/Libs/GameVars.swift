@@ -22,7 +22,7 @@ class GameVars{
     static let BLOOD_FADEOUT_TIME:TimeInterval = 0.45
     static let MSGBOX_TIME:TimeInterval = 3.0
     
-    static let ONLINE_COMPETITION_WEBSERVER:String = "http://ivaccination.kimhauser.ch/"
+    static let ONLINE_COMPETITION_WEBSERVER:String = "http://ivaccination.kimhauser.ch/ws/"
     static let ONLINE_COMPETITION_WEBSERVICE:String = "webservice.php"
     
     static let ONLINE_COMPETITION_GET_HIGHSCORE:String = "gethighscore"
@@ -38,4 +38,6 @@ class GameVars{
     
     static let ONLINE_COMPETITION_WEBSERVICE_KEY:String = "9ce95fad-4029-4ee1-97f4-c01a1aed04ca"
     
+    static let DATE_FORMAT_LONG_INPUT:String = "yyyy-MM-dd HH:mm:ss"
+    static let DATE_FORMAT_SHORT_OUTPUT:String = "dd.MM.yyyy"
 }

@@ -350,12 +350,12 @@
                                         <rect key="frame" x="113" y="133" width="42" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <connections>
-                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useOnlineCompetitions" id="BgI-RG-FY3">
+                                            <binding destination="l72-UK-3kJ" name="value" keyPath="values.useAchievements" id="onT-xe-YH7">
                                                 <dictionary key="options">
                                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                                 </dictionary>
                                             </binding>
-                                            <binding destination="l72-UK-3kJ" name="value" keyPath="values.useAchievements" id="onT-xe-YH7">
+                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useOnlineCompetitions" id="BgI-RG-FY3">
                                                 <dictionary key="options">
                                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                                 </dictionary>
@@ -365,20 +365,20 @@
                                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8vE-DR-mBr">
                                         <rect key="frame" x="169" y="163" width="288" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="http://ivaccination.kimhauser.ch/highscore/" placeholderString="Enter server address" drawsBackground="YES" id="FpA-Oe-KF8">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="http://ivaccination.kimhauser.ch/highscore/ws/" placeholderString="Enter server address" drawsBackground="YES" id="FpA-Oe-KF8">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useOnlineCompetitions" id="jVe-ks-DMI">
-                                                <dictionary key="options">
-                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                                </dictionary>
-                                            </binding>
                                             <binding destination="l72-UK-3kJ" name="value" keyPath="values.onlineCompetitionWebserver" id="Deb-1W-F0j">
                                                 <dictionary key="options">
                                                     <string key="NSNullPlaceholder">ivaccination.kimhauser.ch/highscore/</string>
+                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                </dictionary>
+                                            </binding>
+                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useOnlineCompetitions" id="jVe-ks-DMI">
+                                                <dictionary key="options">
                                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                                 </dictionary>
                                             </binding>
@@ -402,14 +402,14 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <connections>
-                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useOnlineCompetitions" id="nh3-cU-eFo">
-                                                <dictionary key="options">
-                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                                </dictionary>
-                                            </binding>
                                             <binding destination="l72-UK-3kJ" name="value" keyPath="values.onlineCompetitionWebservice" id="Rgy-hN-7fs">
                                                 <dictionary key="options">
                                                     <string key="NSNullPlaceholder">webservice.php</string>
+                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                </dictionary>
+                                            </binding>
+                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useOnlineCompetitions" id="nh3-cU-eFo">
+                                                <dictionary key="options">
                                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                                 </dictionary>
                                             </binding>
