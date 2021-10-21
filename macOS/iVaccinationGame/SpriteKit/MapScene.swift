@@ -16,7 +16,13 @@ class MapScene: MapSceneBase {
     override func keyDown(with event: NSEvent) {
 //        self.keyboardHandler.keyDown(with: event)
         if(event.keyCode == KeyCode.KEY_M.rawValue){
-            self.moveDoctorNodeToNextLevel()
+            if(VersionHelper.getDevMode()){
+                self.moveDoctorNodeToNextLevel()
+            }
+        }else if(event.keyCode == KeyCode.KEY_ESC.rawValue){
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadMenuScene()
+            }
         }
     }
     
@@ -33,10 +39,7 @@ class MapScene: MapSceneBase {
                 self.oldSelNode = node
             }
         }
-        
-//        if(node != self.imgBG && node != self){
-//            self.imgBG = self.imgBG
-//        }
+
         if(node == self.imgBack){
             self.selNode = node
             self.imgBack.texture = self.textBackArrowSel

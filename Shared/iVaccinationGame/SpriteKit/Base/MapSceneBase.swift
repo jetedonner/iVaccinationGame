@@ -26,6 +26,10 @@ class MapSceneBase: BaseSKScene {
     var imgBackstreet:SKLocationNode!
     var imgScarryStreet:SKLocationNode!
     
+    var oldSelNode:SKNode?
+    var doctorPos:CGPoint = CGPoint(x: 0, y: 0)
+    var doctorPathAction = [Level:[SKAction]]()
+    var currentLevelForDoctor:Level = .Meadow
     var doctor:SKSpriteNode = SKSpriteNode(imageNamed: "Doctor")
     var doctorGraph:[String:GKGraph]!
     
@@ -78,15 +82,13 @@ class MapSceneBase: BaseSKScene {
     var textBackArrowSel:SKTexture = SKTexture(imageNamed: "BackArrowSel")
     var textBackArrow:SKTexture = SKTexture(imageNamed: "BackArrow")
     
-    
+    let doctorHoppingAction:SKAction = SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 0, y: 15, duration: 0.25), SKAction.moveBy(x: 0, y: -15, duration: 0.25)]))
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
         self.imgBG = self.childNode(withName: "BG") as? SKSpriteNode
         self.imgBack = self.childNode(withName: "imgBack") as? SKSpriteNode
         self.currentContainer = self.childNode(withName: "currentContainer") as? SKShapeNode
-        
-//        var doctorGraph = (self as! GKScene).graphs.first
         
         self.lblScore = self.currentContainer.childNode(withName: "lblScore") as? SKLabelNode
         self.lblCertificates = self.currentContainer.childNode(withName: "lblCertificates") as? SKLabelNode
@@ -134,7 +136,6 @@ class MapSceneBase: BaseSKScene {
         self.lblTooltip = self.contTooltip!.childNode(withName: "lblTooltip") as? SKLabelNode
         self.contTooltip?.alpha = 0.0
         
-        
         self.imgMeadow = SKLocationNode(imgNode: self.childNode(withName: "imgMeadow") as! SKSpriteNode, textUndone: self.textureMeadowBW, textDone: self.textureMeadowColor)
         self.imgCitySkyline = SKLocationNode(imgNode: self.childNode(withName: "imgCitySkyline") as! SKSpriteNode, textUndone: self.textureCitySkylineBW, textDone: self.textureCitySkylineColor)
         self.imgCityStreet = SKLocationNode(imgNode: self.childNode(withName: "imgCityStreet") as! SKSpriteNode, textUndone: self.textureCityStreetBW, textDone: self.textureCityStreetColor)
@@ -149,65 +150,12 @@ class MapSceneBase: BaseSKScene {
         self.doctor.zPosition = 3
         self.doctor.position = doctorPos
         self.addChild(self.doctor)
-        
-        
-        let hoppingAction:SKAction = SKAction.repeatForever(SKAction.sequence([SKAction.moveBy(x: 0, y: 15, duration: 0.25), SKAction.moveBy(x: 0, y: -15, duration: 0.25)]))
-        self.doctor.run(hoppingAction)
-        
-//        self.enableLocations()
+
+        self.doctor.run(doctorHoppingAction)
+
         self.imgBG.zPosition = 1
         self.updateScoreFromICloud()
     }
-    
-    var doctorPos:CGPoint = CGPoint(x: 0, y: 0)
-//    var doctorPos:CGPoint = CGPoint(x: 0, y: 0)
-    var doctorPathAction = [Level:[SKAction]]()
-    var currentLevelForDoctor:Level = .Meadow
-    
-    func moveDoctorNodeToNextLevel(){
-        if(currentLevelForDoctor == .NewGame){
-            currentLevelForDoctor = .Meadow
-        }
-        self.moveDoctorNodeToLevel(level: currentLevelForDoctor.getNextLevel())
-    }
-    
-    func moveDoctorNodeToLevel(level:Level){
-        if(level == .MissionAccomplished){
-            return
-        }
-        self.doctor.run(SKAction.sequence(doctorPathAction[level]!), completion: {
-            self.currentLevelForDoctor = level
-        })
-    }
-    
-    func loadDoctorGraph(doctorGraph:[String:GKGraph]){
-        self.doctorGraph = doctorGraph
-        var currentLevel:Level = .CitySkyline
-        if let daGraph = self.doctorGraph.first?.value{
-            var idx:Int = 0
-            
-            for theNode in daGraph.nodes! {
-                if(idx == 0){
-                    idx += 1
-                    continue
-                }
-                if let point2d = theNode as? GKGraphNode2D {
-                    let point = CGPoint(x: CGFloat(point2d.position.x), y: CGFloat(point2d.position.y))
-                    let action = SKAction.move(to: point, duration: 0.25)
-                    if(doctorPathAction[currentLevel] == nil){
-                        doctorPathAction[currentLevel] = [SKAction]()
-                    }
-                    doctorPathAction[currentLevel]!.append(action)
-                }
-                if(idx % 5 == 0){
-                    currentLevel = currentLevel.getNextLevel()
-                }
-                idx += 1
-            }
-        }
-    }
-    
-    var oldSelNode:SKNode?
     
     func showTooltip(msg:String, pos:CGPoint){
         self.lblTooltip.text = msg
@@ -220,29 +168,6 @@ class MapSceneBase: BaseSKScene {
     func fadeOutTooltip(){
         self.contTooltip?.run(SKAction.sequence([SKAction.wait(forDuration: 3.0), SKAction.fadeAlpha(to: 0.0, duration: 0.5)]))
     }
-    
-    func posDoctorNode(level:Level){
-        if(level == .NewGame){
-            self.doctorPos = self.imgMeadow.imgNode.position
-        }else if(level == .Meadow){
-            self.doctorPos = self.imgMeadow.imgNode.position
-        }else if(level == .CitySkyline){
-            self.doctorPos = self.imgCitySkyline.imgNode.position
-        }else if(level == .CityStreet){
-            self.doctorPos = self.imgCityStreet.imgNode.position
-        }else if(level == .Wallway){
-            self.doctorPos = self.imgWallway.imgNode.position
-        }else if(level == .CityJapan){
-            self.doctorPos = self.imgJapanStreet.imgNode.position
-        }else if(level == .CityNight){
-            self.doctorPos = self.imgBackstreet.imgNode.position
-        }else if(level == .ScarryStreet){
-            self.doctorPos = self.imgScarryStreet.imgNode.position
-        }
-        self.doctor.position = self.doctorPos
-        self.currentLevelForDoctor = level
-    }
-    
     
     func loadMapBGTexture(){
         self.imgBG.texture = self.textNG
