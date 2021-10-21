@@ -17,7 +17,7 @@ extension BaseSKScene{
     override func mouseDown(with event: NSEvent) {
         let location = event.location(in: self.sceneNode)
         if let viewCtrl = self.view?.window?.contentViewController{
-            self.touchOrClick(pos: location, viewController: (viewCtrl as! ViewController))
+            _ = self.touchOrClick(pos: location, viewController: (viewCtrl as! ViewController))
         }
     }
 }

@@ -77,7 +77,7 @@ class BasePickupNode: SKSpriteNode {
     func genNewPos(overridePos:CGPoint? = nil){
         var isBehindGKAccessPoint:Bool = true
 //        var isBehindHand:Bool = true
-        var isBehindHandovic:Bool = false
+        let isBehindHandovic:Bool = false
         var newPoint:CGPoint = CGPoint(x: 0, y: 0)
         
         if let gameScene = self.scene as? GameScene{
@@ -150,23 +150,20 @@ class BasePickupNode: SKSpriteNode {
     
 
     func checkNodeBehindHand(node1:SKSpriteNode, node2:SKSpriteNode)->Bool{
-        
-        let isbehind:Bool = node1.frame.contains(node2.frame)// !.frame.contains(self.imgTESET!.frame)
-        print("TESTZE is behind: \(isbehind)")
+        let isbehind:Bool = node1.frame.contains(node2.frame)
+//        print("TESTZE is behind: \(isbehind)")
         return isbehind
     }
     
     func checkNodeBehindHand(node1:SKSpriteNode, point:CGPoint)->Bool{
-        
-        let isbehind:Bool = node1.frame.contains(point)// !.frame.contains(self.imgTESET!.frame)
-        print("TESTZE is behind: \(isbehind)")
+        let isbehind:Bool = node1.frame.contains(point)
+//        print("TESTZE is behind: \(isbehind)")
         return isbehind
     }
     
     func checkNodeBehindHand(node1Rect:CGRect, point:CGPoint)->Bool{
-        
-        let isbehind:Bool = node1Rect.contains(point)// !.frame.contains(self.imgTESET!.frame)
-        print("TESTZE is behind: \(isbehind)")
+        let isbehind:Bool = node1Rect.contains(point)
+//        print("TESTZE is behind: \(isbehind)")
         return isbehind
     }
     

@@ -17,9 +17,10 @@ class IVAchievement{
     var achievementTitle:String = ""
     var achievementDesc:String = ""
     var achievementImage:String = ""
+    var achievementScore:Int = 100
     var check: (_ gameScene:GameSceneBase, _ achievement:IVAchievement)->Bool
     
-    init(achievementId:AchievementId, achievementTitle:String, achievementDesc:String, achievementImage:String, check: @escaping (_ gameScene:GameSceneBase, _ achievement:IVAchievement)->Bool ){
+    init(achievementId:AchievementId, achievementTitle:String, achievementDesc:String, achievementImage:String, achievementScore:Int, check: @escaping (_ gameScene:GameSceneBase, _ achievement:IVAchievement)->Bool ){
         self.achievementId = achievementId
         self.achievementTitle = achievementTitle
         self.achievementDesc = achievementDesc

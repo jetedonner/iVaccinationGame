@@ -36,11 +36,15 @@ class SettingsViewController: NSViewController {
     @IBOutlet var tabMain:NSTabView?
     @IBOutlet var tabDev:NSTabViewItem?
     
-    let onlineHelper:OnlineHighscoreHelper = OnlineHighscoreHelper()
+    var teset:SkMessageBoxNode!
+    var onlineHelper:OnlineHighscoreHelper!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.teset = SkMessageBoxNode(size: CGSize(width: self.view.frame.width - 200, height: 100))
+        self.onlineHelper = OnlineHighscoreHelper(msgBox: self.teset)
+        
         if(self.txtPlayerName?.stringValue == ""){
             self.txtPlayerName?.stringValue = NSFullUserName()
         }

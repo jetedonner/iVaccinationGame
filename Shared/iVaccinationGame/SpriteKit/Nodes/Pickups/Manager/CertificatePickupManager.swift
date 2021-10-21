@@ -10,6 +10,7 @@ import SpriteKit
 
 class CertificatePickupManager:PickupManagerBase{
     
+    var generatedCerts:Int = 0
     var certPickups:[CertificatePickup] = []
     
     init(gameScene:GameSceneBase){
@@ -24,6 +25,7 @@ class CertificatePickupManager:PickupManagerBase{
     
     override func addPickupToScene(newPickup:BasePickupNode){
         super.addPickupToScene(newPickup: newPickup)
+        self.generatedCerts += 1
 //        self.pickupsOnScene += 1
 //        self.pickups.append(newPickup)
 //        self.gameScene.addChild(newPickup)

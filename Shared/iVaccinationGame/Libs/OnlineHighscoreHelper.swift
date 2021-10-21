@@ -15,29 +15,29 @@ enum HighscoreType:String{
 }
 
 class OnlineHighscoreHelper{
-
-    let baseURL:String = "http://ivaccination.kimhauser.ch/"
-    let webserviceName:String = "webservice.php"
-   
     
-    func loadHighscore(completion:@escaping(_:Array<Dictionary<String, Any>>)->Void){
+    let baseURL:String = GameVars.ONLINE_COMPETITION_WEBSERVER
+    let webserviceName:String = GameVars.ONLINE_COMPETITION_WEBSERVICE
+    let msgBox:SkMessageBoxNode
+    
+    init(msgBox:SkMessageBoxNode){
+        self.msgBox = msgBox
+    }
+    
+    func loadHighscore(completion:@escaping(_:Array<Dictionary<String, Any>>)->Void, difficulty:String = "All"){
         var url = URLComponents(string: self.baseURL + self.webserviceName)!
-
         url.queryItems = [
-            URLQueryItem(name:"action", value:"gethighscore")
+            URLQueryItem(name:"action", value: GameVars.ONLINE_COMPETITION_GET_HIGHSCORE),
+            URLQueryItem(name:"difficulty", value: difficulty)
         ]
-        
         let request:NSMutableURLRequest = NSMutableURLRequest(url: url.url!)
-        request.httpMethod = "GET"
-        
+        request.httpMethod = GameVars.HTTP_GET
         let task = URLSession.shared.dataTask(with: request as URLRequest){
             data, response, error in
-            
             if error != nil{
                 print("error is \(String(describing: error))")
                 return;
             }
-        
             do {
                 let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                 if let parseJSON = myJSON {
@@ -48,29 +48,24 @@ class OnlineHighscoreHelper{
             } catch {
                 print(error)
             }
-            
         }
         task.resume()
     }
     
-    func loadCertificates(completion:@escaping(_:Array<Dictionary<String, Any>>)->Void){
+    func loadCertificates(completion:@escaping(_:Array<Dictionary<String, Any>>)->Void, difficulty:String = "All"){
         var url = URLComponents(string: self.baseURL + self.webserviceName)!
-
         url.queryItems = [
-            URLQueryItem(name:"action", value:"getcertificates")
+            URLQueryItem(name:"action", value: GameVars.ONLINE_COMPETITION_GET_CERTIFICATES),
+            URLQueryItem(name:"difficulty", value: difficulty)
         ]
-        
         let request:NSMutableURLRequest = NSMutableURLRequest(url: url.url!)
-        request.httpMethod = "GET"
-        
+        request.httpMethod = GameVars.HTTP_GET
         let task = URLSession.shared.dataTask(with: request as URLRequest){
             data, response, error in
-            
             if error != nil{
                 print("error is \(String(describing: error))")
                 return;
             }
-        
             do {
                 let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                 if let parseJSON = myJSON {
@@ -81,29 +76,24 @@ class OnlineHighscoreHelper{
             } catch {
                 print(error)
             }
-            
         }
         task.resume()
     }
     
-    func loadVaccinations(completion:@escaping(_:Array<Dictionary<String, Any>>)->Void){
+    func loadVaccinations(completion:@escaping(_:Array<Dictionary<String, Any>>)->Void, difficulty:String = "All"){
         var url = URLComponents(string: self.baseURL + self.webserviceName)!
-
         url.queryItems = [
-            URLQueryItem(name:"action", value:"getvaccinations")
+            URLQueryItem(name:"action", value: GameVars.ONLINE_COMPETITION_GET_VACCINATIONS),
+            URLQueryItem(name:"difficulty", value: difficulty)
         ]
-        
         let request:NSMutableURLRequest = NSMutableURLRequest(url: url.url!)
-        request.httpMethod = "GET"
-        
+        request.httpMethod = GameVars.HTTP_GET
         let task = URLSession.shared.dataTask(with: request as URLRequest){
             data, response, error in
-            
             if error != nil{
                 print("error is \(String(describing: error))")
                 return;
             }
-        
             do {
                 let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
                 if let parseJSON = myJSON {
@@ -114,21 +104,18 @@ class OnlineHighscoreHelper{
             } catch {
                 print(error)
             }
-            
         }
         task.resume()
     }
     
-    func loadAchievements(completion:@escaping(_:Array<Dictionary<String, Any>>)->Void){
+    func loadAchievements(completion:@escaping(_:Array<Dictionary<String, Any>>)->Void, difficulty:String = "All"){
         var url = URLComponents(string: self.baseURL + self.webserviceName)!
-
         url.queryItems = [
-            URLQueryItem(name:"action", value:"getachievements")
+            URLQueryItem(name:"action", value: GameVars.ONLINE_COMPETITION_GET_ACHIEVEMENTS),
+            URLQueryItem(name:"difficulty", value: difficulty)
         ]
-        
         let request:NSMutableURLRequest = NSMutableURLRequest(url: url.url!)
-        request.httpMethod = "GET"
-        
+        request.httpMethod = GameVars.HTTP_GET
         let task = URLSession.shared.dataTask(with: request as URLRequest){
             data, response, error in
             
@@ -147,86 +134,85 @@ class OnlineHighscoreHelper{
             } catch {
                 print(error)
             }
-            
         }
         task.resume()
     }
     
-//    achievementaccomplished
-    func achievementAccomplished(achievementId:AchievementId){
+    func createPostParameters(params:[String:String])->String{
+        var sRet = ""
+        for param in params{
+            sRet += (sRet == "" ? "" : "&") + param.key + "=" + param.value
+        }
+        return sRet
+    }
+    
+    func achievementAccomplished(gameScene:GameSceneBase?, achievementId:AchievementId, player:String, difficulty:Difficulty = .easy){
         let url = URLComponents(string: self.baseURL + self.webserviceName)!
         let request:NSMutableURLRequest = NSMutableURLRequest(url: url.url!)
-        request.httpMethod = "POST"
-        //getting values from text fields
-        let player = "FromMacOS"//textFieldName.text
-        let score = 123//textFieldMember.text
-        let difficulty = "Easy"//textFieldMember.text
-        let achievement = AchievementId.achivementPerfectThrowsID.rawValue //textFieldMember.text
-        
-        //creating the post parameter by concatenating the keys and values from text field
-        let postParameters = "action=achievementaccomplished&player=" + player + "&achievement=" + achievement.description + "&score=" + score.description + "&difficulty=" + difficulty + "&secretWord=9ce95fad-4029-4ee1-97f4-c01a1aed04ca";
-        
-        //adding the parameters to request body
+        request.httpMethod = GameVars.HTTP_POST
+        let player = player
+        let score = 100
+        let difficulty = difficulty.rawValue
+        let achievement = achievementId.rawValue
+        if let gameScene = gameScene{
+            if let achievement = gameScene.achievementManager.achievements.filter({ $0.achievementId == achievementId }).first {
+                msgBox.showMessage(title: achievement.achievementTitle, msg: achievement.achievementDesc)
+            }
+        }
+        let postParameters = self.createPostParameters (
+            params: [
+                "action": GameVars.ONLINE_COMPETITION_POST_ACHIEVEMENT_ACCOMPLISHED,
+                "player": player,
+                "achievement": achievement.description,
+                "score": score.description,
+                "difficulty": difficulty,
+                "secretWord": GameVars.ONLINE_COMPETITION_WEBSERVICE_KEY
+            ]
+        )
         request.httpBody = postParameters.data(using: String.Encoding.utf8)
-        
-        //creating a task to send the post request
         let task = URLSession.shared.dataTask(with: request as URLRequest){
             data, response, error in
-            
             if error != nil{
-                print("error is \(error)")
+                print("error is \(String(describing: error))")
                 return;
             }
-        
-            //parsing the response
             do {
-                //converting resonse to NSDictionary
                 let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
-                
-                //parsing the json
                 if let parseJSON = myJSON {
-                    
-                    //creating a string
                     var msg : String!
-                    
-                    //getting the json response
                     msg = parseJSON["message"] as! String?
-                    
-                    //printing the response
-                    print(msg)
-                    
+                    print(msg!)
                 }
             } catch {
                 print(error)
             }
-            
         }
-        //executing the task
         task.resume()
     }
     
     func uploadHighscore(score:Int, playerName:String, difficulty:String, type:HighscoreType = .highscore){
-        
         let request:NSMutableURLRequest = NSMutableURLRequest(url: URL(string: UserDefaultsHelper.onlineCompetitionURL)!)
-        request.httpMethod = "POST"
-        let player = playerName// "FromMacOS"
-        let score = score // 123
-        let highscoreType = type.rawValue // 123
-        let difficulty = difficulty// "Easy"
-        let secretWord = GameVars.onlineKey// "Easy"
-        
-        let postParameters = "action=uploadHighscore&player=" + player + "&score=" + score.description + "&difficulty=" + difficulty + "&highscoreType=" + highscoreType + "&secretWord=" + secretWord;
+        request.httpMethod = GameVars.HTTP_POST
+        let player = playerName
+        let score = score
+        let highscoreType = type.rawValue
+        let difficulty = difficulty
+        let postParameters = self.createPostParameters(
+            params: [
+                "action": GameVars.ONLINE_COMPETITION_POST_HIGHSCORE,
+                "player": player,
+                "highscoreType": highscoreType,
+                "score": score.description,
+                "difficulty": difficulty,
+                "secretWord": GameVars.ONLINE_COMPETITION_WEBSERVICE_KEY
+            ]
+        )
         request.httpBody = postParameters.data(using: String.Encoding.utf8)
-        
         let task = URLSession.shared.dataTask(with: request as URLRequest){
             data, response, error in
-            
             if error != nil{
-                print("error is \(error)")
+                print("error is \(String(describing: error))")
                 return;
-            }else{
-//                print("\(response)")
-//                print("\(data)")
             }
             do {
                 let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
@@ -234,7 +220,7 @@ class OnlineHighscoreHelper{
                     
                     var msg : String!
                     msg = parseJSON["message"] as! String?
-                    print(msg)
+                    print(msg!)
                 }
             } catch {
                 print(error)
@@ -242,5 +228,4 @@ class OnlineHighscoreHelper{
         }
         task.resume()
     }
-    
 }

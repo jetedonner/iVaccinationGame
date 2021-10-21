@@ -25,6 +25,17 @@ class GameVars{
     static let ONLINE_COMPETITION_WEBSERVER:String = "http://ivaccination.kimhauser.ch/"
     static let ONLINE_COMPETITION_WEBSERVICE:String = "webservice.php"
     
-    static let onlineKey:String = "9ce95fad-4029-4ee1-97f4-c01a1aed04ca"
+    static let ONLINE_COMPETITION_GET_HIGHSCORE:String = "gethighscore"
+    static let ONLINE_COMPETITION_GET_CERTIFICATES:String = "getcertificates"
+    static let ONLINE_COMPETITION_GET_VACCINATIONS:String = "getvaccinations"
+    static let ONLINE_COMPETITION_GET_ACHIEVEMENTS:String = "getachievements"
+    
+    static let ONLINE_COMPETITION_POST_ACHIEVEMENT_ACCOMPLISHED:String = "achievementaccomplished"
+    static let ONLINE_COMPETITION_POST_HIGHSCORE:String = "uploadHighscore"
+    
+    static let HTTP_GET:String = "GET"
+    static let HTTP_POST:String = "POST"
+    
+    static let ONLINE_COMPETITION_WEBSERVICE_KEY:String = "9ce95fad-4029-4ee1-97f4-c01a1aed04ca"
     
 }

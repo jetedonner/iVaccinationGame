@@ -23,6 +23,8 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
 
+    @IBOutlet var cmbDifficulty:NSPopUpButton!
+    
     @IBOutlet var tblHighscore:NSTableView!
     @IBOutlet var tblCertificates:NSTableView!
     @IBOutlet var tblVaccinations:NSTableView!
@@ -35,16 +37,44 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     var certificates:Any!
     var achievements:Any!
     
-    let onlineHelper:OnlineHighscoreHelper = OnlineHighscoreHelper()
+    var teset:SkMessageBoxNode!
+    var onlineHelper:OnlineHighscoreHelper!
+    var selDifficulty:String = "All"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.testInsertHS(nil)
+        
+        self.teset = SkMessageBoxNode(size: CGSize(width: self.view.frame.width - 200, height: 100))
+        self.onlineHelper = OnlineHighscoreHelper(msgBox: self.teset)
+//        self.testInsertHS(nil)
         
         self.configureCollectionView()
-        self.collectionView.dataSource = self
-        self.collectionView.delegate = self
-        self.collectionView.reloadData()
+//        self.collectionView.dataSource = self
+//        self.collectionView.delegate = self
+//        self.collectionView.reloadData()
+        self.reloadScoresAndAchievements(nil)
+    }
+    
+    @IBAction func cmbDifficultyChange(_ sender:Any?){
+//        if(self.cmbDifficulty.selectedItem?.title == "All"){
+//
+//        }
+        selDifficulty = self.cmbDifficulty.selectedItem!.title
+        switch self.cmbDifficulty.selectedItem?.title {
+        case "All":
+            print("ALL Difficulties")
+        case "Easy":
+            print("EASY Difficulties")
+        case "Medium":
+            print("MEDIUM Difficulties")
+        case "Hard":
+            print("HARD Difficulties")
+        case "Nightmare":
+            print("NIGHTMARE Difficulties")
+        default:
+            print("ERROR: NOT a registered Difficulty")
+        }
+        self.reloadScoresAndAchievements(sender, difficulty: selDifficulty)
     }
     
     
@@ -133,7 +163,7 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
     @IBAction func testInsertAch(_ sender:Any){
-        self.onlineHelper.achievementAccomplished(achievementId: .achivementPerfectThrowsID)
+        self.onlineHelper.achievementAccomplished(gameScene: nil, achievementId: .achivementPerfectThrowsID, player: UserDefaultsHelper.playerName)
     }
     
     @IBAction func testInsertHS2(_ sender:Any){
@@ -149,7 +179,7 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         let task = URLSession.shared.dataTask(with: request as URLRequest){
             data, response, error in
             if error != nil{
-                print("error is \(error)")
+                print("error is \(String(describing: error))")
                 return;
             }
             do {
@@ -158,7 +188,7 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
                     
                     var msg : String!
                     msg = parseJSON["message"] as! String?
-                    print(msg)
+                    print(msg!)
                 }
             } catch {
                 print(error)
@@ -168,6 +198,10 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
     @IBAction func testInsertHS(_ sender:Any?){
+        self.reloadScoresAndAchievements(sender)
+    }
+    
+    func reloadScoresAndAchievements(_ sender:Any?, difficulty:String = "All"){
         self.prgLoading.isHidden = false
         self.prgLoading.startAnimation(sender)
         self.onlineHelper.loadHighscore(completion: { loadedHighscore in
@@ -176,21 +210,18 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
                 self.tblHighscore.delegate = self
                 self.tblHighscore.dataSource = self
                 self.tblHighscore.reloadData()
-                
                 self.onlineHelper.loadVaccinations(completion: { loadedVaccinations in
                     DispatchQueue.main.async {
                         self.vaccinations = loadedVaccinations
                         self.tblVaccinations.delegate = self
                         self.tblVaccinations.dataSource = self
                         self.tblVaccinations.reloadData()
-                        
                         self.onlineHelper.loadCertificates(completion: { loadedCertificates in
                             DispatchQueue.main.async {
                                 self.certificates = loadedCertificates
                                 self.tblCertificates.delegate = self
                                 self.tblCertificates.dataSource = self
                                 self.tblCertificates.reloadData()
-                                
                                 self.onlineHelper.loadAchievements(completion: { loadedAchievements in
                                     DispatchQueue.main.async {
                                         self.achievements = loadedAchievements
@@ -200,14 +231,13 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
                                         self.prgLoading.stopAnimation(sender)
                                         self.prgLoading.isHidden = true
                                     }
-                                })
+                                }, difficulty: self.selDifficulty)
                             }
-                        })
+                        }, difficulty: self.selDifficulty)
                     }
-                })
+                }, difficulty: self.selDifficulty)
             }
-        })
-        
+        }, difficulty: self.selDifficulty)
     }
 }
 

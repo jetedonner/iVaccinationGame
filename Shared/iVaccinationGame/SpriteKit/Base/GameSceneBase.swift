@@ -101,14 +101,15 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
     var thrownSyringeDarts:[SyringeDart] = []
     
     var achievementManager:IVAchievementManager!
-    let onlineHelper:OnlineHighscoreHelper = OnlineHighscoreHelper()
-    var teset:SkMessageBoxNode!
+    var onlineHelper:OnlineHighscoreHelper!
+    var msgBox:SkMessageBoxNode!
     
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
-        self.teset = SkMessageBoxNode(size: CGSize(width: self.frame.width - 200, height: 100))
-        self.addChild(self.teset)
+        self.msgBox = SkMessageBoxNode(size: CGSize(width: self.frame.width - 200, height: 100))
+        self.onlineHelper = OnlineHighscoreHelper(msgBox: self.msgBox)
+        self.addChild(self.msgBox)
         self.physicsWorld.contactDelegate = self
         
         self.achievementManager = IVAchievementManager(gameScene: self)
@@ -195,6 +196,7 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
         self.runLevelConfig(levelID: self.selLevel, difficulty: UserDefaultsHelper.difficulty)
         
         self.certificatePickupManager.startPickupManager()
+        self.certificatePickupManager.generatedPickups += 1
         self.syringePickupManager.startPickupManager()
         
         self.lblVacc?.text = "Vaccine: " + self.player.vaccineArsenal.currentVaccine.rawValue
@@ -419,13 +421,20 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
             ICloudStorageHelper.level = nextLevel.getDesc()
             ICloudStorageHelper.difficulty = UserDefaultsHelper.difficulty.rawValue
             
-            
             if(UserDefaultsHelper.useScoreboard){
                 self.onlineHelper.uploadHighscore(score: UserDefaultsHelper.highscore, playerName: UserDefaultsHelper.playerName, difficulty: UserDefaultsHelper.difficulty.rawValue)
                 
                 self.onlineHelper.uploadHighscore(score: UserDefaultsHelper.certificates, playerName: UserDefaultsHelper.playerName, difficulty: UserDefaultsHelper.difficulty.rawValue, type: HighscoreType.certificates)
                 
                 self.onlineHelper.uploadHighscore(score: UserDefaultsHelper.vaccinations, playerName: UserDefaultsHelper.playerName, difficulty: UserDefaultsHelper.difficulty.rawValue, type: HighscoreType.vaccinations)
+            }
+            
+            if(UserDefaultsHelper.useAchievements){
+                self.achievementManager.checkAndShowAchievementsAccomplished(gameScene: self, achievementIds: [
+                    .achivementPerfectThrowsID,
+                    .achivementStayHealthyID,
+                    .achivementCollectAllCertsID
+                ])
             }
             
             if(UserDefaultsHelper.useGameCenter && UserDefaultsHelper.uploadHighscore){
@@ -446,10 +455,6 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                     case .nightmare:
                         GCAchievements.shared.add2completeAllLevelsNightmare()
                     }
-                }
-                
-                if(self.achievementManager.checkAchievementAccomplished(achievementId: .achivementPerfectThrowsID)){
-                    self.onlineHelper.achievementAccomplished(achievementId: .achivementPerfectThrowsID)
                 }
                 
                 if((!gameLost) && self.currentLevel.shots > 0 && self.currentLevel.shots == self.currentLevel.hits){

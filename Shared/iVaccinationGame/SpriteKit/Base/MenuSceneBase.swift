@@ -45,7 +45,7 @@ class MenuSceneBase: BaseSKScene {
         self.selNode = self.lblStartGame
         self.addChild(self.teset)
 //        self.teset.showMessage(title: "HELLO MESSAGE BOX", msg: "Some detailed message to show")
-        self.teset.showMessage(title: "Collect all certificates", msg: "GREAT! You've collected all certificates in this level!\r\nYou earned +100 Points")
+        self.teset.showMessage(title: "Collect all certificates", msg: "GREAT! You've collected all certificates in this level!\nYou earned +100 Points")
     }
     
     override func touchOrClick(pos: CGPoint, viewController:IViewController)->SKNode {

@@ -38,6 +38,7 @@ enum UserDefaultsName:String{
     case vaccination = "vaccination"
 
     case playerName = "playerName"
+    case useOnlineCompetitions = "useOnlineCompetitions"
     case useScoreboard = "useScoreboard"
     case useAchievements = "useAchievements"
     
@@ -253,6 +254,14 @@ class UserDefaultsHelper{
         }
     }
     
+    static var useOnlineCompetitions:Bool{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.useOnlineCompetitions.rawValue) == nil){
+                self.defaults.set(true, forKey: UserDefaultsName.useOnlineCompetitions.rawValue)
+            }
+            return self.defaults.bool(forKey: UserDefaultsName.useOnlineCompetitions.rawValue)
+        }
+    }
     
     static var useScoreboard:Bool{
         get{

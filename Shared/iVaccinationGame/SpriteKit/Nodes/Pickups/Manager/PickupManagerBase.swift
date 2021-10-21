@@ -14,6 +14,7 @@ class PickupManagerBase:GKEntity{
     let gameScene:GameSceneBase
     var pickups:[BasePickupNode] = []
     
+    var generatedPickups:Int = 0
     var pickupsOnScene:Int = 0
     var pickupsAtOnce:Int = 1
     
@@ -55,6 +56,7 @@ class PickupManagerBase:GKEntity{
     
     func addPickupToScene(newPickup:BasePickupNode){
         self.pickupsOnScene += 1
+        self.generatedPickups += 1
         self.pickups.append(newPickup)
         self.gameScene.addChild(newPickup)
         newPickup.genNewPos()

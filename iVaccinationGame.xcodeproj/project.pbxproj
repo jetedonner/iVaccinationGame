@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55357295271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */; };
+		55357296271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */; };
 		554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E531A26EFAD4300371E58 /* AppDelegate.swift */; };
 		554E531D26EFAD4300371E58 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531C26EFAD4300371E58 /* GameScene.sks */; };
 		554E531F26EFAD4300371E58 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531E26EFAD4300371E58 /* Actions.sks */; };
@@ -292,6 +294,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVBaseAchievement.swift; sourceTree = "<group>"; };
 		554E531726EFAD4300371E58 /* iVaccinationGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccinationGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554E531A26EFAD4300371E58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554E531C26EFAD4300371E58 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -505,6 +508,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55357292271DE09000C080C0 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				55357293271DE0A100C080C0 /* Achievements */,
+				5579340F27198FA100013BA9 /* IVAchievement.swift */,
+				557934122719901600013BA9 /* IVAchievementManager.swift */,
+				55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */,
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
+		55357293271DE0A100C080C0 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
 		554E530E26EFAD4300371E58 = {
 			isa = PBXGroup;
 			children = (
@@ -872,6 +893,7 @@
 		55C83F2326FC6A0F00F42F53 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				55357292271DE09000C080C0 /* Achievements */,
 				55B64A3C26F3716000944766 /* CustomProgressBar.swift */,
 				55EE3D6926FFC49C00991D86 /* SoundManager.swift */,
 				55B64A3A26F3602C00944766 /* GameVars.swift */,
@@ -880,8 +902,6 @@
 				55F67A63271349AA003C60B2 /* SKColor.swift */,
 				557933E62718289F00013BA9 /* ScrollableNode.swift */,
 				557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */,
-				5579340F27198FA100013BA9 /* IVAchievement.swift */,
-				557934122719901600013BA9 /* IVAchievementManager.swift */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -1334,6 +1354,7 @@
 				559442A926FE83C20082DA72 /* ScarryStreetLevel.swift in Sources */,
 				55EE3D6A26FFC49C00991D86 /* SoundManager.swift in Sources */,
 				55C83F6726FDDC7000F42F53 /* GameOverState.swift in Sources */,
+				55357295271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */,
 				5561AF752708B07F007B3F8F /* Difficulty.swift in Sources */,
 				55EAD46526FF757500BB8D06 /* BaseSKScene.swift in Sources */,
 				556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */,
@@ -1466,6 +1487,7 @@
 				55EAD45826FF60D600BB8D06 /* Level.swift in Sources */,
 				55C83F6E26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */,
 				55C83F1126FC673D00F42F53 /* WallwayLevel.swift in Sources */,
+				55357296271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */,
 				55EE3D7527009A3200991D86 /* BaseMessageNode.swift in Sources */,
 				55C83F1326FC673D00F42F53 /* CitySkylineLevel.swift in Sources */,
 				55E59BD026FF873000B75322 /* DifficultyScene.swift in Sources */,

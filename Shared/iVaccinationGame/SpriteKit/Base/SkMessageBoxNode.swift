@@ -37,12 +37,7 @@ class SkMessageBoxNode: SKNode {
         let bgColor:SKColor = SKColor(red: 0, green: 137 / 255, blue: 103 / 255, alpha: 0.65)
         self.shpBorder.fillColor = bgColor //.withAlphaComponent(0.35)
         self.addChild(self.shpBorder)
-    
-//        self.shpBorder.frame.size = CGSize(width: (self.parent?.frame.width)! - 100, height: 200)
 
-        let pos:CGPoint = CGPoint(x: ((self.shpBorder.parent?.frame.width)! / 2) - (self.shpBorder.frame.width / 2) , y: 150)
-        
-        self.position = pos
         let pos2:CGPoint = CGPoint(x: (self.shpBorder.frame.width / 2) - (self.lblTitle.frame.width / 2) , y: (self.shpBorder.frame.height) - 40)
         self.lblTitle.position = pos2
         
@@ -58,23 +53,32 @@ class SkMessageBoxNode: SKNode {
         self.alpha = 0.0
     }
     
-    func showMessage(title:String, msg:String, timeout:TimeInterval = GameVars.MSGBOX_TIME){
+    func showMessage(title:String, msg:String, imgNamed:String = "CertificatePickup", timeout:TimeInterval = GameVars.MSGBOX_TIME, completion:(() -> Void)? = nil){
         self.lblTitle.text = title
         
         
         let attrString = NSMutableAttributedString(string: msg)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
-        let range = NSRange(location: 0, length: msg.count+1)
+        let range = NSRange(location: 0, length: msg.count)
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: range)
         attrString.addAttributes([NSAttributedString.Key.foregroundColor : SKColor.white, NSAttributedString.Key.font : NSFont.systemFont(ofSize: 14)], range: range)
         self.lblMsg.attributedText = attrString
         
+        self.imgMsg.texture = SKTexture(imageNamed: imgNamed)
         
-//        self.lblMsg.text = msg
         let pos3:CGPoint = CGPoint(x: (self.shpBorder.frame.width / 2), y: (self.shpBorder.frame.height) - 65 - (self.lblMsg.frame.height / 2))
         self.lblMsg.position = pos3
-        self.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.25), SKAction.wait(forDuration: timeout), SKAction.fadeOut(withDuration: 0.5)]))
+        
+        let pos:CGPoint = CGPoint(x: 0 - (self.shpBorder.frame.width / 2) , y: ((self.parent?.frame.height)! / 2) - 150)
+        
+        self.position = pos
+        
+        if(completion != nil){
+            self.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.25), SKAction.wait(forDuration: timeout), SKAction.fadeOut(withDuration: 0.5)]), completion: completion!)
+        }else{
+            self.run(SKAction.sequence([SKAction.fadeIn(withDuration: 0.25), SKAction.wait(forDuration: timeout), SKAction.fadeOut(withDuration: 0.5)]))
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
