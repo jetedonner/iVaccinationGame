@@ -141,7 +141,7 @@ class MapSceneBase: BaseSKScene {
         self.imgWallway = SKLocationNode(imgNode: self.childNode(withName: "imgWallway") as! SKSpriteNode, textUndone: self.textureWallwayBW, textDone: self.textureWallwayColor)
         self.imgJapanStreet = SKLocationNode(imgNode: self.childNode(withName: "imgJapanStreet") as! SKSpriteNode, textUndone: self.textureJapanStreetBW, textDone: self.textureJapanStreetColor)
         self.imgBackstreet = SKLocationNode(imgNode: self.childNode(withName: "imgBackstreet") as! SKSpriteNode, textUndone: self.textureBackstreetBW, textDone: self.textureBackstreetColor)
-        self.imgScarryStreet = SKLocationNode(imgNode: self.childNode(withName: "imgScarryStreet") as! SKSpriteNode, textUndone: self.textureScarryStreetBW, textDone: self.textureScarryStreetColor)
+        self.imgScarryStreet = SKLocationNode(imgNode: self.childNode(withName: "imgScarrystreet") as! SKSpriteNode, textUndone: self.textureScarryStreetBW, textDone: self.textureScarryStreetColor)
         
         self.loadMapBGTexture()
         
