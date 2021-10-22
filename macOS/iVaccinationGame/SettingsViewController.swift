@@ -11,10 +11,12 @@ import Cocoa
 class SettingsViewController: NSViewController {
     
     var gameScene:GameSceneBase?
+    var menuScene:MenuSceneBase?
     
     @IBOutlet var volume:NSSlider?
     @IBOutlet var playBGMusic:NSSwitch?
     @IBOutlet var playSounds:NSSwitch?
+    @IBOutlet var playSoundsEffects:NSSwitch?
     @IBOutlet var sharedUserDefaultsController:NSUserDefaultsController?
     
     @IBOutlet var swtDevMode:NSSwitch?
@@ -149,6 +151,9 @@ class SettingsViewController: NSViewController {
             SoundManager.shared.songPlayer?.volume = self.volume!.floatValue
             SoundManager.shared.masterVolume = CGFloat(self.volume!.floatValue)
             UserDefaultsHelper.volume = self.volume!.floatValue
+            gameScene?.view?.showDbgInfos(show: UserDefaultsHelper.devMode)
+        }else{
+            menuScene?.view?.showDbgInfos(show: UserDefaultsHelper.devMode)
         }
         self.dismiss(sender)
         if(self.gameScene != nil){

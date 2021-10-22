@@ -14,11 +14,15 @@
                 <outlet property="cmdResetICloud" destination="d0I-Dq-wKt" id="jCR-CA-heP"/>
                 <outlet property="cmdResetUserDef" destination="jyh-Io-vHb" id="8As-zH-jDh"/>
                 <outlet property="cmdTestAch" destination="4t9-Xi-B1J" id="d0U-zH-qzJ"/>
+                <outlet property="playBGMusic" destination="ZmU-Wq-qv7" id="lAO-cv-Mce"/>
+                <outlet property="playSounds" destination="Sji-PQ-DTW" id="LOw-gn-H3z"/>
+                <outlet property="playSoundsEffects" destination="fim-OP-Z7f" id="42R-ev-7rC"/>
                 <outlet property="sharedUserDefaultsController" destination="l72-UK-3kJ" id="f9f-Yq-KfE"/>
                 <outlet property="tabDev" destination="RGz-Vn-9wX" id="ZVM-jE-mkv"/>
                 <outlet property="tabMain" destination="Bo6-qP-8wS" id="iay-aT-mxY"/>
                 <outlet property="txtPlayerName" destination="zQO-qK-91H" id="wQy-zl-N6s"/>
                 <outlet property="view" destination="c22-O7-iKe" id="Gdp-jN-azl"/>
+                <outlet property="volume" destination="SJF-bi-D0S" id="unL-yR-2cL"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>

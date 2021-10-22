@@ -70,8 +70,13 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
     }
     
     @IBAction func loadSettingsDialog(_ sender:Any?){
+        self.loadSettingsDialog(sender, menuScene: nil)
+    }
+    
+    func loadSettingsDialog(_ sender:Any?, menuScene:MenuSceneBase? = nil){
         let vcSettings:SettingsViewController = SettingsViewController()
         vcSettings.gameScene = nil
+        vcSettings.menuScene = menuScene
         self.presentAsSheet(vcSettings)
     }
     

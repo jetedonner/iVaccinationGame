@@ -99,7 +99,7 @@ class MenuScene: MenuSceneBase {
             NSApp.terminate(nil)
         }else if(node == lblSettings){
             if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadSettingsDialog(nil)
+                (viewCtrl as! ViewController).loadSettingsDialog(nil, menuScene: self)
             }
         }else if(node == lblMap){
             if let viewCtrl = self.view?.window?.contentViewController{
