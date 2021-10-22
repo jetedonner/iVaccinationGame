@@ -125,6 +125,7 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
     }
     
     func loadMapScene(moveDoctor:Bool = false){
+//        self.
         if let scene = GKScene(fileNamed: "MapScene") {
             var doctorGraph = scene.graphs
             if let sceneNode = scene.rootNode as! MapScene? {

@@ -102,9 +102,10 @@ class MenuScene: MenuSceneBase {
                 (viewCtrl as! ViewController).loadSettingsDialog(nil, menuScene: self)
             }
         }else if(node == lblMap){
-            if let viewCtrl = self.view?.window?.contentViewController{
-                (viewCtrl as! ViewController).loadCreditsScene()
-            }
+            NSApp.orderFrontStandardAboutPanel(nil)
+//            if let viewCtrl = self.view?.window?.contentViewController{
+//                (viewCtrl as! ViewController).loadCreditsScene()
+//            }
         }else if(node == lblHighscore){
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadHighscoreDialog(nil)
