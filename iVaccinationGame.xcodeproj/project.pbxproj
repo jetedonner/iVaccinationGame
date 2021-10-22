@@ -1037,6 +1037,7 @@
 				554E531326EFAD4300371E58 /* Sources */,
 				554E531426EFAD4300371E58 /* Frameworks */,
 				554E531526EFAD4300371E58 /* Resources */,
+				5547B9B427229E8600C57244 /* Increment Build Number Script */,
 			);
 			buildRules = (
 			);
@@ -1301,6 +1302,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5547B9B427229E8600C57244 /* Increment Build Number Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/iVaccination-Info.plist\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/iVaccination-Info.plist\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		554E531326EFAD4300371E58 /* Sources */ = {
@@ -1718,7 +1740,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iVaccinationGame-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.kids-games";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "DaVe inc. (kimhauser.ch)";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1754,7 +1776,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iVaccinationGame-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.kids-games";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "DaVe inc. (kimhauser.ch)";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
