@@ -346,8 +346,21 @@ extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewD
             collectionViewItem.textField?.stringValue = "All certificates"
             collectionViewItem.lblDesc?.stringValue = "Try to collect all certificates in the current level before they disapear"
         }else if(indexPath.section == 1 && indexPath.item == 0){
-            collectionViewItem.textField?.stringValue = "All levels"
-            collectionViewItem.lblDesc?.stringValue = "Try to complete all levels for the current difficulty"
+            let check = self.checkAchievement(achievementId: AchievementId.achivementCompleteAllLevelsEasyID)
+            if(check != ""){
+                collectionViewItem.imageView?.image = NSImage(named: "Levels")
+                collectionViewItem.lblDate.stringValue = check
+                collectionViewItem.lblDate.isHidden = false
+                collectionViewItem.lblDate.drawsBackground = true
+                collectionViewItem.lblDate.backgroundColor = NSColor(calibratedWhite: 0.75, alpha:0.35)
+                collectionViewItem.lblDate.wantsLayer = true
+                collectionViewItem.lblDate.layer?.cornerRadius = 10.0
+                collectionViewItem.setHighlight(selected: true)
+            }else{
+//                collectionViewItem.imageView?.image = NSImage(named: "PerfectShotBW")
+            }
+            collectionViewItem.textField?.stringValue = "All easy levels"
+            collectionViewItem.lblDesc?.stringValue = "Try to complete all levels in easy mode"
         }else if(indexPath.section == 1 && indexPath.item == 1){
             collectionViewItem.textField?.stringValue = "Perfect shot (levels)"
             collectionViewItem.lblDesc?.stringValue = "Try to hit the zombies with every single shot in all levels"

@@ -59,9 +59,9 @@ class BaseLevel {
     
     func endLevel(){
         for zombieGirl in zombieGirls {
-            zombieGirl.isPaused = true
+//            zombieGirl.isPaused = true
             zombieGirl.removeAllActions()
-            zombieGirl.removeFromParent()
+//            zombieGirl.removeFromParent()
         }
         zombieGirls.removeAll()
         self.gameScene.certificatePickupManager.paused = true
@@ -81,8 +81,10 @@ class BaseLevel {
     }
     
     func addNewZombieGirl(){
-        let path:BasePath = (self.levelConfigs[self.difficulty]?.zombiePaths.getRandom())!
-        self.addZombieGirl(gameScene: self.gameScene, path: path)
+        if(self.gameScene.gameRunning){
+            let path:BasePath = (self.levelConfigs[self.difficulty]?.zombiePaths.getRandom())!
+            self.addZombieGirl(gameScene: self.gameScene, path: path)
+        }
     }
     
     func addZombieGirl(gameScene:GameSceneBase, path:BasePath){

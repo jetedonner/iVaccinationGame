@@ -10,6 +10,15 @@ import SpriteKit
 
 class DifficultyScene: DifficultySceneBase {
     
+    override func keyDown(with event: NSEvent) {
+//        self.keyboardHandler.keyDown(with: event)
+        if(event.keyCode == KeyCode.KEY_ESC.rawValue){
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadMenuScene()
+            }
+        }
+    }
+    
     override func mouseMoved(with event: NSEvent) {
         super.mouseMoved(with: event)
         let location = event.location(in: self.sceneNode)

@@ -8,9 +8,56 @@
 import Foundation
 import SpriteKit
 
+
+// sex in the city
+// hellllllooooo friends ... how is your being tonight?
+// Another show is almost over .. and you didn't even get a single chance to rest your case
+// What was the topic again??? Ah yeah .... !!!
+// So i think that was enough for the moment ... will see u tomorrow guys .... bye bye ... 
+
+//protocol EscKeyBack2Menu : BaseSKScene{
+//    var view:BaseSKScene{get}
+//    func keyDown(with event: NSEvent)
+//}
+////
+//extension EscKeyBack2Menu  {
+//
+////    var view: BaseSKScene {
+////        get{ return super.view }
+////    }
+//
+//    func keyDown(with event: NSEvent) {
+////        self.keyboardHandler.keyDown(with: event)
+//        if(event.keyCode == KeyCode.KEY_ESC.rawValue){
+//            if let viewCtrl = self.view?.window?.contentViewController{
+//                (viewCtrl as! ViewController).loadMenuScene()
+//            }
+//        }
+//    }
+//}
+////
+//extension CreditsScene: EscKeyBack2Menu {
+//
+//
+//
+//}
+
+//extension UIImageView: Animations {}
+
+
+
 class CreditsScene: CreditsSceneBase {
     
     var colorAccent:SKColor = SKColor.init(named: "mainAccent")!
+    
+    override func keyDown(with event: NSEvent) {
+//        self.keyboardHandler.keyDown(with: event)
+        if(event.keyCode == KeyCode.KEY_ESC.rawValue){
+            if let viewCtrl = self.view?.window?.contentViewController{
+                (viewCtrl as! ViewController).loadMenuScene()
+            }
+        }
+    }
     
     override func mouseMoved(with event: NSEvent) {
         super.mouseMoved(with: event)

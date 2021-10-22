@@ -12,7 +12,7 @@ enum AchievementId:String {
     case achivementPerfectThrowsID = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows"
     case achivementStayHealthyID = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.stayhealthy"
     case achivementCollectAllCertsID = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.collectallcertificates"
-    case achivementCompleteAllLevelsID = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevels"
+//    case achivementCompleteAllLevelsEasyID = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.completealllevels.easy"
     case achivementCompleteAllLevelsPerfectThrowID = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfectthrows"
     case achivementCompleteAllLevelsPerfectHealthID = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfecthealth"
     case achivementCompleteAllLevelsPerfectCertsID = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.gameperfectcertificates"
@@ -55,6 +55,14 @@ class IVAchievementManager:IVAchievementDelegate{
                 achievementImage: "Certificates",
                 achievementScore: 100,
                 check: self.checkAchievementAccomplished
+            ),
+            IVAchievement(
+                achievementId: AchievementId.achivementCompleteAllLevelsEasyID,
+                achievementTitle: "Complete all easy levels",
+                achievementDesc: "Your first task should be to try to complete all level in easy mode",
+                achievementImage: "Levels",
+                achievementScore: 100,
+                check: self.checkAchievementAccomplished
             )
         ]
     }
@@ -92,6 +100,8 @@ class IVAchievementManager:IVAchievementDelegate{
             return (!gameScene.gameLost) && gameScene.player.bites == 0
         }else if(achievement.achievementId == AchievementId.achivementCollectAllCertsID){
             return gameScene.player.certsPickedUp == gameScene.certificatePickupManager.generatedPickups
+        }else if(achievement.achievementId == AchievementId.achivementCompleteAllLevelsEasyID){
+            return UserDefaultsHelper.levelID == .MissionAccomplished && UserDefaultsHelper.difficulty == .easy
         }
         return false
     }

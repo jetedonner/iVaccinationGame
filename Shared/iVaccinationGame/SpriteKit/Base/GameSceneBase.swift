@@ -436,7 +436,8 @@ class GameSceneBase: BaseSKScene, SKPhysicsContactDelegate {
                 self.achievementManager.checkAndShowAchievementsAccomplished(gameScene: self, achievementIds: [
                     .achivementPerfectThrowsID,
                     .achivementStayHealthyID,
-                    .achivementCollectAllCertsID
+                    .achivementCollectAllCertsID,
+                    .achivementCompleteAllLevelsEasyID
                 ])
             }
             
