@@ -13,6 +13,8 @@
 		5535729D272172B900C080C0 /* DB-Procedures.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5535729C272172B900C080C0 /* DB-Procedures.txt */; };
 		55465EA32721FA260016116D /* MapSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55465EA22721FA260016116D /* MapSceneBaseExt.swift */; };
 		55465EA42721FA260016116D /* MapSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55465EA22721FA260016116D /* MapSceneBaseExt.swift */; };
+		5547B9B2272269FE00C57244 /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547B9B1272269FE00C57244 /* HighscoreViewController.swift */; };
+		5547B9B327226BCF00C57244 /* OnlineHighscoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */; };
 		554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E531A26EFAD4300371E58 /* AppDelegate.swift */; };
 		554E531D26EFAD4300371E58 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531C26EFAD4300371E58 /* GameScene.sks */; };
 		554E531F26EFAD4300371E58 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531E26EFAD4300371E58 /* Actions.sks */; };
@@ -63,35 +65,27 @@
 		556FBE8126F77A6C00F8081C /* BasePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8026F77A6C00F8081C /* BasePath.swift */; };
 		556FBE8326F7858D00F8081C /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556FBE8226F7858D00F8081C /* KeyboardHandler.swift */; };
 		557933E82718289F00013BA9 /* ScrollableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933E62718289F00013BA9 /* ScrollableNode.swift */; };
-		557933EB27182B1B00013BA9 /* HighscoreSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933E927182B1B00013BA9 /* HighscoreSceneBase.swift */; };
 		557933ED27182B2E00013BA9 /* HighscoreScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 557933EC27182B2E00013BA9 /* HighscoreScene.sks */; };
 		557933EE27182B2E00013BA9 /* HighscoreScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 557933EC27182B2E00013BA9 /* HighscoreScene.sks */; };
 		557933F027182B5000013BA9 /* HighscoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933EF27182B5000013BA9 /* HighscoreScene.swift */; };
-		557933F227182B5E00013BA9 /* HighscoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F127182B5E00013BA9 /* HighscoreScene.swift */; };
 		557933F4271833FD00013BA9 /* HighscoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557933F3271833FD00013BA9 /* HighscoreViewController.xib */; };
 		557933F6271836AE00013BA9 /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F5271836AE00013BA9 /* HighscoreViewController.swift */; };
 		557933F82718884B00013BA9 /* OnlineHighscoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */; };
 		557933FF2718993300013BA9 /* FloaterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933FA2718993300013BA9 /* FloaterViewDelegate.swift */; };
 		557934002718993300013BA9 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933FB2718993300013BA9 /* UIImageViewExtension.swift */; };
 		557934012718993300013BA9 /* FloaterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933FD2718993300013BA9 /* FloaterItemView.swift */; };
-		5579340527189F7700013BA9 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579340327189F7700013BA9 /* CollectionViewItem.xib */; };
-		5579340627189F7700013BA9 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340427189F7700013BA9 /* CollectionViewItem.swift */; };
 		557934072718A09800013BA9 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579340327189F7700013BA9 /* CollectionViewItem.xib */; };
 		557934082718A0F100013BA9 /* CollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340427189F7700013BA9 /* CollectionViewItem.swift */; };
 		5579340B2718A14300013BA9 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557934092718A14300013BA9 /* HeaderView.xib */; };
-		5579340C2718A14300013BA9 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557934092718A14300013BA9 /* HeaderView.xib */; };
 		5579340D2718A14300013BA9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340A2718A14300013BA9 /* HeaderView.swift */; };
-		5579340E2718A14300013BA9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340A2718A14300013BA9 /* HeaderView.swift */; };
 		5579341027198FA100013BA9 /* IVAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340F27198FA100013BA9 /* IVAchievement.swift */; };
 		5579341127198FA100013BA9 /* IVAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579340F27198FA100013BA9 /* IVAchievement.swift */; };
 		557934132719901600013BA9 /* IVAchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557934122719901600013BA9 /* IVAchievementManager.swift */; };
 		557934142719901600013BA9 /* IVAchievementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557934122719901600013BA9 /* IVAchievementManager.swift */; };
 		55793416271AF8F100013BA9 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55793415271AF8F100013BA9 /* SettingsViewController.xib */; };
-		55793417271AF8F100013BA9 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55793415271AF8F100013BA9 /* SettingsViewController.xib */; };
 		55793419271B06F900013BA9 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55793418271B06F900013BA9 /* Defaults.plist */; };
 		5579341A271B06F900013BA9 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55793418271B06F900013BA9 /* Defaults.plist */; };
 		5579341C271C957800013BA9 /* MessageBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579341B271C957800013BA9 /* MessageBox.xib */; };
-		5579341D271C957800013BA9 /* MessageBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579341B271C957800013BA9 /* MessageBox.xib */; };
 		5579341F271C95A400013BA9 /* MessageBox.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5579341E271C95A400013BA9 /* MessageBox.sks */; };
 		55793420271C95A400013BA9 /* MessageBox.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5579341E271C95A400013BA9 /* MessageBox.sks */; };
 		55793422271C95CC00013BA9 /* SkMessageBoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */; };
@@ -302,6 +296,7 @@
 		55357299272162CE00C080C0 /* HighscoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighscoreViewController.xib; sourceTree = "<group>"; };
 		5535729C272172B900C080C0 /* DB-Procedures.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "DB-Procedures.txt"; sourceTree = "<group>"; };
 		55465EA22721FA260016116D /* MapSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSceneBaseExt.swift; sourceTree = "<group>"; };
+		5547B9B1272269FE00C57244 /* HighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		554E531726EFAD4300371E58 /* iVaccinationGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccinationGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554E531A26EFAD4300371E58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554E531C26EFAD4300371E58 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -800,6 +795,7 @@
 				55C83F7B26FE116B00F42F53 /* Settings.bundle */,
 				55EE3D7026FFE40300991D86 /* AppIconIOS.xcassets */,
 				55357299272162CE00C080C0 /* HighscoreViewController.xib */,
+				5547B9B1272269FE00C57244 /* HighscoreViewController.swift */,
 			);
 			path = iVaccination;
 			sourceTree = "<group>";
@@ -1260,7 +1256,6 @@
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55F67A6827134DE4003C60B2 /* GameScene_Last.sks in Resources */,
 				5579341A271B06F900013BA9 /* Defaults.plist in Resources */,
-				5579340527189F7700013BA9 /* CollectionViewItem.xib in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				557933EE27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
 				55EE3D8227058F1000991D86 /* MapSceneOrig.sks in Resources */,
@@ -1271,7 +1266,6 @@
 				55C83F7726FDFD8A00F42F53 /* DescriptionScene.sks in Resources */,
 				55C83F2926FC719300F42F53 /* Media.scnassets in Resources */,
 				5561AF9C2710AA46007B3F8F /* WelcomeScene.sks in Resources */,
-				5579341D271C957800013BA9 /* MessageBox.xib in Resources */,
 				55C83F0626FC666500F42F53 /* MeadowLeftActions.sks in Resources */,
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
 				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
@@ -1288,9 +1282,7 @@
 				55793420271C95A400013BA9 /* MessageBox.sks in Resources */,
 				55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */,
 				55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */,
-				5579340C2718A14300013BA9 /* HeaderView.xib in Resources */,
 				5535729A272162CE00C080C0 /* HighscoreViewController.xib in Resources */,
-				55793417271AF8F100013BA9 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1463,6 +1455,7 @@
 				557934142719901600013BA9 /* IVAchievementManager.swift in Sources */,
 				55EAD44E26FE990200BB8D06 /* CertificatePickup.swift in Sources */,
 				55EE3D862705A58F00991D86 /* VaccineBase.swift in Sources */,
+				5547B9B327226BCF00C57244 /* OnlineHighscoreHelper.swift in Sources */,
 				55EE3D902705A7E200991D86 /* VaccineArsenal.swift in Sources */,
 				55C83F6126FDDC4100F42F53 /* MenuState.swift in Sources */,
 				557934002718993300013BA9 /* UIImageViewExtension.swift in Sources */,
@@ -1477,7 +1470,6 @@
 				5561AFA62711812E007B3F8F /* SyringePickupType.swift in Sources */,
 				55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */,
 				5561AF7D270A026B007B3F8F /* CertificatePickupManager.swift in Sources */,
-				557933EB27182B1B00013BA9 /* HighscoreSceneBase.swift in Sources */,
 				5561AF732708AF28007B3F8F /* LevelConfig.swift in Sources */,
 				55C83F2526FC6B2800F42F53 /* BasePickupNode.swift in Sources */,
 				55EE3DA127063E2300991D86 /* CreditsSceneBase.swift in Sources */,
@@ -1488,7 +1480,6 @@
 				55C83F2726FC6BB500F42F53 /* CustomProgressBar.swift in Sources */,
 				55C83F1426FC673D00F42F53 /* BasePath.swift in Sources */,
 				55EE3D8A2705A63500991D86 /* PerofixaVaccine.swift in Sources */,
-				5579340E2718A14300013BA9 /* HeaderView.swift in Sources */,
 				55C83F2026FC680C00F42F53 /* GameScene.swift in Sources */,
 				55C83F2626FC6B2A00F42F53 /* SyringePickup.swift in Sources */,
 				55EAD46626FF757500BB8D06 /* BaseSKScene.swift in Sources */,
@@ -1500,11 +1491,10 @@
 				55C83F2426FC6B2500F42F53 /* MedKitPickup.swift in Sources */,
 				5579341127198FA100013BA9 /* IVAchievement.swift in Sources */,
 				55C83F6826FDDC7000F42F53 /* GameOverState.swift in Sources */,
+				5547B9B2272269FE00C57244 /* HighscoreViewController.swift in Sources */,
 				55EAD45926FF6F2700BB8D06 /* MenuSceneBase.swift in Sources */,
-				5579340627189F7700013BA9 /* CollectionViewItem.swift in Sources */,
 				55EE3D932705AB6B00991D86 /* VaccineType.swift in Sources */,
 				5561AFA32710AB30007B3F8F /* WelcomeScene.swift in Sources */,
-				557933F227182B5E00013BA9 /* HighscoreScene.swift in Sources */,
 				55C83F5726FDDB4100F42F53 /* PauseState.swift in Sources */,
 				55EAD45826FF60D600BB8D06 /* Level.swift in Sources */,
 				55C83F6E26FDFADE00F42F53 /* CityStreetLevel.swift in Sources */,

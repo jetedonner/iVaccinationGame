@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Cocoa
+//import Cocoa
 
 enum AchievementId:String {
     case achivementPerfectThrowsID = "grp.ch.kimhauser.swift.ivaccinationgame.achivements.perfectthrows"

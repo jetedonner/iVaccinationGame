@@ -6,7 +6,11 @@
 //  Copyright © 2015 razeware. All rights reserved.
 //
 import Foundation
+#if os(macOS)
 import Cocoa
+#else
+import UIKit
+#endif
 
 class CollectionViewItem: NSCollectionViewItem {
   

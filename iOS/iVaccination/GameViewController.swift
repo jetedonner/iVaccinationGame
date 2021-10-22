@@ -9,7 +9,16 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController, IViewController, FloaterViewDelegate {
+class GameViewController: UIViewController, IViewController {
+    func loadHighscoreScene() {
+//        let highScoreController:HighscoreViewController = HighscoreViewController()
+//        self.present(highScoreController, animated: true, completion: {})
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "HighscoreViewController")
+        self.present(vc, animated: true)
+    }
+    
     
     var gameCenterHelper: GameCenterHelper!
 //    var gameCenterHelper:GameCenterHelper!
@@ -29,14 +38,14 @@ class GameViewController: UIViewController, IViewController, FloaterViewDelegate
         }
         self.loadMenuScene()
         
-        addFloaterMenu(with: [("Facebook", UIImage(named: "AppIcon")),("Instagram", UIImage(named: "AppIcon"))], mainItem: ("", UIImage(named: "AppIcon")), dropShadow: true)
+//        addFloaterMenu(with: [("Facebook", UIImage(named: "AppIcon")),("Instagram", UIImage(named: "AppIcon"))], mainItem: ("", UIImage(named: "AppIcon")), dropShadow: true)
     }
     
-    // Delegate method to capture name and index on the respective button tapped.
-    func userDidTapOnItem(at index: Int, with model: String) {
-                   print(model)
-                   print(index)
-    }
+//    // Delegate method to capture name and index on the respective button tapped.
+//    func userDidTapOnItem(at index: Int, with model: String) {
+//                   print(model)
+//                   print(index)
+//    }
     
     
     
@@ -63,17 +72,17 @@ class GameViewController: UIViewController, IViewController, FloaterViewDelegate
         }
     }
     
-    func loadHighscoreScene(){
-        if let scene = GKScene(fileNamed: "HighscoreScene") {
-            if let sceneNode = scene.rootNode as! HighscoreScene? {
-                sceneNode.scaleMode = .aspectFill
-                if let view = self.view as! SKView? {
-                    view.presentSceneNG(sceneNode)
-                    sceneNode.enableScrollingList(view: view)
-                }
-            }
-        }
-    }
+//    func loadHighscoreScene(){
+//        if let scene = GKScene(fileNamed: "HighscoreScene") {
+//            if let sceneNode = scene.rootNode as! HighscoreScene? {
+//                sceneNode.scaleMode = .aspectFill
+//                if let view = self.view as! SKView? {
+//                    view.presentSceneNG(sceneNode)
+//                    sceneNode.enableScrollingList(view: view)
+//                }
+//            }
+//        }
+//    }
     
     func loadCreditsScene(){
         if let scene = GKScene(fileNamed: "CreditsScene") {
@@ -89,10 +98,10 @@ class GameViewController: UIViewController, IViewController, FloaterViewDelegate
     func loadMapScene(difficulty:Difficulty, level:Level = .Meadow){
         UserDefaultsHelper.difficulty = difficulty
         UserDefaultsHelper.levelID = level
-        self.loadMapScene()
+        self.loadMapScene(moveDoctor: false)
     }
     
-    func loadMapScene(){
+    func loadMapScene(moveDoctor:Bool){
         if let scene = GKScene(fileNamed: "MapScene") {
             if let sceneNode = scene.rootNode as! MapScene? {
                 sceneNode.scaleMode = .aspectFill

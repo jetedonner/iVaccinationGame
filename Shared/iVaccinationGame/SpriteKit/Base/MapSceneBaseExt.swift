@@ -28,6 +28,9 @@ extension MapSceneBase{
             self.doctorPos = self.imgBackstreet.imgNode.position
         }else if(level == .ScarryStreet){
             self.doctorPos = self.imgScarryStreet.imgNode.position
+        }else if(level == .MissionAccomplished){
+            self.doctorPos = self.imgScarryStreet.imgNode.position
+            self.doctor.isHidden = true
         }
         self.doctor.position = self.doctorPos
         self.currentLevelForDoctor = level
@@ -42,6 +45,8 @@ extension MapSceneBase{
     
     func moveDoctorNodeToLevel(level:Level){
         if(level == .MissionAccomplished){
+//            self.doctor.position = self.posScarryStreet!.position
+            self.doctor.isHidden = true
             return
         }
         self.doctor.removeAllActions()

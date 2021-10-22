@@ -13,13 +13,13 @@ class GameScene: GameSceneBase {
     var chTimeout:TimeInterval = 0.75
     var chScale:CGFloat = 1.65
     
-    override func touchOrClick(pos: CGPoint, viewController:IViewController) {
-        super.touchOrClick(pos: pos, viewController: viewController)
+    override func touchOrClick(pos:CGPoint, viewController:IViewController)->SKNode{
+        let node = super.touchOrClick(pos: pos, viewController: viewController)
         if let gameScene = (self.scene as? GameScene){
 
             if(!gameScene.gameRunning && gameScene.waitForAnyKey){
                 gameScene.clickedAtPoint(point: pos)
-                return
+                return node
             }
             
             self.chIOS.zPosition = 999
@@ -30,5 +30,6 @@ class GameScene: GameSceneBase {
 
             gameScene.clickedAtPoint(point: pos)
         }
+        return node
     }
 }

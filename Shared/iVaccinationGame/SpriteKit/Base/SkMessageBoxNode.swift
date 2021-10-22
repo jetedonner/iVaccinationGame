@@ -62,7 +62,11 @@ class SkMessageBoxNode: SKNode {
         paragraphStyle.alignment = .center
         let range = NSRange(location: 0, length: msg.count)
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: range)
+        #if os(macOS)
         attrString.addAttributes([NSAttributedString.Key.foregroundColor : SKColor.white, NSAttributedString.Key.font : NSFont.systemFont(ofSize: 14)], range: range)
+        #else
+        attrString.addAttributes([NSAttributedString.Key.foregroundColor : SKColor.white, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)], range: range)
+        #endif
         self.lblMsg.attributedText = attrString
         
         self.imgMsg.texture = SKTexture(imageNamed: imgNamed)

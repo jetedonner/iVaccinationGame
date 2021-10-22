@@ -6,7 +6,11 @@
 //
 
 import Foundation
+#if os(macOS)
 import Cocoa
+#else
+import UIKit
+#endif
 
 protocol IVAchievementDelegate{
     func checkAchievementAccomplished(gameScene:GameSceneBase, achievement:IVAchievement)->Bool

@@ -6,7 +6,11 @@
 //
 
 import Foundation
+#if os(macOS)
 import Cocoa
+#else
+import UIKit
+#endif
 
 enum HighscoreType:String{
     case highscore = "Highscore"

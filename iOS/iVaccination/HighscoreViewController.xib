@@ -11,14 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="139" y="76"/>
-        </view>
-        <tabBarController id="p9M-F2-Mbe">
+        <tabBarController autoresizesArchivedViewToFullSize="NO" wantsFullScreenLayout="YES" modalPresentationStyle="fullScreen" id="p9M-F2-Mbe" customClass="UIHigscoreViewController" customModule="iVaccinationGame" customModuleProvider="target">
+            <value key="contentSizeForViewInPopover" type="size" width="0.0" height="500"/>
             <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f0M-pC-tQh">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -29,22 +23,50 @@
                     <view key="view" contentMode="scaleToFill" id="FlK-FD-XDg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kCn-uX-J7T">
+                                <rect key="frame" x="20" y="44" width="374" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rsU-eu-7O0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="HIghscore" id="PJj-RL-rtZ"/>
                 </viewController>
-                <viewController id="CUs-NZ-Yu3">
+                <viewController id="CUs-NZ-Yu3" userLabel="Certificates">
                     <view key="view" contentMode="scaleToFill" id="ktw-m7-6VZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="SXj-rD-Kti"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Vaccinations" id="bjt-Td-yfR"/>
+                    <tabBarItem key="tabBarItem" title="Vaccinations" id="bjt-Td-yfR" userLabel="Certificates"/>
+                </viewController>
+                <viewController id="zno-Ne-66y">
+                    <view key="view" contentMode="scaleToFill" id="NxA-HJ-1KY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="TK6-lz-MIc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Vaccinations" id="4GW-0A-JJN"/>
+                </viewController>
+                <viewController id="Gbw-gn-loz" userLabel="Achievements">
+                    <view key="view" contentMode="scaleToFill" id="pa1-8J-N9u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Q6l-rR-5Gp"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Vaccinations" id="bb8-ti-UHr" userLabel="Achievements"/>
                 </viewController>
             </viewControllers>
-            <point key="canvasLocation" x="-238" y="-569"/>
+            <connections>
+                <outlet property="view" destination="FlK-FD-XDg" id="fJu-me-Ob0"/>
+            </connections>
+            <point key="canvasLocation" x="-239.13043478260872" y="-569.19642857142856"/>
         </tabBarController>
     </objects>
     <resources>
