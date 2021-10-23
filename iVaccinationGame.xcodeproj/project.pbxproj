@@ -15,6 +15,8 @@
 		55465EA42721FA260016116D /* MapSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55465EA22721FA260016116D /* MapSceneBaseExt.swift */; };
 		5547B9B2272269FE00C57244 /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5547B9B1272269FE00C57244 /* HighscoreViewController.swift */; };
 		5547B9B327226BCF00C57244 /* OnlineHighscoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */; };
+		5547B9B8272441BD00C57244 /* iVaccinationGame-Debug-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5547B9B7272441BD00C57244 /* iVaccinationGame-Debug-Info.plist */; };
+		5547B9B9272441BD00C57244 /* iVaccinationGame-Debug-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5547B9B7272441BD00C57244 /* iVaccinationGame-Debug-Info.plist */; };
 		554E531B26EFAD4300371E58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554E531A26EFAD4300371E58 /* AppDelegate.swift */; };
 		554E531D26EFAD4300371E58 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531C26EFAD4300371E58 /* GameScene.sks */; };
 		554E531F26EFAD4300371E58 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 554E531E26EFAD4300371E58 /* Actions.sks */; };
@@ -297,6 +299,7 @@
 		5535729C272172B900C080C0 /* DB-Procedures.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "DB-Procedures.txt"; sourceTree = "<group>"; };
 		55465EA22721FA260016116D /* MapSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSceneBaseExt.swift; sourceTree = "<group>"; };
 		5547B9B1272269FE00C57244 /* HighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
+		5547B9B7272441BD00C57244 /* iVaccinationGame-Debug-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "iVaccinationGame-Debug-Info.plist"; sourceTree = "<group>"; };
 		554E531726EFAD4300371E58 /* iVaccinationGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVaccinationGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		554E531A26EFAD4300371E58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554E531C26EFAD4300371E58 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -401,7 +404,7 @@
 		55C83F3726FCE5BC00F42F53 /* DifficultySceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultySceneBase.swift; sourceTree = "<group>"; };
 		55C83F3C26FCFC0300F42F53 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		55C83F4226FCFC3400F42F53 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		55C83F4626FD1A1B00F42F53 /* iVaccinationGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "iVaccinationGame-Info.plist"; sourceTree = "<group>"; };
+		55C83F4626FD1A1B00F42F53 /* iVaccinationGame-Release-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iVaccinationGame-Release-Info.plist"; sourceTree = "<group>"; };
 		55C83F4826FD268A00F42F53 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
 		55C83F5326FDDAF000F42F53 /* GameStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateMachine.swift; sourceTree = "<group>"; };
 		55C83F5626FDDB4100F42F53 /* PauseState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseState.swift; sourceTree = "<group>"; };
@@ -545,7 +548,8 @@
 				55EE3D9B27063C2800991D86 /* iVaccination-Info.plist */,
 				55E59BD826FF9A9400B75322 /* iVaccination.entitlements */,
 				55E59BD226FF89C800B75322 /* iVaccinationGame.entitlements */,
-				55C83F4626FD1A1B00F42F53 /* iVaccinationGame-Info.plist */,
+				55C83F4626FD1A1B00F42F53 /* iVaccinationGame-Release-Info.plist */,
+				5547B9B7272441BD00C57244 /* iVaccinationGame-Debug-Info.plist */,
 				55C83F3C26FCFC0300F42F53 /* LICENSE */,
 				55C83F4226FCFC3400F42F53 /* README.md */,
 				55B64A8626F4C32B00944766 /* Shared */,
@@ -1037,9 +1041,8 @@
 				554E531326EFAD4300371E58 /* Sources */,
 				554E531426EFAD4300371E58 /* Frameworks */,
 				554E531526EFAD4300371E58 /* Resources */,
-				5547B9B427229E8600C57244 /* Increment Build Number Script */,
 				5547B9B52722A17700C57244 /* Create Archive ZIP file Script */,
-				5547B9B62722B23900C57244 /* ShellScript */,
+				5547B9B62722B23900C57244 /* Increment Project Version Number (Build Number) Script */,
 			);
 			buildRules = (
 			);
@@ -1216,6 +1219,7 @@
 				55EE3D8127058F1000991D86 /* MapSceneOrig.sks in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				557933ED27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
+				5547B9B8272441BD00C57244 /* iVaccinationGame-Debug-Info.plist in Resources */,
 				5579341C271C957800013BA9 /* MessageBox.xib in Resources */,
 				55C83EF626FB942200F42F53 /* MeadowLeftActions.sks in Resources */,
 				55F67A6727134DE4003C60B2 /* GameScene_Last.sks in Resources */,
@@ -1280,6 +1284,7 @@
 				55C83F0D26FC673000F42F53 /* UpwardParticles.sks in Resources */,
 				55C83F0B26FC673000F42F53 /* MagicParticle.sks in Resources */,
 				55C83F0226FC666500F42F53 /* MenuScene.sks in Resources */,
+				5547B9B9272441BD00C57244 /* iVaccinationGame-Debug-Info.plist in Resources */,
 				55EE3D9E27063E1700991D86 /* CreditsScene.sks in Resources */,
 				5561AF99270F785F007B3F8F /* Credits.rtfd in Resources */,
 				55793420271C95A400013BA9 /* MessageBox.sks in Resources */,
@@ -1306,24 +1311,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5547B9B427229E8600C57244 /* Increment Build Number Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Increment Build Number Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/iVaccination-Info.plist\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/iVaccination-Info.plist\"\n\n";
-		};
 		5547B9B52722A17700C57244 /* Create Archive ZIP file Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
@@ -1341,10 +1328,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "cd $BUILT_PRODUCTS_DIR\nrm -f iVaccinationGame.app.zip\nzip -r iVaccinationGame iVaccinationGame.app \nzip -uj iVaccinationGame.zip \"${PROJECT_DIR}/README.md\" \"${PROJECT_DIR}/LICENSE\"\n#\"${PROJECT_DIR}/README.md\" \"${PROJECT_DIR}/LICENSE\" \n";
+			shellScript = "# Create a short name with no spaces and remove the \".app\" from the end\n#SHORT_NAME=`echo \"$EXECUTABLE_FOLDER_PATH\" | sed 's/ //g' | sed 's/\\.app$//g'`\n\n# Zip the file\n#zip -u -1 \"$TARGET_BUILD_DIR/$SHORT_NAME.zip\" \"$TARGET_BUILD_DIR/$EXECUTABLE_FOLDER_PATH\"\n\n#      zip -uj \"$TARGET_BUILD_DIR/$SHORT_NAME.zip\" \"${PROJECT_DIR}/README.md\" \"${PROJECT_DIR}/LICENSE\"\n\n# Tell us what happened\n#echo \"Built distribution zip file: $TARGET_BUILD_DIR/$SHORT_NAME.zip\"\n#cd $BUILT_PRODUCTS_DIR\n#rm -f iVaccinationGame.zip\n#zip -r iVaccinationGame.zip iVaccinationGame.app \n#zip -uj iVaccinationGame.zip \"${PROJECT_DIR}/README.md\" \"${PROJECT_DIR}/LICENSE\"\n#\"${PROJECT_DIR}/README.md\" \"${PROJECT_DIR}/LICENSE\" \n";
 		};
-		5547B9B62722B23900C57244 /* ShellScript */ = {
+		5547B9B62722B23900C57244 /* Increment Project Version Number (Build Number) Script */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1352,6 +1340,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Increment Project Version Number (Build Number) Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1770,13 +1759,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iVaccinationGame-Info.plist";
+				INFOPLIST_FILE = "iVaccinationGame-Debug-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.kids-games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "DaVe inc. (kimhauser.ch)";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -1807,13 +1796,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iVaccinationGame-Info.plist";
+				INFOPLIST_FILE = "iVaccinationGame-Release-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.kids-games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "DaVe inc. (kimhauser.ch)";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -1841,7 +1830,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1867,7 +1856,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1892,7 +1881,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1915,7 +1904,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1940,7 +1929,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iVaccination.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iVaccination-Info.plist";
@@ -1976,7 +1965,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iVaccination.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iVaccination-Info.plist";
@@ -2011,7 +2000,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2037,7 +2026,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2063,7 +2052,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2088,7 +2077,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 36;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
