@@ -146,7 +146,7 @@ class ScarryStreetLevel: BaseLevel {
         // ========= DIFFICULTY: NIGHTMARE =========
         self.levelConfigs[.nightmare] = LevelConfig(
             difficulty: .nightmare,
-            zombieCountAtOnce: 5,
+            zombieCountAtOnce: 7,
             syringePickupsAtOnce: 4,
             certificatePickupsAtOnce: 2,
             duration: .Minutes5

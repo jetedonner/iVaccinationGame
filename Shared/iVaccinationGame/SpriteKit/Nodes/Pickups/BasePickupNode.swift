@@ -43,9 +43,13 @@ class BasePickupNode: SKSpriteNode {
         self.upwardEmitterNode.setScale(0.15)
         self.upwardEmitterNode.position.y += 30.0
         
-        if(UserDefaultsHelper.devMode && UserDefaultsHelper.dbgBorders){
+//        if(UserDefaultsHelper.devMode && UserDefaultsHelper.dbgBorders){
+//            self.addDbgBorder()
+//        }
+        UserDefaultsHelper.inDevMode(block: {
             self.addDbgBorder()
-        }
+        }, and: UserDefaultsHelper.dbgBorders)
+        
         self.addChild(self.upwardEmitterNode)
         self.zPosition = 10000
     }
@@ -57,9 +61,13 @@ class BasePickupNode: SKSpriteNode {
         self.upwardEmitterNode.setScale(0.15)
         self.upwardEmitterNode.position.y += 30.0
         
-        if(UserDefaultsHelper.devMode && UserDefaultsHelper.dbgBorders){
+//        if(UserDefaultsHelper.devMode && UserDefaultsHelper.dbgBorders){
+//            self.addDbgBorder()
+//        }
+        UserDefaultsHelper.inDevMode(block: {
             self.addDbgBorder()
-        }
+        }, and: UserDefaultsHelper.dbgBorders)
+        
         self.addChild(self.upwardEmitterNode)
         self.zPosition = 10000
     }

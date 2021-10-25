@@ -112,7 +112,7 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
         UserDefaultsHelper.difficulty = difficulty
         UserDefaultsHelper.levelID = level
         if let scene = GKScene(fileNamed: "MapScene") {
-            var doctorGraph = scene.graphs
+            let doctorGraph = scene.graphs
             if let sceneNode = scene.rootNode as! MapScene? {
                 sceneNode.scaleMode = .aspectFill
                 sceneNode.loadDoctorGraph(doctorGraph: doctorGraph)
@@ -127,7 +127,7 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
     func loadMapScene(moveDoctor:Bool = false){
 //        self.
         if let scene = GKScene(fileNamed: "MapScene") {
-            var doctorGraph = scene.graphs
+            let doctorGraph = scene.graphs
             if let sceneNode = scene.rootNode as! MapScene? {
                 sceneNode.scaleMode = .aspectFill
 //                sceneNode.doctorGraph = doctorGraph

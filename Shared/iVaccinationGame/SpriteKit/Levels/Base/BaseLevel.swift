@@ -92,9 +92,13 @@ class BaseLevel {
         let newZombieGirl:ZombieGirl = ZombieGirl(zombieImageName: self.zombieImageName)
         newZombieGirl.currentPath = path
         newZombieGirl.position = path.initPos
-        if(UserDefaultsHelper.devMode && UserDefaultsHelper.dbgBorders){
+//        if(UserDefaultsHelper.devMode && UserDefaultsHelper.dbgBorders){
+//            newZombieGirl.addDbgBorder()
+//        }
+        UserDefaultsHelper.inDevMode(block: {
             newZombieGirl.addDbgBorder()
-        }
+        }, and: UserDefaultsHelper.dbgBorders)
+        
         newZombieGirl.setScale(path.initScale)
         newZombieGirl.speed = self.currentLevelConfig.speedFactor.multiplier
         newZombieGirl.addPhysicBody()

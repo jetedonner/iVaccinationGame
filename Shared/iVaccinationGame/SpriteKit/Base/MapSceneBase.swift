@@ -334,9 +334,13 @@ class MapSceneBase: BaseSKScene {
             self.posScarryStreet
         ].contains(node)/* && UserDefaultsHelper.levelID != .MissionAccomplished*/){
             let daLevel:Level = self.getLevelForPosNode(posNode: node as! SKShapeNode)
-            if(daLevel.rawValue >= Level.NewGame.rawValue || UserDefaultsHelper.devMode){//} UserDefaultsHelper.levelID.rawValue){
+//            if(/*daLevel.rawValue >= Level.NewGame.rawValue || UserDefaultsHelper.devMode*/ true){//} UserDefaultsHelper.levelID.rawValue){
+//                viewController.loadGameScene(difficulty: UserDefaultsHelper.difficulty, level: daLevel)
+//            }
+            UserDefaultsHelper.inDevMode(block: {
                 viewController.loadGameScene(difficulty: UserDefaultsHelper.difficulty, level: daLevel)
-            }
+            }, or: daLevel.rawValue >= Level.NewGame.rawValue)
+            
         }else if(UserDefaultsHelper.levelID.rawValue > Level.ScarryStreet.rawValue){
             ICloudStorageHelper.resetAllICloudValues()
             UserDefaultsHelper.resetUserDefValues(resetFirstStart: false)

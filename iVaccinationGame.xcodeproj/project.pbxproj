@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5516570E27272D59006F4A5D /* WelcomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5516570D27272D59006F4A5D /* WelcomeScene.sks */; };
+		5516570F27272D59006F4A5D /* WelcomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5516570D27272D59006F4A5D /* WelcomeScene.sks */; };
 		55357295271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */; };
 		55357296271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */; };
 		5535729A272162CE00C080C0 /* HighscoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55357299272162CE00C080C0 /* HighscoreViewController.xib */; };
@@ -55,8 +57,6 @@
 		5561AF93270F6F8F007B3F8F /* Duration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF91270F6F8F007B3F8F /* Duration.swift */; };
 		5561AF98270F785F007B3F8F /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 5561AF97270F785F007B3F8F /* Credits.rtfd */; };
 		5561AF99270F785F007B3F8F /* Credits.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 5561AF97270F785F007B3F8F /* Credits.rtfd */; };
-		5561AF9B2710AA46007B3F8F /* WelcomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5561AF9A2710AA46007B3F8F /* WelcomeScene.sks */; };
-		5561AF9C2710AA46007B3F8F /* WelcomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5561AF9A2710AA46007B3F8F /* WelcomeScene.sks */; };
 		5561AF9E2710AA56007B3F8F /* WelcomeSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF9D2710AA56007B3F8F /* WelcomeSceneBase.swift */; };
 		5561AF9F2710AA56007B3F8F /* WelcomeSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AF9D2710AA56007B3F8F /* WelcomeSceneBase.swift */; };
 		5561AFA12710AB05007B3F8F /* WelcomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5561AFA02710AB05007B3F8F /* WelcomeScene.swift */; };
@@ -88,8 +88,6 @@
 		55793419271B06F900013BA9 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55793418271B06F900013BA9 /* Defaults.plist */; };
 		5579341A271B06F900013BA9 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55793418271B06F900013BA9 /* Defaults.plist */; };
 		5579341C271C957800013BA9 /* MessageBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579341B271C957800013BA9 /* MessageBox.xib */; };
-		5579341F271C95A400013BA9 /* MessageBox.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5579341E271C95A400013BA9 /* MessageBox.sks */; };
-		55793420271C95A400013BA9 /* MessageBox.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5579341E271C95A400013BA9 /* MessageBox.sks */; };
 		55793422271C95CC00013BA9 /* SkMessageBoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */; };
 		55793423271C95CC00013BA9 /* SkMessageBoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */; };
 		559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
@@ -232,8 +230,6 @@
 		55EE3D7C2702318900991D86 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EE3D7B2702318900991D86 /* GameKit.framework */; };
 		55EE3D7E270377FC00991D86 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7D270377FC00991D86 /* VersionHelper.swift */; };
 		55EE3D7F270377FC00991D86 /* VersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D7D270377FC00991D86 /* VersionHelper.swift */; };
-		55EE3D8127058F1000991D86 /* MapSceneOrig.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D8027058F1000991D86 /* MapSceneOrig.sks */; };
-		55EE3D8227058F1000991D86 /* MapSceneOrig.sks in Resources */ = {isa = PBXBuildFile; fileRef = 55EE3D8027058F1000991D86 /* MapSceneOrig.sks */; };
 		55EE3D852705A58F00991D86 /* VaccineBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D842705A58F00991D86 /* VaccineBase.swift */; };
 		55EE3D862705A58F00991D86 /* VaccineBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D842705A58F00991D86 /* VaccineBase.swift */; };
 		55EE3D892705A63500991D86 /* PerofixaVaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EE3D882705A63500991D86 /* PerofixaVaccine.swift */; };
@@ -294,6 +290,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5516570D27272D59006F4A5D /* WelcomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = WelcomeScene.sks; path = "../../../../../_bak/2021-10-07/iVaccinationGame/Shared/iVaccinationGame/SpriteKit/Scenes/WelcomeScene.sks"; sourceTree = "<group>"; };
 		55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVBaseAchievement.swift; sourceTree = "<group>"; };
 		55357299272162CE00C080C0 /* HighscoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighscoreViewController.xib; sourceTree = "<group>"; };
 		5535729C272172B900C080C0 /* DB-Procedures.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "DB-Procedures.txt"; sourceTree = "<group>"; };
@@ -329,7 +326,6 @@
 		5561AF8E270F6F6D007B3F8F /* SpeedFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedFactor.swift; sourceTree = "<group>"; };
 		5561AF91270F6F8F007B3F8F /* Duration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duration.swift; sourceTree = "<group>"; };
 		5561AF97270F785F007B3F8F /* Credits.rtfd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Credits.rtfd; sourceTree = "<group>"; };
-		5561AF9A2710AA46007B3F8F /* WelcomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WelcomeScene.sks; sourceTree = "<group>"; };
 		5561AF9D2710AA56007B3F8F /* WelcomeSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeSceneBase.swift; sourceTree = "<group>"; };
 		5561AFA02710AB05007B3F8F /* WelcomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeScene.swift; sourceTree = "<group>"; };
 		5561AFA22710AB30007B3F8F /* WelcomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeScene.swift; sourceTree = "<group>"; };
@@ -358,7 +354,6 @@
 		55793415271AF8F100013BA9 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		55793418271B06F900013BA9 /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		5579341B271C957800013BA9 /* MessageBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageBox.xib; sourceTree = "<group>"; };
-		5579341E271C95A400013BA9 /* MessageBox.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MessageBox.sks; sourceTree = "<group>"; };
 		55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkMessageBoxNode.swift; sourceTree = "<group>"; };
 		5594429F26FE4F710082DA72 /* SyringeDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringeDart.swift; sourceTree = "<group>"; };
 		559442A226FE50800082DA72 /* GameSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt.swift; sourceTree = "<group>"; };
@@ -446,7 +441,6 @@
 		55EE3D792702317A00991D86 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		55EE3D7B2702318900991D86 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		55EE3D7D270377FC00991D86 /* VersionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionHelper.swift; sourceTree = "<group>"; };
-		55EE3D8027058F1000991D86 /* MapSceneOrig.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MapSceneOrig.sks; sourceTree = "<group>"; };
 		55EE3D842705A58F00991D86 /* VaccineBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineBase.swift; sourceTree = "<group>"; };
 		55EE3D882705A63500991D86 /* PerofixaVaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerofixaVaccine.swift; sourceTree = "<group>"; };
 		55EE3D8B2705A67800991D86 /* JillAndJasmineVaccine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JillAndJasmineVaccine.swift; sourceTree = "<group>"; };
@@ -767,11 +761,10 @@
 				55B64A3026F3467200944766 /* MenuScene.sks */,
 				55C83F3426FCDEF500F42F53 /* DifficultyScene.sks */,
 				55C83F7526FDFD8A00F42F53 /* DescriptionScene.sks */,
-				5561AF9A2710AA46007B3F8F /* WelcomeScene.sks */,
 				55EE3D9C27063E1700991D86 /* CreditsScene.sks */,
 				557933EC27182B2E00013BA9 /* HighscoreScene.sks */,
-				55EE3D8027058F1000991D86 /* MapSceneOrig.sks */,
 				5561AF86270EE57B007B3F8F /* MapScene.sks */,
+				5516570D27272D59006F4A5D /* WelcomeScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -882,7 +875,6 @@
 				55A579B926F4F8810084239D /* Nodes */,
 				55B64A2E26F3462E00944766 /* Scenes */,
 				5579341B271C957800013BA9 /* MessageBox.xib */,
-				5579341E271C95A400013BA9 /* MessageBox.sks */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -1211,12 +1203,11 @@
 				5552BFA726F264130034C812 /* MagicParticle.sks in Resources */,
 				557933F4271833FD00013BA9 /* HighscoreViewController.xib in Resources */,
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
-				5579341F271C95A400013BA9 /* MessageBox.sks in Resources */,
 				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
 				55793416271AF8F100013BA9 /* SettingsViewController.xib in Resources */,
+				5516570E27272D59006F4A5D /* WelcomeScene.sks in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
 				55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */,
-				55EE3D8127058F1000991D86 /* MapSceneOrig.sks in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				557933ED27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
 				5547B9B8272441BD00C57244 /* iVaccinationGame-Debug-Info.plist in Resources */,
@@ -1234,7 +1225,6 @@
 				55B64A3126F3467200944766 /* MenuScene.sks in Resources */,
 				55EE3D6E26FFE3D500991D86 /* AppIconMacOS.xcassets in Resources */,
 				5561AF98270F785F007B3F8F /* Credits.rtfd in Resources */,
-				5561AF9B2710AA46007B3F8F /* WelcomeScene.sks in Resources */,
 				554E534B26EFB34E00371E58 /* CH_first.png in Resources */,
 				55EAD44A26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55C83F3526FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
@@ -1263,16 +1253,15 @@
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55F67A6827134DE4003C60B2 /* GameScene_Last.sks in Resources */,
 				5579341A271B06F900013BA9 /* Defaults.plist in Resources */,
+				5516570F27272D59006F4A5D /* WelcomeScene.sks in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				557933EE27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
-				55EE3D8227058F1000991D86 /* MapSceneOrig.sks in Resources */,
 				55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */,
 				55C83F7C26FE116B00F42F53 /* Settings.bundle in Resources */,
 				55C83F4426FCFC3400F42F53 /* README.md in Resources */,
 				55C83F0526FC666500F42F53 /* Actions.sks in Resources */,
 				55C83F7726FDFD8A00F42F53 /* DescriptionScene.sks in Resources */,
 				55C83F2926FC719300F42F53 /* Media.scnassets in Resources */,
-				5561AF9C2710AA46007B3F8F /* WelcomeScene.sks in Resources */,
 				55C83F0626FC666500F42F53 /* MeadowLeftActions.sks in Resources */,
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
 				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
@@ -1287,7 +1276,6 @@
 				5547B9B9272441BD00C57244 /* iVaccinationGame-Debug-Info.plist in Resources */,
 				55EE3D9E27063E1700991D86 /* CreditsScene.sks in Resources */,
 				5561AF99270F785F007B3F8F /* Credits.rtfd in Resources */,
-				55793420271C95A400013BA9 /* MessageBox.sks in Resources */,
 				55EE3D7226FFE40300991D86 /* AppIconIOS.xcassets in Resources */,
 				55EE3D6C26FFE38100991D86 /* Assets.xcassets in Resources */,
 				5535729A272162CE00C080C0 /* HighscoreViewController.xib in Resources */,
@@ -1759,7 +1747,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1776,7 +1764,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.swift.ivaccinationgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1796,7 +1784,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1813,7 +1801,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.swift.ivaccinationgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1830,7 +1818,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1856,7 +1844,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1881,7 +1869,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1904,7 +1892,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1929,7 +1917,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iVaccination.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iVaccination-Info.plist";
@@ -1965,7 +1953,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iVaccination.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iVaccination-Info.plist";
@@ -2000,7 +1988,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2026,7 +2014,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2052,7 +2040,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2077,7 +2065,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 36;
+				CURRENT_PROJECT_VERSION = 70;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

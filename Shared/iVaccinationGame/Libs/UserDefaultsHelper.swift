@@ -410,4 +410,20 @@ class UserDefaultsHelper{
         )
         self.playerName = NSFullUserName()
     }
+    
+    @discardableResult
+    static func inDevMode(block: @escaping ()->Any?, or:Bool = true)->Any?{
+        if(self.devMode || or){
+            return block()
+        }
+        return nil
+    }
+    
+    @discardableResult
+    static func inDevMode(block: @escaping ()->Any?, and:Bool = true)->Any?{
+        if(self.devMode && and){
+            return block()
+        }
+        return nil
+    }
 }
