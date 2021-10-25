@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5516570E27272D59006F4A5D /* WelcomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5516570D27272D59006F4A5D /* WelcomeScene.sks */; };
-		5516570F27272D59006F4A5D /* WelcomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5516570D27272D59006F4A5D /* WelcomeScene.sks */; };
+		5516571127273032006F4A5D /* WelcomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5516571027273032006F4A5D /* WelcomeScene.sks */; };
+		5516571227273032006F4A5D /* WelcomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5516571027273032006F4A5D /* WelcomeScene.sks */; };
 		55357295271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */; };
 		55357296271DE0BD00C080C0 /* IVBaseAchievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */; };
 		5535729A272162CE00C080C0 /* HighscoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55357299272162CE00C080C0 /* HighscoreViewController.xib */; };
@@ -290,7 +290,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5516570D27272D59006F4A5D /* WelcomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = WelcomeScene.sks; path = "../../../../../_bak/2021-10-07/iVaccinationGame/Shared/iVaccinationGame/SpriteKit/Scenes/WelcomeScene.sks"; sourceTree = "<group>"; };
+		5516571027273032006F4A5D /* WelcomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WelcomeScene.sks; sourceTree = "<group>"; };
 		55357294271DE0BD00C080C0 /* IVBaseAchievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVBaseAchievement.swift; sourceTree = "<group>"; };
 		55357299272162CE00C080C0 /* HighscoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HighscoreViewController.xib; sourceTree = "<group>"; };
 		5535729C272172B900C080C0 /* DB-Procedures.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "DB-Procedures.txt"; sourceTree = "<group>"; };
@@ -753,6 +753,7 @@
 		55B64A2E26F3462E00944766 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				5516571027273032006F4A5D /* WelcomeScene.sks */,
 				5561AF89270EE6DC007B3F8F /* Level */,
 				55EE3D832705A2C200991D86 /* Actions */,
 				554E531C26EFAD4300371E58 /* GameScene.sks */,
@@ -764,7 +765,6 @@
 				55EE3D9C27063E1700991D86 /* CreditsScene.sks */,
 				557933EC27182B2E00013BA9 /* HighscoreScene.sks */,
 				5561AF86270EE57B007B3F8F /* MapScene.sks */,
-				5516570D27272D59006F4A5D /* WelcomeScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1205,8 +1205,8 @@
 				554E531D26EFAD4300371E58 /* GameScene.sks in Resources */,
 				55C83EFA26FB9CF600F42F53 /* MeadowRightActions.sks in Resources */,
 				55793416271AF8F100013BA9 /* SettingsViewController.xib in Resources */,
-				5516570E27272D59006F4A5D /* WelcomeScene.sks in Resources */,
 				554E532526EFAD4400371E58 /* Assets.xcassets in Resources */,
+				5516571127273032006F4A5D /* WelcomeScene.sks in Resources */,
 				55C83F3D26FCFC0400F42F53 /* LICENSE in Resources */,
 				55C83F4326FCFC3400F42F53 /* README.md in Resources */,
 				557933ED27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
@@ -1253,7 +1253,6 @@
 				55EAD44B26FE98C700BB8D06 /* Upward3Particles.sks in Resources */,
 				55F67A6827134DE4003C60B2 /* GameScene_Last.sks in Resources */,
 				5579341A271B06F900013BA9 /* Defaults.plist in Resources */,
-				5516570F27272D59006F4A5D /* WelcomeScene.sks in Resources */,
 				55B64A5026F37FD400944766 /* Main.storyboard in Resources */,
 				557933EE27182B2E00013BA9 /* HighscoreScene.sks in Resources */,
 				55C83F0026FC666500F42F53 /* MeadowRightActions.sks in Resources */,
@@ -1262,6 +1261,7 @@
 				55C83F0526FC666500F42F53 /* Actions.sks in Resources */,
 				55C83F7726FDFD8A00F42F53 /* DescriptionScene.sks in Resources */,
 				55C83F2926FC719300F42F53 /* Media.scnassets in Resources */,
+				5516571227273032006F4A5D /* WelcomeScene.sks in Resources */,
 				55C83F0626FC666500F42F53 /* MeadowLeftActions.sks in Resources */,
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
 				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
@@ -1747,7 +1747,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1784,7 +1784,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1818,7 +1818,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1844,7 +1844,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1869,7 +1869,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1892,7 +1892,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1917,7 +1917,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iVaccination.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iVaccination-Info.plist";
@@ -1953,7 +1953,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iVaccination.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iVaccination-Info.plist";
@@ -1988,7 +1988,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2014,7 +2014,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2040,7 +2040,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2065,7 +2065,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 70;
+				CURRENT_PROJECT_VERSION = 75;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
