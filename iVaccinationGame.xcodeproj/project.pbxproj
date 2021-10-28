@@ -90,6 +90,8 @@
 		5579341C271C957800013BA9 /* MessageBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5579341B271C957800013BA9 /* MessageBox.xib */; };
 		55793422271C95CC00013BA9 /* SkMessageBoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */; };
 		55793423271C95CC00013BA9 /* SkMessageBoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */; };
+		55822E74272AAEFB0057C5F2 /* Meadow-Easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55822E73272AAEFB0057C5F2 /* Meadow-Easy.plist */; };
+		55822E75272AAEFB0057C5F2 /* Meadow-Easy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55822E73272AAEFB0057C5F2 /* Meadow-Easy.plist */; };
 		559442A026FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A126FE4F710082DA72 /* SyringeDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5594429F26FE4F710082DA72 /* SyringeDart.swift */; };
 		559442A326FE50800082DA72 /* GameSceneBaseExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559442A226FE50800082DA72 /* GameSceneBaseExt.swift */; };
@@ -355,6 +357,7 @@
 		55793418271B06F900013BA9 /* Defaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
 		5579341B271C957800013BA9 /* MessageBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageBox.xib; sourceTree = "<group>"; };
 		55793421271C95CC00013BA9 /* SkMessageBoxNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkMessageBoxNode.swift; sourceTree = "<group>"; };
+		55822E73272AAEFB0057C5F2 /* Meadow-Easy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Meadow-Easy.plist"; sourceTree = "<group>"; };
 		5594429F26FE4F710082DA72 /* SyringeDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyringeDart.swift; sourceTree = "<group>"; };
 		559442A226FE50800082DA72 /* GameSceneBaseExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneBaseExt.swift; sourceTree = "<group>"; };
 		559442A526FE51350082DA72 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -681,6 +684,14 @@
 			path = "FloatingButtonPOP-swift";
 			sourceTree = "<group>";
 		};
+		55822E72272AAED40057C5F2 /* LevelConfig */ = {
+			isa = PBXGroup;
+			children = (
+				55822E73272AAEFB0057C5F2 /* Meadow-Easy.plist */,
+			);
+			path = LevelConfig;
+			sourceTree = "<group>";
+		};
 		55A579B926F4F8810084239D /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,6 +730,7 @@
 		55A579C626F50F200084239D /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				55822E72272AAED40057C5F2 /* LevelConfig */,
 				5561AF70270782CA007B3F8F /* Base */,
 				55C83EF126FB250E00F42F53 /* MeadowLevel.swift */,
 				55A579C726F5C5EC0084239D /* CitySkylineLevel.swift */,
@@ -908,8 +920,8 @@
 				55EE3D6926FFC49C00991D86 /* SoundManager.swift */,
 				55B64A3A26F3602C00944766 /* GameVars.swift */,
 				55E59BC526FF7FA400B75322 /* UserDefaultsHelper.swift */,
-				55EE3D7D270377FC00991D86 /* VersionHelper.swift */,
 				55F67A63271349AA003C60B2 /* SKColor.swift */,
+				55EE3D7D270377FC00991D86 /* VersionHelper.swift */,
 				557933E62718289F00013BA9 /* ScrollableNode.swift */,
 				557933F72718884B00013BA9 /* OnlineHighscoreHelper.swift */,
 			);
@@ -1219,6 +1231,7 @@
 				55B64A8526F3CEAE00944766 /* CH_first_red.png in Resources */,
 				55B64A7926F3831D00944766 /* UpwardParticles.sks in Resources */,
 				554E535226EFB60600371E58 /* Media.scnassets in Resources */,
+				55822E74272AAEFB0057C5F2 /* Meadow-Easy.plist in Resources */,
 				5561AF87270EE57B007B3F8F /* MapScene.sks in Resources */,
 				554E532826EFAD4400371E58 /* Main.storyboard in Resources */,
 				5579340B2718A14300013BA9 /* HeaderView.xib in Resources */,
@@ -1263,6 +1276,7 @@
 				55C83F2926FC719300F42F53 /* Media.scnassets in Resources */,
 				5516571227273032006F4A5D /* WelcomeScene.sks in Resources */,
 				55C83F0626FC666500F42F53 /* MeadowLeftActions.sks in Resources */,
+				55822E75272AAEFB0057C5F2 /* Meadow-Easy.plist in Resources */,
 				55C83F0C26FC673000F42F53 /* Upward2Particles.sks in Resources */,
 				55C83F3626FCDEF500F42F53 /* DifficultyScene.sks in Resources */,
 				55B64A5526F37FD500944766 /* LaunchScreen.storyboard in Resources */,
@@ -1747,7 +1761,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1784,7 +1798,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1818,7 +1832,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1844,7 +1858,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1869,7 +1883,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1892,7 +1906,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1917,7 +1931,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iVaccination.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iVaccination-Info.plist";
@@ -1953,7 +1967,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iVaccination.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iVaccination-Info.plist";
@@ -1988,7 +2002,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2014,7 +2028,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2040,7 +2054,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -2065,7 +2079,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 88;
+				CURRENT_PROJECT_VERSION = 104;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

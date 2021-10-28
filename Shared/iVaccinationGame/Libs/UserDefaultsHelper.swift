@@ -45,6 +45,8 @@ enum UserDefaultsName:String{
     
     case onlineCompetitionWebserver = "onlineCompetitionWebserver"
     case onlineCompetitionWebservice = "onlineCompetitionWebservice"
+    case onlineScoreboardLink = "onlineScoreboardLink"
+    
     
     case doctorPos = "doctorPos"
 }
@@ -260,6 +262,19 @@ class UserDefaultsHelper{
             self.defaults.set(newValue, forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue)
         }
     }
+    
+    static var onlineScoreboardLink:String{
+        get{
+            if(self.defaults.value(forKey: UserDefaultsName.onlineScoreboardLink.rawValue) == nil){
+                self.defaults.set(GameVars.ONLINE_SCOREBOARD_LINK, forKey: UserDefaultsName.onlineScoreboardLink.rawValue)
+            }
+            return defaults.string(forKey: UserDefaultsName.onlineScoreboardLink.rawValue)!
+        }
+        set{
+            self.defaults.set(newValue, forKey: UserDefaultsName.onlineScoreboardLink.rawValue)
+        }
+    }
+    
     
     static var autoNightMode:Bool{
         get{

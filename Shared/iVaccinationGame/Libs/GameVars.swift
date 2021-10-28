@@ -24,6 +24,7 @@ class GameVars{
     
     static let ONLINE_COMPETITION_WEBSERVER:String = "http://ivaccination.kimhauser.ch/ws/"
     static let ONLINE_COMPETITION_WEBSERVICE:String = "webservice.php"
+    static let ONLINE_SCOREBOARD_LINK:String = "http://ivaccination.kimhauser.ch/?task=score"
     
     static let ONLINE_COMPETITION_GET_HIGHSCORE:String = "gethighscore"
     static let ONLINE_COMPETITION_GET_CERTIFICATES:String = "getcertificates"

@@ -14,6 +14,10 @@ enum Difficulty:String{
     case hard = "Hard"
     case nightmare = "Nightmare"
     
+//    init?(rawValue: String) {
+//        <#code#>
+//    }
+    
     func getSpeedFactor()->SpeedFactor{
         switch self {
         case .easy:

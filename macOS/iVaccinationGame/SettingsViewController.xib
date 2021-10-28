@@ -341,6 +341,37 @@
                                             </binding>
                                         </connections>
                                     </textField>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j2l-6T-DXZ">
+                                        <rect key="frame" x="17" y="16" width="454" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="http://ivaccination.kimhauser.ch/?task=score" placeholderString="Enter service name" drawsBackground="YES" id="sKf-rW-7La">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useOnlineCompetitions" id="p1A-Lj-soR">
+                                                <dictionary key="options">
+                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                </dictionary>
+                                            </binding>
+                                            <binding destination="l72-UK-3kJ" name="value" keyPath="values.onlineScoreboardLink" id="arn-io-NaR">
+                                                <dictionary key="options">
+                                                    <string key="NSNullPlaceholder">webservice.php</string>
+                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rux-eN-GCC">
+                                        <rect key="frame" x="15" y="45" width="117" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Online Scoreboard" id="AdN-fQ-iKG">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                             </view>
                         </tabViewItem>

@@ -48,9 +48,7 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     var selDifficulty:String = "All"
     
     @IBAction func linkClicked(_ sender:Any?){
-        print("LINK CLICKED ....")
-        
-        let url = URL(string: "http://ivaccination.kimhauser.ch/?task=score")!
+        let url = URL(string: UserDefaultsHelper.onlineScoreboardLink)!
         if NSWorkspace.shared.open(url) {
             print("default browser was successfully opened")
         }

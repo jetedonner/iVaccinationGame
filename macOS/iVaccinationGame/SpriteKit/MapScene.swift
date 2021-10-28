@@ -19,6 +19,11 @@ class MapScene: MapSceneBase {
             if(VersionHelper.getDevMode()){
                 self.moveDoctorNodeToNextLevel()
             }
+        }else if(event.keyCode == KeyCode.KEY_R.rawValue){
+            if(VersionHelper.getDevMode()){
+                self.currentLevelForDoctor = .NewGame
+                self.moveDoctorNodeToNextLevel()
+            }
         }else if(event.keyCode == KeyCode.KEY_ESC.rawValue){
             if let viewCtrl = self.view?.window?.contentViewController{
                 (viewCtrl as! ViewController).loadMenuScene()

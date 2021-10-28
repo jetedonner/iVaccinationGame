@@ -53,8 +53,9 @@ class BaseLevel {
     }
     
     func initLevelConfig() {
-        self.gameScene.certificatePickupManager.paused = false
-        self.gameScene.syringePickupManager.paused = false
+//        self.gameScene.certificatePickupManager.paused = false
+//        self.gameScene.syringePickupManager.paused = false
+//        self.loadConfigPlistFile()
     }
     
     func endLevel(){
@@ -68,6 +69,27 @@ class BaseLevel {
         self.gameScene.syringePickupManager.paused = true
     }
     
+    func loadConfigPlistFile(){
+        var nsDictionary: NSDictionary?
+        if let path = Bundle.main.path(forResource: "Meadow-Easy", ofType: "plist") {
+           nsDictionary = NSDictionary(contentsOfFile: path)
+        }
+//        print(nsDictionary?.description)
+        
+//        let tmp = Difficulty(rawValue: nsDictionary?["Difficulty"] as! String)
+//        print(tmp)
+        self.difficulty = Difficulty(rawValue: nsDictionary?["Difficulty"] as! String)!
+        print(self.difficulty)
+//        print(nsDictionary?.description)
+        
+        self.gameScene.certificatePickupManager.pickupsAtOnce = Int(nsDictionary?["CertificateCount"] as! String)!
+        self.gameScene.syringePickupManager.pickupsAtOnce = Int(nsDictionary?["SyringeCount"] as! String)! //nsDictionary?["SyringeCount"] as! Int
+        self.zombieCount = Int(nsDictionary?["ZombieCount"] as! String)! //nsDictionary?["ZombieCount"] as! Int
+        self.levelName = nsDictionary?["LevelName"] as! String
+        self.duration = Duration(rawValue: nsDictionary?["Duration"] as! Int)!
+//        print(self.duration)
+    }
+    
     func setupLevelConfig(gameScene:GameSceneBase, difficulty:Difficulty){
         self.gameScene = gameScene
         self.difficulty = difficulty
@@ -78,6 +100,7 @@ class BaseLevel {
         self.gameScene.certificatePickupManager.paused = false
         self.gameScene.syringePickupManager.pickupsAtOnce = self.currentLevelConfig.syringePickupsAtOnce
         self.gameScene.syringePickupManager.paused = false
+//        self.loadConfigPlistFile()
     }
     
     func addNewZombieGirl(){
