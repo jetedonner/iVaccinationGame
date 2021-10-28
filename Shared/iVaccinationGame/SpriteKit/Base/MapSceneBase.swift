@@ -172,6 +172,17 @@ class MapSceneBase: BaseSKScene {
     func loadMapBGTexture(){
         self.imgBG.texture = self.textNG
         
+        UserDefaultsHelper.inDevMode(block: {
+            self.posMeadow?.isHidden = false
+            self.posCitySkyline?.isHidden = false
+            self.posCityStreet?.isHidden = false
+            self.posJapanStreet?.isHidden = false
+            self.posCityNight?.isHidden = false
+            self.posWallway?.isHidden = false
+            self.posScarryStreet?.isHidden = false
+            return nil
+        })
+        
         if(UserDefaultsHelper.levelID.rawValue > Level.NewGame.rawValue){// || UserDefaultsHelper.devMode){
             self.posMeadow?.isHidden = false
         }else{

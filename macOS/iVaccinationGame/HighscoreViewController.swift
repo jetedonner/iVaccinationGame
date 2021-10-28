@@ -23,6 +23,8 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     }
     
 
+    @IBOutlet var txtOnlineScoreboard:NSTextField!
+    
     @IBOutlet var cmbDifficulty:NSPopUpButton!
     
     @IBOutlet var cmdTestHS:NSButton!
@@ -44,6 +46,15 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
     var msgBox:SkMessageBoxNode!
     var onlineHelper:OnlineHighscoreHelper!
     var selDifficulty:String = "All"
+    
+    @IBAction func linkClicked(_ sender:Any?){
+        print("LINK CLICKED ....")
+        
+        let url = URL(string: "http://ivaccination.kimhauser.ch/?task=score")!
+        if NSWorkspace.shared.open(url) {
+            print("default browser was successfully opened")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,10 +64,24 @@ class HighscoreViewController: NSViewController, NSTableViewDataSource, NSTableV
         
         self.configureCollectionView()
         self.reloadScoresAndAchievements(nil)
+        
+        let plainAttributedString = NSMutableAttributedString(string: "Online Scoreboard (on kimhauser.ch): ", attributes: nil)
+        let string = "Online Scoreboard (on kimhauser.ch)"
+        let attributedLinkString = NSMutableAttributedString(string: string, attributes:[NSAttributedString.Key.link: URL(string: "http://ivaccination.kimhauser.ch")!])
+        let fullAttributedString = NSMutableAttributedString()
+        fullAttributedString.append(plainAttributedString)
+        fullAttributedString.append(attributedLinkString)
+//        attributedLabel.isUserInteractionEnabled = true
+//        attributedLabel.attributedText = fullAttributedString
+//        self.txtOnlineScoreboard.user = true
+//        self.txtOnlineScoreboard.isEditable = false
+//        self.txtOnlineScoreboard.attributedStringValue = fullAttributedString
+        
+//        self.txtOnlineScoreboard.attributedStringValue = NSAttributedString(
     }
     
     @IBAction func cmdResetAchAction(_ sender:Any?){
-//        self.onlineHelper.
+
     }
     
     @IBAction func cmbDifficultyChange(_ sender:Any?){
@@ -263,8 +288,6 @@ extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewD
                     dateFormatterPrint.dateFormat = "dd.MM.yyyy"
 
                     let date:Date = dateFormatterGet.date(from: ach["created"] as! String)!
-//                    print(dateFormatterPrint.stringFromDate(date!))
-                    
                     return dateFormatterPrint.string(from: date)
                 }
             }
@@ -275,16 +298,11 @@ extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewD
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         var item:CollectionViewItem!
         if let daItem = collectionView.item(at: indexPath) as? CollectionViewItem{
-//            item = daItem as? CollectionViewItem
-            return (daItem as? CollectionViewItem)!
+            return daItem
         }else{
             item = collectionView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CollectionViewItem"), for: indexPath) as? CollectionViewItem
         }
-//        guard item = collectionView.item(at: indexPath) as? CollectionViewItem else {
-//
-//        }
-//        guard let collectionViewItem = collectionViewItem as? CollectionViewItem else { return collectionViewItem }
-//
+        
         let collectionViewItem:CollectionViewItem = item!
         collectionViewItem.view.frame = CGRect(origin: collectionViewItem.view.frame.origin, size: CGSize(width: 160, height: 290))
         
@@ -292,8 +310,6 @@ extension HighscoreViewController: NSCollectionViewDataSource, NSCollectionViewD
         collectionViewItem.lblDate.stringValue = ""
         collectionViewItem.lblDate.isHidden = true
         collectionViewItem.lblDate.drawsBackground = false
-//        collectionViewItem.lblDate.backgroundColor = NSColor(calibratedWhite: 0.75, alpha:0.35)
-//        collectionViewItem.lblDate.wantsLayer = true
         collectionViewItem.lblDate.layer?.cornerRadius = 10.0
         collectionViewItem.setHighlight(selected: false)
         

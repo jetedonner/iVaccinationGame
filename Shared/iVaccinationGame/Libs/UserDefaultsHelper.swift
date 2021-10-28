@@ -412,6 +412,11 @@ class UserDefaultsHelper{
     }
     
     @discardableResult
+    static func inDevMode(block: @escaping ()->Any?)->Any?{
+        return self.inDevMode(block: block, or: true)
+    }
+    
+    @discardableResult
     static func inDevMode(block: @escaping ()->Any?, or:Bool = true)->Any?{
         if(self.devMode || or){
             return block()

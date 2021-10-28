@@ -727,11 +727,6 @@
                                         <rect key="frame" x="288" y="26" width="42" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <connections>
-                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useGameCenter" id="UTH-FC-v9U">
-                                                <dictionary key="options">
-                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                                </dictionary>
-                                            </binding>
                                             <binding destination="l72-UK-3kJ" name="hidden" keyPath="values.devMode" previousBinding="UTH-FC-v9U" id="dQL-jd-kAb">
                                                 <dictionary key="options">
                                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
@@ -739,6 +734,11 @@
                                                 </dictionary>
                                             </binding>
                                             <binding destination="l72-UK-3kJ" name="value" keyPath="values.uploadHighscore" id="uNW-Fm-kVU">
+                                                <dictionary key="options">
+                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                </dictionary>
+                                            </binding>
+                                            <binding destination="l72-UK-3kJ" name="enabled" keyPath="values.useGameCenter" id="UTH-FC-v9U">
                                                 <dictionary key="options">
                                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                                 </dictionary>
