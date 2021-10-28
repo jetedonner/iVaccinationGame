@@ -13,11 +13,9 @@ enum UserDefaultsName:String{
     case roundTime = "roundTime"
     case difficulty = "difficulty"
     case level = "level"
-//    case levelProgress = "levelProgrees"
     case playSounds = "playSounds"
     case playBGMusic = "playBGMusic"
     case playSoundEffects = "playSoundEffects"
-    
     
     case volume = "volume"
     case useGameCenter = "useGameCenter"
@@ -27,7 +25,6 @@ enum UserDefaultsName:String{
     case devLevel = "devLevel"
     
     case dbgBorders = "dbgBorders"
-    
     
     case levelID = "levelID"
     case oldLevelID = "oldLevelID"
@@ -47,26 +44,12 @@ enum UserDefaultsName:String{
     case onlineCompetitionWebservice = "onlineCompetitionWebservice"
     case onlineScoreboardLink = "onlineScoreboardLink"
     
-    
     case doctorPos = "doctorPos"
 }
 
 class UserDefaultsHelper{
     
     static let defaults = UserDefaults.standard
-    
-    
-//    var doctorPos:CGPoint = CGPoint(x: 0, y: 0)
-//    static var doctorPos:CGPoint{
-//        set{ self.defaults.set(newValue, forKey: UserDefaultsName.doctorPos.rawValue) }
-//        get{
-//            if(self.defaults.value(forKey: UserDefaultsName.doctorPos.rawValue) == nil){
-//                self.defaults.set(CGPoint(x: 0, y: 0), forKey: UserDefaultsName.doctorPos.rawValue)
-//            }
-////            CGPoint.
-//            return CGPoint(from: defaults.value(forKey: UserDefaultsName.doctorPos.rawValue) as! CGPoint)!
-//        }
-//    }
     
     static var roundTime:TimeInterval{
         get{
@@ -242,7 +225,7 @@ class UserDefaultsHelper{
     static var onlineCompetitionWebserver:String{
         get{
             if(self.defaults.string(forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue) == nil){
-                self.defaults.set(GameVars.ONLINE_COMPETITION_WEBSERVER, forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue)
+                self.defaults.set(VersionHelper.getOnlineWebserver, forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue)
             }
             return defaults.string(forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue)!
         }
@@ -254,7 +237,7 @@ class UserDefaultsHelper{
     static var onlineCompetitionWebservice:String{
         get{
             if(self.defaults.value(forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue) == nil){
-                self.defaults.set(GameVars.ONLINE_COMPETITION_WEBSERVER, forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue)
+                self.defaults.set(VersionHelper.getOnlineWebservice, forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue)
             }
             return defaults.string(forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue)!
         }
@@ -266,7 +249,7 @@ class UserDefaultsHelper{
     static var onlineScoreboardLink:String{
         get{
             if(self.defaults.value(forKey: UserDefaultsName.onlineScoreboardLink.rawValue) == nil){
-                self.defaults.set(GameVars.ONLINE_SCOREBOARD_LINK, forKey: UserDefaultsName.onlineScoreboardLink.rawValue)
+                self.defaults.set(VersionHelper.getOnlineScoreboardLink, forKey: UserDefaultsName.onlineScoreboardLink.rawValue)
             }
             return defaults.string(forKey: UserDefaultsName.onlineScoreboardLink.rawValue)!
         }

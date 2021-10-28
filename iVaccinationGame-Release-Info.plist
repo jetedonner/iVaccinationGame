@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleVersion</key>
-	<string>104</string>
-	<key>CFBundleShortVersionString</key>
-	<string>0.0.1</string>
 	<key>DevMode</key>
 	<false/>
+	<key>CFBundleVersion</key>
+	<string>123</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.1</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>NSAppTransportSecurity</key>
@@ -54,5 +54,11 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>OnlineScoreboardLink</key>
+	<string>http://ivaccination.kimhauser.ch?task=score</string>
+	<key>OnlineWebserver</key>
+	<string>http://ivaccination.kimhauser.ch/ws/</string>
+	<key>OnlineWebservice</key>
+	<string>webservice.php</string>
 </dict>
 </plist>

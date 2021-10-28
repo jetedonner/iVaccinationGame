@@ -35,6 +35,8 @@ class SettingsViewController: NSViewController {
     
     @IBOutlet var txtPlayerName:NSTextField?
     
+    @IBOutlet var lblMacId:NSTextField?
+    
     @IBOutlet var tabMain:NSTabView?
     @IBOutlet var tabDev:NSTabViewItem?
     
@@ -67,6 +69,9 @@ class SettingsViewController: NSViewController {
         if(self.gameScene == nil || (self.gameScene != nil && (!self.gameScene!.gameRunning))){
             self.cmdAbortGame?.isHidden = true
         }
+        
+        self.lblMacId?.stringValue = String.macSerialNumber()
+        self.lblMacId?.isSelectable = true
     }
     
     @IBAction func abortGame(_ sender:Any){

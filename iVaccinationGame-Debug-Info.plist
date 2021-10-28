@@ -4,6 +4,10 @@
 <dict>
 	<key>DevMode</key>
 	<true/>
+	<key>CFBundleVersion</key>
+	<string>123</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.1</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>NSAppTransportSecurity</key>
@@ -50,5 +54,11 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>OnlineScoreboardLink</key>
+	<string>http://ivaccination.kimhauser.ch?task=score</string>
+	<key>OnlineWebserver</key>
+	<string>http://ivaccination.kimhauser.ch/ws/</string>
+	<key>OnlineWebservice</key>
+	<string>webservice.php</string>
 </dict>
 </plist>
