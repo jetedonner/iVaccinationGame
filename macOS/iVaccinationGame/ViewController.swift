@@ -24,10 +24,10 @@ class ViewController: NSViewController, IViewController, AVAudioPlayerDelegate {
         super.viewDidLoad()
         (NSApplication.shared.delegate as! AppDelegate).vc = self
         
-        if(UserDefaultsHelper.useGameCenter){
-            self.gameCenterHelper = GameCenterHelper(vc: self)
-            self.gameCenterHelper.loadGameCenter()
-        }
+//        if(UserDefaultsHelper.useGameCenter){
+//            self.gameCenterHelper = GameCenterHelper(vc: self)
+//            self.gameCenterHelper.loadGameCenter()
+//        }
         if(UserDefaultsHelper.firstStart){
 //            UserDefaultsHelper.firstStart = false
             self.loadWelcomeScene()

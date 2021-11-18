@@ -225,7 +225,7 @@ class UserDefaultsHelper{
     static var onlineCompetitionWebserver:String{
         get{
             if(self.defaults.string(forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue) == nil){
-                self.defaults.set(VersionHelper.getOnlineWebserver, forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue)
+                self.defaults.set(VersionHelper.getOnlineWebserver(), forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue)
             }
             return defaults.string(forKey: UserDefaultsName.onlineCompetitionWebserver.rawValue)!
         }
@@ -237,7 +237,7 @@ class UserDefaultsHelper{
     static var onlineCompetitionWebservice:String{
         get{
             if(self.defaults.value(forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue) == nil){
-                self.defaults.set(VersionHelper.getOnlineWebservice, forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue)
+                self.defaults.set(VersionHelper.getOnlineWebservice(), forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue)
             }
             return defaults.string(forKey: UserDefaultsName.onlineCompetitionWebservice.rawValue)!
         }
@@ -249,7 +249,7 @@ class UserDefaultsHelper{
     static var onlineScoreboardLink:String{
         get{
             if(self.defaults.value(forKey: UserDefaultsName.onlineScoreboardLink.rawValue) == nil){
-                self.defaults.set(VersionHelper.getOnlineScoreboardLink, forKey: UserDefaultsName.onlineScoreboardLink.rawValue)
+                self.defaults.set(VersionHelper.getOnlineScoreboardLink(), forKey: UserDefaultsName.onlineScoreboardLink.rawValue)
             }
             return defaults.string(forKey: UserDefaultsName.onlineScoreboardLink.rawValue)!
         }
@@ -271,7 +271,7 @@ class UserDefaultsHelper{
     static var useGameCenter:Bool{
         get{
             if(self.defaults.value(forKey: UserDefaultsName.useGameCenter.rawValue) == nil){
-                self.defaults.set(true, forKey: UserDefaultsName.useGameCenter.rawValue)
+                self.defaults.set(false, forKey: UserDefaultsName.useGameCenter.rawValue)
             }
             return self.defaults.bool(forKey: UserDefaultsName.useGameCenter.rawValue)
         }
